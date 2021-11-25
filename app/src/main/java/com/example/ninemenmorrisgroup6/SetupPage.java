@@ -1,15 +1,11 @@
 package com.example.ninemenmorrisgroup6;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.ViewCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.graphics.Color;
-import android.widget.TextView;
 
 
 public class SetupPage extends AppCompatActivity {
@@ -39,7 +35,7 @@ public class SetupPage extends AppCompatActivity {
 
         //TextView a = (TextView)findViewById(R.id.editTextNumber);
 
-        if(myView == findViewById(R.id.hardComputer)) {
+        if(myView == findViewById(R.id.hardComputerButton)) {
 
             HumanPlayer player1 = new HumanPlayer();
             ComputerPlayer computer = new ComputerPlayer();
@@ -49,9 +45,9 @@ public class SetupPage extends AppCompatActivity {
         }
         else{}
 
-        findViewById(R.id.easyComputer).setBackgroundColor(Color.parseColor("#FF8A8888"));
-        findViewById(R.id.coop).setBackgroundColor(Color.parseColor("#FF8A8888"));
-        findViewById(R.id.hardComputer).setBackgroundColor(Color.parseColor("#BD1717"));
+        findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
+        findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
+        findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#BD1717"));
 
     }//playAgainstHardComputer
 
@@ -59,7 +55,7 @@ public class SetupPage extends AppCompatActivity {
 
         //TextView a = (TextView)findViewById(R.id.editTextNumber);
 
-        if(myView == findViewById(R.id.easyComputer)) {
+        if(myView == findViewById(R.id.easyComputerButton)) {
 
             HumanPlayer player1 = new HumanPlayer();
             ComputerPlayer computer = new ComputerPlayer();
@@ -69,9 +65,9 @@ public class SetupPage extends AppCompatActivity {
         }
         else{}
 
-        findViewById(R.id.hardComputer).setBackgroundColor(Color.parseColor("#FF8A8888"));
-        findViewById(R.id.coop).setBackgroundColor(Color.parseColor("#FF8A8888"));
-        findViewById(R.id.easyComputer).setBackgroundColor(Color.parseColor("#BD1717"));
+        findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
+        findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
+        findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#BD1717"));
 
     }//playAgainstEasyComputer
 }

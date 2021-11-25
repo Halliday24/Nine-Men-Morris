@@ -8,36 +8,35 @@
     tools:context=".SetupPage">
 
     <Button
-        android:id="@+id/coop"
+        android:id="@+id/pvpButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:backgroundTint="#BD1717"
         android:text="Play vs Another Human"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.069" />
 
     <Button
-        android:id="@+id/easyComputer"
+        android:id="@+id/easyComputerButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:backgroundTint="#BD1717"
         android:onClick="playAgainstEasyComputer"
         android:text="Play vs Easy Computer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222" />
+        app:layout_constraintVertical_bias="0.175" />
 
     <Button
-        android:id="@+id/backToHome"
+        android:id="@+id/backToHomeButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:onClick="goToHomePage"
         android:text="Back To Home"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,9 +47,9 @@
         app:layout_constraintVertical_bias="0.957" />
 
     <Button
-        android:id="@+id/startGame"
+        android:id="@+id/startGameButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:onClick="startGame"
         android:text="Start Game"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,9 +60,9 @@
         app:layout_constraintVertical_bias="0.957" />
 
     <Button
-        android:id="@+id/hardComputer"
+        android:id="@+id/hardComputerButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:backgroundTint="#BD1717"
         android:onClick="playAgainstHardComputer"
         android:text="Play Against Hard Computer"
@@ -72,6 +71,102 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.317" />
+        app:layout_constraintVertical_bias="0.281" />
+
+    <Button
+        android:id="@+id/P1colorPickerUpButton"
+        android:layout_width="30dp"
+        android:layout_height="37dp"
+        android:padding="2dp"
+        android:rotation="-90"
+        android:text=">"
+        app:cornerRadius="0dp"
+        tools:layout_editor_absoluteX="105dp"
+
+        tools:layout_editor_absoluteY="347dp" />
+
+    <Button
+        android:id="@+id/P2colorPickerUpButton"
+        android:layout_width="30dp"
+        android:layout_height="37dp"
+        android:padding="2dp"
+        android:rotation="-90"
+        android:text=">"
+        app:cornerRadius="0dp"
+        tools:layout_editor_absoluteX="105dp"
+
+        tools:layout_editor_absoluteY="497dp" />
+
+    <Button
+        android:id="@+id/P2shapePickerUpButton"
+        android:layout_width="30dp"
+        android:layout_height="37dp"
+        android:padding="2dp"
+        android:rotation="-90"
+        android:text=">"
+        app:cornerRadius="0dp"
+        tools:layout_editor_absoluteX="277dp"
+
+        tools:layout_editor_absoluteY="497dp" />
+
+    <Button
+        android:id="@+id/P1shapePickerUpButton"
+        android:layout_width="30dp"
+        android:layout_height="37dp"
+        android:padding="2dp"
+        android:rotation="-90"
+        android:text=">"
+        app:cornerRadius="0dp"
+        tools:layout_editor_absoluteX="277dp"
+
+        tools:layout_editor_absoluteY="347dp" />
+
+    <Button
+        android:id="@+id/P1colorPickerDownButton"
+        android:layout_width="30dp"
+        android:layout_height="37dp"
+        android:padding="2dp"
+        android:rotation="90"
+        android:text=">"
+        app:cornerRadius="0dp"
+        tools:layout_editor_absoluteX="105dp"
+
+        tools:layout_editor_absoluteY="384dp" />
+
+    <Button
+        android:id="@+id/P2colorPickerDownButton"
+        android:layout_width="30dp"
+        android:layout_height="37dp"
+        android:padding="2dp"
+        android:rotation="90"
+        android:text=">"
+        app:cornerRadius="0dp"
+        tools:layout_editor_absoluteX="105dp"
+
+        tools:layout_editor_absoluteY="534dp" />
+
+    <Button
+        android:id="@+id/P2shapePickerDownButton"
+        android:layout_width="30dp"
+        android:layout_height="37dp"
+        android:padding="2dp"
+        android:rotation="90"
+        android:text=">"
+        app:cornerRadius="0dp"
+        tools:layout_editor_absoluteX="277dp"
+
+        tools:layout_editor_absoluteY="534dp" />
+
+    <Button
+        android:id="@+id/P1shapePickerDownButton"
+        android:layout_width="30dp"
+        android:layout_height="37dp"
+        android:padding="2dp"
+        android:rotation="90"
+        android:text=">"
+        app:cornerRadius="0dp"
+        tools:layout_editor_absoluteX="277dp"
+
+        tools:layout_editor_absoluteY="384dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
