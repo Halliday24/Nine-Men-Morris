@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GamePage"
-    android:background="@drawable/background">
+    android:background="#faf1b4">
 
     <ImageView
         android:layout_width="100dp"
@@ -28,8 +28,8 @@
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="150dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="150dp"
         android:background="@drawable/hint"
         app:backgroundTint="@null">
 
@@ -60,7 +60,7 @@
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="620dp"
-        android:background="#a8f6f8"
+        android:background="#C0AEE0"
         android:text="Exit game"
         android:textColor="@color/black"
         app:backgroundTint="@null">
@@ -72,7 +72,7 @@
         android:layout_height="55dp"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="620dp"
-        android:background="#a8f6f8"
+        android:background="#C0AEE0"
         android:text="Reset game"
         android:textColor="@color/black"
         app:backgroundTint="@null">
@@ -84,7 +84,7 @@
         android:layout_height="55dp"
         android:layout_marginLeft="290dp"
         android:layout_marginTop="620dp"
-        android:background="#a8f6f8"
+        android:background="#C0AEE0"
         android:onClick="ChangePieces"
         android:text="Change pieces"
         android:textColor="@color/black"
