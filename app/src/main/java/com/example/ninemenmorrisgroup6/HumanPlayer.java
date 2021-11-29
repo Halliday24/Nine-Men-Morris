@@ -1,10 +1,11 @@
 package com.example.ninemenmorrisgroup6;
 
+import android.graphics.drawable.Drawable;
 import android.view.MenuItem;
 
 public class HumanPlayer extends Player{
 
-    public HumanPlayer(String name, int score, MenuItem token, MenuItem colour){
+    public HumanPlayer(String name, int score, int token, int colour){
 
         this.playerName = name;
         this.highScore = score;

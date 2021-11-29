@@ -1,10 +1,13 @@
 package com.example.ninemenmorrisgroup6;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
 public class Player extends SetupPage{
+
+
 
     //DATA
 
@@ -14,8 +17,8 @@ public class Player extends SetupPage{
     protected String playerName;
     protected ImageView computerGamePiece;
     protected Color computerColour;
-    protected MenuItem playerGamePiece;
-    protected MenuItem playerColour;
+    protected int playerGamePiece;
+    protected int playerColour;
     protected int difficulty;
 
     //GETTERS
@@ -30,12 +33,12 @@ public class Player extends SetupPage{
         return playerName;
     }//getPlayerName
 
-    public MenuItem getPlayerGamePiece(){
+    public int getPlayerGamePiece(){
 
         return playerGamePiece;
     }//getPlayerGamePiece
 
-    public MenuItem getPlayerColour(){
+    public int getPlayerColour(){
 
         return playerColour;
     }//getPlayerColour
@@ -61,14 +64,14 @@ public class Player extends SetupPage{
         return playerName;
     }//setPlayerName
 
-    public MenuItem setPlayerGamePiece(MenuItem token){
+    public int setPlayerGamePiece(int token){
 
         this.playerGamePiece = token;
 
         return playerGamePiece;
     }//setPlayerGamePiece
 
-    public MenuItem setPlayerColour(MenuItem colour){
+    public int setPlayerColour(int colour){
 
         this.playerColour = colour;
 

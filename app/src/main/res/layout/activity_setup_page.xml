@@ -4,14 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#DD1414"
+    android:background="#faf1b4"
+    android:padding="5dp"
     tools:context=".SetupPage">
+
+    <ImageView
+        android:id="@+id/playerTwoImage"
+        android:layout_width="93dp"
+        android:layout_height="92dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.792"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.788"
+        app:srcCompat="@drawable/blank" />
 
     <Button
         android:id="@+id/pvpButton"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:backgroundTint="#BD1717"
+        android:onClick="playAgainstPlayer"
         android:text="Play vs Another Human"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,99 +88,78 @@
         app:layout_constraintVertical_bias="0.281" />
 
     <Button
-        android:id="@+id/P1colorPickerUpButton"
-        android:layout_width="30dp"
-        android:layout_height="37dp"
-        android:padding="2dp"
-        android:rotation="-90"
-        android:text=">"
-        app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="105dp"
-
-        tools:layout_editor_absoluteY="347dp" />
-
-    <Button
-        android:id="@+id/P2colorPickerUpButton"
-        android:layout_width="30dp"
-        android:layout_height="37dp"
-        android:padding="2dp"
-        android:rotation="-90"
-        android:text=">"
-        app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="105dp"
-
-        tools:layout_editor_absoluteY="497dp" />
+        android:id="@+id/playerOnePieceSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pop"
+        android:text="Pieces"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.459" />
 
     <Button
-        android:id="@+id/P2shapePickerUpButton"
-        android:layout_width="30dp"
-        android:layout_height="37dp"
-        android:padding="2dp"
-        android:rotation="-90"
-        android:text=">"
-        app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="277dp"
-
-        tools:layout_editor_absoluteY="497dp" />
-
-    <Button
-        android:id="@+id/P1shapePickerUpButton"
-        android:layout_width="30dp"
-        android:layout_height="37dp"
-        android:padding="2dp"
-        android:rotation="-90"
-        android:text=">"
-        app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="277dp"
-
-        tools:layout_editor_absoluteY="347dp" />
+        android:id="@+id/playerOneColourSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pop2"
+        android:text="Colour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.556" />
 
     <Button
-        android:id="@+id/P1colorPickerDownButton"
-        android:layout_width="30dp"
-        android:layout_height="37dp"
-        android:padding="2dp"
-        android:rotation="90"
-        android:text=">"
-        app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="105dp"
-
-        tools:layout_editor_absoluteY="384dp" />
-
-    <Button
-        android:id="@+id/P2colorPickerDownButton"
-        android:layout_width="30dp"
-        android:layout_height="37dp"
-        android:padding="2dp"
-        android:rotation="90"
-        android:text=">"
-        app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="105dp"
-
-        tools:layout_editor_absoluteY="534dp" />
+        android:id="@+id/playerTwoPieceSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pieces"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.713" />
 
     <Button
-        android:id="@+id/P2shapePickerDownButton"
-        android:layout_width="30dp"
-        android:layout_height="37dp"
-        android:padding="2dp"
-        android:rotation="90"
-        android:text=">"
-        app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="277dp"
+        android:id="@+id/playerTwoColourSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Colour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.802" />
 
-        tools:layout_editor_absoluteY="534dp" />
+    <ImageView
+        android:id="@+id/playerOneImage"
+        android:layout_width="93dp"
+        android:layout_height="92dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.792"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        app:srcCompat="@drawable/blank" />
 
     <Button
-        android:id="@+id/P1shapePickerDownButton"
-        android:layout_width="30dp"
-        android:layout_height="37dp"
-        android:padding="2dp"
-        android:rotation="90"
-        android:text=">"
-        app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="277dp"
-
-        tools:layout_editor_absoluteY="384dp" />
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="a"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.639" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
