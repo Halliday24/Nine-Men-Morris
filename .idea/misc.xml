@@ -3,29 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/drawable-anydpi/ClipStar.xml" value="0.22135416666666666" />
-        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_game_page.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_setup_page.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/menu.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/menu/colour_menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/menu/menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dkriv/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_game_page.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/dkriv/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/dkriv/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_setup_page.xml" value="0.25" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Nine-Men-Morriss/app/src/main/res/layout/activity_game_page.xml" value="0.22" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Nine-Men-Morriss/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Nine-Men-Morriss/app/src/main/res/layout/activity_setup_page.xml" value="0.12771739130434784" />
         <entry key="..\:/Users/zacha/AndroidStudioProjects/NineMenMorrisGroup6/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14629629629629629" />
         <entry key="..\:/Users/zacha/AndroidStudioProjects/NineMenMorrisGroup6/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/zacha/AndroidStudioProjects/NineMenMorrisGroup6/app/src/main/res/layout/activity_setup_page.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_game_page.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_setup_page.xml" value="0.12395833333333334" />
+        <entry key="app/src/main/res/layout/anim_black_checker.xml" value="0.12395833333333334" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.12395833333333334" />
+      </ProjectState>
+    </option>
   </component>
 </project>
