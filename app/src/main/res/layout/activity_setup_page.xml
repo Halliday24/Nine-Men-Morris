@@ -5,8 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#faf1b4"
+    android:onClick="checkTwo"
     android:padding="5dp"
     tools:context=".SetupPage">
+
+    <ImageView
+        android:id="@+id/playerTwoCheck"
+        android:layout_width="93dp"
+        android:layout_height="92dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156"
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/playerTwoImage"
@@ -29,9 +42,10 @@
         android:text="Play vs Another Human"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.074" />
 
     <Button
         android:id="@+id/easyComputerButton"
@@ -42,10 +56,10 @@
         android:text="Play vs Easy Computer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.972"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175" />
+        app:layout_constraintVertical_bias="0.178" />
 
     <Button
         android:id="@+id/backToHomeButton"
@@ -82,16 +96,16 @@
         android:text="Play Against Hard Computer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281" />
+        app:layout_constraintVertical_bias="0.288" />
 
     <Button
         android:id="@+id/playerOnePieceSelection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="pop"
+        android:onClick="piecePopPlayerOne"
         android:text="Pieces"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +118,7 @@
         android:id="@+id/playerOneColourSelection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="pop2"
+        android:onClick="colourPopPlayerOne"
         android:text="Colour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,6 +131,7 @@
         android:id="@+id/playerTwoPieceSelection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="piecePopPlayerTwo"
         android:text="Pieces"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,6 +144,7 @@
         android:id="@+id/playerTwoColourSelection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="colourPopPlayerTwo"
         android:text="Colour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,17 +165,42 @@
         app:layout_constraintVertical_bias="0.499"
         app:srcCompat="@drawable/blank" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="a"
-        android:text="Button"
+    <ImageView
+        android:id="@+id/playerOneCheck"
+        android:layout_width="93dp"
+        android:layout_height="92dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/blank" />
+
+    <Button
+        android:id="@+id/check1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="checkOne"
+        android:text="1 check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.338"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.007" />
+
+    <Button
+        android:id="@+id/check2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="checkTwo"
+        android:text="2 check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.015"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.313" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
