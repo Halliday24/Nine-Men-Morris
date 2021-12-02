@@ -1,5 +1,6 @@
 package com.example.ninemenmorrisgroup6;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -128,7 +129,7 @@ public class SetupPage extends AppCompatActivity {
 
     }
 
-    public boolean onPieceMenuItemClickPlayerOne(MenuItem item) {
+    public boolean onPieceMenuItemClickPlayerOne(@NonNull MenuItem item) {
 
         int id = item.getItemId();
 
@@ -206,7 +207,7 @@ public class SetupPage extends AppCompatActivity {
         }
     }
 
-    public PopupMenu colourCheckPlayerOne(PopupMenu popup){
+    public PopupMenu colourCheckPlayerOne(@NonNull PopupMenu popup){
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.colour_menu, popup.getMenu());
@@ -252,11 +253,20 @@ public class SetupPage extends AppCompatActivity {
             return popup;
 
         }
+        else if (playerTwo.getPlayerGamePiece() == R.drawable.blank) {
+
+            yellow.setVisible(true);
+            red.setVisible(true);
+            blue.setVisible(true);
+            green.setVisible(true);
+        }
 
         return popup;
     }
 
-    public boolean onColourMenuItemClickPlayerOne(MenuItem item) {
+    public boolean onColourMenuItemClickPlayerOne(@NonNull MenuItem item) {
+
+        Button colourButton = (Button) findViewById(R.id.playerOneColourSelection);
 
         int id = item.getItemId();
 
@@ -265,6 +275,7 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked red!", Toast.LENGTH_SHORT).show();
             ImageView red = (ImageView) findViewById(R.id.playerOneImage);
             red.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "Red"));
+            colourButton.setText("Red");
             return true;
 
         }
@@ -274,6 +285,7 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked blue!", Toast.LENGTH_SHORT).show();
             ImageView blue = (ImageView) findViewById(R.id.playerOneImage);
             blue.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "Blue"));
+            colourButton.setText("Blue");
             return true;
 
         }
@@ -283,6 +295,7 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked green!", Toast.LENGTH_SHORT).show();
             ImageView green = (ImageView) findViewById(R.id.playerOneImage);
             green.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "Green"));
+            colourButton.setText("Green");
             return true;
 
         }
@@ -292,6 +305,16 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked yellow!", Toast.LENGTH_SHORT).show();
             ImageView yellow = (ImageView) findViewById(R.id.playerOneImage);
             yellow.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "Yellow"));
+            colourButton.setText("Yellow");
+            return true;
+
+        }
+        else if(id == R.id.menu_noColour) {
+
+            Toast.makeText(this, "You picked no colour!", Toast.LENGTH_SHORT).show();
+            ImageView noColour = (ImageView) findViewById(R.id.playerOneImage);
+            noColour.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "noColour"));
+            colourButton.setText("Colour");
             return true;
 
         }
@@ -343,6 +366,15 @@ public class SetupPage extends AppCompatActivity {
                 return R.drawable.circle_yellow;
 
             }
+            else if (colour == "noColour"){
+
+                ImageView noColourCircle = (ImageView) findViewById(R.id.playerOneImage);
+                noColourCircle.setImageResource(R.drawable.circle);
+                playerOne.setPlayerGamePiece(R.drawable.circle);
+
+                return R.drawable.circle;
+
+            }
 
         }
         else if (token == R.drawable.diamond  | token == R.drawable.diamond_red | token == R.drawable.diamond_blue
@@ -382,6 +414,15 @@ public class SetupPage extends AppCompatActivity {
                 playerOne.setPlayerGamePiece(R.drawable.diamond_yellow);
                 
                 return R.drawable.diamond_yellow;
+
+            }
+            else if (colour == "noColour"){
+
+                ImageView noColourDiamond = (ImageView) findViewById(R.id.playerOneImage);
+                noColourDiamond.setImageResource(R.drawable.diamond);
+                playerOne.setPlayerGamePiece(R.drawable.diamond);
+
+                return R.drawable.diamond;
 
             }
 
@@ -425,6 +466,15 @@ public class SetupPage extends AppCompatActivity {
                 return R.drawable.square_yellow;
 
             }
+            else if (colour == "noColour"){
+
+                ImageView noColourSquare = (ImageView) findViewById(R.id.playerOneImage);
+                noColourSquare.setImageResource(R.drawable.square);
+                playerOne.setPlayerGamePiece(R.drawable.square);
+
+                return R.drawable.square;
+
+            }
 
         }
         else if (token == R.drawable.star  | token == R.drawable.star_red | token == R.drawable.star_blue
@@ -466,6 +516,15 @@ public class SetupPage extends AppCompatActivity {
                 return R.drawable.star_yellow;
 
             }
+            else if (colour == "noColour"){
+
+                ImageView noColourStar = (ImageView) findViewById(R.id.playerOneImage);
+                noColourStar.setImageResource(R.drawable.star);
+                playerOne.setPlayerGamePiece(R.drawable.star);
+
+                return R.drawable.star;
+
+            }
 
         }
 
@@ -484,7 +543,7 @@ public class SetupPage extends AppCompatActivity {
 
     }
 
-    public boolean onPieceMenuItemClickPlayerTwo(MenuItem item) {
+    public boolean onPieceMenuItemClickPlayerTwo(@NonNull MenuItem item) {
 
         int id = item.getItemId();
 
@@ -555,14 +614,14 @@ public class SetupPage extends AppCompatActivity {
         else {
 
             PopupMenu popup = new PopupMenu(this, v);
-            popup.setOnMenuItemClickListener(this::onColourMenuItemClickPlayerOne);
-            popup = colourCheckPlayerOne(popup);
+            popup.setOnMenuItemClickListener(this::onColourMenuItemClickPlayerTwo);
+            popup = colourCheckPlayerTwo(popup);
             popup.show();
 
         }
     }
 
-    public PopupMenu colourCheckPlayerTwo(PopupMenu popup){
+    public PopupMenu colourCheckPlayerTwo(@NonNull PopupMenu popup){
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.colour_menu, popup.getMenu());
@@ -608,11 +667,20 @@ public class SetupPage extends AppCompatActivity {
             return popup;
 
         }
+        else if (playerOne.getPlayerGamePiece() == R.drawable.blank) {
+
+            yellow.setVisible(true);
+            red.setVisible(true);
+            blue.setVisible(true);
+            green.setVisible(true);
+        }
 
         return popup;
     }
 
-    public boolean onColourMenuItemClickPlayerTwo(MenuItem item) {
+    public boolean onColourMenuItemClickPlayerTwo(@NonNull MenuItem item) {
+
+        Button colourButton = (Button) findViewById(R.id.playerTwoColourSelection);
 
         int id = item.getItemId();
 
@@ -621,6 +689,7 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked red!", Toast.LENGTH_SHORT).show();
             ImageView red = (ImageView) findViewById(R.id.playerTwoImage);
             red.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "Red"));
+            colourButton.setText("Red");
             return true;
 
         }
@@ -630,6 +699,7 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked blue!", Toast.LENGTH_SHORT).show();
             ImageView blue = (ImageView) findViewById(R.id.playerTwoImage);
             blue.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "Blue"));
+            colourButton.setText("Blue");
             return true;
 
         }
@@ -639,6 +709,7 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked green!", Toast.LENGTH_SHORT).show();
             ImageView green = (ImageView) findViewById(R.id.playerTwoImage);
             green.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "Green"));
+            colourButton.setText("Green");
             return true;
 
         }
@@ -648,6 +719,17 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked yellow!", Toast.LENGTH_SHORT).show();
             ImageView yellow = (ImageView) findViewById(R.id.playerTwoImage);
             yellow.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "Yellow"));
+            colourButton.setText("Yellow");
+            return true;
+
+        }
+
+        else if(id == R.id.menu_noColour) {
+
+            Toast.makeText(this, "You picked no colour!", Toast.LENGTH_SHORT).show();
+            ImageView noColour = (ImageView) findViewById(R.id.playerTwoImage);
+            noColour.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "noColour"));
+            colourButton.setText("Colour");
             return true;
 
         }
@@ -699,6 +781,15 @@ public class SetupPage extends AppCompatActivity {
                 return R.drawable.circle_yellow;
 
             }
+            else if (colour == "noColour"){
+
+                ImageView noColourCircle = (ImageView) findViewById(R.id.playerTwoImage);
+                noColourCircle.setImageResource(R.drawable.circle);
+                playerTwo.setPlayerGamePiece(R.drawable.circle);
+
+                return R.drawable.circle;
+
+            }
 
         }
         else if (token == R.drawable.diamond  | token == R.drawable.diamond_red | token == R.drawable.diamond_blue
@@ -738,6 +829,15 @@ public class SetupPage extends AppCompatActivity {
                 playerTwo.setPlayerGamePiece(R.drawable.diamond_yellow);
 
                 return R.drawable.diamond_yellow;
+
+            }
+            else if (colour == "noColour"){
+
+                ImageView noColourDiamond = (ImageView) findViewById(R.id.playerTwoImage);
+                noColourDiamond.setImageResource(R.drawable.diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.diamond);
+
+                return R.drawable.diamond;
 
             }
 
@@ -781,6 +881,15 @@ public class SetupPage extends AppCompatActivity {
                 return R.drawable.square_yellow;
 
             }
+            else if (colour == "noColour"){
+
+                ImageView noColourSquare = (ImageView) findViewById(R.id.playerTwoImage);
+                noColourSquare.setImageResource(R.drawable.square);
+                playerTwo.setPlayerGamePiece(R.drawable.square);
+
+                return R.drawable.square;
+
+            }
 
         }
         else if (token == R.drawable.star  | token == R.drawable.star_red | token == R.drawable.star_blue
@@ -822,6 +931,15 @@ public class SetupPage extends AppCompatActivity {
                 return R.drawable.star_yellow;
 
             }
+            else if (colour == "noColour"){
+
+                ImageView noColourStar = (ImageView) findViewById(R.id.playerTwoImage);
+                noColourStar.setImageResource(R.drawable.star);
+                playerTwo.setPlayerGamePiece(R.drawable.star);
+
+                return R.drawable.star;
+
+            }
 
         }
 
@@ -856,18 +974,20 @@ public class SetupPage extends AppCompatActivity {
 
     }
 
-    public void checkOne(View myView){
+        //Just tests to see if onClicks were assigning to the players
 
-        ImageView a = (ImageView) findViewById(R.id.playerOneCheck);
-        a.setImageResource(playerOne.getPlayerGamePiece());
-
-    }
-
-    public void checkTwo(View myView){
-
-        ImageView b = (ImageView) findViewById(R.id.playerTwoCheck);
-        b.setImageResource(playerTwo.getPlayerGamePiece());
-
-    }
+//    public void checkOne(View myView){
+//
+//        ImageView a = (ImageView) findViewById(R.id.playerOneCheck);
+//        a.setImageResource(playerOne.getPlayerGamePiece());
+//
+//    }
+//
+//    public void checkTwo(View myView){
+//
+//        ImageView b = (ImageView) findViewById(R.id.playerTwoCheck);
+//        b.setImageResource(playerTwo.getPlayerGamePiece());
+//
+//    }
 
 }
