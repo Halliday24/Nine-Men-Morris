@@ -14,14 +14,18 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.graphics.Color;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -272,7 +276,8 @@ public class SetupPage extends AppCompatActivity {
 
         if(playerOne.getPlayerGamePiece() == R.drawable.blank){
 
-            Toast.makeText(this, "Pick a game piece before selecting a colour!", Toast.LENGTH_SHORT).show();
+            customToast("Pick a game piece before selecting a colour");
+            //Toast.makeText(this, "Pick a game piece before selecting a colour!", Toast.LENGTH_SHORT).show();
 
         }
         else {
@@ -1128,6 +1133,21 @@ public class SetupPage extends AppCompatActivity {
         playerOneColourSelection.setEnabled(true);
         playerTwoPieceSelection.setEnabled(true);
         playerTwoColourSelection.setEnabled(true);
+
+    }
+
+    public void customToast(String text){
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.custom_toast_layout));
+        TextView tv = (TextView) layout.findViewById(R.id.txtvw);
+        tv.setText(text);
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.setGravity(Gravity.TOP,0,0);
+        toast.show();
+
 
     }
 
