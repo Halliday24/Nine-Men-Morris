@@ -359,6 +359,7 @@
 <!--            android:contentDescription="9"-->
 <!--            android:src="@drawable/black_checker" />-->
 <!--    </LinearLayout>-->
+    </RelativeLayout>
     <ImageView
         android:layout_width="100dp"
         android:layout_height="80dp"
@@ -433,5 +434,5 @@
 
 
 
-</RelativeLayout>
+
 </RelativeLayout>
