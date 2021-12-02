@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.versionedparcelable.ParcelField;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,6 +15,8 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,12 +31,11 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class SetupPage extends AppCompatActivity {
 
-    private static Player playerOne = new HumanPlayer();
-    private static Player playerTwo = new HumanPlayer();
-    private static Player computer = new ComputerPlayer();
+    public static Player playerOne = new HumanPlayer();
+    public static Player playerTwo = new HumanPlayer();
+    public static Player computer = new ComputerPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class SetupPage extends AppCompatActivity {
         playerOne.setPlayerGamePiece(R.drawable.blank);
         playerTwo.setPlayerGamePiece(R.drawable.blank);
 
+
     }
 
     public void goToHomePage(View myView){
@@ -66,7 +69,7 @@ public class SetupPage extends AppCompatActivity {
 
         Intent start = new Intent (this, GamePage.class);
 
-        //start.putExtra('a', playerOne);
+        start.putExtra("playerOne", playerOne);
 
         startActivity(start);
     }//startGame

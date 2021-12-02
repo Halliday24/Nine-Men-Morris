@@ -430,9 +430,33 @@
 
     </Button>
 
+    <ImageView
+        android:id="@+id/viewCheck"
+        android:layout_width="89dp"
+        android:layout_height="92dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="226dp"
+        android:layout_marginTop="127dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="511dp"
+        app:srcCompat="@drawable/blank" />
 
-
-
+    <Button
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="223dp"
+        android:layout_marginBottom="533dp"
+        android:text="Button" />
 
 
 </RelativeLayout>

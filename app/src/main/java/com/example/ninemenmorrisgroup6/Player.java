@@ -5,7 +5,9 @@ import android.graphics.drawable.Drawable;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-public class Player extends SetupPage{
+import java.io.Serializable;
+
+public class Player extends SetupPage implements Serializable {
 
 
 
