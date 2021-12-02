@@ -118,18 +118,22 @@ public class SetupPage extends AppCompatActivity {
         findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#BD1717"));
 
     }//playAgainstEasyComputer
+    
+    //########################## PLAYER ONE #######################################################
 
     public void piecePopPlayerOne(View v) {
 
         PopupMenu popup = new PopupMenu(this,v);
         popup.setOnMenuItemClickListener(this::onPieceMenuItemClickPlayerOne);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, popup.getMenu());
+        popup = pieceCheckPlayerOne(popup);
         popup.show();
 
     }
 
     public boolean onPieceMenuItemClickPlayerOne(@NonNull MenuItem item) {
+
+        Button pieceButton = (Button) findViewById(R.id.playerOnePieceSelection);
+        Button colourButton = (Button) findViewById(R.id.playerOneColourSelection);
 
         int id = item.getItemId();
 
@@ -139,6 +143,8 @@ public class SetupPage extends AppCompatActivity {
             ImageView circle = (ImageView) findViewById(R.id.playerOneImage);
             circle.setImageResource(R.drawable.circle);
             playerOne.setPlayerGamePiece(R.drawable.circle);
+            pieceButton.setText("CIRCLE");
+            colourButton.setText("COLOUR");
             return true;
 
         }
@@ -149,6 +155,8 @@ public class SetupPage extends AppCompatActivity {
             ImageView diamond = (ImageView) findViewById(R.id.playerOneImage);
             diamond.setImageResource(R.drawable.diamond);
             playerOne.setPlayerGamePiece(R.drawable.diamond);
+            pieceButton.setText("DIAMOND");
+            colourButton.setText("COLOUR");
 
             return true;
 
@@ -160,6 +168,8 @@ public class SetupPage extends AppCompatActivity {
             ImageView square = (ImageView) findViewById(R.id.playerOneImage);
             square.setImageResource(R.drawable.square);
             playerOne.setPlayerGamePiece(R.drawable.square);
+            pieceButton.setText("SQUARE");
+            colourButton.setText("COLOUR");
             return true;
 
         }
@@ -170,6 +180,8 @@ public class SetupPage extends AppCompatActivity {
             ImageView star = (ImageView) findViewById(R.id.playerOneImage);
             star.setImageResource(R.drawable.star);
             playerOne.setPlayerGamePiece(R.drawable.star);
+            pieceButton.setText("STAR");
+            colourButton.setText("COLOUR");
             return true;
 
         }
@@ -180,6 +192,8 @@ public class SetupPage extends AppCompatActivity {
             ImageView blank = (ImageView) findViewById(R.id.playerOneImage);
             blank.setImageResource(R.drawable.blank);
             playerOne.setPlayerGamePiece(R.drawable.blank);
+            pieceButton.setText("PIECES");
+            colourButton.setText("COLOUR");
             return true;
 
         }
@@ -187,6 +201,70 @@ public class SetupPage extends AppCompatActivity {
 
             return false;
         }
+
+    }
+
+    public PopupMenu pieceCheckPlayerOne(@NonNull PopupMenu popup){
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, popup.getMenu());
+        Menu menu = popup.getMenu();
+
+        MenuItem circle = menu.findItem(R.id.menu_circle);
+        MenuItem diamond = menu.findItem(R.id.menu_diamond);
+        MenuItem square = menu.findItem(R.id.menu_square);
+        MenuItem star = menu.findItem(R.id.menu_star);
+        MenuItem blank = menu.findItem(R.id.menu_blank);
+
+        if(playerOne.getPlayerGamePiece() == R.drawable.circle_red |
+                playerOne.getPlayerGamePiece() == R.drawable.circle_blue |
+                playerOne.getPlayerGamePiece() == R.drawable.circle_green |
+                playerOne.getPlayerGamePiece() == R.drawable.circle_yellow |
+                playerOne.getPlayerGamePiece() == R.drawable.circle){
+
+            circle.setVisible(false);
+            return popup;
+
+        }
+
+        else if(playerOne.getPlayerGamePiece() == R.drawable.diamond_red |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_blue |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_green |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_yellow |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond){
+
+            diamond.setVisible(false);
+            return popup;
+
+        }
+        else if(playerOne.getPlayerGamePiece() == R.drawable.square_red |
+                playerOne.getPlayerGamePiece() == R.drawable.square_blue |
+                playerOne.getPlayerGamePiece() == R.drawable.square_green |
+                playerOne.getPlayerGamePiece() == R.drawable.square_yellow |
+                playerOne.getPlayerGamePiece() == R.drawable.square){
+
+            square.setVisible(false);
+            return popup;
+
+        }
+        else if(playerOne.getPlayerGamePiece() == R.drawable.star_red |
+                playerOne.getPlayerGamePiece() == R.drawable.star_blue |
+                playerOne.getPlayerGamePiece() == R.drawable.star_green |
+                playerOne.getPlayerGamePiece() == R.drawable.star_yellow |
+                playerOne.getPlayerGamePiece() == R.drawable.star){
+
+            star.setVisible(false);
+            return popup;
+
+        }
+        else if(playerOne.getPlayerGamePiece() == R.drawable.blank){
+
+            blank.setVisible(false);
+            return popup;
+
+        }
+
+        return popup;
 
     }
 
@@ -205,63 +283,6 @@ public class SetupPage extends AppCompatActivity {
             popup.show();
 
         }
-    }
-
-    public PopupMenu colourCheckPlayerOne(@NonNull PopupMenu popup){
-
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.colour_menu, popup.getMenu());
-        Menu menu = popup.getMenu();
-        MenuItem red = menu.findItem(R.id.menu_red);
-        MenuItem blue = menu.findItem(R.id.menu_blue);
-        MenuItem green = menu.findItem(R.id.menu_green);
-        MenuItem yellow = menu.findItem(R.id.menu_yellow);
-
-        if (playerTwo.getPlayerGamePiece() == R.drawable.circle_red |
-                playerTwo.getPlayerGamePiece() == R.drawable.square_red |
-                playerTwo.getPlayerGamePiece() == R.drawable.diamond_red |
-                playerTwo.getPlayerGamePiece() == R.drawable.star_red){
-
-            red.setVisible(false);
-            return popup;
-
-        }
-        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_blue |
-                playerTwo.getPlayerGamePiece() == R.drawable.square_blue |
-                playerTwo.getPlayerGamePiece() == R.drawable.diamond_blue |
-                playerTwo.getPlayerGamePiece() == R.drawable.star_blue){
-
-            blue.setVisible(false);
-            return popup;
-
-        }
-        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_green |
-                playerTwo.getPlayerGamePiece() == R.drawable.square_green |
-                playerTwo.getPlayerGamePiece() == R.drawable.diamond_green|
-                playerTwo.getPlayerGamePiece() == R.drawable.star_green){
-
-            green.setVisible(false);
-            return popup;
-
-        }
-        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_yellow |
-                playerTwo.getPlayerGamePiece() == R.drawable.square_yellow |
-                playerTwo.getPlayerGamePiece() == R.drawable.diamond_yellow |
-                playerTwo.getPlayerGamePiece() == R.drawable.star_yellow){
-
-            yellow.setVisible(false);
-            return popup;
-
-        }
-        else if (playerTwo.getPlayerGamePiece() == R.drawable.blank) {
-
-            yellow.setVisible(true);
-            red.setVisible(true);
-            blue.setVisible(true);
-            green.setVisible(true);
-        }
-
-        return popup;
     }
 
     public boolean onColourMenuItemClickPlayerOne(@NonNull MenuItem item) {
@@ -323,6 +344,63 @@ public class SetupPage extends AppCompatActivity {
             return false;
         }
 
+    }
+
+    public PopupMenu colourCheckPlayerOne(@NonNull PopupMenu popup){
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.colour_menu, popup.getMenu());
+        Menu menu = popup.getMenu();
+        MenuItem red = menu.findItem(R.id.menu_red);
+        MenuItem blue = menu.findItem(R.id.menu_blue);
+        MenuItem green = menu.findItem(R.id.menu_green);
+        MenuItem yellow = menu.findItem(R.id.menu_yellow);
+
+        if (playerTwo.getPlayerGamePiece() == R.drawable.circle_red |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_red |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_red |
+                playerTwo.getPlayerGamePiece() == R.drawable.star_red){
+
+            red.setVisible(false);
+            return popup;
+
+        }
+        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_blue |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_blue |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_blue |
+                playerTwo.getPlayerGamePiece() == R.drawable.star_blue){
+
+            blue.setVisible(false);
+            return popup;
+
+        }
+        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_green |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_green |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_green|
+                playerTwo.getPlayerGamePiece() == R.drawable.star_green){
+
+            green.setVisible(false);
+            return popup;
+
+        }
+        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_yellow |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_yellow |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_yellow |
+                playerTwo.getPlayerGamePiece() == R.drawable.star_yellow){
+
+            yellow.setVisible(false);
+            return popup;
+
+        }
+        else if (playerTwo.getPlayerGamePiece() == R.drawable.blank) {
+
+            yellow.setVisible(true);
+            red.setVisible(true);
+            blue.setVisible(true);
+            green.setVisible(true);
+        }
+
+        return popup;
     }
 
     public int setColourPlayerOne(int token, String colour){
@@ -531,19 +609,21 @@ public class SetupPage extends AppCompatActivity {
         return 0;
     }
 
-    //#############################################################################################
+    //########################## PLAYER Two #######################################################
 
     public void piecePopPlayerTwo(View v) {
 
         PopupMenu popup = new PopupMenu(this,v);
         popup.setOnMenuItemClickListener(this::onPieceMenuItemClickPlayerTwo);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, popup.getMenu());
+        popup = pieceCheckPlayerTwo(popup);
         popup.show();
 
     }
 
     public boolean onPieceMenuItemClickPlayerTwo(@NonNull MenuItem item) {
+
+        Button pieceButton = (Button) findViewById(R.id.playerTwoPieceSelection);
+        Button colourButton = (Button) findViewById(R.id.playerTwoColourSelection);
 
         int id = item.getItemId();
 
@@ -553,6 +633,8 @@ public class SetupPage extends AppCompatActivity {
             ImageView circle = (ImageView) findViewById(R.id.playerTwoImage);
             circle.setImageResource(R.drawable.circle);
             playerTwo.setPlayerGamePiece(R.drawable.circle);
+            pieceButton.setText("CIRCLE");
+            colourButton.setText("COLOUR");
             return true;
 
         }
@@ -563,6 +645,8 @@ public class SetupPage extends AppCompatActivity {
             ImageView diamond = (ImageView) findViewById(R.id.playerTwoImage);
             diamond.setImageResource(R.drawable.diamond);
             playerTwo.setPlayerGamePiece(R.drawable.diamond);
+            pieceButton.setText("DIAMOND");
+            colourButton.setText("COLOUR");
 
             return true;
 
@@ -574,6 +658,8 @@ public class SetupPage extends AppCompatActivity {
             ImageView square = (ImageView) findViewById(R.id.playerTwoImage);
             square.setImageResource(R.drawable.square);
             playerTwo.setPlayerGamePiece(R.drawable.square);
+            pieceButton.setText("SQUARE");
+            colourButton.setText("COLOUR");
             return true;
 
         }
@@ -584,6 +670,8 @@ public class SetupPage extends AppCompatActivity {
             ImageView star = (ImageView) findViewById(R.id.playerTwoImage);
             star.setImageResource(R.drawable.star);
             playerTwo.setPlayerGamePiece(R.drawable.star);
+            pieceButton.setText("STAR");
+            colourButton.setText("COLOUR");
             return true;
 
         }
@@ -594,6 +682,8 @@ public class SetupPage extends AppCompatActivity {
             ImageView blank = (ImageView) findViewById(R.id.playerTwoImage);
             blank.setImageResource(R.drawable.blank);
             playerTwo.setPlayerGamePiece(R.drawable.blank);
+            pieceButton.setText("PIECES");
+            colourButton.setText("COLOUR");
             return true;
 
         }
@@ -602,6 +692,70 @@ public class SetupPage extends AppCompatActivity {
             return false;
         }
 
+    }
+    
+    public PopupMenu pieceCheckPlayerTwo(@NonNull PopupMenu popup){
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, popup.getMenu());
+        Menu menu = popup.getMenu();
+        
+        MenuItem circle = menu.findItem(R.id.menu_circle);
+        MenuItem diamond = menu.findItem(R.id.menu_diamond);
+        MenuItem square = menu.findItem(R.id.menu_square);
+        MenuItem star = menu.findItem(R.id.menu_star);
+        MenuItem blank = menu.findItem(R.id.menu_blank);
+        
+        if(playerTwo.getPlayerGamePiece() == R.drawable.circle_red | 
+                playerTwo.getPlayerGamePiece() == R.drawable.circle_blue | 
+                playerTwo.getPlayerGamePiece() == R.drawable.circle_green | 
+                playerTwo.getPlayerGamePiece() == R.drawable.circle_yellow | 
+                playerTwo.getPlayerGamePiece() == R.drawable.circle){
+            
+            circle.setVisible(false);
+            return popup;
+            
+        }
+
+        else if(playerTwo.getPlayerGamePiece() == R.drawable.diamond_red |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_blue |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_green |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_yellow |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond){
+
+            diamond.setVisible(false);
+            return popup;
+
+        }
+        else if(playerTwo.getPlayerGamePiece() == R.drawable.square_red |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_blue |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_green |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_yellow |
+                playerTwo.getPlayerGamePiece() == R.drawable.square){
+
+            square.setVisible(false);
+            return popup;
+
+        }
+        else if(playerTwo.getPlayerGamePiece() == R.drawable.star_red |
+                playerTwo.getPlayerGamePiece() == R.drawable.star_blue |
+                playerTwo.getPlayerGamePiece() == R.drawable.star_green |
+                playerTwo.getPlayerGamePiece() == R.drawable.star_yellow |
+                playerTwo.getPlayerGamePiece() == R.drawable.star){
+
+            star.setVisible(false);
+            return popup;
+
+        }
+        else if(playerTwo.getPlayerGamePiece() == R.drawable.blank){
+
+            blank.setVisible(false);
+            return popup;
+
+        }
+        
+        return popup;
+        
     }
 
     public void colourPopPlayerTwo(View v) {
@@ -619,63 +773,6 @@ public class SetupPage extends AppCompatActivity {
             popup.show();
 
         }
-    }
-
-    public PopupMenu colourCheckPlayerTwo(@NonNull PopupMenu popup){
-
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.colour_menu, popup.getMenu());
-        Menu menu = popup.getMenu();
-        MenuItem red = menu.findItem(R.id.menu_red);
-        MenuItem blue = menu.findItem(R.id.menu_blue);
-        MenuItem green = menu.findItem(R.id.menu_green);
-        MenuItem yellow = menu.findItem(R.id.menu_yellow);
-
-        if (playerOne.getPlayerGamePiece() == R.drawable.circle_red |
-                playerOne.getPlayerGamePiece() == R.drawable.square_red |
-                playerOne.getPlayerGamePiece() == R.drawable.diamond_red |
-                playerOne.getPlayerGamePiece() == R.drawable.star_red){
-
-            red.setVisible(false);
-            return popup;
-
-        }
-        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_blue |
-                playerOne.getPlayerGamePiece() == R.drawable.square_blue |
-                playerOne.getPlayerGamePiece() == R.drawable.diamond_blue |
-                playerOne.getPlayerGamePiece() == R.drawable.star_blue){
-
-            blue.setVisible(false);
-            return popup;
-
-        }
-        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_green |
-                playerOne.getPlayerGamePiece() == R.drawable.square_green |
-                playerOne.getPlayerGamePiece() == R.drawable.diamond_green|
-                playerOne.getPlayerGamePiece() == R.drawable.star_green){
-
-            green.setVisible(false);
-            return popup;
-
-        }
-        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_yellow |
-                playerOne.getPlayerGamePiece() == R.drawable.square_yellow |
-                playerOne.getPlayerGamePiece() == R.drawable.diamond_yellow |
-                playerOne.getPlayerGamePiece() == R.drawable.star_yellow){
-
-            yellow.setVisible(false);
-            return popup;
-
-        }
-        else if (playerOne.getPlayerGamePiece() == R.drawable.blank) {
-
-            yellow.setVisible(true);
-            red.setVisible(true);
-            blue.setVisible(true);
-            green.setVisible(true);
-        }
-
-        return popup;
     }
 
     public boolean onColourMenuItemClickPlayerTwo(@NonNull MenuItem item) {
@@ -738,6 +835,64 @@ public class SetupPage extends AppCompatActivity {
             return false;
         }
 
+    }
+
+    public PopupMenu colourCheckPlayerTwo(@NonNull PopupMenu popup){
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.colour_menu, popup.getMenu());
+        Menu menu = popup.getMenu();
+        
+        MenuItem red = menu.findItem(R.id.menu_red);
+        MenuItem blue = menu.findItem(R.id.menu_blue);
+        MenuItem green = menu.findItem(R.id.menu_green);
+        MenuItem yellow = menu.findItem(R.id.menu_yellow);
+
+        if (playerOne.getPlayerGamePiece() == R.drawable.circle_red |
+                playerOne.getPlayerGamePiece() == R.drawable.square_red |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_red |
+                playerOne.getPlayerGamePiece() == R.drawable.star_red){
+
+            red.setVisible(false);
+            return popup;
+
+        }
+        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_blue |
+                playerOne.getPlayerGamePiece() == R.drawable.square_blue |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_blue |
+                playerOne.getPlayerGamePiece() == R.drawable.star_blue){
+
+            blue.setVisible(false);
+            return popup;
+
+        }
+        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_green |
+                playerOne.getPlayerGamePiece() == R.drawable.square_green |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_green|
+                playerOne.getPlayerGamePiece() == R.drawable.star_green){
+
+            green.setVisible(false);
+            return popup;
+
+        }
+        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_yellow |
+                playerOne.getPlayerGamePiece() == R.drawable.square_yellow |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_yellow |
+                playerOne.getPlayerGamePiece() == R.drawable.star_yellow){
+
+            yellow.setVisible(false);
+            return popup;
+
+        }
+        else if (playerOne.getPlayerGamePiece() == R.drawable.blank) {
+
+            yellow.setVisible(true);
+            red.setVisible(true);
+            blue.setVisible(true);
+            green.setVisible(true);
+        }
+
+        return popup;
     }
 
     public int setColourPlayerTwo(int token, String colour){
@@ -945,6 +1100,8 @@ public class SetupPage extends AppCompatActivity {
 
         return 0;
     }
+    
+    //#############################################################################################
 
     public void singlePlayerButtonSetup(){
 
