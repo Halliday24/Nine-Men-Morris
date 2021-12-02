@@ -45,6 +45,9 @@ public class SetupPage extends AppCompatActivity {
         playerTwoPieceSelection.setEnabled(false);
         playerTwoColourSelection.setEnabled(false);
 
+        playerOne.setPlayerGamePiece(R.drawable.blank);
+        playerTwo.setPlayerGamePiece(R.drawable.blank);
+
     }
 
     public void goToHomePage(View myView){
@@ -188,11 +191,19 @@ public class SetupPage extends AppCompatActivity {
 
     public void colourPopPlayerOne(View v) {
 
-        PopupMenu popup = new PopupMenu(this,v);
-        popup.setOnMenuItemClickListener(this::onColourMenuItemClickPlayerOne);
-        popup = colourCheckPlayerOne(popup);
-        popup.show();
+        if(playerOne.getPlayerGamePiece() == R.drawable.blank){
 
+            Toast.makeText(this, "Pick a game piece before selecting a colour!", Toast.LENGTH_SHORT).show();
+
+        }
+        else {
+
+            PopupMenu popup = new PopupMenu(this, v);
+            popup.setOnMenuItemClickListener(this::onColourMenuItemClickPlayerOne);
+            popup = colourCheckPlayerOne(popup);
+            popup.show();
+
+        }
     }
 
     public PopupMenu colourCheckPlayerOne(PopupMenu popup){
@@ -201,10 +212,43 @@ public class SetupPage extends AppCompatActivity {
         inflater.inflate(R.menu.colour_menu, popup.getMenu());
         Menu menu = popup.getMenu();
         MenuItem red = menu.findItem(R.id.menu_red);
+        MenuItem blue = menu.findItem(R.id.menu_blue);
+        MenuItem green = menu.findItem(R.id.menu_green);
+        MenuItem yellow = menu.findItem(R.id.menu_yellow);
 
-        if (playerTwo.getPlayerGamePiece() == R.drawable.circle_red){
+        if (playerTwo.getPlayerGamePiece() == R.drawable.circle_red |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_red |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_red |
+                playerTwo.getPlayerGamePiece() == R.drawable.star_red){
 
             red.setVisible(false);
+            return popup;
+
+        }
+        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_blue |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_blue |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_blue |
+                playerTwo.getPlayerGamePiece() == R.drawable.star_blue){
+
+            blue.setVisible(false);
+            return popup;
+
+        }
+        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_green |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_green |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_green|
+                playerTwo.getPlayerGamePiece() == R.drawable.star_green){
+
+            green.setVisible(false);
+            return popup;
+
+        }
+        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_yellow |
+                playerTwo.getPlayerGamePiece() == R.drawable.square_yellow |
+                playerTwo.getPlayerGamePiece() == R.drawable.diamond_yellow |
+                playerTwo.getPlayerGamePiece() == R.drawable.star_yellow){
+
+            yellow.setVisible(false);
             return popup;
 
         }
@@ -277,6 +321,7 @@ public class SetupPage extends AppCompatActivity {
                 ImageView blueCircle = (ImageView) findViewById(R.id.playerOneImage);
                 blueCircle.setImageResource(R.drawable.circle_blue);
                 playerOne.setPlayerGamePiece(R.drawable.circle_blue);
+                
                 return R.drawable.circle_blue;
 
             }
@@ -285,6 +330,7 @@ public class SetupPage extends AppCompatActivity {
                 ImageView greenCircle = (ImageView) findViewById(R.id.playerOneImage);
                 greenCircle.setImageResource(R.drawable.circle_green);
                 playerOne.setPlayerGamePiece(R.drawable.circle_green);
+                
                 return R.drawable.circle_green;
 
             }
@@ -293,18 +339,133 @@ public class SetupPage extends AppCompatActivity {
                 ImageView yellowCircle = (ImageView) findViewById(R.id.playerOneImage);
                 yellowCircle.setImageResource(R.drawable.circle_yellow);
                 playerOne.setPlayerGamePiece(R.drawable.circle_yellow);
+                
                 return R.drawable.circle_yellow;
 
             }
 
         }
-        else if (token == R.drawable.diamond){
+        else if (token == R.drawable.diamond  | token == R.drawable.diamond_red | token == R.drawable.diamond_blue
+                | token == R.drawable.diamond_green | token == R.drawable.diamond_yellow){
+
+            if (colour == "Red"){
+
+                ImageView redDiamond = (ImageView) findViewById(R.id.playerOneImage);
+                redDiamond.setImageResource(R.drawable.diamond_red);
+                playerOne.setPlayerGamePiece(R.drawable.diamond_red);
+
+                return R.drawable.diamond_red;
+
+            }
+            else if (colour == "Blue"){
+
+                ImageView blueDiamond = (ImageView) findViewById(R.id.playerOneImage);
+                blueDiamond.setImageResource(R.drawable.diamond_blue);
+                playerOne.setPlayerGamePiece(R.drawable.diamond_blue);
+                
+                return R.drawable.diamond_blue;
+
+            }
+            else if (colour == "Green"){
+
+                ImageView greenDiamond = (ImageView) findViewById(R.id.playerOneImage);
+                greenDiamond.setImageResource(R.drawable.diamond_green);
+                playerOne.setPlayerGamePiece(R.drawable.diamond_green);
+                
+                return R.drawable.diamond_green;
+
+            }
+            else if (colour == "Yellow"){
+
+                ImageView yellowDiamond = (ImageView) findViewById(R.id.playerOneImage);
+                yellowDiamond.setImageResource(R.drawable.diamond_yellow);
+                playerOne.setPlayerGamePiece(R.drawable.diamond_yellow);
+                
+                return R.drawable.diamond_yellow;
+
+            }
 
         }
-        else if (token == R.drawable.square){
+        else if (token == R.drawable.square  | token == R.drawable.square_red | token == R.drawable.square_blue
+                | token == R.drawable.square_green | token == R.drawable.square_yellow){
+
+            if (colour == "Red"){
+
+                ImageView redSquare = (ImageView) findViewById(R.id.playerOneImage);
+                redSquare.setImageResource(R.drawable.square_red);
+                playerOne.setPlayerGamePiece(R.drawable.square_red);
+
+                return R.drawable.square_red;
+
+            }
+            else if (colour == "Blue"){
+
+                ImageView blueSquare = (ImageView) findViewById(R.id.playerOneImage);
+                blueSquare.setImageResource(R.drawable.square_blue);
+                playerOne.setPlayerGamePiece(R.drawable.square_blue);
+                
+                return R.drawable.square_blue;
+
+            }
+            else if (colour == "Green"){
+
+                ImageView greenSquare = (ImageView) findViewById(R.id.playerOneImage);
+                greenSquare.setImageResource(R.drawable.square_green);
+                playerOne.setPlayerGamePiece(R.drawable.square_green);
+                
+                return R.drawable.square_green;
+
+            }
+            else if (colour == "Yellow"){
+
+                ImageView yellowSquare = (ImageView) findViewById(R.id.playerOneImage);
+                yellowSquare.setImageResource(R.drawable.square_yellow);
+                playerOne.setPlayerGamePiece(R.drawable.square_yellow);
+                
+                return R.drawable.square_yellow;
+
+            }
 
         }
-        else if (token == R.drawable.star){
+        else if (token == R.drawable.star  | token == R.drawable.star_red | token == R.drawable.star_blue
+                | token == R.drawable.star_green | token == R.drawable.star_yellow){
+
+            if (colour == "Red"){
+
+                ImageView redStar = (ImageView) findViewById(R.id.playerOneImage);
+                redStar.setImageResource(R.drawable.star_red);
+                playerOne.setPlayerGamePiece(R.drawable.star_red);
+
+                return R.drawable.star_red;
+
+            }
+            else if (colour == "Blue"){
+
+                ImageView blueStar = (ImageView) findViewById(R.id.playerOneImage);
+                blueStar.setImageResource(R.drawable.star_blue);
+                playerOne.setPlayerGamePiece(R.drawable.star_blue);
+                
+                return R.drawable.star_blue;
+
+            }
+            else if (colour == "Green"){
+
+                ImageView greenStar = (ImageView) findViewById(R.id.playerOneImage);
+                greenStar.setImageResource(R.drawable.star_green);
+                playerOne.setPlayerGamePiece(R.drawable.star_green);
+                
+                return R.drawable.star_green;
+
+            }
+            else if (colour == "Yellow"){
+
+                ImageView yellowStar = (ImageView) findViewById(R.id.playerOneImage);
+                yellowStar.setImageResource(R.drawable.star_yellow);
+                playerOne.setPlayerGamePiece(R.drawable.star_yellow);
+                
+                return R.drawable.star_yellow;
+
+            }
 
         }
 
@@ -386,12 +547,69 @@ public class SetupPage extends AppCompatActivity {
 
     public void colourPopPlayerTwo(View v) {
 
-        PopupMenu popup = new PopupMenu(this,v);
-        popup.setOnMenuItemClickListener(this::onColourMenuItemClickPlayerTwo);
+        if(playerTwo.getPlayerGamePiece() == R.drawable.blank){
+
+            Toast.makeText(this, "Pick a game piece before selecting a colour!", Toast.LENGTH_SHORT).show();
+
+        }
+        else {
+
+            PopupMenu popup = new PopupMenu(this, v);
+            popup.setOnMenuItemClickListener(this::onColourMenuItemClickPlayerOne);
+            popup = colourCheckPlayerOne(popup);
+            popup.show();
+
+        }
+    }
+
+    public PopupMenu colourCheckPlayerTwo(PopupMenu popup){
+
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.colour_menu, popup.getMenu());
-        popup.show();
+        Menu menu = popup.getMenu();
+        MenuItem red = menu.findItem(R.id.menu_red);
+        MenuItem blue = menu.findItem(R.id.menu_blue);
+        MenuItem green = menu.findItem(R.id.menu_green);
+        MenuItem yellow = menu.findItem(R.id.menu_yellow);
 
+        if (playerOne.getPlayerGamePiece() == R.drawable.circle_red |
+                playerOne.getPlayerGamePiece() == R.drawable.square_red |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_red |
+                playerOne.getPlayerGamePiece() == R.drawable.star_red){
+
+            red.setVisible(false);
+            return popup;
+
+        }
+        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_blue |
+                playerOne.getPlayerGamePiece() == R.drawable.square_blue |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_blue |
+                playerOne.getPlayerGamePiece() == R.drawable.star_blue){
+
+            blue.setVisible(false);
+            return popup;
+
+        }
+        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_green |
+                playerOne.getPlayerGamePiece() == R.drawable.square_green |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_green|
+                playerOne.getPlayerGamePiece() == R.drawable.star_green){
+
+            green.setVisible(false);
+            return popup;
+
+        }
+        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_yellow |
+                playerOne.getPlayerGamePiece() == R.drawable.square_yellow |
+                playerOne.getPlayerGamePiece() == R.drawable.diamond_yellow |
+                playerOne.getPlayerGamePiece() == R.drawable.star_yellow){
+
+            yellow.setVisible(false);
+            return popup;
+
+        }
+
+        return popup;
     }
 
     public boolean onColourMenuItemClickPlayerTwo(MenuItem item) {
@@ -459,6 +677,7 @@ public class SetupPage extends AppCompatActivity {
                 ImageView blueCircle = (ImageView) findViewById(R.id.playerTwoImage);
                 blueCircle.setImageResource(R.drawable.circle_blue);
                 playerTwo.setPlayerGamePiece(R.drawable.circle_blue);
+
                 return R.drawable.circle_blue;
 
             }
@@ -467,6 +686,7 @@ public class SetupPage extends AppCompatActivity {
                 ImageView greenCircle = (ImageView) findViewById(R.id.playerTwoImage);
                 greenCircle.setImageResource(R.drawable.circle_green);
                 playerTwo.setPlayerGamePiece(R.drawable.circle_green);
+
                 return R.drawable.circle_green;
 
             }
@@ -475,18 +695,133 @@ public class SetupPage extends AppCompatActivity {
                 ImageView yellowCircle = (ImageView) findViewById(R.id.playerTwoImage);
                 yellowCircle.setImageResource(R.drawable.circle_yellow);
                 playerTwo.setPlayerGamePiece(R.drawable.circle_yellow);
+
                 return R.drawable.circle_yellow;
 
             }
 
         }
-        else if (token == R.drawable.diamond){
+        else if (token == R.drawable.diamond  | token == R.drawable.diamond_red | token == R.drawable.diamond_blue
+                | token == R.drawable.diamond_green | token == R.drawable.diamond_yellow){
+
+            if (colour == "Red"){
+
+                ImageView redDiamond = (ImageView) findViewById(R.id.playerTwoImage);
+                redDiamond.setImageResource(R.drawable.diamond_red);
+                playerTwo.setPlayerGamePiece(R.drawable.diamond_red);
+
+                return R.drawable.diamond_red;
+
+            }
+            else if (colour == "Blue"){
+
+                ImageView blueDiamond = (ImageView) findViewById(R.id.playerTwoImage);
+                blueDiamond.setImageResource(R.drawable.diamond_blue);
+                playerTwo.setPlayerGamePiece(R.drawable.diamond_blue);
+
+                return R.drawable.diamond_blue;
+
+            }
+            else if (colour == "Green"){
+
+                ImageView greenDiamond = (ImageView) findViewById(R.id.playerTwoImage);
+                greenDiamond.setImageResource(R.drawable.diamond_green);
+                playerTwo.setPlayerGamePiece(R.drawable.diamond_green);
+
+                return R.drawable.diamond_green;
+
+            }
+            else if (colour == "Yellow"){
+
+                ImageView yellowDiamond = (ImageView) findViewById(R.id.playerTwoImage);
+                yellowDiamond.setImageResource(R.drawable.diamond_yellow);
+                playerTwo.setPlayerGamePiece(R.drawable.diamond_yellow);
+
+                return R.drawable.diamond_yellow;
+
+            }
 
         }
-        else if (token == R.drawable.square){
+        else if (token == R.drawable.square  | token == R.drawable.square_red | token == R.drawable.square_blue
+                | token == R.drawable.square_green | token == R.drawable.square_yellow){
+
+            if (colour == "Red"){
+
+                ImageView redSquare = (ImageView) findViewById(R.id.playerTwoImage);
+                redSquare.setImageResource(R.drawable.square_red);
+                playerTwo.setPlayerGamePiece(R.drawable.square_red);
+
+                return R.drawable.square_red;
+
+            }
+            else if (colour == "Blue"){
+
+                ImageView blueSquare = (ImageView) findViewById(R.id.playerTwoImage);
+                blueSquare.setImageResource(R.drawable.square_blue);
+                playerTwo.setPlayerGamePiece(R.drawable.square_blue);
+
+                return R.drawable.square_blue;
+
+            }
+            else if (colour == "Green"){
+
+                ImageView greenSquare = (ImageView) findViewById(R.id.playerTwoImage);
+                greenSquare.setImageResource(R.drawable.square_green);
+                playerTwo.setPlayerGamePiece(R.drawable.square_green);
+
+                return R.drawable.square_green;
+
+            }
+            else if (colour == "Yellow"){
+
+                ImageView yellowSquare = (ImageView) findViewById(R.id.playerTwoImage);
+                yellowSquare.setImageResource(R.drawable.square_yellow);
+                playerTwo.setPlayerGamePiece(R.drawable.square_yellow);
+
+                return R.drawable.square_yellow;
+
+            }
 
         }
-        else if (token == R.drawable.star){
+        else if (token == R.drawable.star  | token == R.drawable.star_red | token == R.drawable.star_blue
+                | token == R.drawable.star_green | token == R.drawable.star_yellow){
+
+            if (colour == "Red"){
+
+                ImageView redStar = (ImageView) findViewById(R.id.playerTwoImage);
+                redStar.setImageResource(R.drawable.star_red);
+                playerTwo.setPlayerGamePiece(R.drawable.star_red);
+
+                return R.drawable.star_red;
+
+            }
+            else if (colour == "Blue"){
+
+                ImageView blueStar = (ImageView) findViewById(R.id.playerTwoImage);
+                blueStar.setImageResource(R.drawable.star_blue);
+                playerTwo.setPlayerGamePiece(R.drawable.star_blue);
+
+                return R.drawable.star_blue;
+
+            }
+            else if (colour == "Green"){
+
+                ImageView greenStar = (ImageView) findViewById(R.id.playerTwoImage);
+                greenStar.setImageResource(R.drawable.star_green);
+                playerTwo.setPlayerGamePiece(R.drawable.star_green);
+
+                return R.drawable.star_green;
+
+            }
+            else if (colour == "Yellow"){
+
+                ImageView yellowStar = (ImageView) findViewById(R.id.playerTwoImage);
+                yellowStar.setImageResource(R.drawable.star_yellow);
+                playerTwo.setPlayerGamePiece(R.drawable.star_yellow);
+
+                return R.drawable.star_yellow;
+
+            }
 
         }
 
@@ -534,6 +869,5 @@ public class SetupPage extends AppCompatActivity {
         b.setImageResource(playerTwo.getPlayerGamePiece());
 
     }
-
 
 }
