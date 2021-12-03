@@ -7,6 +7,7 @@
     tools:context=".GamePage"
     android:background="#faf1b4">
 
+
     <ImageView
         android:layout_width="100dp"
         android:layout_height="80dp"
@@ -15,8 +16,6 @@
         android:background="@drawable/white_piece">
 
     </ImageView>
-
-
 
     <RelativeLayout
         android:id="@+id/board"
@@ -28,15 +27,7 @@
 
         <!-- Hitboxes -->
         <!-- Outer circle -->
-
-        <ImageView
-            android:id="@+id/board_background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:src="@drawable/board" />
-
-<!--        <FrameLayout-->
+        <!--        <FrameLayout-->
 <!--            android:id="@+id/area2"-->
 <!--            style="@style/Hitbox"-->
 <!--            android:layout_alignParentTop="true"-->
@@ -359,7 +350,217 @@
 <!--            android:contentDescription="9"-->
 <!--            android:src="@drawable/black_checker" />-->
 <!--    </LinearLayout>-->
+
+        <ImageView
+            android:id="@+id/board_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:src="@drawable/board" />
+
+        <FrameLayout
+            android:id="@+id/area2"
+            style="@style/Hitbox"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:contentDescription="2" />
+
+        <FrameLayout
+            android:id="@+id/area10"
+            style="@style/Hitbox"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7dp"
+            android:contentDescription="10" />
+
+        <FrameLayout
+            android:id="@+id/area15"
+            style="@style/Hitbox"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:contentDescription="15" />
+
+        <FrameLayout
+            android:id="@+id/area23"
+            style="@style/Hitbox"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="11dp"
+            android:contentDescription="23" />
+
+        <!-- middle circle -->
+
+        <FrameLayout
+            android:id="@+id/area1"
+            style="@style/Hitbox"
+            android:layout_alignLeft="@id/area10"
+            android:layout_alignTop="@id/area2"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="2dp"
+            android:contentDescription="1" />
+
+        <FrameLayout
+            android:id="@+id/area3"
+            style="@style/Hitbox"
+            android:layout_alignTop="@id/area2"
+            android:layout_alignRight="@id/area15"
+            android:layout_marginTop="1dp"
+            android:contentDescription="3" />
+
+        <FrameLayout
+            android:id="@+id/area22"
+            style="@style/Hitbox"
+            android:layout_alignLeft="@id/area10"
+            android:layout_alignBottom="@id/area23"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="-3dp"
+            android:contentDescription="22" />
+
+        <FrameLayout
+            android:id="@+id/area24"
+            style="@style/Hitbox"
+            android:layout_alignRight="@id/area15"
+            android:layout_alignBottom="@id/area23"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="-4dp"
+            android:contentDescription="24" />
+
+        <FrameLayout
+            android:id="@+id/area5"
+            style="@style/Hitbox"
+            android:layout_below="@id/area2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:contentDescription="5" />
+
+        <FrameLayout
+            android:id="@+id/area11"
+            style="@style/Hitbox"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/area10"
+            android:contentDescription="11" />
+
+        <FrameLayout
+            android:id="@+id/area14"
+            style="@style/Hitbox"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dp"
+            android:layout_toLeftOf="@id/area15"
+            android:contentDescription="14" />
+
+        <FrameLayout
+            android:id="@+id/area20"
+            style="@style/Hitbox"
+            android:layout_above="@id/area23"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="20" />
+
+        <FrameLayout
+            android:id="@+id/area4"
+            style="@style/Hitbox"
+            android:layout_alignLeft="@id/area11"
+            android:layout_alignTop="@id/area5"
+            android:contentDescription="4" />
+
+        <FrameLayout
+            android:id="@+id/area6"
+            style="@style/Hitbox"
+            android:layout_alignTop="@id/area5"
+            android:layout_alignRight="@id/area14"
+            android:contentDescription="6" />
+
+        <!-- middle circle -->
+
+        <FrameLayout
+            android:id="@+id/area19"
+            style="@style/Hitbox"
+            android:layout_alignLeft="@id/area11"
+            android:layout_alignBottom="@id/area20"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="6dp"
+            android:contentDescription="19" />
+
+        <FrameLayout
+            android:id="@+id/area21"
+            style="@style/Hitbox"
+            android:layout_alignRight="@id/area14"
+            android:layout_alignBottom="@id/area20"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="4dp"
+            android:contentDescription="21" />
+
+        <FrameLayout
+            android:id="@+id/area8"
+            style="@style/Hitbox"
+            android:layout_below="@id/area5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:contentDescription="8" />
+
+        <FrameLayout
+            android:id="@+id/area12"
+            style="@style/Hitbox"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/area11"
+            android:contentDescription="12" />
+
+        <FrameLayout
+            android:id="@+id/area13"
+            style="@style/Hitbox"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@id/area14"
+            android:contentDescription="13" />
+
+        <FrameLayout
+            android:id="@+id/area17"
+            style="@style/Hitbox"
+            android:layout_above="@id/area20"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp"
+            android:contentDescription="17" />
+
+        <FrameLayout
+            android:id="@+id/area7"
+            style="@style/Hitbox"
+            android:layout_alignLeft="@id/area12"
+            android:layout_alignTop="@id/area8"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginTop="-1dp"
+            android:contentDescription="7" />
+
+        <FrameLayout
+            android:id="@+id/area9"
+            style="@style/Hitbox"
+            android:layout_alignTop="@id/area8"
+            android:layout_alignRight="@id/area13"
+            android:layout_marginTop="0dp"
+            android:contentDescription="9" />
+
+        <FrameLayout
+            android:id="@+id/area16"
+            style="@style/Hitbox"
+            android:layout_alignLeft="@id/area12"
+            android:layout_alignBottom="@id/area17"
+            android:layout_marginLeft="-2dp"
+            android:layout_marginBottom="-2dp"
+            android:contentDescription="16" />
+
+        <FrameLayout
+            android:id="@+id/area18"
+            style="@style/Hitbox"
+            android:layout_alignRight="@id/area13"
+            android:layout_alignBottom="@id/area17"
+            android:layout_marginRight="-5dp"
+            android:layout_marginBottom="-2dp"
+            android:contentDescription="18" />
+
     </RelativeLayout>
+
     <ImageView
         android:layout_width="100dp"
         android:layout_height="80dp"
