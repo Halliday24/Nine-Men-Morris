@@ -10,7 +10,9 @@ import android.widget.Button;
 
 public class GamePage extends AppCompatActivity {
 
-    //public static Player playerOne = (Player) getIntent().getSerializableExtra("playerOne");
+    public static Player playerOne = new HumanPlayer();
+    public static Player playerTwo = new HumanPlayer();
+    public static Player computer = new ComputerPlayer();
 
 
     @Override
@@ -18,9 +20,10 @@ public class GamePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_page);
 
-        Player playerOne = (Player) getIntent().getSerializableExtra("playerOne");
-        checkPlayer(playerOne.getPlayerGamePiece());
 
+
+        playerOne = (Player) getIntent().getSerializableExtra("playerOne");
+        checkPlayer(playerOne.getPlayerGamePiece());
 
     }
 

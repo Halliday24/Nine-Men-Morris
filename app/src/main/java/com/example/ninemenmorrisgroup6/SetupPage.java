@@ -52,8 +52,11 @@ public class SetupPage extends AppCompatActivity {
         playerTwoPieceSelection.setEnabled(false);
         playerTwoColourSelection.setEnabled(false);
 
-        playerOne.setPlayerGamePiece(R.drawable.blank);
-        playerTwo.setPlayerGamePiece(R.drawable.blank);
+        //setPlayerOneToDefault();
+        //setPlayerTwoToDefault();
+
+        //playerOne.setPlayerGamePiece(R.drawable.blank);
+        //playerTwo.setPlayerGamePiece(R.drawable.blank);
 
 
     }
@@ -70,6 +73,8 @@ public class SetupPage extends AppCompatActivity {
         Intent start = new Intent (this, GamePage.class);
 
         start.putExtra("playerOne", playerOne);
+        start.putExtra("playerTwo", playerTwo);
+        start.putExtra("computer", computer);
 
         startActivity(start);
     }//startGame
@@ -84,6 +89,8 @@ public class SetupPage extends AppCompatActivity {
         else{}
 
         singlePlayerButtonSetup();
+        setPlayerOneToDefault();
+        setPlayerTwoToEmpty();
 
         findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
         findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
@@ -102,6 +109,8 @@ public class SetupPage extends AppCompatActivity {
         else{}
 
         singlePlayerButtonSetup();
+        setPlayerOneToDefault();
+        setPlayerTwoToEmpty();
 
         findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
         findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
@@ -119,13 +128,100 @@ public class SetupPage extends AppCompatActivity {
         else{}
 
         multiPlayerButtonSetup();
+        setPlayerOneToDefault();
+        setPlayerTwoToDefault();
 
         findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
         findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
         findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#BD1717"));
 
     }//playAgainstEasyComputer
-    
+
+    public void setPlayerOneToDefault(){
+
+        Button colourButton = (Button) findViewById(R.id.playerOneColourSelection);
+        Button pieceButton = (Button) findViewById(R.id.playerOnePieceSelection);
+        ImageView playerOneImage = (ImageView) findViewById(R.id.playerOneImage);
+
+        playerOneImage.setImageResource(R.drawable.circle_white);
+        pieceButton.setText("CIRCLE");
+        colourButton.setText("WHITE");
+
+        playerOne.setPlayerGamePiece(R.drawable.circle_white);
+
+    }
+
+    public void setPlayerTwoToDefault(){
+
+        Button colourButton = (Button) findViewById(R.id.playerTwoColourSelection);
+        Button pieceButton = (Button) findViewById(R.id.playerTwoPieceSelection);
+        ImageView playerTwoImage = (ImageView) findViewById(R.id.playerTwoImage);
+
+        playerTwoImage.setImageResource(R.drawable.circle_black);
+        pieceButton.setText("CIRCLE");
+        colourButton.setText("BLACK");
+
+        playerTwo.setPlayerGamePiece(R.drawable.circle_black);
+
+    }
+
+    public void setPlayerTwoToEmpty(){
+
+        Button colourButton = (Button) findViewById(R.id.playerTwoColourSelection);
+        Button pieceButton = (Button) findViewById(R.id.playerTwoPieceSelection);
+        ImageView playerTwoImage = (ImageView) findViewById(R.id.playerTwoImage);
+
+        playerTwoImage.setImageResource(R.drawable.blank);
+        pieceButton.setText("PIECES");
+        colourButton.setText("COLOUR");
+
+        playerTwo.setPlayerGamePiece(R.drawable.blank);
+
+    }
+
+    public void singlePlayerButtonSetup(){
+
+        Button playerOnePieceSelection = (Button) findViewById(R.id.playerOnePieceSelection);
+        Button playerOneColourSelection = (Button) findViewById(R.id.playerOneColourSelection);
+        Button playerTwoPieceSelection = (Button) findViewById(R.id.playerTwoPieceSelection);
+        Button playerTwoColourSelection = (Button) findViewById(R.id.playerTwoColourSelection);
+
+        playerOnePieceSelection.setEnabled(true);
+        playerOneColourSelection.setEnabled(true);
+        playerTwoPieceSelection.setEnabled(false);
+        playerTwoColourSelection.setEnabled(false);
+
+    }
+
+    public void multiPlayerButtonSetup(){
+
+        Button playerOnePieceSelection = (Button) findViewById(R.id.playerOnePieceSelection);
+        Button playerOneColourSelection = (Button) findViewById(R.id.playerOneColourSelection);
+        Button playerTwoPieceSelection = (Button) findViewById(R.id.playerTwoPieceSelection);
+        Button playerTwoColourSelection = (Button) findViewById(R.id.playerTwoColourSelection);
+
+        playerOnePieceSelection.setEnabled(true);
+        playerOneColourSelection.setEnabled(true);
+        playerTwoPieceSelection.setEnabled(true);
+        playerTwoColourSelection.setEnabled(true);
+
+    }
+
+    public void customToast(String text){
+
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.custom_toast_layout));
+        TextView tv = (TextView) layout.findViewById(R.id.txtvw);
+        tv.setText(text);
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.setGravity(Gravity.TOP,0,0);
+        toast.show();
+
+
+    }
+
     //########################## PLAYER ONE #######################################################
 
     public void piecePopPlayerOne(View v) {
@@ -1110,64 +1206,5 @@ public class SetupPage extends AppCompatActivity {
     }
     
     //#############################################################################################
-
-    public void singlePlayerButtonSetup(){
-
-        Button playerOnePieceSelection = (Button) findViewById(R.id.playerOnePieceSelection);
-        Button playerOneColourSelection = (Button) findViewById(R.id.playerOneColourSelection);
-        Button playerTwoPieceSelection = (Button) findViewById(R.id.playerTwoPieceSelection);
-        Button playerTwoColourSelection = (Button) findViewById(R.id.playerTwoColourSelection);
-
-        playerOnePieceSelection.setEnabled(true);
-        playerOneColourSelection.setEnabled(true);
-        playerTwoPieceSelection.setEnabled(false);
-        playerTwoColourSelection.setEnabled(false);
-
-    }
-
-    public void multiPlayerButtonSetup(){
-
-        Button playerOnePieceSelection = (Button) findViewById(R.id.playerOnePieceSelection);
-        Button playerOneColourSelection = (Button) findViewById(R.id.playerOneColourSelection);
-        Button playerTwoPieceSelection = (Button) findViewById(R.id.playerTwoPieceSelection);
-        Button playerTwoColourSelection = (Button) findViewById(R.id.playerTwoColourSelection);
-
-        playerOnePieceSelection.setEnabled(true);
-        playerOneColourSelection.setEnabled(true);
-        playerTwoPieceSelection.setEnabled(true);
-        playerTwoColourSelection.setEnabled(true);
-
-    }
-
-    public void customToast(String text){
-
-        LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.custom_toast_layout));
-        TextView tv = (TextView) layout.findViewById(R.id.txtvw);
-        tv.setText(text);
-        Toast toast = new Toast(getApplicationContext());
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(layout);
-        toast.setGravity(Gravity.TOP,0,0);
-        toast.show();
-
-
-    }
-
-        //Just tests to see if onClicks were assigning to the players
-
-//    public void checkOne(View myView){
-//
-//        ImageView a = (ImageView) findViewById(R.id.playerOneCheck);
-//        a.setImageResource(playerOne.getPlayerGamePiece());
-//
-//    }
-//
-//    public void checkTwo(View myView){
-//
-//        ImageView b = (ImageView) findViewById(R.id.playerTwoCheck);
-//        b.setImageResource(playerTwo.getPlayerGamePiece());
-//
-//    }
 
 }
