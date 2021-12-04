@@ -6,19 +6,19 @@
 <!--        android:icon="@drawable/menu" >-->
 <!--        <menu>-->
             <item android:id="@+id/menu_circle"
-                android:icon="@drawable/circle"
+                android:icon="@drawable/circle_white"
                 android:title="Circle"/>
 
             <item android:id="@+id/menu_diamond"
-                android:icon="@drawable/diamond"
+                android:icon="@drawable/diamond_white"
                 android:title="Diamond"/>
 
             <item android:id="@+id/menu_square"
-                android:icon="@drawable/square"
+                android:icon="@drawable/square_white"
                 android:title="Square"/>
 
             <item android:id="@+id/menu_star"
-                android:icon="@drawable/star"
+                android:icon="@drawable/star_white"
                 android:title="Star"/>
 
             <item android:id="@+id/menu_blank"

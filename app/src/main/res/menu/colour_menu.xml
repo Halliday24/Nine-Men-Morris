@@ -12,6 +12,12 @@
     <item android:id="@+id/menu_yellow"
         android:title="Yellow"/>
 
-    <item android:id="@+id/menu_noColour"
-        android:title="Blank"/>
+    <item android:id="@+id/menu_black"
+        android:title="Black"/>
+
+    <item android:id="@+id/menu_white"
+        android:title="White"/>
+
+<!--    <item android:id="@+id/menu_noColour"-->
+<!--        android:title="Blank"/>-->
 </menu>

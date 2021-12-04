@@ -5,7 +5,7 @@ import android.view.MenuItem;
 
 public class HumanPlayer extends Player{
 
-    public HumanPlayer(String name, int score, int token, int colour){
+    public HumanPlayer(String name, int score, int token, String colour){
 
         this.playerName = name;
         this.highScore = score;

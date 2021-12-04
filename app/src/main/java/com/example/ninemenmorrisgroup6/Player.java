@@ -20,7 +20,7 @@ public class Player extends SetupPage implements Serializable {
     protected ImageView computerGamePiece;
     protected Color computerColour;
     protected int playerGamePiece;
-    protected int playerColour;
+    protected String playerColour;
     protected int difficulty;
 
     //GETTERS
@@ -40,7 +40,7 @@ public class Player extends SetupPage implements Serializable {
         return playerGamePiece;
     }//getPlayerGamePiece
 
-    public int getPlayerColour(){
+    public String getPlayerColour(){
 
         return playerColour;
     }//getPlayerColour
@@ -73,7 +73,7 @@ public class Player extends SetupPage implements Serializable {
         return playerGamePiece;
     }//setPlayerGamePiece
 
-    public int setPlayerColour(int colour){
+    public String setPlayerColour(String colour){
 
         this.playerColour = colour;
 
