@@ -69,12 +69,8 @@ public class SetupPage extends AppCompatActivity {
 
     public void playAgainstHardComputer(View myView){
 
-        if(myView == findViewById(R.id.hardComputerButton)) {
-
-            computer.setDifficulty(0);
-
-        }
-        else{}
+        computer.setDifficulty(1);
+        computer.setPlayerGamePiece(R.drawable.circle_black);
 
         singlePlayerButtonSetup();
         setPlayerOneToDefault();
@@ -88,13 +84,8 @@ public class SetupPage extends AppCompatActivity {
 
     public void playAgainstEasyComputer(View myView){
 
-        if(myView == findViewById(R.id.easyComputerButton)) {
-
-            computer.setDifficulty(1);
-
-
-        }
-        else{}
+        computer.setDifficulty(1);
+        computer.setPlayerGamePiece(R.drawable.circle_black);
 
         singlePlayerButtonSetup();
         setPlayerOneToDefault();
@@ -108,12 +99,8 @@ public class SetupPage extends AppCompatActivity {
 
     public void playAgainstPlayer(View myView){
 
-        if(myView == findViewById(R.id.pvpButton)) {
-
-            computer.setDifficulty(1);
-
-        }
-        else{}
+        computer.setDifficulty(0);
+        computer.setPlayerGamePiece(R.drawable.blank);
 
         multiPlayerButtonSetup();
         setPlayerOneToDefault();
@@ -486,76 +473,86 @@ public class SetupPage extends AppCompatActivity {
         MenuItem yellow = menu.findItem(R.id.menu_yellow);
         MenuItem white = menu.findItem(R.id.menu_white);
         MenuItem black = menu.findItem(R.id.menu_black);
+        if(computer.getDifficulty() == 0) {
 
-        if (playerTwo.getPlayerGamePiece() == R.drawable.circle_red |
-                playerTwo.getPlayerGamePiece() == R.drawable.square_red |
-                playerTwo.getPlayerGamePiece() == R.drawable.diamond_red |
-                playerTwo.getPlayerGamePiece() == R.drawable.star_red){
+            if (playerTwo.getPlayerGamePiece() == R.drawable.circle_red |
+                    playerTwo.getPlayerGamePiece() == R.drawable.square_red |
+                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_red |
+                    playerTwo.getPlayerGamePiece() == R.drawable.star_red) {
 
-            red.setVisible(false);
-            return popup;
+                red.setVisible(false);
+                return popup;
 
+            }
+
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_blue |
+                    playerTwo.getPlayerGamePiece() == R.drawable.square_blue |
+                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_blue |
+                    playerTwo.getPlayerGamePiece() == R.drawable.star_blue) {
+
+                blue.setVisible(false);
+                return popup;
+
+            }
+
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_green |
+                    playerTwo.getPlayerGamePiece() == R.drawable.square_green |
+                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_green |
+                    playerTwo.getPlayerGamePiece() == R.drawable.star_green) {
+
+                green.setVisible(false);
+                return popup;
+
+            }
+
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_yellow |
+                    playerTwo.getPlayerGamePiece() == R.drawable.square_yellow |
+                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_yellow |
+                    playerTwo.getPlayerGamePiece() == R.drawable.star_yellow) {
+
+                yellow.setVisible(false);
+                return popup;
+
+            }
+
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_white |
+                    playerTwo.getPlayerGamePiece() == R.drawable.square_white |
+                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_white |
+                    playerTwo.getPlayerGamePiece() == R.drawable.star_white) {
+
+                white.setVisible(false);
+                return popup;
+
+            }
+
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_black |
+                    playerTwo.getPlayerGamePiece() == R.drawable.square_black |
+                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_black |
+                    playerTwo.getPlayerGamePiece() == R.drawable.star_black) {
+
+                black.setVisible(false);
+                return popup;
+
+            }
+
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.blank) {
+
+                yellow.setVisible(true);
+                red.setVisible(true);
+                blue.setVisible(true);
+                green.setVisible(true);
+            }
         }
-        
-        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_blue |
-                playerTwo.getPlayerGamePiece() == R.drawable.square_blue |
-                playerTwo.getPlayerGamePiece() == R.drawable.diamond_blue |
-                playerTwo.getPlayerGamePiece() == R.drawable.star_blue){
 
-            blue.setVisible(false);
-            return popup;
-
-        }
-        
-        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_green |
-                playerTwo.getPlayerGamePiece() == R.drawable.square_green |
-                playerTwo.getPlayerGamePiece() == R.drawable.diamond_green|
-                playerTwo.getPlayerGamePiece() == R.drawable.star_green){
-
-            green.setVisible(false);
-            return popup;
-
-        }
-        
-        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_yellow |
-                playerTwo.getPlayerGamePiece() == R.drawable.square_yellow |
-                playerTwo.getPlayerGamePiece() == R.drawable.diamond_yellow |
-                playerTwo.getPlayerGamePiece() == R.drawable.star_yellow){
-
-            yellow.setVisible(false);
-            return popup;
-
-        }
-
-        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_white |
-                playerTwo.getPlayerGamePiece() == R.drawable.square_white |
-                playerTwo.getPlayerGamePiece() == R.drawable.diamond_white |
-                playerTwo.getPlayerGamePiece() == R.drawable.star_white){
-
-            white.setVisible(false);
-            return popup;
-
-        }
-
-        else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_black |
-                playerTwo.getPlayerGamePiece() == R.drawable.square_black |
-                playerTwo.getPlayerGamePiece() == R.drawable.diamond_black |
-                playerTwo.getPlayerGamePiece() == R.drawable.star_black){
+        else if(computer.getDifficulty() == 1 | computer.getDifficulty() == 2){
 
             black.setVisible(false);
             return popup;
 
         }
-        
-        else if (playerTwo.getPlayerGamePiece() == R.drawable.blank) {
-
-            yellow.setVisible(true);
-            red.setVisible(true);
-            blue.setVisible(true);
-            green.setVisible(true);
-        }
 
         return popup;
+
     }
 
     public int setColourPlayerOne(int token, String colour){

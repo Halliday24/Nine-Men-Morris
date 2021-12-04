@@ -12,7 +12,7 @@
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginLeft="96dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="500dp"
         android:background="@drawable/white_piece">
 
     </ImageView>
@@ -457,7 +457,7 @@
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginLeft="223dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="500dp"
         android:background="@drawable/black_piece">
 
     </ImageView>
@@ -523,38 +523,10 @@
 
     </Button>
 
-    <ImageView
-        android:id="@+id/viewCheck"
-        android:layout_width="89dp"
-        android:layout_height="92dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="226dp"
-        android:layout_marginTop="127dp"
-        android:layout_marginEnd="95dp"
-        android:layout_marginBottom="511dp"
-        app:srcCompat="@drawable/blank" />
-
-    <Button
-        android:id="@+id/check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="94dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="223dp"
-        android:layout_marginBottom="533dp"
-        android:text="Button" />
-
     <LinearLayout
         android:id="@+id/blackCheckerArea"
         style="@style/CheckerArea"
-        android:layout_marginTop="-284dp"
+        android:layout_centerHorizontal="true"
         android:clipChildren="false"
         tools:ignore="NotSibling">
 
@@ -616,7 +588,8 @@
     <LinearLayout
         android:id="@+id/whiteCheckerArea"
         style="@style/CheckerArea"
-        android:layout_marginBottom="3dp"
+        android:layout_below="@id/blackCheckerArea"
+        android:layout_centerHorizontal="true"
         android:clipChildren="false"
         tools:ignore="NotSibling">
 
@@ -674,6 +647,13 @@
             android:contentDescription="9"
             android:src="@drawable/circle_white" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView123"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="16sp" />
 
 
 </RelativeLayout>
