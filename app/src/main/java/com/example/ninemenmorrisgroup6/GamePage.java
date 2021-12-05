@@ -24,6 +24,11 @@ import com.example.ninemenmorrisgroup6.Helps.Constants;
 import com.example.ninemenmorrisgroup6.Helps.Rules;
 
 public class GamePage extends AppCompatActivity {
+
+    public static Player playerOne = new HumanPlayer();
+    public static Player playerTwo = new HumanPlayer();
+    public static Player computer = new ComputerPlayer();
+
     private final String TAG = "Main activity";
 
     private final String WHITE_INDEXES = "WHITE_INDEXES";
@@ -60,6 +65,12 @@ public class GamePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Creating activity");
         setContentView(R.layout.activity_main);
+
+        playerOne = (Player) getIntent().getSerializableExtra("playerOne");
+        playerTwo = (Player) getIntent().getSerializableExtra("playerTwo");
+        computer = (Player) getIntent().getSerializableExtra("computer");
+
+        initializeGamePieces();
 
         pref = this.getSharedPreferences("errorlabs.in", Context.MODE_PRIVATE);
         edit = pref.edit();
@@ -202,7 +213,7 @@ public class GamePage extends AppCompatActivity {
                             }
                             //Did someone win?
                             isWin = rules.isItAWin(rules.getTurn());
-                            if(isWin) {
+                            if (isWin) {
                                 if (rules.getTurn() == Constants.BLACK) {
                                     playerTurn.setText("White wins!");
                                 } else {
@@ -225,11 +236,11 @@ public class GamePage extends AppCompatActivity {
         edit.putInt(WHITE_INDEXES_SIZE, whiteIndexes.size());
         edit.putInt(BLACK_INDEXES_SIZE, blackIndexes.size());
 
-        for(int i = 0; i < whiteIndexes.size(); i++) {
-            edit.putString(WHITE_INDEXES+i, whiteIndexes.get(i));
+        for (int i = 0; i < whiteIndexes.size(); i++) {
+            edit.putString(WHITE_INDEXES + i, whiteIndexes.get(i));
         }
-        for(int i = 0; i < blackIndexes.size(); i++) {
-            edit.putString(BLACK_INDEXES+i, blackIndexes.get(i));
+        for (int i = 0; i < blackIndexes.size(); i++) {
+            edit.putString(BLACK_INDEXES + i, blackIndexes.get(i));
         }
         edit.putBoolean(IS_WIN, isWin);
         edit.putBoolean(REMOVE_CHECKER, removeNextChecker);
@@ -242,15 +253,15 @@ public class GamePage extends AppCompatActivity {
         Log.i(TAG, "---------------------resume----------------");
         newGame = pref.getBoolean(NEW_GAME, false);
         edit.putBoolean(NEW_GAME, false);
-        if(!newGame) {
+        if (!newGame) {
             rules.restorePref(pref);
             int whiteSize = pref.getInt(WHITE_INDEXES_SIZE, 0);
             int blackSize = pref.getInt(BLACK_INDEXES_SIZE, 0);
-            for(int i = 0; i < whiteSize; i++) {
-                whiteIndexes.add(pref.getString(WHITE_INDEXES+i, ""));
+            for (int i = 0; i < whiteSize; i++) {
+                whiteIndexes.add(pref.getString(WHITE_INDEXES + i, ""));
             }
-            for(int i = 0; i < blackSize; i++) {
-                blackIndexes.add(pref.getString(BLACK_INDEXES+i, ""));
+            for (int i = 0; i < blackSize; i++) {
+                blackIndexes.add(pref.getString(BLACK_INDEXES + i, ""));
             }
 
             isWin = pref.getBoolean(IS_WIN, false);
@@ -262,20 +273,20 @@ public class GamePage extends AppCompatActivity {
     private void restore() {
         int white = 0;
         int black = 0;
-        for(int i = 1; i < 25; i ++) {
+        for (int i = 1; i < 25; i++) {
             int color = rules.fieldColor(i);
             int index = 0;
             ViewGroup parent = null;
-            if(color == Constants.WHITE) {
+            if (color == Constants.WHITE) {
                 index = Integer.parseInt(whiteIndexes.get(white));
                 white++;
-                parent = ((ViewGroup)findViewById(R.id.whiteCheckerArea));
-            } else if(color == Constants.BLACK) {
+                parent = ((ViewGroup) findViewById(R.id.whiteCheckerArea));
+            } else if (color == Constants.BLACK) {
                 index = Integer.parseInt(blackIndexes.get(black));
                 black++;
-                parent = ((ViewGroup)findViewById(R.id.blackCheckerArea));
+                parent = ((ViewGroup) findViewById(R.id.blackCheckerArea));
             }
-            if(parent != null) {
+            if (parent != null) {
                 ImageView checker = setPlaceHolder(index, parent);
                 ((ViewGroup) findViewById(R.id.board)).addView(checker);
                 int areaId = getResources().getIdentifier("area" + i, "id", this.getPackageName());
@@ -295,7 +306,7 @@ public class GamePage extends AppCompatActivity {
                     playerTurn.setText("Black turn");
                 }
             }
-            if(isWin) {
+            if (isWin) {
                 if (rules.getTurn() == Constants.BLACK) {
                     playerTurn.setText("White wins!");
                 } else {
@@ -303,18 +314,18 @@ public class GamePage extends AppCompatActivity {
                 }
             }
         }
-        while(white < whiteIndexes.size()) {
-            setPlaceHolder(Integer.parseInt(whiteIndexes.get(white)), ((ViewGroup)findViewById(R.id.whiteCheckerArea)));
+        while (white < whiteIndexes.size()) {
+            setPlaceHolder(Integer.parseInt(whiteIndexes.get(white)), ((ViewGroup) findViewById(R.id.whiteCheckerArea)));
             white++;
         }
-        while(black < blackIndexes.size()) {
-            setPlaceHolder(Integer.parseInt(blackIndexes.get(black)), ((ViewGroup)findViewById(R.id.blackCheckerArea)));
+        while (black < blackIndexes.size()) {
+            setPlaceHolder(Integer.parseInt(blackIndexes.get(black)), ((ViewGroup) findViewById(R.id.blackCheckerArea)));
             black++;
         }
     }
 
     private ImageView setPlaceHolder(int index, ViewGroup parent) {
-        ImageView checker = (ImageView)parent.getChildAt(index);
+        ImageView checker = (ImageView) parent.getChildAt(index);
         parent.removeViewAt(index);
         FrameLayout placeholder = (FrameLayout) getLayoutInflater().inflate(R.layout.layout_placeholder, parent, false);
         parent.addView(placeholder, index);
@@ -345,6 +356,7 @@ public class GamePage extends AppCompatActivity {
 
     /**
      * Move the checker from the current position to a new position
+     *
      * @param turn Constant.WHITE or Constant.BLACK according to whos turn it is
      */
     private void moveChecker(int turn) {
@@ -358,11 +370,11 @@ public class GamePage extends AppCompatActivity {
         Log.i(TAG, "move from x: " + locationChecker[0] + " y: " + locationChecker[1]);
         Log.i(TAG, "move to x: " + locationArea[0] + " y: " + locationArea[1]);
 
-        ViewGroup parent = ((ViewGroup)selectedChecker.getParent());
+        ViewGroup parent = ((ViewGroup) selectedChecker.getParent());
         final int index = parent.indexOfChild(selectedChecker);
 
         //Create a ghost checker which will be animated while the real one just moves.
-        if(turn == Constants.WHITE) {
+        if (turn == Constants.WHITE) {
             whiteIndexes.add(index + "");
             animChecker = (ImageView) getLayoutInflater().inflate(R.layout.anim_white_checker, parent, false);
         } else {
@@ -406,7 +418,7 @@ public class GamePage extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                ViewGroup parent = ((ViewGroup)tmpAnimChecker.getParent());
+                ViewGroup parent = ((ViewGroup) tmpAnimChecker.getParent());
                 //Fix the side board so its children stays in position
                 if (tmpAnimChecker.getParent() != findViewById(R.id.board)) {
                     //Add a placeholder frame layout to stop the other checkers from jmping towards the middle.
@@ -432,21 +444,21 @@ public class GamePage extends AppCompatActivity {
     }
 
     /**
-
      * Lets the player select a checker to remove or move
+     *
      * @param v The checker which was clicked on.
      */
     private void selectChecker(View v) {
         //Is it a remove click=
         if (removeNextChecker) {
             //Is it a valid remove click?
-            if(rules.getTurn() == Constants.BLACK && rules.remove(checkerPositions.get(v), Constants.BLACK)) {
+            if (rules.getTurn() == Constants.BLACK && rules.remove(checkerPositions.get(v), Constants.BLACK)) {
                 //Unamrk all options and remove the selected checker
 
                 unMarkAllFields();
                 blackCheckers.remove(v);
                 removeNextChecker = false;
-                ViewGroup parent = ((ViewGroup)v.getParent());
+                ViewGroup parent = ((ViewGroup) v.getParent());
                 parent.removeView(v);
                 playerTurn.setText("Black turn");
 
@@ -455,13 +467,12 @@ public class GamePage extends AppCompatActivity {
                 if (isWin) {
                     playerTurn.setText("White wins!");
                 }
-            }
-            else if(rules.getTurn() == Constants.WHITE && rules.remove(checkerPositions.get(v), Constants.WHITE)) {
+            } else if (rules.getTurn() == Constants.WHITE && rules.remove(checkerPositions.get(v), Constants.WHITE)) {
                 //Unmark all options and remove the selected checker
                 unMarkAllFields();
                 whiteCheckers.remove(v);
                 removeNextChecker = false;
-                ViewGroup parent = ((ViewGroup)v.getParent());
+                ViewGroup parent = ((ViewGroup) v.getParent());
                 parent.removeView(v);
                 playerTurn.setText("White turn");
 
@@ -481,7 +492,7 @@ public class GamePage extends AppCompatActivity {
             }
             //If its the selected checker which is clicked, no checker is selected.
 
-            if(selectedChecker == v) {
+            if (selectedChecker == v) {
                 hasSelectedChecker = false;
                 selectedChecker = null;
                 unMarkAllFields();
@@ -497,11 +508,12 @@ public class GamePage extends AppCompatActivity {
 
     /**
      * Mark all available moves that can be done.
+     *
      * @param from The position of the checker which wants to move
      */
     private void markAvailableMoveFields(int from) {
-        for(int i = 0; i < 24; i++) {
-            if(rules.isValidMove(from, i+1)) {
+        for (int i = 0; i < 24; i++) {
+            if (rules.isValidMove(from, i + 1)) {
                 higBoxAreas.get(i).setBackgroundResource(R.drawable.valid_move);
             }
         }
@@ -511,7 +523,7 @@ public class GamePage extends AppCompatActivity {
      * Unmark all fields.
      */
     private void unMarkAllFields() {
-        for(FrameLayout f : higBoxAreas) {
+        for (FrameLayout f : higBoxAreas) {
             f.setBackgroundResource(0);
         }
     }
@@ -520,11 +532,103 @@ public class GamePage extends AppCompatActivity {
      * 后退键，销毁主界面
      */
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         super.onBackPressed();
         finish();
     }
+
+    public void initializeGamePieces() {
+
+        ImageView playerOne1 = (ImageView) findViewById(R.id.blackChecker1);
+        ImageView playerOne2 = (ImageView) findViewById(R.id.blackChecker2);
+        ImageView playerOne3 = (ImageView) findViewById(R.id.blackChecker3);
+        ImageView playerOne4 = (ImageView) findViewById(R.id.blackChecker4);
+        ImageView playerOne5 = (ImageView) findViewById(R.id.blackChecker5);
+        ImageView playerOne6 = (ImageView) findViewById(R.id.blackChecker6);
+        ImageView playerOne7 = (ImageView) findViewById(R.id.blackChecker7);
+        ImageView playerOne8 = (ImageView) findViewById(R.id.blackChecker8);
+        ImageView playerOne9 = (ImageView) findViewById(R.id.blackChecker9);
+
+        ImageView playerTwo1 = (ImageView) findViewById(R.id.whiteChecker1);
+        ImageView playerTwo2 = (ImageView) findViewById(R.id.whiteChecker2);
+        ImageView playerTwo3 = (ImageView) findViewById(R.id.whiteChecker3);
+        ImageView playerTwo4 = (ImageView) findViewById(R.id.whiteChecker4);
+        ImageView playerTwo5 = (ImageView) findViewById(R.id.whiteChecker5);
+        ImageView playerTwo6 = (ImageView) findViewById(R.id.whiteChecker6);
+        ImageView playerTwo7 = (ImageView) findViewById(R.id.whiteChecker7);
+        ImageView playerTwo8 = (ImageView) findViewById(R.id.whiteChecker8);
+        ImageView playerTwo9 = (ImageView) findViewById(R.id.whiteChecker9);
+
+        if (computer.getDifficulty() == 0) {
+
+            playerOne1.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne2.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne3.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne4.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne5.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne6.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne7.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne8.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne9.setImageResource(playerOne.getPlayerGamePiece());
+
+            playerTwo1.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo2.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo3.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo4.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo5.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo6.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo7.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo8.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo9.setImageResource(playerTwo.getPlayerGamePiece());
+
+        } else if (computer.getDifficulty() == 1) {
+
+            playerOne1.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne2.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne3.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne4.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne5.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne6.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne7.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne8.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne9.setImageResource(playerOne.getPlayerGamePiece());
+
+            playerTwo1.setImageResource(computer.getPlayerGamePiece());
+            playerTwo2.setImageResource(computer.getPlayerGamePiece());
+            playerTwo3.setImageResource(computer.getPlayerGamePiece());
+            playerTwo4.setImageResource(computer.getPlayerGamePiece());
+            playerTwo5.setImageResource(computer.getPlayerGamePiece());
+            playerTwo6.setImageResource(computer.getPlayerGamePiece());
+            playerTwo7.setImageResource(computer.getPlayerGamePiece());
+            playerTwo8.setImageResource(computer.getPlayerGamePiece());
+            playerTwo9.setImageResource(computer.getPlayerGamePiece());
+
+        } else if (computer.getDifficulty() == 2) {
+
+            playerOne1.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne2.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne3.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne4.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne5.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne6.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne7.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne8.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne9.setImageResource(playerOne.getPlayerGamePiece());
+
+            playerTwo1.setImageResource(computer.getPlayerGamePiece());
+            playerTwo2.setImageResource(computer.getPlayerGamePiece());
+            playerTwo3.setImageResource(computer.getPlayerGamePiece());
+            playerTwo4.setImageResource(computer.getPlayerGamePiece());
+            playerTwo5.setImageResource(computer.getPlayerGamePiece());
+            playerTwo6.setImageResource(computer.getPlayerGamePiece());
+            playerTwo7.setImageResource(computer.getPlayerGamePiece());
+            playerTwo8.setImageResource(computer.getPlayerGamePiece());
+            playerTwo9.setImageResource(computer.getPlayerGamePiece());
+
+        }
+    }
 }
+
 
 //package com.example.ninemenmorrisgroup6;
 //
@@ -538,10 +642,6 @@ public class GamePage extends AppCompatActivity {
 //import android.widget.TextView;
 //
 //public class GamePage extends AppCompatActivity {
-//
-//    public static Player playerOne = new HumanPlayer();
-//    public static Player playerTwo = new HumanPlayer();
-//    public static Player computer = new ComputerPlayer();
 //
 //
 //    @Override
@@ -582,101 +682,7 @@ public class GamePage extends AppCompatActivity {
 //    public void ResetGame(View view) {
 //    }
 //
-//    public void initializeGamePieces(){
-//
-//        ImageView playerOne1 = (ImageView) findViewById(R.id.blackChecker1);
-//        ImageView playerOne2 = (ImageView) findViewById(R.id.blackChecker2);
-//        ImageView playerOne3 = (ImageView) findViewById(R.id.blackChecker3);
-//        ImageView playerOne4 = (ImageView) findViewById(R.id.blackChecker4);
-//        ImageView playerOne5 = (ImageView) findViewById(R.id.blackChecker5);
-//        ImageView playerOne6 = (ImageView) findViewById(R.id.blackChecker6);
-//        ImageView playerOne7 = (ImageView) findViewById(R.id.blackChecker7);
-//        ImageView playerOne8 = (ImageView) findViewById(R.id.blackChecker8);
-//        ImageView playerOne9 = (ImageView) findViewById(R.id.blackChecker9);
-//
-//        ImageView playerTwo1 = (ImageView) findViewById(R.id.whiteChecker1);
-//        ImageView playerTwo2 = (ImageView) findViewById(R.id.whiteChecker2);
-//        ImageView playerTwo3 = (ImageView) findViewById(R.id.whiteChecker3);
-//        ImageView playerTwo4 = (ImageView) findViewById(R.id.whiteChecker4);
-//        ImageView playerTwo5 = (ImageView) findViewById(R.id.whiteChecker5);
-//        ImageView playerTwo6 = (ImageView) findViewById(R.id.whiteChecker6);
-//        ImageView playerTwo7 = (ImageView) findViewById(R.id.whiteChecker7);
-//        ImageView playerTwo8 = (ImageView) findViewById(R.id.whiteChecker8);
-//        ImageView playerTwo9 = (ImageView) findViewById(R.id.whiteChecker9);
-//
-//        if(computer.getDifficulty() == 0){
-//
-//            playerOne1.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne2.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne3.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne4.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne5.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne6.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne7.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne8.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne9.setImageResource(playerOne.getPlayerGamePiece());
-//
-//            playerTwo1.setImageResource(playerTwo.getPlayerGamePiece());
-//            playerTwo2.setImageResource(playerTwo.getPlayerGamePiece());
-//            playerTwo3.setImageResource(playerTwo.getPlayerGamePiece());
-//            playerTwo4.setImageResource(playerTwo.getPlayerGamePiece());
-//            playerTwo5.setImageResource(playerTwo.getPlayerGamePiece());
-//            playerTwo6.setImageResource(playerTwo.getPlayerGamePiece());
-//            playerTwo7.setImageResource(playerTwo.getPlayerGamePiece());
-//            playerTwo8.setImageResource(playerTwo.getPlayerGamePiece());
-//            playerTwo9.setImageResource(playerTwo.getPlayerGamePiece());
-//
-//        }
-//
-//        else if(computer.getDifficulty() == 1){
-//
-//            playerOne1.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne2.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne3.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne4.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne5.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne6.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne7.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne8.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne9.setImageResource(playerOne.getPlayerGamePiece());
-//
-//            playerTwo1.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo2.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo3.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo4.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo5.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo6.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo7.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo8.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo9.setImageResource(computer.getPlayerGamePiece());
-//
-//        }
-//
-//        else if(computer.getDifficulty() == 2){
-//
-//            playerOne1.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne2.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne3.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne4.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne5.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne6.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne7.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne8.setImageResource(playerOne.getPlayerGamePiece());
-//            playerOne9.setImageResource(playerOne.getPlayerGamePiece());
-//
-//            playerTwo1.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo2.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo3.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo4.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo5.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo6.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo7.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo8.setImageResource(computer.getPlayerGamePiece());
-//            playerTwo9.setImageResource(computer.getPlayerGamePiece());
-//
-//        }
-//
-//    }
+
 //
 ////    public void checkPlayer(int a, int b){
 ////        TextView diffCheck = (TextView) findViewById(R.id.textView123);
