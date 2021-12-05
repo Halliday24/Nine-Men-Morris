@@ -3,6 +3,7 @@ package com.example.ninemenmorrisgroup6;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +26,8 @@ import com.example.ninemenmorrisgroup6.Helps.Constants;
 import com.example.ninemenmorrisgroup6.Helps.Rules;
 
 public class GamePage extends AppCompatActivity {
+    MediaPlayer backgroundMusic;
+
 
     public static Player playerOne = new HumanPlayer();
     public static Player playerTwo = new HumanPlayer();
@@ -62,170 +66,175 @@ public class GamePage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.i(TAG, "Creating activity");
-        setContentView(R.layout.activity_game_page);
+            super.onCreate(savedInstanceState);
+            Log.i(TAG, "Creating activity");
+            setContentView(R.layout.activity_main);
 
-        playerOne = (Player) getIntent().getSerializableExtra("playerOne");
-        playerTwo = (Player) getIntent().getSerializableExtra("playerTwo");
-        computer = (Player) getIntent().getSerializableExtra("computer");
+            playerOne = (Player) getIntent().getSerializableExtra("playerOne");
+            playerTwo = (Player) getIntent().getSerializableExtra("playerTwo");
+            computer = (Player) getIntent().getSerializableExtra("computer");
 
-        initializeGamePieces();
+            initializeGamePieces();
 
-        pref = this.getSharedPreferences("errorlabs.in", Context.MODE_PRIVATE);
-        edit = pref.edit();
+            pref = this.getSharedPreferences("errorlabs.in", Context.MODE_PRIVATE);
+            edit = pref.edit();
 
-        selectedChecker = null;
-        areaToMoveTo = null;
-        checkerPositions = new HashMap<ImageView, Integer>();
-        playerTurn = (TextView) findViewById(R.id.TurnText);
+            selectedChecker = null;
+            areaToMoveTo = null;
+            checkerPositions = new HashMap<ImageView, Integer>();
+            playerTurn = (TextView) findViewById(R.id.TurnText);
 
-        //Save all white checkers in a list
-        whiteCheckers = new ArrayList<ImageView>();
-        whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker1));
-        whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker2));
-        whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker3));
-        whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker4));
-        whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker5));
-        whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker6));
-        whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker7));
-        whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker8));
-        whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker9));
+            //Save all white checkers in a list
+            whiteCheckers = new ArrayList<ImageView>();
+            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker1));
+            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker2));
+            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker3));
+            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker4));
+            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker5));
+            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker6));
+            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker7));
+            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker8));
+            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker9));
 
-        //Save all black checkers in a list
-        blackCheckers = new ArrayList<ImageView>();
-        blackCheckers.add((ImageView) findViewById(R.id.blackChecker1));
-        blackCheckers.add((ImageView) findViewById(R.id.blackChecker2));
-        blackCheckers.add((ImageView) findViewById(R.id.blackChecker3));
-        blackCheckers.add((ImageView) findViewById(R.id.blackChecker4));
-        blackCheckers.add((ImageView) findViewById(R.id.blackChecker5));
-        blackCheckers.add((ImageView) findViewById(R.id.blackChecker6));
-        blackCheckers.add((ImageView) findViewById(R.id.blackChecker7));
-        blackCheckers.add((ImageView) findViewById(R.id.blackChecker8));
-        blackCheckers.add((ImageView) findViewById(R.id.blackChecker9));
+            //Save all black checkers in a list
+            blackCheckers = new ArrayList<ImageView>();
+            blackCheckers.add((ImageView) findViewById(R.id.blackChecker1));
+            blackCheckers.add((ImageView) findViewById(R.id.blackChecker2));
+            blackCheckers.add((ImageView) findViewById(R.id.blackChecker3));
+            blackCheckers.add((ImageView) findViewById(R.id.blackChecker4));
+            blackCheckers.add((ImageView) findViewById(R.id.blackChecker5));
+            blackCheckers.add((ImageView) findViewById(R.id.blackChecker6));
+            blackCheckers.add((ImageView) findViewById(R.id.blackChecker7));
+            blackCheckers.add((ImageView) findViewById(R.id.blackChecker8));
+            blackCheckers.add((ImageView) findViewById(R.id.blackChecker9));
 
-        //Save all areas the checkers can move to in a list
-        higBoxAreas = new ArrayList<FrameLayout>();
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area1));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area2));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area3));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area4));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area5));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area6));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area7));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area8));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area9));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area10));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area11));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area12));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area13));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area14));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area15));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area16));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area17));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area18));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area19));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area20));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area21));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area22));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area23));
-        higBoxAreas.add((FrameLayout) findViewById(R.id.area24));
+            //Save all areas the checkers can move to in a list
+            higBoxAreas = new ArrayList<FrameLayout>();
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area1));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area2));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area3));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area4));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area5));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area6));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area7));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area8));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area9));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area10));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area11));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area12));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area13));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area14));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area15));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area16));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area17));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area18));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area19));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area20));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area21));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area22));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area23));
+            higBoxAreas.add((FrameLayout) findViewById(R.id.area24));
 
-        //Add a onClickListener to the white checkers
-        for (ImageView v : whiteCheckers) {
-            checkerPositions.put(v, 0);
-            v.setOnClickListener(new View.OnClickListener() {
+            //Add a onClickListener to the white checkers
+            for (ImageView v : whiteCheckers) {
+                checkerPositions.put(v, 0);
+                v.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    if (rules.getTurn() == Constants.WHITE && !isWin) {
-                        selectChecker(v);
+                    @Override
+                    public void onClick(View v) {
+                        if (rules.getTurn() == Constants.WHITE && !isWin) {
+                            selectChecker(v);
+                        }
                     }
-                }
-            });
-        }
+                });
+            }
 
-        //Add a onClickListener to the black checkers
-        for (ImageView v : blackCheckers) {
-            checkerPositions.put(v, 0);
-            v.setOnClickListener(new View.OnClickListener() {
+            //Add a onClickListener to the black checkers
+            for (ImageView v : blackCheckers) {
+                checkerPositions.put(v, 0);
+                v.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    if (rules.getTurn() == Constants.BLACK && !isWin) {
-                        selectChecker(v);
+                    @Override
+                    public void onClick(View v) {
+                        if (rules.getTurn() == Constants.BLACK && !isWin) {
+                            selectChecker(v);
+                        }
                     }
-                }
-            });
-        }
+                });
+            }
 
-        //Add a clickListener to all the hit box areas
-        for (FrameLayout v : higBoxAreas) {
-            v.setOnClickListener(new View.OnClickListener() {
+            //Add a clickListener to all the hit box areas
+            for (FrameLayout v : higBoxAreas) {
+                v.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
+                    @Override
+                    public void onClick(View v) {
 
-                    //If we have a selected checker, try to move it
-                    if (hasSelectedChecker) {
-                        Log.i(TAG, "Area clicked");
-                        int currentTurn = rules.getTurn();
-                        areaToMoveTo = (FrameLayout) v;
+                        //If we have a selected checker, try to move it
+                        if (hasSelectedChecker) {
+                            Log.i(TAG, "Area clicked");
+                            int currentTurn = rules.getTurn();
+                            areaToMoveTo = (FrameLayout) v;
 
-                        //What areas are we moving from and to?
-                        int to = Integer.parseInt((String) areaToMoveTo.getContentDescription());
-                        int from = checkerPositions.get(selectedChecker);
-                        //Try to move the checker
-                        if (rules.validMove(from, to)) { // This line will change turn
-                            Log.i(TAG, "Valid move");
-                            //Update the UI
-                            unMarkAllFields();
-                            moveChecker(currentTurn);
+                            //What areas are we moving from and to?
+                            int to = Integer.parseInt((String) areaToMoveTo.getContentDescription());
+                            int from = checkerPositions.get(selectedChecker);
+                            //Try to move the checker
+                            if (rules.validMove(from, to)) { // This line will change turn
+                                Log.i(TAG, "Valid move");
+                                //Update the UI
+                                unMarkAllFields();
+                                moveChecker(currentTurn);
 
-                            checkerPositions.put((ImageView) selectedChecker, Integer.parseInt((String) areaToMoveTo.getContentDescription()));
+                                checkerPositions.put((ImageView) selectedChecker, Integer.parseInt((String) areaToMoveTo.getContentDescription()));
 
-                            //Did the row create a row of 3?
-                            removeNextChecker = rules.canRemove(to);
+                                //Did the row create a row of 3?
+                                removeNextChecker = rules.canRemove(to);
 
-                            selectedChecker.setAlpha(1.0f);
+                                selectedChecker.setAlpha(1.0f);
 
-                            //The selected checker is not selected anymore
-                            hasSelectedChecker = false;
-                            selectedChecker = null;
-                            checkerPositions.put((ImageView) selectedChecker, Integer.parseInt((String) areaToMoveTo.getContentDescription()));
+                                //The selected checker is not selected anymore
+                                hasSelectedChecker = false;
+                                selectedChecker = null;
+                                checkerPositions.put((ImageView) selectedChecker, Integer.parseInt((String) areaToMoveTo.getContentDescription()));
 
-                            //Did the move create a row of 3?
-                            removeNextChecker = rules.canRemove(to);
+                                //Did the move create a row of 3?
+                                removeNextChecker = rules.canRemove(to);
 
-                            //Update the turn text
-                            if (removeNextChecker) {
-                                if (currentTurn == Constants.BLACK) {
-                                    playerTurn.setText("Remove White");
+                                //Update the turn text
+                                if (removeNextChecker) {
+                                    if (currentTurn == Constants.BLACK) {
+                                        playerTurn.setText("Remove White");
+                                    } else {
+                                        playerTurn.setText("Remove Black");
+                                    }
                                 } else {
-                                    playerTurn.setText("Remove Black");
+                                    if (currentTurn == Constants.BLACK) {
+                                        playerTurn.setText("White turn");
+                                    } else {
+                                        playerTurn.setText("Black turn");
+                                    }
                                 }
-                            } else {
-                                if (currentTurn == Constants.BLACK) {
-                                    playerTurn.setText("White turn");
-                                } else {
-                                    playerTurn.setText("Black turn");
-                                }
-                            }
-                            //Did someone win?
-                            isWin = rules.isItAWin(rules.getTurn());
-                            if (isWin) {
-                                if (rules.getTurn() == Constants.BLACK) {
-                                    playerTurn.setText("White wins!");
-                                } else {
-                                    playerTurn.setText("Black wins!");
-                                }
+                                //Did someone win?
+                                isWin = rules.isItAWin(rules.getTurn());
+                                if (isWin) {
+                                    if (rules.getTurn() == Constants.BLACK) {
+                                        playerTurn.setText("White wins!");
+                                    } else {
+                                        playerTurn.setText("Black wins!");
+                                    }
 
+                                }
                             }
                         }
                     }
-                }
-            });
-        }
+                });
+            }
+
+            //Start music
+            backgroundMusic = MediaPlayer.create(GamePage.this, R.raw.cali);
+            backgroundMusic.setLooping(true);
+            backgroundMusic.start();
     }
 
     @Override
@@ -245,6 +254,9 @@ public class GamePage extends AppCompatActivity {
         edit.putBoolean(IS_WIN, isWin);
         edit.putBoolean(REMOVE_CHECKER, removeNextChecker);
         edit.commit();
+
+        super.onPause();
+        backgroundMusic.pause();
     }
 
     @Override
@@ -268,6 +280,9 @@ public class GamePage extends AppCompatActivity {
             removeNextChecker = pref.getBoolean(REMOVE_CHECKER, false);
             restore();
         }
+
+        super.onResume();
+        backgroundMusic.start();
     }
 
     private void restore() {
@@ -627,6 +642,29 @@ public class GamePage extends AppCompatActivity {
 
         }
     }
+
+
+    public void muteSound(View myView) {
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButton);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButton);
+
+        backgroundMusic.pause();
+
+        muteBtn.setVisibility(View.INVISIBLE);
+        unmuteBtn.setVisibility(View.VISIBLE);
+    }
+
+
+    public void unmuteSound(View myView) {
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButton);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButton);
+
+        backgroundMusic.start();
+
+        unmuteBtn.setVisibility(View.INVISIBLE);
+        muteBtn.setVisibility(View.VISIBLE);
+    }
+
 }
 
 
