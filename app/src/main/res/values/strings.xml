@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Nine Men Morris Group 6</string>
+    <string name="app_name">9 Mens Morris</string>
+    <string name="turn_color">Whites turn</string>
+    <string name="rules">The basic aim of Nine Mens Morris is to make mills - vertical or horizontal lines of three in a row. \n\n
+        Every time this is achieved, an opponents piece is removed, the overall objective being to reduce the number of opponents pieces to less than three or to render the opponent unable to play. \n\n
+        To begin with the board is empty.</string>
+
 </resources>

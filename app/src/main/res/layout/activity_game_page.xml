@@ -8,6 +8,19 @@
     android:background="#faf1b4">
 
 
+    <TextView
+        android:id="@+id/TurnText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="107dp"
+        android:gravity="center"
+        android:text="@string/turn_color"
+        android:textColor="@android:color/white"
+        android:textSize="26sp" />
+
+    <string name="turn_color">Whites turn</string>
+
     <ImageView
         android:layout_width="100dp"
         android:layout_height="80dp"
@@ -16,6 +29,8 @@
         android:background="@drawable/white_piece">
 
     </ImageView>
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/board"

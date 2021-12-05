@@ -3,14 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/dkriv/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_game_page.xml" value="0.33" />
-        <entry key="..\:/Users/dkriv/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/dkriv/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_setup_page.xml" value="0.22" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Nine-Men-Morris-version2/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Nine-Men-Morris-version2/app/src/main/res/layout/activity_rules_popup.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_game_page.xml" value="0.33" />
+        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_main.xml" value="0.27807971014492755" />
+        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_setup_page.xml" value="0.22" />
+        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/anim_black_checker.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/anim_white_checker.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/custom_toast.xml" value="0.22" />
+        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/layout_placeholder.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Zack/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/menu/strings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dkriv/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_game_page.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/dkriv/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/dkriv/AndroidStudioProjects/Nine-Men-Morris/app/src/main/res/layout/activity_setup_page.xml" value="0.25" />
         <entry key="..\:/Users/zacha/AndroidStudioProjects/NineMenMorrisGroup6/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14629629629629629" />
         <entry key="..\:/Users/zacha/AndroidStudioProjects/NineMenMorrisGroup6/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/zacha/AndroidStudioProjects/NineMenMorrisGroup6/app/src/main/res/layout/activity_setup_page.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_game_page.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_setup_page.xml" value="0.12395833333333334" />
+        <entry key="app/src/main/res/layout/anim_black_checker.xml" value="0.12395833333333334" />
       </map>
     </option>
   </component>
@@ -19,5 +29,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.12395833333333334" />
+      </ProjectState>
+    </option>
   </component>
 </project>
