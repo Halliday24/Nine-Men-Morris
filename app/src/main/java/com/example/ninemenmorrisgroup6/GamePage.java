@@ -234,7 +234,7 @@ public class GamePage extends AppCompatActivity {
             //Start music
             backgroundMusic = MediaPlayer.create(GamePage.this, R.raw.cali);
             backgroundMusic.setLooping(true);
-            backgroundMusic.start();
+            //backgroundMusic.start();
     }
 
     @Override
