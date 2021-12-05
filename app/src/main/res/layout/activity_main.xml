@@ -7,6 +7,14 @@
     tools:context=".MainActivity"
     android:background="#faf1b4">
 
+    <LinearLayout
+        android:id="@+id/dim_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#70000000"
+        android:visibility="invisible"
+        android:orientation="horizontal" />
+
     <Button
         android:id="@+id/playButton"
         android:layout_width="275dp"
@@ -29,6 +37,7 @@
         android:backgroundTint="#c0aee0"
         android:text="Rules"
         android:textSize="12sp"
+        android:onClick="RulesButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.24"
