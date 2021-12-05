@@ -7,14 +7,6 @@
     tools:context=".MainActivity"
     android:background="#faf1b4">
 
-    <LinearLayout
-        android:id="@+id/dim_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#70000000"
-        android:visibility="invisible"
-        android:orientation="horizontal" />
-
     <Button
         android:id="@+id/playButton"
         android:layout_width="275dp"
@@ -37,7 +29,6 @@
         android:backgroundTint="#c0aee0"
         android:text="Rules"
         android:textSize="12sp"
-        android:onClick="RulesButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.24"
@@ -73,30 +64,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.209" />
 
-    <ImageButton
-        android:id="@+id/muteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        android:onClick="muteSound"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/unmuted" />
-
-    <ImageButton
-        android:id="@+id/unmuteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        android:onClick="unmuteSound"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/muted" />
 </androidx.constraintlayout.widget.ConstraintLayout>
