@@ -68,7 +68,7 @@ public class GamePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             Log.i(TAG, "Creating activity");
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.activity_game_page);
 
             playerOne = (Player) getIntent().getSerializableExtra("playerOne");
             playerTwo = (Player) getIntent().getSerializableExtra("playerTwo");
