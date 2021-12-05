@@ -335,7 +335,7 @@ public class SetupPage extends AppCompatActivity {
         return false;
     }
 
-    //########################## PLAYER ONE #######################################################
+    //########################## PLAYER ONE METHODS ################################################
 
     /**
      * Brings up the options menu for playerOne's piece selection.
@@ -1299,7 +1299,7 @@ public class SetupPage extends AppCompatActivity {
         
     }
 
-    //########################## PLAYER TWO #######################################################
+    //########################## PLAYER TWO METHODS ################################################
 
     /**
      * Brings up the options menu for playerTwo's piece selection.

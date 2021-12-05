@@ -51,7 +51,7 @@
         android:textColor="@android:color/white"
         android:textSize="26sp" />
 
-    <string name="turn_color">Whites turn</string>
+<!--    <string name="turn_color">Whites turn</string>-->
 
     <ImageView
         android:layout_width="100dp"
