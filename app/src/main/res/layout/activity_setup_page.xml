@@ -8,6 +8,37 @@
     android:padding="5dp"
     tools:context=".SetupPage">
 
+    <ImageButton
+        android:id="@+id/unmuteButtonSetup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:onClick="unmuteSoundSetup"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/muted" />
+
+    <ImageButton
+        android:id="@+id/muteButtonSetup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="2dp"
+        android:background="@android:color/transparent"
+        android:onClick="muteSoundSetup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/unmuted" />
+
     <ImageView
         android:id="@+id/playerTwoImage"
         android:layout_width="93dp"

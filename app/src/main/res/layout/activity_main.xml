@@ -7,6 +7,37 @@
     tools:context=".MainActivity"
     android:background="#faf1b4">
 
+    <ImageButton
+        android:id="@+id/muteButtonMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="2dp"
+        android:background="@android:color/transparent"
+        android:onClick="muteSoundMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/unmuted" />
+
+    <ImageButton
+        android:id="@+id/unmuteButtonMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:onClick="unmuteSoundMain"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/muted" />
+
     <Button
         android:id="@+id/playButton"
         android:layout_width="275dp"

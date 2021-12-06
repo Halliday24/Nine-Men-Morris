@@ -9,14 +9,14 @@
 
 
     <ImageButton
-        android:id="@+id/unmuteButton"
+        android:id="@+id/unmuteButtonGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="0dp"
         android:background="@android:color/transparent"
-        android:onClick="unmuteSound"
+        android:onClick="unmuteSoundGame"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.738"
@@ -25,7 +25,7 @@
         app:srcCompat="@drawable/muted" />
 
     <ImageButton
-        android:id="@+id/muteButton"
+        android:id="@+id/muteButtonGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -33,7 +33,7 @@
         android:layout_marginTop="17dp"
         android:layout_marginEnd="2dp"
         android:background="@android:color/transparent"
-        android:onClick="muteSound"
+        android:onClick="muteSoundGame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"

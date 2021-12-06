@@ -14,10 +14,13 @@ import android.view.View;
 import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.ninemenmorrisgroup6.Helps.Music;
 
 public class SetupPage extends AppCompatActivity {
 
@@ -42,6 +45,9 @@ public class SetupPage extends AppCompatActivity {
         playerOneColourSelection.setEnabled(false);
         playerTwoPieceSelection.setEnabled(false);
         playerTwoColourSelection.setEnabled(false);
+
+        computer.setDifficulty(3);
+        musicCheckSetup();
 
     }
 
@@ -331,8 +337,59 @@ public class SetupPage extends AppCompatActivity {
 
         }
 
+        else if(computer.getDifficulty() == 3){
+
+            Toast.makeText(this, "Select a game mode first!", Toast.LENGTH_SHORT).show();
+            return false;
+
+        }
+
         Toast.makeText(this, "Something went wrong, please try again!", Toast.LENGTH_SHORT).show();
         return false;
+    }
+
+    public void muteSoundSetup(View myView) {
+
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonSetup);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonSetup);
+
+        Music.backgroundMusic.pause();
+        Music.setMuteStatus("MUTED");
+
+        muteBtn.setVisibility(View.INVISIBLE);
+        unmuteBtn.setVisibility(View.VISIBLE);
+    }
+
+    public void unmuteSoundSetup(View myView) {
+
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonSetup);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonSetup);
+
+        Music.backgroundMusic.start();
+        Music.setMuteStatus("UNMUTED");
+
+        unmuteBtn.setVisibility(View.INVISIBLE);
+        muteBtn.setVisibility(View.VISIBLE);
+    }
+
+    public void musicCheckSetup(){
+
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonSetup);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonSetup);
+
+        if(Music.getMuteStatus().equals("MUTED")){
+
+            unmuteBtn.setVisibility(View.VISIBLE);
+            muteBtn.setVisibility(View.INVISIBLE);
+
+        }
+        else if(Music.getMuteStatus().equals("UNMUTED")){
+
+            unmuteBtn.setVisibility(View.INVISIBLE);
+            muteBtn.setVisibility(View.VISIBLE);
+
+        }
+
     }
 
     //########################## PLAYER ONE METHODS ################################################

@@ -1,13 +1,10 @@
 package com.example.ninemenmorrisgroup6;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -23,10 +20,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.example.ninemenmorrisgroup6.Helps.Constants;
+import com.example.ninemenmorrisgroup6.Helps.Music;
 import com.example.ninemenmorrisgroup6.Helps.Rules;
 
 public class GamePage extends AppCompatActivity {
-    MediaPlayer backgroundMusic;
+    //MediaPlayer backgroundMusic;
 
 
     public static Player playerOne = new HumanPlayer();
@@ -232,9 +230,8 @@ public class GamePage extends AppCompatActivity {
             }
 
             //Start music
-            backgroundMusic = MediaPlayer.create(GamePage.this, R.raw.cali);
-            backgroundMusic.setLooping(true);
-            backgroundMusic.start();
+            musicCheckGame();
+
     }
 
     @Override
@@ -256,7 +253,7 @@ public class GamePage extends AppCompatActivity {
         edit.commit();
 
         super.onPause();
-        backgroundMusic.pause();
+        //backgroundMusic.pause();
     }
 
     @Override
@@ -282,7 +279,7 @@ public class GamePage extends AppCompatActivity {
         }
 
         super.onResume();
-        backgroundMusic.start();
+        //backgroundMusic.start();
     }
 
     private void restore() {
@@ -643,26 +640,48 @@ public class GamePage extends AppCompatActivity {
         }
     }
 
+    public void muteSoundGame(View myView) {
 
-    public void muteSound(View myView) {
-        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButton);
-        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButton);
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
 
-        backgroundMusic.pause();
+        Music.backgroundMusic.pause();
+        Music.setMuteStatus("MUTED");
 
         muteBtn.setVisibility(View.INVISIBLE);
         unmuteBtn.setVisibility(View.VISIBLE);
     }
 
+    public void unmuteSoundGame(View myView) {
 
-    public void unmuteSound(View myView) {
-        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButton);
-        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButton);
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
 
-        backgroundMusic.start();
+        Music.backgroundMusic.start();
+        Music.setMuteStatus("MUTED");
 
         unmuteBtn.setVisibility(View.INVISIBLE);
         muteBtn.setVisibility(View.VISIBLE);
+    }
+
+    public void musicCheckGame(){
+
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
+
+        if(Music.getMuteStatus().equals("MUTED")){
+
+            unmuteBtn.setVisibility(View.VISIBLE);
+            muteBtn.setVisibility(View.INVISIBLE);
+
+        }
+        else if(Music.getMuteStatus().equals("UNMUTED")){
+
+            unmuteBtn.setVisibility(View.INVISIBLE);
+            muteBtn.setVisibility(View.VISIBLE);
+
+        }
+
     }
 
 }

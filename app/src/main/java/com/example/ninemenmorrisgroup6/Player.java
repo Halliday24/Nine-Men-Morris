@@ -9,11 +9,7 @@ import java.io.Serializable;
 
 public class Player extends SetupPage implements Serializable {
 
-
-
     //DATA
-
-
 
     protected int highScore;
     protected String playerName;
