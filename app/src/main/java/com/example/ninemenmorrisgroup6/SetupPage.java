@@ -59,7 +59,7 @@ public class SetupPage extends AppCompatActivity {
     public void goToHomePage(View myView){
 
         Intent homePage = new Intent (this, MainActivity.class);
-
+        Music.musicInitialization = 2;
         startActivity(homePage);
     }//goToHomePage
 
@@ -348,6 +348,11 @@ public class SetupPage extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Mutes the sound on the SetupPage activity.
+     * @param myView The ImageButton this is assigned to.
+     */
+
     public void muteSoundSetup(View myView) {
 
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonSetup);
@@ -360,6 +365,11 @@ public class SetupPage extends AppCompatActivity {
         unmuteBtn.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Unmutes the sound on the SetupPage activity.
+     * @param myView The ImageButton this is assigned to.
+     */
+
     public void unmuteSoundSetup(View myView) {
 
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonSetup);
@@ -371,6 +381,10 @@ public class SetupPage extends AppCompatActivity {
         unmuteBtn.setVisibility(View.INVISIBLE);
         muteBtn.setVisibility(View.VISIBLE);
     }
+
+    /**
+     * Checks to see if the mute or unmute ImageButton should be displayed.
+     */
 
     public void musicCheckSetup(){
 

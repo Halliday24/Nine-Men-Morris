@@ -24,8 +24,6 @@ import com.example.ninemenmorrisgroup6.Helps.Music;
 import com.example.ninemenmorrisgroup6.Helps.Rules;
 
 public class GamePage extends AppCompatActivity {
-    //MediaPlayer backgroundMusic;
-
 
     public static Player playerOne = new HumanPlayer();
     public static Player playerTwo = new HumanPlayer();
@@ -327,16 +325,21 @@ public class GamePage extends AppCompatActivity {
             }
         }
         while (white < whiteIndexes.size()) {
+            Log.i(TAG, "WHITE INDEX - " + Integer.parseInt(whiteIndexes.get(white)));
+            Log.i(TAG, "WHITE - " + white);
             setPlaceHolder(Integer.parseInt(whiteIndexes.get(white)), ((ViewGroup) findViewById(R.id.whiteCheckerArea)));
             white++;
         }
         while (black < blackIndexes.size()) {
+            Log.i(TAG, "BLACK INDEX - " + Integer.parseInt(blackIndexes.get(black)));
+            Log.i(TAG, "BLACK - " + black);
             setPlaceHolder(Integer.parseInt(blackIndexes.get(black)), ((ViewGroup) findViewById(R.id.blackCheckerArea)));
             black++;
         }
     }
 
     private ImageView setPlaceHolder(int index, ViewGroup parent) {
+        //Log.i(TAG, Integer.toString(index));
         ImageView checker = (ImageView) parent.getChildAt(index);
         parent.removeViewAt(index);
         FrameLayout placeholder = (FrameLayout) getLayoutInflater().inflate(R.layout.layout_placeholder, parent, false);
@@ -685,70 +688,3 @@ public class GamePage extends AppCompatActivity {
     }
 
 }
-
-
-//package com.example.ninemenmorrisgroup6;
-//
-//import androidx.appcompat.app.AppCompatActivity;
-//
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.view.View;
-//import android.widget.ImageView;
-//import android.widget.Button;
-//import android.widget.TextView;
-//
-//public class GamePage extends AppCompatActivity {
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_game_page);
-//
-//        playerOne = (Player) getIntent().getSerializableExtra("playerOne");
-//        playerTwo = (Player) getIntent().getSerializableExtra("playerTwo");
-//        computer = (Player) getIntent().getSerializableExtra("computer");
-//
-//        initializeGamePieces();
-//
-//    }
-//
-//    /**
-//     * Doesn't do anything yet but it will open a pop-up window where the players can change their
-//     * pieces
-//     * @param view
-//     */
-//    public void ChangePieces(View view) {
-//
-//    }
-//
-//    /**
-//     * Links the Exit game button to the home page.
-//     * @param view
-//     */
-//    public void ExitGame(View view) {
-//        Intent intent = new Intent(this, SetupPage.class);
-//        startActivity(intent);
-//    }
-//
-//    /**
-//     * Doesn't do anything yet but it will give action to the reset button
-//     * @param view
-//     */
-//    public void ResetGame(View view) {
-//    }
-//
-
-//
-////    public void checkPlayer(int a, int b){
-////        TextView diffCheck = (TextView) findViewById(R.id.textView123);
-////        ImageView playerCheck = (ImageView) findViewById(R.id.viewCheck);
-////
-////        diffCheck.setText(Integer.toString(b));
-////        playerCheck.setImageResource(a);
-////
-////    }
-//
-//
-//}

@@ -6,6 +6,7 @@ public class Music {
 
     public static MediaPlayer backgroundMusic;
     public static String muteStatus;
+    public static int musicInitialization = 1;
 
     public static void startMusic(){
 

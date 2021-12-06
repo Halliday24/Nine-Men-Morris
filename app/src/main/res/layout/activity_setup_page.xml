@@ -183,10 +183,10 @@
         app:srcCompat="@drawable/blank" />
 
     <TextView
-        android:id="@+id/playerOneTextView"
+        android:id="@+id/playerTwoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player One"
+        android:text="Player Two"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -196,10 +196,10 @@
         app:layout_constraintVertical_bias="0.476" />
 
     <TextView
-        android:id="@+id/playerOneTextView2"
+        android:id="@+id/playerOneTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player Two"
+        android:text="Player One"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
