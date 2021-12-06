@@ -569,10 +569,10 @@
         app:backgroundTint="@null">
 
     </Button>
-
     <LinearLayout
-        android:id="@+id/blackCheckerArea"
+        android:id="@+id/whiteCheckerArea"
         style="@style/CheckerArea"
+        android:layout_below="@id/blackCheckerArea"
         android:layout_centerHorizontal="true"
         android:clipChildren="false"
         tools:ignore="NotSibling">
@@ -633,10 +633,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/whiteCheckerArea"
+        android:id="@+id/blackCheckerArea"
         style="@style/CheckerArea"
-        android:layout_below="@id/blackCheckerArea"
-        android:layout_centerHorizontal="true"
         android:clipChildren="false"
         tools:ignore="NotSibling">
 
@@ -693,6 +691,7 @@
             style="@style/CheckerImage"
             android:contentDescription="9"
             android:src="@drawable/circle_white" />
+
     </LinearLayout>
 
 
