@@ -202,24 +202,24 @@ public class GamePage extends AppCompatActivity {
                                 //Update the turn text
                                 if (removeNextChecker) {
                                     if (currentTurn == Constants.BLACK) {
-                                        playerTurn.setText("Remove White");
+                                        playerTurn.setText("Remove Player one");
                                     } else {
-                                        playerTurn.setText("Remove Black");
+                                        playerTurn.setText("Remove Player two");
                                     }
                                 } else {
                                     if (currentTurn == Constants.BLACK) {
-                                        playerTurn.setText("White turn");
+                                        playerTurn.setText("Player one turn");
                                     } else {
-                                        playerTurn.setText("Black turn");
+                                        playerTurn.setText("Player two turn");
                                     }
                                 }
                                 //Did someone win?
                                 isWin = rules.isItAWin(rules.getTurn());
                                 if (isWin) {
                                     if (rules.getTurn() == Constants.BLACK) {
-                                        playerTurn.setText("White wins!");
+                                        playerTurn.setText("Player one wins!");
                                     } else {
-                                        playerTurn.setText("Black wins!");
+                                        playerTurn.setText("Player two wins!");
                                     }
 
                                 }
@@ -307,22 +307,22 @@ public class GamePage extends AppCompatActivity {
             }
             if (removeNextChecker) {
                 if (rules.getTurn() == Constants.WHITE) {
-                    playerTurn.setText("Remove White");
+                    playerTurn.setText("Remove Player one");
                 } else {
-                    playerTurn.setText("Remove Black");
+                    playerTurn.setText("Remove Player two");
                 }
             } else {
                 if (rules.getTurn() == Constants.WHITE) {
-                    playerTurn.setText("White turn");
+                    playerTurn.setText("Player one turn");
                 } else {
-                    playerTurn.setText("Black turn");
+                    playerTurn.setText("Player two turn");
                 }
             }
             if (isWin) {
                 if (rules.getTurn() == Constants.BLACK) {
-                    playerTurn.setText("White wins!");
+                    playerTurn.setText("Player one wins!");
                 } else {
-                    playerTurn.setText("Black wins!");
+                    playerTurn.setText("Player two wins!");
                 }
             }
         }
