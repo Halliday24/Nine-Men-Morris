@@ -24,8 +24,6 @@ import com.example.ninemenmorrisgroup6.Helps.Music;
 import com.example.ninemenmorrisgroup6.Helps.Rules;
 
 public class GamePage extends AppCompatActivity {
-    //MediaPlayer backgroundMusic;
-
 
     public static Player playerOne = new HumanPlayer();
     public static Player playerTwo = new HumanPlayer();
