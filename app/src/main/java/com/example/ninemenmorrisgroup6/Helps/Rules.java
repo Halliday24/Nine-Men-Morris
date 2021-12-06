@@ -336,7 +336,7 @@ public class Rules {
         turn = instance.getInt(TURN, Constants.WHITE);
         whiteMarkers = instance.getInt(WHITE_MARKERS, 9);
         blackMarkers = instance.getInt(BLACK_MARKERS, 9);
-        Log.i(TAG, whiteMarkers + "");
-        Log.i(TAG, blackMarkers + "");
+        Log.i(TAG, "White Markers " + whiteMarkers + "");
+        Log.i(TAG, "Black Markers " + blackMarkers + "");
     }
 }

@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         int musicCheck = 1;
 
-
+        //Allows the music to start looping the first time the app is opened and prevents it from
+        //starting again if user comes back to homepage.
         if(musicCheck == Music.musicInitialization){
 
             Music.backgroundMusic = MediaPlayer.create(this, R.raw.cali);
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         else{
 
         }
+
+        musicCheckMain();
 
     }
 
@@ -67,6 +70,26 @@ public class MainActivity extends AppCompatActivity {
 
         unmuteBtn.setVisibility(View.INVISIBLE);
         muteBtn.setVisibility(View.VISIBLE);
+    }
+
+    public void musicCheckMain(){
+
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonMain);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonMain);
+
+        if(Music.getMuteStatus().equals("MUTED")){
+
+            unmuteBtn.setVisibility(View.VISIBLE);
+            muteBtn.setVisibility(View.INVISIBLE);
+
+        }
+        else if(Music.getMuteStatus().equals("UNMUTED")){
+
+            unmuteBtn.setVisibility(View.INVISIBLE);
+            muteBtn.setVisibility(View.VISIBLE);
+
+        }
+
     }
 
     public void rulesPopup(View view) {

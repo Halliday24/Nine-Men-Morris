@@ -325,16 +325,19 @@ public class GamePage extends AppCompatActivity {
             }
         }
         while (white < whiteIndexes.size()) {
+            Log.i(TAG, "WHITE INDEX-" + Integer.parseInt(whiteIndexes.get(white)));
             setPlaceHolder(Integer.parseInt(whiteIndexes.get(white)), ((ViewGroup) findViewById(R.id.whiteCheckerArea)));
             white++;
         }
         while (black < blackIndexes.size()) {
+            Log.i(TAG, "BLACK INDEX-" + Integer.parseInt(blackIndexes.get(black)));
             setPlaceHolder(Integer.parseInt(blackIndexes.get(black)), ((ViewGroup) findViewById(R.id.blackCheckerArea)));
             black++;
         }
     }
 
     private ImageView setPlaceHolder(int index, ViewGroup parent) {
+        //Log.i(TAG, Integer.toString(index));
         ImageView checker = (ImageView) parent.getChildAt(index);
         parent.removeViewAt(index);
         FrameLayout placeholder = (FrameLayout) getLayoutInflater().inflate(R.layout.layout_placeholder, parent, false);
