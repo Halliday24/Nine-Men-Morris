@@ -59,7 +59,7 @@ public class SetupPage extends AppCompatActivity {
     public void goToHomePage(View myView){
 
         Intent homePage = new Intent (this, MainActivity.class);
-
+        Music.musicInitialization = 2;
         startActivity(homePage);
     }//goToHomePage
 

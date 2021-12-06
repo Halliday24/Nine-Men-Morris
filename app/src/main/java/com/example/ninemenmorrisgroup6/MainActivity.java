@@ -17,13 +17,24 @@ import com.example.ninemenmorrisgroup6.Helps.Music;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Music.backgroundMusic = MediaPlayer.create(this, R.raw.cali);
-        Music.startMusic();
+        int musicCheck = 1;
+
+
+        if(musicCheck == Music.musicInitialization){
+
+            Music.backgroundMusic = MediaPlayer.create(this, R.raw.cali);
+            Music.startMusic();
+
+        }
+        else{
+
+        }
 
     }
 
@@ -45,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         muteBtn.setVisibility(View.INVISIBLE);
         unmuteBtn.setVisibility(View.VISIBLE);
     }
-
 
     public void unmuteSoundMain(View myView) {
 
