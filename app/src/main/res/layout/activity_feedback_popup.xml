@@ -3,9 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="619dp"
+    android:layout_height="510dp"
     tools:context=".RulesPopup"
     android:background="#faf1b4">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#ffff00"
+        android:id="@+id/TopMargin">
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:background="#ffff00"
+        android:id="@+id/LeftMargin"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#ffff00"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/BottomMargin">
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:background="#ffff00"
+        android:layout_alignParentRight="true"
+        android:id="@+id/RightMargin"
+        android:orientation="horizontal">
+    </LinearLayout>
 
     <TextView
         android:id="@+id/Rules"
@@ -23,6 +55,8 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_below="@+id/Rules"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_toLeftOf="@id/RightMargin"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="IF YOU HAVE ANY QUESTIONS, FEEDBACK, OR WANT TO REPORT A BUG"
@@ -36,6 +70,8 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_below="@+id/Rules1"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_toLeftOf="@id/RightMargin"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="PLEASE DO NOT HESITATE TO CONTACT US"
@@ -49,11 +85,26 @@
         android:layout_width="match_parent"
         android:layout_height="99dp"
         android:layout_below="@+id/Rules2"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_toLeftOf="@id/RightMargin"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="GROUPSIXNINEMENMORRIS@GMAIL.COM"
         android:textColor="@color/black"
         android:textSize="20sp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/Rules3"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:textColor="@color/red"
+        android:textSize="14sp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="24dp"
+        android:text="TAP ANYWHERE ON THE POPUP SCREEN TO EXIT">
 
     </TextView>
 
