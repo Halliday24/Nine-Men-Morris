@@ -273,14 +273,13 @@ public class GamePage extends AppCompatActivity {
 
             isWin = pref.getBoolean(IS_WIN, false);
             removeNextChecker = pref.getBoolean(REMOVE_CHECKER, false);
-            restore();
+            //restore();
         }
 
         super.onResume();
         //backgroundMusic.start();
     }
-
-    private void restore() {
+    /*private void restore() {
         int white = 0;
         int black = 0;
         for (int i = 1; i < 25; i++) {
@@ -336,7 +335,7 @@ public class GamePage extends AppCompatActivity {
             setPlaceHolder(Integer.parseInt(blackIndexes.get(black)), ((ViewGroup) findViewById(R.id.blackCheckerArea)));
             black++;
         }
-    }
+    }*/
 
     private ImageView setPlaceHolder(int index, ViewGroup parent) {
         //Log.i(TAG, Integer.toString(index));
