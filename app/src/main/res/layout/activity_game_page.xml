@@ -5,15 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GamePage"
-    android:background="#faf1b4">
-
-    <LinearLayout
-        android:id="@+id/dim_layout_game"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#70000000"
-        android:visibility="invisible"
-        android:orientation="horizontal" />
+    android:background="#e0f0e3">
 
     <ImageButton
         android:id="@+id/unmuteButtonGame"
@@ -77,64 +69,6 @@
         android:layout_marginTop="150dp"
         android:background="@drawable/help"
         android:onClick="rulesPopupGame"
-        app:backgroundTint="@null">
-
-    </Button>
-
-    <Button
-        android:id="@+id/ExitPage"
-        android:layout_width="100dp"
-        android:layout_height="55dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="620dp"
-        android:layout_marginEnd="281dp"
-        android:layout_marginBottom="29dp"
-        android:background="#C0AEE0"
-        android:onClick="exit"
-        android:text="Exit game"
-        android:textColor="@color/black"
-        app:backgroundTint="@null">
-
-    </Button>
-
-    <Button
-        android:id="@+id/Reset"
-        android:layout_width="100dp"
-        android:layout_height="55dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="159dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="620dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="28dp"
-        android:background="#C0AEE0"
-        android:onClick="reset"
-        android:text="Reset game"
-        android:textColor="@color/black"
-        app:backgroundTint="@null">
-
-    </Button>
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="55dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="285dp"
-        android:layout_marginLeft="290dp"
-        android:layout_marginTop="620dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="29dp"
-        android:background="#C0AEE0"
-        android:text="Change pieces"
-        android:textColor="@color/black"
         app:backgroundTint="@null">
 
     </Button>
@@ -346,7 +280,9 @@
             app:layout_constraintHorizontal_bias="0.535"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0" >
+
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/area10"
@@ -622,7 +558,18 @@
             app:layout_constraintHorizontal_bias="0.535"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.345" />
+            app:layout_constraintVertical_bias="0.345" >
+
+            <LinearLayout
+                android:id="@+id/dim_layout_game"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#70000000"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+            </LinearLayout>
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/area12"
@@ -794,6 +741,54 @@
         android:gravity="center"
         android:text="PLAYER TWO PIECES"
         android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/ExitGameButton"
+        android:layout_width="110dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="269dp"
+        android:layout_marginBottom="33dp"
+        android:background="@null"
+        android:onClick="exit"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/exitgamebutton" />
+
+    <ImageButton
+        android:id="@+id/ResetGameButton"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="148dp"
+        android:layout_marginEnd="143dp"
+        android:layout_marginBottom="28dp"
+        android:background="@null"
+        android:onClick="reset"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/resetgamebutton" />
+
+    <ImageButton
+        android:id="@+id/ChangePiecesButton"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="286dp"
+        android:layout_marginTop="642dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="29dp"
+        android:background="@null"
+        android:onClick="reset"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/changepiecesbutton" />
+    />
 
 
 </RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#faf1b4"
+    android:background="#e0f0e3"
     android:padding="5dp"
     tools:context=".SetupPage">
 
