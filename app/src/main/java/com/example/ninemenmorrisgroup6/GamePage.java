@@ -716,4 +716,9 @@ public class GamePage extends AppCompatActivity {
 
     }
 
+    public void ExitGame(View view) {
+        Intent intent = new Intent(this, SetupPage.class);
+        startActivity(intent);
+    }
+
 }

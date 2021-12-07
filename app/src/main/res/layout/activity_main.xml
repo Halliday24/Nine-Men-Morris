@@ -7,6 +7,14 @@
     android:background="#faf1b4"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/dim_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#70000000"
+        android:visibility="invisible"
+        android:orientation="horizontal" />
+
     <ImageButton
         android:id="@+id/muteButtonMain"
         android:layout_width="wrap_content"
