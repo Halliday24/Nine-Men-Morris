@@ -2,7 +2,9 @@ package com.example.ninemenmorrisgroup6.Helps;
 
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.EditText;
 
+import com.example.ninemenmorrisgroup6.SetupPage;
 
 
 /*
@@ -27,8 +29,8 @@ public class Rules {
     private int[] playingfield;
     private int turn;
     //Markers not on the playing field
-    private int blackMarkers;
-    private int whiteMarkers;
+    public static int blackMarkers;
+    public static int whiteMarkers;
 
     private final int EMPTY_FIELD = 0;
 
@@ -86,6 +88,8 @@ public class Rules {
         }
 
         return true;
+
+
     }
 
     /**
@@ -339,4 +343,8 @@ public class Rules {
         Log.i(TAG, "White Markers " + whiteMarkers + "");
         Log.i(TAG, "Black Markers " + blackMarkers + "");
     }
+
+
+
+
 }
