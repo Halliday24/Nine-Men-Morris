@@ -769,7 +769,7 @@
         app:srcCompat="@drawable/changepiecesbutton" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/hintButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
@@ -781,7 +781,7 @@
         app:srcCompat="@drawable/lightbulbbutton" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/rulesButtonGame"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignParentEnd="true"
