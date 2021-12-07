@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -78,7 +79,6 @@ public class GamePage extends AppCompatActivity {
             playerOne = (Player) getIntent().getSerializableExtra("playerOne");
             playerTwo = (Player) getIntent().getSerializableExtra("playerTwo");
             computer = (Player) getIntent().getSerializableExtra("computer");
-
 
             initializeGamePieces();
             setHowManyPiecesRemaining();
@@ -229,8 +229,10 @@ public class GamePage extends AppCompatActivity {
                                 if (isWin) {
                                     if (rules.getTurn() == Constants.BLACK) {
                                         playerTurn.setText("Player one wins!");
+                                        winnerPopupGame();
                                     } else {
                                         playerTurn.setText("Player two wins!");
+                                        winnerPopupGame();
                                     }
 
                                 }
@@ -388,6 +390,7 @@ public class GamePage extends AppCompatActivity {
      *
      * @param turn Constant.WHITE or Constant.BLACK according to whos turn it is
      */
+
     private void moveChecker(int turn) {
 
         setHowManyPiecesRemaining();
@@ -405,11 +408,21 @@ public class GamePage extends AppCompatActivity {
 
         //Create a ghost checker which will be animated while the real one just moves.
         if (turn == Constants.WHITE) {
+
             playerOneIndexes.add(index + "");
-            animChecker = (ImageView) getLayoutInflater().inflate(R.layout.anim_white_checker, parent, false);
+
+            int animationLayoutPlayerOne = 0;
+            animationLayoutPlayerOne = setAnimation(animationLayoutPlayerOne, playerOne);
+
+            animChecker = (ImageView) getLayoutInflater().inflate(animationLayoutPlayerOne, parent, false);
         } else {
+
             playerTwoIndexes.add(index + "");
-            animChecker = (ImageView) getLayoutInflater().inflate(R.layout.anim_black_checker, parent, false);
+
+            int animationLayoutPlayerTwo = 0;
+            animationLayoutPlayerTwo = setAnimation(animationLayoutPlayerTwo, playerTwo);
+
+            animChecker = (ImageView) getLayoutInflater().inflate(animationLayoutPlayerTwo, parent, false);
         }
 
 
@@ -484,6 +497,7 @@ public class GamePage extends AppCompatActivity {
      *
      * @param v The checker which was clicked on.
      */
+
     private void selectChecker(View v) {
         //Is it a remove click=
         if (removeNextChecker) {
@@ -552,6 +566,7 @@ public class GamePage extends AppCompatActivity {
      *
      * @param from The position of the checker which wants to move
      */
+
     private void markAvailableMoveFields(int from) {
         for (int i = 0; i < 24; i++) {
             if (rules.isValidMove(from, i + 1)) {
@@ -563,6 +578,7 @@ public class GamePage extends AppCompatActivity {
     /**
      * Unmark all fields.
      */
+
     private void unMarkAllFields() {
         for (FrameLayout f : higBoxAreas) {
             f.setBackgroundResource(0);
@@ -572,6 +588,7 @@ public class GamePage extends AppCompatActivity {
     /**
      * 后退键，销毁主界面
      */
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -773,6 +790,210 @@ public class GamePage extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    public void winnerPopupGame() {
+
+        // inflate the layout of the popup window
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.winner_popup, null);
+        View view = findViewById(R.id.rulesButtonGame);
+        // create the popup window
+        int width = 1000;
+        int height = 1500;
+        boolean focusable = false; // lets taps outside the popup also dismiss it
+        LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_game);
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+        dim_layout.setVisibility(View.VISIBLE);
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window tolken
+        popupWindow.showAtLocation(null, Gravity.CENTER, 0, 0);
+
+        // dismiss the popup window when touched
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                dim_layout.setVisibility(View.INVISIBLE);
+                return true;
+            }
+        });
+    }
+
+    public int setAnimation(int layout, Player player){
+        
+        if (player.getPlayerGamePiece() == R.drawable.black_circle){
+
+            layout = R.layout.anim_black_circle;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.black_diamond){
+
+            layout = R.layout.anim_black_diamond;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.black_square){
+
+            layout = R.layout.anim_black_square;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.black_star){
+
+            layout = R.layout.anim_black_star;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.blue_circle){
+
+            layout = R.layout.anim_blue_circle;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.blue_diamond){
+
+            layout = R.layout.anim_blue_diamond;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.blue_square){
+
+            layout = R.layout.anim_blue_square;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.blue_star){
+
+            layout = R.layout.anim_blue_star;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.green_circle){
+
+            layout = R.layout.anim_green_circle;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.green_diamond){
+
+            layout = R.layout.anim_green_diamond;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.green_squa){
+
+            layout = R.layout.anim_green_square;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.green_star){
+
+            layout = R.layout.anim_green_star;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.red_circle){
+
+            layout = R.layout.anim_red_circle;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.red_diamon){
+
+            layout = R.layout.anim_red_diamond;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.red_square){
+
+            layout = R.layout.anim_red_square;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.red_star){
+
+            layout = R.layout.anim_red_star;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.white_circle){
+
+            layout = R.layout.anim_white_circle;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.white_diamond){
+
+            layout = R.layout.anim_white_diamond;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.white_square){
+
+            layout = R.layout.anim_white_square;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.white_star){
+
+            layout = R.layout.anim_white_star;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.yellow_circle){
+
+            layout = R.layout.anim_yellow_circle;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.yellow_diamond){
+
+            layout = R.layout.anim_yellow_diamond;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.yellow_square){
+
+            layout = R.layout.anim_yellow_square;
+            return layout;
+
+        }
+
+        else if (player.getPlayerGamePiece() == R.drawable.yellow_star){
+
+            layout = R.layout.anim_yellow_star;
+            return layout;
+
+        }
+
+        return layout = R.layout.anim_white_checker;
+        
     }
 
 }
