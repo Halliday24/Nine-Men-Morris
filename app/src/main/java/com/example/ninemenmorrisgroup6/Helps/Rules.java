@@ -20,6 +20,7 @@ import com.example.ninemenmorrisgroup6.SetupPage;
  *
  */
 public class Rules {
+
     private final String TAG = "Rules";
     private final String PLAYINGFIELD = "PLAYINGFIELD";
     private final String TURN = "TURN";

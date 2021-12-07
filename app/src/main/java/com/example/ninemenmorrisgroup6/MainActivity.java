@@ -103,9 +103,9 @@ public class MainActivity extends AppCompatActivity {
         int width = 1000;
         int height = 1500;
         boolean focusable = false; // lets taps outside the popup also dismiss it
-        LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_main);
+        //LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_main);
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-        dim_layout.setVisibility(View.VISIBLE);
+        //dim_layout.setVisibility(View.VISIBLE);
 
         // show the popup window
         // which view you pass in doesn't matter, it is only used for the window tolken
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 popupWindow.dismiss();
-                dim_layout.setVisibility(View.INVISIBLE);
+                //dim_layout.setVisibility(View.INVISIBLE);
                 return true;
             }
         });
@@ -133,9 +133,9 @@ public class MainActivity extends AppCompatActivity {
         int width = 1000;
         int height = 1500;
         boolean focusable = false; // lets taps outside the popup also dismiss it
-        LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_main);
+        //LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_main);
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-        dim_layout.setVisibility(View.VISIBLE);
+        //dim_layout.setVisibility(View.VISIBLE);
 
         // show the popup window
         // which view you pass in doesn't matter, it is only used for the window tolken
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 popupWindow.dismiss();
-                dim_layout.setVisibility(View.INVISIBLE);
+                //dim_layout.setVisibility(View.INVISIBLE);
                 return true;
             }
         });

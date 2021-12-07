@@ -639,7 +639,8 @@ public class GamePage extends AppCompatActivity {
             playerTwo8.setImageResource(playerTwo.getPlayerGamePiece());
             playerTwo9.setImageResource(playerTwo.getPlayerGamePiece());
 
-        } else if (computer.getDifficulty() == 1) {
+        }
+        else if (computer.getDifficulty() == 1) {
 
             playerOne1.setImageResource(playerOne.getPlayerGamePiece());
             playerOne2.setImageResource(playerOne.getPlayerGamePiece());
@@ -661,7 +662,8 @@ public class GamePage extends AppCompatActivity {
             playerTwo8.setImageResource(computer.getPlayerGamePiece());
             playerTwo9.setImageResource(computer.getPlayerGamePiece());
 
-        } else if (computer.getDifficulty() == 2) {
+        }
+        else if (computer.getDifficulty() == 2) {
 
             playerOne1.setImageResource(playerOne.getPlayerGamePiece());
             playerOne2.setImageResource(playerOne.getPlayerGamePiece());
