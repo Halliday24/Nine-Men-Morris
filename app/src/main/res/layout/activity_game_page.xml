@@ -7,6 +7,13 @@
     tools:context=".GamePage"
     android:background="#faf1b4">
 
+    <LinearLayout
+        android:id="@+id/dim_layout_game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#70000000"
+        android:visibility="invisible"
+        android:orientation="horizontal" />
 
     <ImageButton
         android:id="@+id/unmuteButtonGame"
@@ -69,6 +76,7 @@
         android:layout_marginLeft="340dp"
         android:layout_marginTop="150dp"
         android:background="@drawable/help"
+        android:onClick="rulesPopupGame"
         app:backgroundTint="@null">
 
     </Button>

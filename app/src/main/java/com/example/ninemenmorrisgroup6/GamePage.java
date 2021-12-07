@@ -6,6 +6,9 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -14,6 +17,8 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -738,6 +743,36 @@ public class GamePage extends AppCompatActivity {
         playerOnePieces.setText(Integer.toString(Rules.whiteMarkers));
         playerTwoPieces.setText(Integer.toString(Rules.blackMarkers));
 
+    }
+
+    public void rulesPopupGame(View view) {
+
+        // inflate the layout of the popup window
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.activity_rules_popup, null);
+
+        // create the popup window
+        int width = 1000;
+        int height = 1500;
+        boolean focusable = false; // lets taps outside the popup also dismiss it
+        LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_game);
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+        dim_layout.setVisibility(View.VISIBLE);
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window tolken
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // dismiss the popup window when touched
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                dim_layout.setVisibility(View.INVISIBLE);
+                return true;
+            }
+        });
     }
 
 }

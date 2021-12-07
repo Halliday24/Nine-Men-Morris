@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void rulesPopup(View view) {
+    public void rulesPopupMain(View view) {
 
         // inflate the layout of the popup window
         LayoutInflater inflater = (LayoutInflater)
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         int width = 1000;
         int height = 1500;
         boolean focusable = false; // lets taps outside the popup also dismiss it
-        LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout);
+        LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_main);
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
         dim_layout.setVisibility(View.VISIBLE);
 
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         int width = 1000;
         int height = 1500;
         boolean focusable = false; // lets taps outside the popup also dismiss it
-        LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout);
+        LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_main);
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
         dim_layout.setVisibility(View.VISIBLE);
 
