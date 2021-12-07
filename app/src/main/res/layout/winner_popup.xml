@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="550dp"
+    tools:context=".RulesPopup"
+    android:background="#faf1b4">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#ffff00"
+        android:id="@+id/TopMargin">
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:background="#ffff00"
+        android:id="@+id/LeftMargin"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#ffff00"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/BottomMargin">
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:background="#ffff00"
+        android:layout_alignParentRight="true"
+        android:id="@+id/RightMargin"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/Rules"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/TopMargin"
+        android:gravity="center"
+        android:text="HOW TO PLAY"
+        android:textColor="@color/black"
+        android:textSize="36sp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/Rules"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/Rules1"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="PLACE ALL YOUR PIECES ON BOARD AND MOVE THEM TO FORM A LINE">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Rules2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/Rules1"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="ONCE YOU FORM A MILL, YOU CAN REMOVE ONE OF YOUR OPPONENTS MEN. BREAK A MILL TO UNLOCK THE MILLS AGAIN"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/Rules2"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_height="99dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/Rules3"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="PIECES FROM A FORMED MILL CAN'T BE REMOVED UNLESS NO OTHER MEN ARE AVAILABLE">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Rules4"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/Rules3"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="YOUR AIM IS TO LEAVE YOUR OPPONENT WITH EITHER 2 PIECES OR 0 MOVES. GOODLUCK!"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/Rules4"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:textColor="@color/red"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="24dp"
+        android:text="TAP ANYWHERE ON THE POPUP SCREEN TO EXIT">
+
+    </TextView>
+
+
+
+</RelativeLayout>
