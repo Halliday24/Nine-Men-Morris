@@ -53,16 +53,6 @@
 
 <!--    <string name="turn_color">Whites turn</string>-->
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginTop="500dp"
-        android:background="@drawable/white_piece">
-
-    </ImageView>
-
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/board"
@@ -500,15 +490,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:layout_marginLeft="223dp"
-        android:layout_marginTop="500dp"
-        android:background="@drawable/black_piece">
-
-    </ImageView>
-
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -545,12 +526,12 @@
 
     <Button
         android:id="@+id/Reset"
-        android:onClick="ResetGame"
         android:layout_width="100dp"
         android:layout_height="55dp"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="620dp"
         android:background="#C0AEE0"
+        android:onClick="ResetGame"
         android:text="Reset game"
         android:textColor="@color/black"
         app:backgroundTint="@null">

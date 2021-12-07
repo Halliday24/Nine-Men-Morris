@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#faf1b4">
+    android:background="#faf1b4"
+    tools:context=".MainActivity">
 
     <ImageButton
         android:id="@+id/muteButtonMain"
@@ -38,51 +38,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/muted" />
 
-    <Button
-        android:id="@+id/playButton"
-        android:layout_width="275dp"
-        android:layout_height="60dp"
-        android:backgroundTint="#C0AEE0"
-        android:onClick="goToSetupPage"
-        android:text="Play"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792"
-        />
-
-    <Button
-        android:id="@+id/rulesButton"
-        android:layout_width="128dp"
-        android:layout_height="60dp"
-        android:backgroundTint="#c0aee0"
-        android:onClick="rulesPopup"
-        android:text="Rules"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="128dp"
-        android:layout_height="60dp"
-        android:backgroundTint="#c0aee0"
-        android:onClick="feedbackPopup"
-        android:text="Contact us"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.759"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
-
     <TextView
         android:id="@+id/menuTitle"
         android:layout_width="398dp"
@@ -96,5 +51,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.209" />
+
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="340dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="156dp"
+        android:background="@null"
+        android:onClick="goToSetupPage"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/playbutton" />
+
+    <ImageButton
+        android:id="@+id/rulesButton"
+        android:layout_width="165dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="72dp"
+        android:background="@null"
+        android:onClick="rulesPopup"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/rulesbutton" />
+
+    <ImageButton
+        android:id="@+id/contactUsButton"
+        android:layout_width="165dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="72dp"
+        android:background="@null"
+        android:onClick="feedbackPopup"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/contactusbutton" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
