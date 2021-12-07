@@ -51,125 +51,6 @@
         app:layout_constraintVertical_bias="0.604"
         app:srcCompat="@drawable/blank" />
 
-    <Button
-        android:id="@+id/pvpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:backgroundTint="#BD1717"
-        android:onClick="playAgainstPlayer"
-        android:text="Play vs Another Human"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.119" />
-
-    <Button
-        android:id="@+id/easyComputerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:backgroundTint="#BD1717"
-        android:onClick="playAgainstEasyComputer"
-        android:text="Play vs Easy Computer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.232" />
-
-    <Button
-        android:id="@+id/backToHomeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:onClick="goToHomePage"
-        android:text="Back To Home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.201"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957" />
-
-    <Button
-        android:id="@+id/startGameButton"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:onClick="startGame"
-        android:text="Start Game"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.794"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957" />
-
-    <Button
-        android:id="@+id/hardComputerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:backgroundTint="#BD1717"
-        android:onClick="playAgainstHardComputer"
-        android:text="Play Against Hard Computer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.347" />
-
-    <Button
-        android:id="@+id/playerTwoPieceSelection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="piecePopPlayerTwo"
-        android:text="Pieces"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765" />
-
-    <Button
-        android:id="@+id/playerTwoColourSelection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="colourPopPlayerTwo"
-        android:text="Colour"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.22"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.847" />
-
-    <Button
-        android:id="@+id/playerOnePieceSelection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="piecePopPlayerOne"
-        android:text="Pieces"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.546" />
-
-    <Button
-        android:id="@+id/playerOneColourSelection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="colourPopPlayerOne"
-        android:text="Colour"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629" />
-
     <ImageView
         android:id="@+id/playerTwoImage"
         android:layout_width="93dp"
@@ -208,4 +89,250 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.686" />
 
+    <ImageButton
+        android:id="@+id/pvpButton"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="playAgainstPlayer"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.122"
+        app:srcCompat="@drawable/playvshumanbutton" />
+
+    <ImageButton
+        android:id="@+id/pvpButtonGrey"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128"
+        app:srcCompat="@drawable/playvshumanbuttongrey"
+        android:visibility="gone"
+        android:onClick="playAgainstPlayer"/>
+
+    <ImageButton
+        android:id="@+id/easyComputerButton"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="playAgainstEasyComputer"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.217"
+        app:srcCompat="@drawable/playvseasycomputerbutton" />
+
+    <ImageButton
+        android:id="@+id/easyComputerButtonGrey"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.217"
+        app:srcCompat="@drawable/playvseasycomputerbuttongrey"
+        android:visibility="gone"
+        android:onClick="playAgainstEasyComputer"/>
+
+    <ImageButton
+        android:id="@+id/hardComputerButton"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="playAgainstHardComputer"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311"
+        app:srcCompat="@drawable/playvshardcomputerbutton" />
+
+    <ImageButton
+        android:id="@+id/hardComputerButtonGrey"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311"
+        app:srcCompat="@drawable/playvshardcomputerbuttongrey"
+        android:visibility="gone"
+        android:onClick="playAgainstHardComputer"/>
+
+    <ImageButton
+        android:id="@+id/playerOnePieceSelection"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:onClick="piecePopPlayerOne"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"
+        app:srcCompat="@drawable/piecesbutton"
+        android:visibility="gone"
+        />
+
+    <ImageButton
+        android:id="@+id/playerTwoPieceSelection"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:onClick="piecePopPlayerTwo"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.767"
+        app:srcCompat="@drawable/piecesbutton"
+        android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/playerOneColourSelection"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:onClick="colourPopPlayerOne"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.622"
+        app:srcCompat="@drawable/colourbutton"
+        android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/playerTwoColourSelection"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:onClick="colourPopPlayerTwo"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.832"
+        app:srcCompat="@drawable/colourbutton"
+        android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/playerOnePieceSelectionGrey"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.557"
+        app:srcCompat="@drawable/piecesbuttongrey"
+
+        />
+
+    <ImageButton
+        android:id="@+id/playerTwoPieceSelectionGrey"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.767"
+        app:srcCompat="@drawable/piecesbuttongrey" />
+
+    <ImageButton
+        android:id="@+id/playerOneColourSelectionGrey"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.621"
+        app:srcCompat="@drawable/colourbuttongrey"
+        />
+
+    <ImageButton
+        android:id="@+id/playerTwoColourSelectionGrey"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.832"
+        app:srcCompat="@drawable/colourbuttongrey" />
+
+    <ImageButton
+        android:id="@+id/backToHomeButton"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="goToHomePage"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/backtohomebutton" />
+
+    <ImageButton
+        android:id="@+id/startGameButton"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:onClick="startGame"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/startgamebutton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

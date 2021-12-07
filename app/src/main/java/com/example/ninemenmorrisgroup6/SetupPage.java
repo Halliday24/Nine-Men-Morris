@@ -36,15 +36,16 @@ public class SetupPage extends AppCompatActivity {
         //disables the colour and piece selection buttons right off the bat, they will be
         //enabled in the correct manner when a game mode is chosen.
 
-        Button playerOnePieceSelection = (Button) findViewById(R.id.playerOnePieceSelection);
-        Button playerOneColourSelection = (Button) findViewById(R.id.playerOneColourSelection);
-        Button playerTwoPieceSelection = (Button) findViewById(R.id.playerTwoPieceSelection);
-        Button playerTwoColourSelection = (Button) findViewById(R.id.playerTwoColourSelection);
+        ImageButton playerOnePieceSelection = (ImageButton) findViewById(R.id.playerOnePieceSelection);
+        ImageButton playerOneColourSelection = (ImageButton) findViewById(R.id.playerOneColourSelection);
+        ImageButton playerTwoPieceSelection = (ImageButton) findViewById(R.id.playerTwoPieceSelection);
+        ImageButton playerTwoColourSelection = (ImageButton) findViewById(R.id.playerTwoColourSelection);
 
-        playerOnePieceSelection.setEnabled(false);
-        playerOneColourSelection.setEnabled(false);
-        playerTwoPieceSelection.setEnabled(false);
-        playerTwoColourSelection.setEnabled(false);
+
+        //playerOnePieceSelection.setEnabled(false);
+        //playerOneColourSelection.setEnabled(false);
+        //playerTwoPieceSelection.setEnabled(false);
+        //playerTwoColourSelection.setEnabled(false);
 
         computer.setDifficulty(3);
         musicCheckSetup();
@@ -95,6 +96,12 @@ public class SetupPage extends AppCompatActivity {
      */
 
     public void playAgainstHardComputer(View myView){
+        ImageButton pvpButton = (ImageButton) findViewById(R.id.pvpButton);
+        ImageButton pvpButtonGrey = (ImageButton) findViewById(R.id.pvpButtonGrey);
+        ImageButton easyComputerButton = (ImageButton) findViewById(R.id.easyComputerButton);
+        ImageButton easyComputerButtonGrey = (ImageButton) findViewById(R.id.easyComputerButtonGrey);
+        ImageButton hardComputerButton = (ImageButton) findViewById(R.id.hardComputerButton);
+        ImageButton hardComputerButtonGrey = (ImageButton) findViewById(R.id.hardComputerButtonGrey);
 
         computer.setDifficulty(2);
         computer.setPlayerGamePiece(R.drawable.black_circle);
@@ -104,10 +111,17 @@ public class SetupPage extends AppCompatActivity {
         setPlayerTwoToEmpty();
 
         //Dims the easyComputerButton and pvpButton.
-        findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
-        findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
-        findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#BD1717"));
+        //findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
+        //findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
+        //findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#BD1717"));
 
+        easyComputerButton.setVisibility(View.GONE);
+        pvpButton.setVisibility(View.GONE);
+        easyComputerButtonGrey.setVisibility(View.VISIBLE);
+        pvpButtonGrey.setVisibility(View.VISIBLE);
+
+        hardComputerButton.setVisibility(View.VISIBLE);
+        hardComputerButtonGrey.setVisibility(View.GONE);
     }//playAgainstHardComputer
 
     /**
@@ -117,6 +131,12 @@ public class SetupPage extends AppCompatActivity {
      */
 
     public void playAgainstEasyComputer(View myView){
+        ImageButton pvpButton = (ImageButton) findViewById(R.id.pvpButton);
+        ImageButton pvpButtonGrey = (ImageButton) findViewById(R.id.pvpButtonGrey);
+        ImageButton easyComputerButton = (ImageButton) findViewById(R.id.easyComputerButton);
+        ImageButton easyComputerButtonGrey = (ImageButton) findViewById(R.id.easyComputerButtonGrey);
+        ImageButton hardComputerButton = (ImageButton) findViewById(R.id.hardComputerButton);
+        ImageButton hardComputerButtonGrey = (ImageButton) findViewById(R.id.hardComputerButtonGrey);
 
         computer.setDifficulty(1);
         computer.setPlayerGamePiece(R.drawable.black_circle);
@@ -126,9 +146,17 @@ public class SetupPage extends AppCompatActivity {
         setPlayerTwoToEmpty();
 
         //Dims the hardComputerButton and the pvpButton.
-        findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
-        findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
-        findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#BD1717"));
+        //findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
+        //findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
+        //findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#BD1717"));
+
+        pvpButton.setVisibility(View.GONE);
+        hardComputerButton.setVisibility(View.GONE);
+        pvpButtonGrey.setVisibility(View.VISIBLE);
+        hardComputerButtonGrey.setVisibility(View.VISIBLE);
+
+        easyComputerButton.setVisibility(View.VISIBLE);
+        easyComputerButtonGrey.setVisibility(View.GONE);
 
     }//playAgainstEasyComputer
 
@@ -139,6 +167,12 @@ public class SetupPage extends AppCompatActivity {
      */
 
     public void playAgainstPlayer(View myView){
+        ImageButton pvpButton = (ImageButton) findViewById(R.id.pvpButton);
+        ImageButton pvpButtonGrey = (ImageButton) findViewById(R.id.pvpButtonGrey);
+        ImageButton easyComputerButton = (ImageButton) findViewById(R.id.easyComputerButton);
+        ImageButton easyComputerButtonGrey = (ImageButton) findViewById(R.id.easyComputerButtonGrey);
+        ImageButton hardComputerButton = (ImageButton) findViewById(R.id.hardComputerButton);
+        ImageButton hardComputerButtonGrey = (ImageButton) findViewById(R.id.hardComputerButtonGrey);
 
         computer.setDifficulty(0);
         computer.setPlayerGamePiece(R.drawable.blank);
@@ -147,9 +181,17 @@ public class SetupPage extends AppCompatActivity {
         setPlayerOneToDefault();
         setPlayerTwoToDefault();
 
-        findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
-        findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
-        findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#BD1717"));
+        //findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
+        //findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
+        //findViewById(R.id.pvpButton).setBackgroundColor(Color.parseColor("#BD1717"));
+
+        easyComputerButton.setVisibility(View.GONE);
+        hardComputerButton.setVisibility(View.GONE);
+        easyComputerButtonGrey.setVisibility(View.VISIBLE);
+        hardComputerButtonGrey.setVisibility(View.VISIBLE);
+
+        pvpButton.setVisibility(View.VISIBLE);
+        pvpButtonGrey.setVisibility(View.GONE);
 
     }//playAgainstEasyComputer
 
@@ -160,13 +202,11 @@ public class SetupPage extends AppCompatActivity {
 
     public void setPlayerOneToDefault(){
 
-        Button colourButton = (Button) findViewById(R.id.playerOneColourSelection);
-        Button pieceButton = (Button) findViewById(R.id.playerOnePieceSelection);
+        ImageButton colourButton = (ImageButton) findViewById(R.id.playerOneColourSelection);
+        ImageButton pieceButton = (ImageButton) findViewById(R.id.playerOnePieceSelection);
         ImageView playerOneImage = (ImageView) findViewById(R.id.playerOneImage);
 
         playerOneImage.setImageResource(R.drawable.white_circle);
-        pieceButton.setText("CIRCLE");
-        colourButton.setText("WHITE");
 
         playerOne.setPlayerGamePiece(R.drawable.white_circle);
         playerOne.setPlayerColour("WHITE");
@@ -180,13 +220,11 @@ public class SetupPage extends AppCompatActivity {
 
     public void setPlayerTwoToDefault(){
 
-        Button colourButton = (Button) findViewById(R.id.playerTwoColourSelection);
-        Button pieceButton = (Button) findViewById(R.id.playerTwoPieceSelection);
+        ImageButton colourButton = (ImageButton) findViewById(R.id.playerTwoColourSelection);
+        ImageButton pieceButton = (ImageButton) findViewById(R.id.playerTwoPieceSelection);
         ImageView playerTwoImage = (ImageView) findViewById(R.id.playerTwoImage);
 
         playerTwoImage.setImageResource(R.drawable.black_circle);
-        pieceButton.setText("CIRCLE");
-        colourButton.setText("BLACK");
 
         playerTwo.setPlayerGamePiece(R.drawable.black_circle);
         playerTwo.setPlayerColour("BLACK");
@@ -200,13 +238,11 @@ public class SetupPage extends AppCompatActivity {
 
     public void setPlayerTwoToEmpty(){
 
-        Button colourButton = (Button) findViewById(R.id.playerTwoColourSelection);
-        Button pieceButton = (Button) findViewById(R.id.playerTwoPieceSelection);
+        ImageButton colourButton = (ImageButton) findViewById(R.id.playerTwoColourSelection);
+        ImageButton pieceButton = (ImageButton) findViewById(R.id.playerTwoPieceSelection);
         ImageView playerTwoImage = (ImageView) findViewById(R.id.playerTwoImage);
 
         playerTwoImage.setImageResource(R.drawable.blank);
-        pieceButton.setText("PIECES");
-        colourButton.setText("COLOUR");
 
         playerTwo.setPlayerColour("EMPTY");
         playerTwo.setPlayerGamePiece(R.drawable.blank);
@@ -220,15 +256,29 @@ public class SetupPage extends AppCompatActivity {
 
     public void singlePlayerButtonSetup(){
 
-        Button playerOnePieceSelection = (Button) findViewById(R.id.playerOnePieceSelection);
-        Button playerOneColourSelection = (Button) findViewById(R.id.playerOneColourSelection);
-        Button playerTwoPieceSelection = (Button) findViewById(R.id.playerTwoPieceSelection);
-        Button playerTwoColourSelection = (Button) findViewById(R.id.playerTwoColourSelection);
+        ImageButton playerOnePieceSelection = (ImageButton) findViewById(R.id.playerOnePieceSelection);
+        ImageButton playerOneColourSelection = (ImageButton) findViewById(R.id.playerOneColourSelection);
+        ImageButton playerTwoPieceSelection = (ImageButton) findViewById(R.id.playerTwoPieceSelection);
+        ImageButton playerTwoColourSelection = (ImageButton) findViewById(R.id.playerTwoColourSelection);
+        ImageButton playerOnePieceSelectionGrey = (ImageButton) findViewById(R.id.playerOnePieceSelectionGrey);
+        ImageButton playerOneColourSelectionGrey = (ImageButton) findViewById(R.id.playerOneColourSelectionGrey);
+        ImageButton playerTwoPieceSelectionGrey = (ImageButton) findViewById(R.id.playerTwoPieceSelectionGrey);
+        ImageButton playerTwoColourSelectionGrey = (ImageButton) findViewById(R.id.playerTwoColourSelectionGrey);
 
-        playerOnePieceSelection.setEnabled(true);
-        playerOneColourSelection.setEnabled(true);
-        playerTwoPieceSelection.setEnabled(false);
-        playerTwoColourSelection.setEnabled(false);
+        //playerOnePieceSelection.setEnabled(true);
+        //playerOneColourSelection.setEnabled(true);
+        //playerTwoPieceSelection.setEnabled(false);
+        //playerTwoColourSelection.setEnabled(false);
+
+        playerOnePieceSelectionGrey.setVisibility(View.GONE);
+        playerOneColourSelectionGrey.setVisibility(View.GONE);
+        playerOnePieceSelection.setVisibility(View.VISIBLE);
+        playerOneColourSelection.setVisibility(View.VISIBLE);
+
+        playerTwoPieceSelection.setVisibility(View.GONE);
+        playerTwoColourSelection.setVisibility(View.GONE);
+        playerTwoPieceSelectionGrey.setVisibility(View.VISIBLE);
+        playerTwoColourSelectionGrey.setVisibility(View.VISIBLE);
 
     }
 
@@ -239,15 +289,30 @@ public class SetupPage extends AppCompatActivity {
 
     public void multiPlayerButtonSetup(){
 
-        Button playerOnePieceSelection = (Button) findViewById(R.id.playerOnePieceSelection);
-        Button playerOneColourSelection = (Button) findViewById(R.id.playerOneColourSelection);
-        Button playerTwoPieceSelection = (Button) findViewById(R.id.playerTwoPieceSelection);
-        Button playerTwoColourSelection = (Button) findViewById(R.id.playerTwoColourSelection);
+        ImageButton playerOnePieceSelection = (ImageButton) findViewById(R.id.playerOnePieceSelection);
+        ImageButton playerOneColourSelection = (ImageButton) findViewById(R.id.playerOneColourSelection);
+        ImageButton playerTwoPieceSelection = (ImageButton) findViewById(R.id.playerTwoPieceSelection);
+        ImageButton playerTwoColourSelection = (ImageButton) findViewById(R.id.playerTwoColourSelection);
+        ImageButton playerOnePieceSelectionGrey = (ImageButton) findViewById(R.id.playerOnePieceSelectionGrey);
+        ImageButton playerOneColourSelectionGrey = (ImageButton) findViewById(R.id.playerOneColourSelectionGrey);
+        ImageButton playerTwoPieceSelectionGrey = (ImageButton) findViewById(R.id.playerTwoPieceSelectionGrey);
+        ImageButton playerTwoColourSelectionGrey = (ImageButton) findViewById(R.id.playerTwoColourSelectionGrey);
 
-        playerOnePieceSelection.setEnabled(true);
-        playerOneColourSelection.setEnabled(true);
-        playerTwoPieceSelection.setEnabled(true);
-        playerTwoColourSelection.setEnabled(true);
+
+        //playerOnePieceSelection.setEnabled(true);
+        //playerOneColourSelection.setEnabled(true);
+        //playerTwoPieceSelection.setEnabled(true);
+        //playerTwoColourSelection.setEnabled(true);
+
+        playerTwoColourSelectionGrey.setVisibility(View.GONE);
+        playerTwoPieceSelectionGrey.setVisibility(View.GONE);
+        playerOneColourSelectionGrey.setVisibility(View.GONE);
+        playerOnePieceSelectionGrey.setVisibility(View.GONE);
+
+        playerTwoColourSelection.setVisibility(View.VISIBLE);
+        playerTwoPieceSelection.setVisibility(View.VISIBLE);
+        playerOneColourSelection.setVisibility(View.VISIBLE);
+        playerOnePieceSelection.setVisibility(View.VISIBLE);
 
     }
 
@@ -433,8 +498,8 @@ public class SetupPage extends AppCompatActivity {
 
     public boolean onPieceMenuItemClickPlayerOne(@NonNull MenuItem item) {
 
-        Button pieceButton = (Button) findViewById(R.id.playerOnePieceSelection);
-        Button colourButton = (Button) findViewById(R.id.playerOneColourSelection);
+        ImageButton pieceButton = (ImageButton) findViewById(R.id.playerOnePieceSelection);
+        ImageButton colourButton = (ImageButton) findViewById(R.id.playerOneColourSelection);
 
         int id = item.getItemId();
 
@@ -485,8 +550,6 @@ public class SetupPage extends AppCompatActivity {
             blank.setImageResource(R.drawable.blank);
             playerOne.setPlayerGamePiece(R.drawable.blank);
             playerOne.setPlayerColour("EMPTY");
-            pieceButton.setText("PIECES");
-            colourButton.setText("COLOUR");
             return true;
 
         }
@@ -535,7 +598,7 @@ public class SetupPage extends AppCompatActivity {
 
     public boolean onColourMenuItemClickPlayerOne(@NonNull MenuItem item) {
 
-        Button colourButton = (Button) findViewById(R.id.playerOneColourSelection);
+        ImageButton colourButton = (ImageButton) findViewById(R.id.playerOneColourSelection);
 
         int id = item.getItemId();
 
@@ -544,7 +607,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked red!", Toast.LENGTH_SHORT).show();
             ImageView red = (ImageView) findViewById(R.id.playerOneImage);
             red.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "RED"));
-            colourButton.setText("RED");
             return true;
 
         }
@@ -554,7 +616,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked blue!", Toast.LENGTH_SHORT).show();
             ImageView blue = (ImageView) findViewById(R.id.playerOneImage);
             blue.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "BLUE"));
-            colourButton.setText("BLUE");
             return true;
 
         }
@@ -564,7 +625,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked green!", Toast.LENGTH_SHORT).show();
             ImageView green = (ImageView) findViewById(R.id.playerOneImage);
             green.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "GREEN"));
-            colourButton.setText("GREEN");
             return true;
 
         }
@@ -574,7 +634,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked yellow!", Toast.LENGTH_SHORT).show();
             ImageView yellow = (ImageView) findViewById(R.id.playerOneImage);
             yellow.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "YELLOW"));
-            colourButton.setText("YELLOW");
             return true;
 
         }
@@ -584,7 +643,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked black!", Toast.LENGTH_SHORT).show();
             ImageView black = (ImageView) findViewById(R.id.playerOneImage);
             black.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "BLACK"));
-            colourButton.setText("BLACK");
             return true;
 
         }
@@ -594,7 +652,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked white!", Toast.LENGTH_SHORT).show();
             ImageView noColour = (ImageView) findViewById(R.id.playerOneImage);
             noColour.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "WHITE"));
-            colourButton.setText("WHITE");
             return true;
 
         }
@@ -1013,8 +1070,8 @@ public class SetupPage extends AppCompatActivity {
 
     public void playerOnePreserveColourChoice(String piece){
 
-        Button pieceButton = (Button) findViewById(R.id.playerOnePieceSelection);
-        Button colourButton = (Button) findViewById(R.id.playerOneColourSelection);
+        ImageButton pieceButton = (ImageButton) findViewById(R.id.playerOnePieceSelection);
+        ImageButton colourButton = (ImageButton) findViewById(R.id.playerOneColourSelection);
         ImageView display = (ImageView) findViewById(R.id.playerOneImage);
 
         //If playerOne wants their game piece to be a circle with the same colour as their previous.
@@ -1025,18 +1082,12 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.red_circle);
                 playerOne.setPlayerGamePiece(R.drawable.red_circle);
 
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("RED");
-
             }
 
             else if(playerOne.getPlayerColour().equals("BLUE")){
 
                 display.setImageResource(R.drawable.blue_circle);
                 playerOne.setPlayerGamePiece(R.drawable.blue_circle);
-
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("BLUE");
 
             }
 
@@ -1045,18 +1096,12 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.green_circle);
                 playerOne.setPlayerGamePiece(R.drawable.green_circle);
 
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("GREEN");
-
             }
 
             else if(playerOne.getPlayerColour().equals("YELLOW")){
 
                 display.setImageResource(R.drawable.yellow_circle);
                 playerOne.setPlayerGamePiece(R.drawable.yellow_circle);
-
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("YELLOW");
 
             }
 
@@ -1065,18 +1110,12 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.white_circle);
                 playerOne.setPlayerGamePiece(R.drawable.white_circle);
 
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("WHITE");
-
             }
 
             else if(playerOne.getPlayerColour().equals("BLACK")){
 
                 display.setImageResource(R.drawable.black_circle);
                 playerOne.setPlayerGamePiece(R.drawable.black_circle);
-
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("BLACK");
 
             }
 
@@ -1088,8 +1127,6 @@ public class SetupPage extends AppCompatActivity {
                     playerOne.setPlayerGamePiece(R.drawable.black_circle);
                     playerOne.setPlayerColour("BLACK");
 
-                    pieceButton.setText("CIRCLE");
-                    colourButton.setText("BLACK");
                 }
 
                 else{
@@ -1098,8 +1135,6 @@ public class SetupPage extends AppCompatActivity {
                     playerOne.setPlayerGamePiece(R.drawable.white_circle);
                     playerOne.setPlayerColour("WHITE");
 
-                    pieceButton.setText("CIRCLE");
-                    colourButton.setText("WHITE");
                 }
             }
         }
@@ -1112,8 +1147,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.red_diamon);
                 playerOne.setPlayerGamePiece(R.drawable.red_diamon);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("RED");
 
             }
 
@@ -1122,8 +1155,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.blue_diamond);
                 playerOne.setPlayerGamePiece(R.drawable.blue_diamond);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("BLUE");
 
             }
 
@@ -1132,8 +1163,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.green_diamond);
                 playerOne.setPlayerGamePiece(R.drawable.green_diamond);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("GREEN");
 
             }
 
@@ -1142,8 +1171,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.yellow_diamond);
                 playerOne.setPlayerGamePiece(R.drawable.yellow_diamond);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("YELLOW");
 
             }
 
@@ -1152,8 +1179,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.white_diamond);
                 playerOne.setPlayerGamePiece(R.drawable.white_diamond);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("WHITE");
 
             }
 
@@ -1162,8 +1187,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.black_diamond);
                 playerOne.setPlayerGamePiece(R.drawable.black_diamond);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("BLACK");
 
             }
 
@@ -1175,8 +1198,6 @@ public class SetupPage extends AppCompatActivity {
                     playerOne.setPlayerGamePiece(R.drawable.black_diamond);
                     playerOne.setPlayerColour("BLACK");
 
-                    pieceButton.setText("DIAMOND");
-                    colourButton.setText("BLACK");
                 }
 
                 else{
@@ -1185,8 +1206,6 @@ public class SetupPage extends AppCompatActivity {
                     playerOne.setPlayerGamePiece(R.drawable.white_diamond);
                     playerOne.setPlayerColour("WHITE");
 
-                    pieceButton.setText("DIAMOND");
-                    colourButton.setText("WHITE");
                 }
             }
 
@@ -1200,8 +1219,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.red_square);
                 playerOne.setPlayerGamePiece(R.drawable.red_square);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("RED");
 
             }
 
@@ -1210,8 +1227,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.blue_square);
                 playerOne.setPlayerGamePiece(R.drawable.blue_square);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("BLUE");
 
             }
 
@@ -1220,8 +1235,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.green_squa);
                 playerOne.setPlayerGamePiece(R.drawable.green_squa);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("GREEN");
 
             }
 
@@ -1230,8 +1243,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.yellow_square);
                 playerOne.setPlayerGamePiece(R.drawable.yellow_square);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("YELLOW");
 
             }
 
@@ -1240,8 +1251,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.white_square);
                 playerOne.setPlayerGamePiece(R.drawable.white_square);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("WHITE");
 
             }
 
@@ -1250,8 +1259,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.black_square);
                 playerOne.setPlayerGamePiece(R.drawable.black_square);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("BLACK");
 
             }
 
@@ -1263,8 +1270,6 @@ public class SetupPage extends AppCompatActivity {
                     playerOne.setPlayerGamePiece(R.drawable.black_square);
                     playerOne.setPlayerColour("BLACK");
 
-                    pieceButton.setText("SQUARE");
-                    colourButton.setText("BLACK");
                 }
 
                 else{
@@ -1273,8 +1278,6 @@ public class SetupPage extends AppCompatActivity {
                     playerOne.setPlayerGamePiece(R.drawable.white_square);
                     playerOne.setPlayerColour("WHITE");
 
-                    pieceButton.setText("SQUARE");
-                    colourButton.setText("WHITE");
                 }
             }
 
@@ -1288,8 +1291,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.red_star);
                 playerOne.setPlayerGamePiece(R.drawable.red_star);
 
-                pieceButton.setText("STAR");
-                colourButton.setText("RED");
 
             }
 
@@ -1298,8 +1299,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.blue_star);
                 playerOne.setPlayerGamePiece(R.drawable.blue_star);
 
-                pieceButton.setText("STAR");
-                colourButton.setText("BLUE");
 
             }
 
@@ -1308,8 +1307,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.green_star);
                 playerOne.setPlayerGamePiece(R.drawable.green_star);
 
-                pieceButton.setText("STAR");
-                colourButton.setText("GREEN");
 
             }
 
@@ -1318,8 +1315,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.yellow_star);
                 playerOne.setPlayerGamePiece(R.drawable.yellow_star);
 
-                pieceButton.setText("STAR");
-                colourButton.setText("YELLOW");
 
             }
 
@@ -1328,8 +1323,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.white_star);
                 playerOne.setPlayerGamePiece(R.drawable.white_star);
 
-                pieceButton.setText("STAR");
-                colourButton.setText("WHITE");
 
             }
 
@@ -1338,8 +1331,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.black_star);
                 playerOne.setPlayerGamePiece(R.drawable.black_star);
 
-                pieceButton.setText("STAR");
-                colourButton.setText("BLACK");
 
             }
             
@@ -1351,8 +1342,6 @@ public class SetupPage extends AppCompatActivity {
                     playerOne.setPlayerGamePiece(R.drawable.black_star);
                     playerOne.setPlayerColour("BLACK");
 
-                    pieceButton.setText("STAR");
-                    colourButton.setText("BLACK");
                 }
                 
                 else{
@@ -1361,8 +1350,6 @@ public class SetupPage extends AppCompatActivity {
                     playerOne.setPlayerGamePiece(R.drawable.white_star);
                     playerOne.setPlayerColour("WHITE");
 
-                    pieceButton.setText("STAR");
-                    colourButton.setText("WHITE");
                 }
             }
 
@@ -1397,8 +1384,8 @@ public class SetupPage extends AppCompatActivity {
 
     public boolean onPieceMenuItemClickPlayerTwo(@NonNull MenuItem item) {
 
-        Button pieceButton = (Button) findViewById(R.id.playerTwoPieceSelection);
-        Button colourButton = (Button) findViewById(R.id.playerTwoColourSelection);
+        ImageButton pieceButton = (ImageButton) findViewById(R.id.playerTwoPieceSelection);
+        ImageButton colourButton = (ImageButton) findViewById(R.id.playerTwoColourSelection);
 
         int id = item.getItemId();
 
@@ -1449,8 +1436,6 @@ public class SetupPage extends AppCompatActivity {
             blank.setImageResource(R.drawable.blank);
             playerTwo.setPlayerGamePiece(R.drawable.blank);
             playerTwo.setPlayerColour("EMPTY");
-            pieceButton.setText("PIECES");
-            colourButton.setText("COLOUR");
             return true;
 
         }
@@ -1497,7 +1482,7 @@ public class SetupPage extends AppCompatActivity {
 
     public boolean onColourMenuItemClickPlayerTwo(@NonNull MenuItem item) {
 
-        Button colourButton = (Button) findViewById(R.id.playerTwoColourSelection);
+        ImageButton colourButton = (ImageButton) findViewById(R.id.playerTwoColourSelection);
 
         int id = item.getItemId();
 
@@ -1506,7 +1491,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked red!", Toast.LENGTH_SHORT).show();
             ImageView red = (ImageView) findViewById(R.id.playerTwoImage);
             red.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "RED"));
-            colourButton.setText("RED");
             return true;
 
         }
@@ -1516,7 +1500,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked blue!", Toast.LENGTH_SHORT).show();
             ImageView blue = (ImageView) findViewById(R.id.playerTwoImage);
             blue.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "BLUE"));
-            colourButton.setText("BLUE");
             return true;
 
         }
@@ -1526,7 +1509,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked green!", Toast.LENGTH_SHORT).show();
             ImageView green = (ImageView) findViewById(R.id.playerTwoImage);
             green.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "GREEN"));
-            colourButton.setText("GREEN");
             return true;
 
         }
@@ -1536,7 +1518,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked yellow!", Toast.LENGTH_SHORT).show();
             ImageView yellow = (ImageView) findViewById(R.id.playerTwoImage);
             yellow.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "YELLOW"));
-            colourButton.setText("YELLOW");
             return true;
 
         }
@@ -1546,7 +1527,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked black!", Toast.LENGTH_SHORT).show();
             ImageView black = (ImageView) findViewById(R.id.playerTwoImage);
             black.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "BLACK"));
-            colourButton.setText("BLACK");
             return true;
 
         }
@@ -1556,7 +1536,6 @@ public class SetupPage extends AppCompatActivity {
             Toast.makeText(this, "You picked white!", Toast.LENGTH_SHORT).show();
             ImageView noColour = (ImageView) findViewById(R.id.playerTwoImage);
             noColour.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "WHITE"));
-            colourButton.setText("WHITE");
             return true;
 
         }
@@ -1972,8 +1951,8 @@ public class SetupPage extends AppCompatActivity {
 
     public void playerTwoPreserveColourChoice(String piece){
 
-        Button pieceButton = (Button) findViewById(R.id.playerTwoPieceSelection);
-        Button colourButton = (Button) findViewById(R.id.playerTwoColourSelection);
+        ImageButton pieceButton = (ImageButton) findViewById(R.id.playerTwoPieceSelection);
+        ImageButton colourButton = (ImageButton) findViewById(R.id.playerTwoColourSelection);
         ImageView display = (ImageView) findViewById(R.id.playerTwoImage);
 
         //If playerTwo wants their game piece to be a circle with the same colour as their previous.
@@ -1984,8 +1963,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.red_circle);
                 playerTwo.setPlayerGamePiece(R.drawable.red_circle);
 
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("RED");
 
             }
             
@@ -1994,8 +1971,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.blue_circle);
                 playerTwo.setPlayerGamePiece(R.drawable.blue_circle);
 
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("BLUE");
 
             }
             
@@ -2004,8 +1979,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.green_circle);
                 playerTwo.setPlayerGamePiece(R.drawable.green_circle);
 
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("GREEN");
 
             }
             
@@ -2014,8 +1987,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.yellow_circle);
                 playerTwo.setPlayerGamePiece(R.drawable.yellow_circle);
 
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("YELLOW");
 
             }
             
@@ -2024,8 +1995,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.white_circle);
                 playerTwo.setPlayerGamePiece(R.drawable.white_circle);
 
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("WHITE");
 
             }
             
@@ -2034,8 +2003,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.black_circle);
                 playerTwo.setPlayerGamePiece(R.drawable.black_circle);
 
-                pieceButton.setText("CIRCLE");
-                colourButton.setText("BLACK");
 
             }
 
@@ -2047,8 +2014,6 @@ public class SetupPage extends AppCompatActivity {
                     playerTwo.setPlayerGamePiece(R.drawable.white_circle);
                     playerTwo.setPlayerColour("WHITE");
 
-                    pieceButton.setText("CIRCLE");
-                    colourButton.setText("WHITE");
                 }
 
                 else{
@@ -2057,8 +2022,6 @@ public class SetupPage extends AppCompatActivity {
                     playerTwo.setPlayerGamePiece(R.drawable.black_circle);
                     playerTwo.setPlayerColour("BLACK");
 
-                    pieceButton.setText("CIRCLE");
-                    colourButton.setText("BLACK");
                 }
             }
         }
@@ -2071,8 +2034,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.red_diamon);
                 playerTwo.setPlayerGamePiece(R.drawable.red_diamon);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("RED");
 
             }
             
@@ -2081,8 +2042,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.blue_diamond);
                 playerTwo.setPlayerGamePiece(R.drawable.blue_diamond);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("BLUE");
 
             }
             
@@ -2091,8 +2050,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.green_diamond);
                 playerTwo.setPlayerGamePiece(R.drawable.green_diamond);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("GREEN");
 
             }
             
@@ -2101,8 +2058,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.yellow_diamond);
                 playerTwo.setPlayerGamePiece(R.drawable.yellow_diamond);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("YELLOW");
 
             }
             
@@ -2111,8 +2066,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.white_diamond);
                 playerTwo.setPlayerGamePiece(R.drawable.white_diamond);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("WHITE");
 
             }
             
@@ -2121,8 +2074,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.black_diamond);
                 playerTwo.setPlayerGamePiece(R.drawable.black_diamond);
 
-                pieceButton.setText("DIAMOND");
-                colourButton.setText("BLACK");
 
             }
 
@@ -2134,8 +2085,6 @@ public class SetupPage extends AppCompatActivity {
                     playerTwo.setPlayerGamePiece(R.drawable.white_diamond);
                     playerTwo.setPlayerColour("WHITE");
 
-                    pieceButton.setText("DIAMOND");
-                    colourButton.setText("WHITE");
                 }
 
                 else{
@@ -2144,8 +2093,6 @@ public class SetupPage extends AppCompatActivity {
                     playerTwo.setPlayerGamePiece(R.drawable.black_diamond);
                     playerTwo.setPlayerColour("BLACK");
 
-                    pieceButton.setText("DIAMOND");
-                    colourButton.setText("BLACK");
                 }
             }
 
@@ -2159,8 +2106,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.red_square);
                 playerTwo.setPlayerGamePiece(R.drawable.red_square);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("RED");
 
             }
             
@@ -2169,8 +2114,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.blue_square);
                 playerTwo.setPlayerGamePiece(R.drawable.blue_square);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("BLUE");
 
             }
             
@@ -2179,8 +2122,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.green_squa);
                 playerTwo.setPlayerGamePiece(R.drawable.green_squa);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("GREEN");
 
             }
             
@@ -2189,8 +2130,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.yellow_square);
                 playerTwo.setPlayerGamePiece(R.drawable.yellow_square);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("YELLOW");
 
             }
             
@@ -2199,8 +2138,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.white_square);
                 playerTwo.setPlayerGamePiece(R.drawable.white_square);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("WHITE");
 
             }
             
@@ -2209,8 +2146,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.black_square);
                 playerTwo.setPlayerGamePiece(R.drawable.black_square);
 
-                pieceButton.setText("SQUARE");
-                colourButton.setText("BLACK");
 
             }
 
@@ -2222,8 +2157,6 @@ public class SetupPage extends AppCompatActivity {
                     playerTwo.setPlayerGamePiece(R.drawable.white_square);
                     playerTwo.setPlayerColour("WHITE");
 
-                    pieceButton.setText("SQUARE");
-                    colourButton.setText("WHITE");
                 }
 
                 else{
@@ -2232,8 +2165,6 @@ public class SetupPage extends AppCompatActivity {
                     playerTwo.setPlayerGamePiece(R.drawable.black_square);
                     playerTwo.setPlayerColour("BLACK");
 
-                    pieceButton.setText("SQUARE");
-                    colourButton.setText("BLACK");
                 }
             }
 
@@ -2247,18 +2178,12 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.red_star);
                 playerTwo.setPlayerGamePiece(R.drawable.red_star);
 
-                pieceButton.setText("STAR");
-                colourButton.setText("RED");
-
             }
             
             else if(playerTwo.getPlayerColour().equals("BLUE")){
 
                 display.setImageResource(R.drawable.blue_star);
                 playerTwo.setPlayerGamePiece(R.drawable.blue_star);
-
-                pieceButton.setText("STAR");
-                colourButton.setText("BLUE");
 
             }
             
@@ -2267,8 +2192,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.green_star);
                 playerTwo.setPlayerGamePiece(R.drawable.green_star);
 
-                pieceButton.setText("STAR");
-                colourButton.setText("GREEN");
 
             }
             
@@ -2277,9 +2200,6 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.yellow_star);
                 playerTwo.setPlayerGamePiece(R.drawable.yellow_star);
 
-                pieceButton.setText("STAR");
-                colourButton.setText("YELLOW");
-
             }
             
             else if(playerTwo.getPlayerColour().equals("WHITE")){
@@ -2287,18 +2207,12 @@ public class SetupPage extends AppCompatActivity {
                 display.setImageResource(R.drawable.white_star);
                 playerTwo.setPlayerGamePiece(R.drawable.white_star);
 
-                pieceButton.setText("STAR");
-                colourButton.setText("WHITE");
-
             }
             
             else if(playerTwo.getPlayerColour().equals("BLACK")){
 
                 display.setImageResource(R.drawable.black_star);
                 playerTwo.setPlayerGamePiece(R.drawable.black_star);
-
-                pieceButton.setText("STAR");
-                colourButton.setText("BLACK");
 
             }
 
@@ -2309,9 +2223,6 @@ public class SetupPage extends AppCompatActivity {
                     display.setImageResource(R.drawable.white_star);
                     playerTwo.setPlayerGamePiece(R.drawable.white_star);
                     playerTwo.setPlayerColour("WHITE");
-
-                    pieceButton.setText("STAR");
-                    colourButton.setText("WHITE");
                 }
 
                 else{
@@ -2319,9 +2230,6 @@ public class SetupPage extends AppCompatActivity {
                     display.setImageResource(R.drawable.black_star);
                     playerTwo.setPlayerGamePiece(R.drawable.black_star);
                     playerTwo.setPlayerColour("BLACK");
-
-                    pieceButton.setText("STAR");
-                    colourButton.setText("BLACK");
                 }
             }
 
