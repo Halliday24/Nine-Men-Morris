@@ -179,7 +179,7 @@ public class GamePage extends AppCompatActivity {
                             Log.i(TAG, "Area clicked");
                             int currentTurn = rules.getTurn();
                             areaToMoveTo = (FrameLayout) v;
-
+                            setHowManyPiecesRemaining();
                             //What areas are we moving from and to?
                             int to = Integer.parseInt((String) areaToMoveTo.getContentDescription());
                             int from = checkerPositions.get(selectedChecker);
@@ -385,6 +385,7 @@ public class GamePage extends AppCompatActivity {
      */
     private void moveChecker(int turn) {
 
+        setHowManyPiecesRemaining();
         ImageView animChecker = null;
         //Get the position of the checker that will move and the area it will move to
         final int[] locationChecker = {0, 0};
@@ -409,6 +410,9 @@ public class GamePage extends AppCompatActivity {
 
         //If the checker is in the side board, we need to update the side board as well
         if (parent != findViewById(R.id.board)) {
+
+            setHowManyPiecesRemaining();
+
             //Remove the real checker and add the ghost where the real one was
             parent.removeView(selectedChecker);
             parent.addView(animChecker, index);
@@ -417,6 +421,8 @@ public class GamePage extends AppCompatActivity {
             ((ViewGroup) findViewById(R.id.board)).addView(selectedChecker);
 
         } else {
+
+            setHowManyPiecesRemaining();
 
             //Add the ghost checker at the real ones position
             parent.addView(animChecker);
