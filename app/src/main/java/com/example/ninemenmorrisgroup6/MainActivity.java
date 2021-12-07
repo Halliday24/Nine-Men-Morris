@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         // create the popup window
         int width = 1000;
         int height = 1500;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
+        boolean focusable = false; // lets taps outside the popup also dismiss it
         LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout);
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
         dim_layout.setVisibility(View.VISIBLE);
@@ -130,10 +130,12 @@ public class MainActivity extends AppCompatActivity {
         View popupView = inflater.inflate(R.layout.activity_feedback_popup, null);
 
         // create the popup window
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
+        int width = 1000;
+        int height = 1500;
+        boolean focusable = false; // lets taps outside the popup also dismiss it
+        LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout);
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+        dim_layout.setVisibility(View.VISIBLE);
 
         // show the popup window
         // which view you pass in doesn't matter, it is only used for the window tolken
@@ -144,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 popupWindow.dismiss();
+                dim_layout.setVisibility(View.INVISIBLE);
                 return true;
             }
         });
