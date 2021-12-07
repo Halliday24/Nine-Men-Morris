@@ -70,6 +70,7 @@ public class GamePage extends AppCompatActivity {
             playerTwo = (Player) getIntent().getSerializableExtra("playerTwo");
             computer = (Player) getIntent().getSerializableExtra("computer");
 
+
             initializeGamePieces();
 
             pref = this.getSharedPreferences("errorlabs.in", Context.MODE_PRIVATE);
@@ -276,9 +277,10 @@ public class GamePage extends AppCompatActivity {
             //restore();
         }
 
-        super.onResume();
+        //super.onResume();
         //backgroundMusic.start();
     }
+
     /*private void restore() {
         int white = 0;
         int black = 0;
@@ -324,8 +326,9 @@ public class GamePage extends AppCompatActivity {
             }
         }
         while (white < whiteIndexes.size()) {
-            Log.i(TAG, "WHITE INDEX - " + Integer.parseInt(whiteIndexes.get(white)));
-            Log.i(TAG, "WHITE - " + white);
+            Log.i(TAG, "Integer.parseInt(whiteIndexes.get(white)) - " + Integer.parseInt(whiteIndexes.get(white)));
+            Log.i(TAG, "white - " + whiteIndexes.size());
+            Log.i(TAG, "white - " + white);
             setPlaceHolder(Integer.parseInt(whiteIndexes.get(white)), ((ViewGroup) findViewById(R.id.whiteCheckerArea)));
             white++;
         }
@@ -338,7 +341,7 @@ public class GamePage extends AppCompatActivity {
     }*/
 
     private ImageView setPlaceHolder(int index, ViewGroup parent) {
-        //Log.i(TAG, Integer.toString(index));
+        Log.i(TAG, "Index - " + Integer.toString(index));
         ImageView checker = (ImageView) parent.getChildAt(index);
         parent.removeViewAt(index);
         FrameLayout placeholder = (FrameLayout) getLayoutInflater().inflate(R.layout.layout_placeholder, parent, false);
@@ -473,7 +476,9 @@ public class GamePage extends AppCompatActivity {
                 blackCheckers.remove(v);
                 removeNextChecker = false;
                 ViewGroup parent = ((ViewGroup) v.getParent());
+                Log.i(TAG,"White Child Before - " + parent.getChildCount());
                 parent.removeView(v);
+                Log.i(TAG,"White Child After - " + parent.getChildCount());
                 playerTurn.setText("Black turn");
 
                 //Did someone win?
@@ -487,7 +492,9 @@ public class GamePage extends AppCompatActivity {
                 whiteCheckers.remove(v);
                 removeNextChecker = false;
                 ViewGroup parent = ((ViewGroup) v.getParent());
+                Log.i(TAG,"Black Child Before - " + parent.getChildCount());
                 parent.removeView(v);
+                Log.i(TAG,"Black Child After - " + parent.getChildCount());
                 playerTurn.setText("White turn");
 
                 //Did someone win?
@@ -496,7 +503,6 @@ public class GamePage extends AppCompatActivity {
                     playerTurn.setText("Black wins!");
                 }
             }
-
         }
         //Try to select the checker for a move
         else if (!(checkerPositions.get(v) != 0 && checkerPositions.containsValue(0)) || (checkerPositions.get(v) == 0)) {

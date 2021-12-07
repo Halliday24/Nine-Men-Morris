@@ -97,7 +97,7 @@ public class SetupPage extends AppCompatActivity {
     public void playAgainstHardComputer(View myView){
 
         computer.setDifficulty(2);
-        computer.setPlayerGamePiece(R.drawable.circle_black);
+        computer.setPlayerGamePiece(R.drawable.black_circle);
 
         singlePlayerButtonSetup();
         setPlayerOneToDefault();
@@ -119,7 +119,7 @@ public class SetupPage extends AppCompatActivity {
     public void playAgainstEasyComputer(View myView){
 
         computer.setDifficulty(1);
-        computer.setPlayerGamePiece(R.drawable.circle_black);
+        computer.setPlayerGamePiece(R.drawable.black_circle);
 
         singlePlayerButtonSetup();
         setPlayerOneToDefault();
@@ -164,11 +164,11 @@ public class SetupPage extends AppCompatActivity {
         Button pieceButton = (Button) findViewById(R.id.playerOnePieceSelection);
         ImageView playerOneImage = (ImageView) findViewById(R.id.playerOneImage);
 
-        playerOneImage.setImageResource(R.drawable.circle_white);
+        playerOneImage.setImageResource(R.drawable.white_circle);
         pieceButton.setText("CIRCLE");
         colourButton.setText("WHITE");
 
-        playerOne.setPlayerGamePiece(R.drawable.circle_white);
+        playerOne.setPlayerGamePiece(R.drawable.white_circle);
         playerOne.setPlayerColour("WHITE");
 
     }
@@ -184,11 +184,11 @@ public class SetupPage extends AppCompatActivity {
         Button pieceButton = (Button) findViewById(R.id.playerTwoPieceSelection);
         ImageView playerTwoImage = (ImageView) findViewById(R.id.playerTwoImage);
 
-        playerTwoImage.setImageResource(R.drawable.circle_black);
+        playerTwoImage.setImageResource(R.drawable.black_circle);
         pieceButton.setText("CIRCLE");
         colourButton.setText("BLACK");
 
-        playerTwo.setPlayerGamePiece(R.drawable.circle_black);
+        playerTwo.setPlayerGamePiece(R.drawable.black_circle);
         playerTwo.setPlayerColour("BLACK");
 
     }
@@ -629,60 +629,60 @@ public class SetupPage extends AppCompatActivity {
         //If playing against another user.
         if(computer.getDifficulty() == 0) {
 
-            if (playerTwo.getPlayerGamePiece() == R.drawable.circle_red |
-                    playerTwo.getPlayerGamePiece() == R.drawable.square_red |
-                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_red |
-                    playerTwo.getPlayerGamePiece() == R.drawable.star_red) {
+            if (playerTwo.getPlayerGamePiece() == R.drawable.red_circle |
+                    playerTwo.getPlayerGamePiece() == R.drawable.red_square |
+                    playerTwo.getPlayerGamePiece() == R.drawable.red_diamon |
+                    playerTwo.getPlayerGamePiece() == R.drawable.red_star) {
 
                 red.setVisible(false);
                 return popup;
 
             }
 
-            else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_blue |
-                    playerTwo.getPlayerGamePiece() == R.drawable.square_blue |
-                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_blue |
-                    playerTwo.getPlayerGamePiece() == R.drawable.star_blue) {
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.blue_circle |
+                    playerTwo.getPlayerGamePiece() == R.drawable.blue_square |
+                    playerTwo.getPlayerGamePiece() == R.drawable.blue_diamond |
+                    playerTwo.getPlayerGamePiece() == R.drawable.blue_star) {
 
                 blue.setVisible(false);
                 return popup;
 
             }
 
-            else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_green |
-                    playerTwo.getPlayerGamePiece() == R.drawable.square_green |
-                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_green |
-                    playerTwo.getPlayerGamePiece() == R.drawable.star_green) {
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.green_circle |
+                    playerTwo.getPlayerGamePiece() == R.drawable.green_squa |
+                    playerTwo.getPlayerGamePiece() == R.drawable.green_diamond |
+                    playerTwo.getPlayerGamePiece() == R.drawable.green_star) {
 
                 green.setVisible(false);
                 return popup;
 
             }
 
-            else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_yellow |
-                    playerTwo.getPlayerGamePiece() == R.drawable.square_yellow |
-                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_yellow |
-                    playerTwo.getPlayerGamePiece() == R.drawable.star_yellow) {
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.yellow_circle |
+                    playerTwo.getPlayerGamePiece() == R.drawable.yellow_square |
+                    playerTwo.getPlayerGamePiece() == R.drawable.yellow_diamond |
+                    playerTwo.getPlayerGamePiece() == R.drawable.yellow_star) {
 
                 yellow.setVisible(false);
                 return popup;
 
             }
 
-            else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_white |
-                    playerTwo.getPlayerGamePiece() == R.drawable.square_white |
-                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_white |
-                    playerTwo.getPlayerGamePiece() == R.drawable.star_white) {
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.white_circle |
+                    playerTwo.getPlayerGamePiece() == R.drawable.white_square |
+                    playerTwo.getPlayerGamePiece() == R.drawable.white_diamond |
+                    playerTwo.getPlayerGamePiece() == R.drawable.white_star) {
 
                 white.setVisible(false);
                 return popup;
 
             }
 
-            else if (playerTwo.getPlayerGamePiece() == R.drawable.circle_black |
-                    playerTwo.getPlayerGamePiece() == R.drawable.square_black |
-                    playerTwo.getPlayerGamePiece() == R.drawable.diamond_black |
-                    playerTwo.getPlayerGamePiece() == R.drawable.star_black) {
+            else if (playerTwo.getPlayerGamePiece() == R.drawable.black_circle |
+                    playerTwo.getPlayerGamePiece() == R.drawable.black_square |
+                    playerTwo.getPlayerGamePiece() == R.drawable.black_diamond |
+                    playerTwo.getPlayerGamePiece() == R.drawable.black_star) {
 
                 black.setVisible(false);
                 return popup;
@@ -724,277 +724,277 @@ public class SetupPage extends AppCompatActivity {
     public int setColourPlayerOne(int token, String colour){
 
         //if playerOne has a circle they want in a different colour.
-        if (token == R.drawable.circle_white | token == R.drawable.circle_red | token == R.drawable.circle_blue
-                | token == R.drawable.circle_green | token == R.drawable.circle_yellow | token == R.drawable.circle_black){
+        if (token == R.drawable.white_circle | token == R.drawable.red_circle | token == R.drawable.blue_circle
+                | token == R.drawable.green_circle | token == R.drawable.yellow_circle | token == R.drawable.black_circle){
 
             if (colour.equals("RED")){
 
                 ImageView redCircle = (ImageView) findViewById(R.id.playerOneImage);
-                redCircle.setImageResource(R.drawable.circle_red);
-                playerOne.setPlayerGamePiece(R.drawable.circle_red);
+                redCircle.setImageResource(R.drawable.red_circle);
+                playerOne.setPlayerGamePiece(R.drawable.red_circle);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.circle_red;
+                return R.drawable.red_circle;
 
             }
 
             else if (colour.equals("BLUE")){
 
                 ImageView blueCircle = (ImageView) findViewById(R.id.playerOneImage);
-                blueCircle.setImageResource(R.drawable.circle_blue);
-                playerOne.setPlayerGamePiece(R.drawable.circle_blue);
+                blueCircle.setImageResource(R.drawable.blue_circle);
+                playerOne.setPlayerGamePiece(R.drawable.blue_circle);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.circle_blue;
+                return R.drawable.blue_circle;
 
             }
 
             else if (colour.equals("GREEN")){
 
                 ImageView greenCircle = (ImageView) findViewById(R.id.playerOneImage);
-                greenCircle.setImageResource(R.drawable.circle_green);
-                playerOne.setPlayerGamePiece(R.drawable.circle_green);
+                greenCircle.setImageResource(R.drawable.green_circle);
+                playerOne.setPlayerGamePiece(R.drawable.green_circle);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.circle_green;
+                return R.drawable.green_circle;
 
             }
 
             else if (colour.equals("YELLOW")){
 
                 ImageView yellowCircle = (ImageView) findViewById(R.id.playerOneImage);
-                yellowCircle.setImageResource(R.drawable.circle_yellow);
-                playerOne.setPlayerGamePiece(R.drawable.circle_yellow);
+                yellowCircle.setImageResource(R.drawable.yellow_circle);
+                playerOne.setPlayerGamePiece(R.drawable.yellow_circle);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.circle_yellow;
+                return R.drawable.yellow_circle;
 
             }
 
             else if (colour.equals("BLACK")){
 
                 ImageView blackCircle = (ImageView) findViewById(R.id.playerOneImage);
-                blackCircle.setImageResource(R.drawable.circle_black);
-                playerOne.setPlayerGamePiece(R.drawable.circle_black);
+                blackCircle.setImageResource(R.drawable.black_circle);
+                playerOne.setPlayerGamePiece(R.drawable.black_circle);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.circle_black;
+                return R.drawable.black_circle;
 
             }
 
             else if (colour.equals("WHITE")){
 
                 ImageView whiteCircle = (ImageView) findViewById(R.id.playerOneImage);
-                whiteCircle.setImageResource(R.drawable.circle_white);
-                playerOne.setPlayerGamePiece(R.drawable.circle_white);
+                whiteCircle.setImageResource(R.drawable.white_circle);
+                playerOne.setPlayerGamePiece(R.drawable.white_circle);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.circle_white;
+                return R.drawable.white_circle;
 
             }
 
         }
 
         //if playerOne has a diamond they want in a different colour.
-        else if (token == R.drawable.diamond_white | token == R.drawable.diamond_red | token == R.drawable.diamond_blue
-                | token == R.drawable.diamond_green | token == R.drawable.diamond_yellow | token == R.drawable.diamond_black){
+        else if (token == R.drawable.white_diamond | token == R.drawable.red_diamon | token == R.drawable.blue_diamond
+                | token == R.drawable.green_diamond | token == R.drawable.yellow_diamond | token == R.drawable.black_diamond){
 
             if (colour.equals("RED")){
 
                 ImageView redDiamond = (ImageView) findViewById(R.id.playerOneImage);
-                redDiamond.setImageResource(R.drawable.diamond_red);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_red);
+                redDiamond.setImageResource(R.drawable.red_diamon);
+                playerOne.setPlayerGamePiece(R.drawable.red_diamon);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.diamond_red;
+                return R.drawable.red_diamon;
 
             }
 
             else if (colour.equals("BLUE")){
 
                 ImageView blueDiamond = (ImageView) findViewById(R.id.playerOneImage);
-                blueDiamond.setImageResource(R.drawable.diamond_blue);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_blue);
+                blueDiamond.setImageResource(R.drawable.blue_diamond);
+                playerOne.setPlayerGamePiece(R.drawable.blue_diamond);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.diamond_blue;
+                return R.drawable.blue_diamond;
 
             }
 
             else if (colour.equals("GREEN")){
 
                 ImageView greenDiamond = (ImageView) findViewById(R.id.playerOneImage);
-                greenDiamond.setImageResource(R.drawable.diamond_green);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_green);
+                greenDiamond.setImageResource(R.drawable.green_diamond);
+                playerOne.setPlayerGamePiece(R.drawable.green_diamond);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.diamond_green;
+                return R.drawable.green_diamond;
 
             }
 
             else if (colour.equals("YELLOW")){
 
                 ImageView yellowDiamond = (ImageView) findViewById(R.id.playerOneImage);
-                yellowDiamond.setImageResource(R.drawable.diamond_yellow);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_yellow);
+                yellowDiamond.setImageResource(R.drawable.yellow_diamond);
+                playerOne.setPlayerGamePiece(R.drawable.yellow_diamond);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.diamond_yellow;
+                return R.drawable.yellow_diamond;
 
             }
 
             else if (colour.equals("BLACK")){
 
                 ImageView blackDiamond = (ImageView) findViewById(R.id.playerOneImage);
-                blackDiamond.setImageResource(R.drawable.diamond_black);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_black);
+                blackDiamond.setImageResource(R.drawable.black_diamond);
+                playerOne.setPlayerGamePiece(R.drawable.black_diamond);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.diamond_black;
+                return R.drawable.black_diamond;
 
             }
 
             else if (colour.equals("WHITE")){
 
                 ImageView whiteDiamond = (ImageView) findViewById(R.id.playerOneImage);
-                whiteDiamond.setImageResource(R.drawable.diamond_white);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_white);
+                whiteDiamond.setImageResource(R.drawable.white_diamond);
+                playerOne.setPlayerGamePiece(R.drawable.white_diamond);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.diamond_white;
+                return R.drawable.white_diamond;
 
             }
 
         }
 
         //if playerOne has a square they want in a different colour.
-        else if (token == R.drawable.square_white | token == R.drawable.square_red | token == R.drawable.square_blue
-                | token == R.drawable.square_green | token == R.drawable.square_yellow | token == R.drawable.square_black){
+        else if (token == R.drawable.white_square | token == R.drawable.red_square | token == R.drawable.blue_square
+                | token == R.drawable.green_squa | token == R.drawable.yellow_square | token == R.drawable.black_square){
 
             if (colour.equals("RED")){
 
                 ImageView redSquare = (ImageView) findViewById(R.id.playerOneImage);
-                redSquare.setImageResource(R.drawable.square_red);
-                playerOne.setPlayerGamePiece(R.drawable.square_red);
+                redSquare.setImageResource(R.drawable.red_square);
+                playerOne.setPlayerGamePiece(R.drawable.red_square);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.square_red;
+                return R.drawable.red_square;
 
             }
 
             else if (colour.equals("BLUE")){
 
                 ImageView blueSquare = (ImageView) findViewById(R.id.playerOneImage);
-                blueSquare.setImageResource(R.drawable.square_blue);
-                playerOne.setPlayerGamePiece(R.drawable.square_blue);
+                blueSquare.setImageResource(R.drawable.blue_square);
+                playerOne.setPlayerGamePiece(R.drawable.blue_square);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.square_blue;
+                return R.drawable.blue_square;
 
             }
 
             else if (colour.equals("GREEN")){
 
                 ImageView greenSquare = (ImageView) findViewById(R.id.playerOneImage);
-                greenSquare.setImageResource(R.drawable.square_green);
-                playerOne.setPlayerGamePiece(R.drawable.square_green);
+                greenSquare.setImageResource(R.drawable.green_squa);
+                playerOne.setPlayerGamePiece(R.drawable.green_squa);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.square_green;
+                return R.drawable.green_squa;
 
             }
 
             else if (colour.equals("YELLOW")){
 
                 ImageView yellowSquare = (ImageView) findViewById(R.id.playerOneImage);
-                yellowSquare.setImageResource(R.drawable.square_yellow);
-                playerOne.setPlayerGamePiece(R.drawable.square_yellow);
+                yellowSquare.setImageResource(R.drawable.yellow_square);
+                playerOne.setPlayerGamePiece(R.drawable.yellow_square);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.square_yellow;
+                return R.drawable.yellow_square;
 
             }
 
             else if (colour.equals("BLACK")){
 
                 ImageView blackSquare = (ImageView) findViewById(R.id.playerOneImage);
-                blackSquare.setImageResource(R.drawable.square_black);
-                playerOne.setPlayerGamePiece(R.drawable.square_black);
+                blackSquare.setImageResource(R.drawable.black_square);
+                playerOne.setPlayerGamePiece(R.drawable.black_square);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.square_black;
+                return R.drawable.black_square;
 
             }
 
             else if (colour.equals("WHITE")){
 
                 ImageView whiteSquare = (ImageView) findViewById(R.id.playerOneImage);
-                whiteSquare.setImageResource(R.drawable.square_white);
-                playerOne.setPlayerGamePiece(R.drawable.square_white);
+                whiteSquare.setImageResource(R.drawable.white_square);
+                playerOne.setPlayerGamePiece(R.drawable.white_square);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.square_white;
+                return R.drawable.white_square;
 
             }
 
         }
 
         //if playerOne has a star they want in a different colour.
-        else if (token == R.drawable.star_white | token == R.drawable.star_red | token == R.drawable.star_blue
-                | token == R.drawable.star_green | token == R.drawable.star_yellow | token == R.drawable.star_black){
+        else if (token == R.drawable.white_star | token == R.drawable.red_star | token == R.drawable.blue_star
+                | token == R.drawable.green_star | token == R.drawable.yellow_star | token == R.drawable.black_star){
 
             if (colour.equals("RED")){
 
                 ImageView redStar = (ImageView) findViewById(R.id.playerOneImage);
-                redStar.setImageResource(R.drawable.star_red);
-                playerOne.setPlayerGamePiece(R.drawable.star_red);
+                redStar.setImageResource(R.drawable.red_star);
+                playerOne.setPlayerGamePiece(R.drawable.red_star);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.star_red;
+                return R.drawable.red_star;
 
             }
 
             else if (colour.equals("GREEN")){
 
                 ImageView greenStar = (ImageView) findViewById(R.id.playerOneImage);
-                greenStar.setImageResource(R.drawable.star_green);
-                playerOne.setPlayerGamePiece(R.drawable.star_green);
+                greenStar.setImageResource(R.drawable.green_star);
+                playerOne.setPlayerGamePiece(R.drawable.green_star);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.star_green;
+                return R.drawable.green_star;
 
             }
 
             else if (colour.equals("YELLOW")){
 
                 ImageView yellowStar = (ImageView) findViewById(R.id.playerOneImage);
-                yellowStar.setImageResource(R.drawable.star_yellow);
-                playerOne.setPlayerGamePiece(R.drawable.star_yellow);
+                yellowStar.setImageResource(R.drawable.yellow_star);
+                playerOne.setPlayerGamePiece(R.drawable.yellow_star);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.star_yellow;
+                return R.drawable.yellow_star;
 
             }
 
             else if (colour.equals("BLACK")){
 
                 ImageView blackStar = (ImageView) findViewById(R.id.playerOneImage);
-                blackStar.setImageResource(R.drawable.star_black);
-                playerOne.setPlayerGamePiece(R.drawable.star_black);
+                blackStar.setImageResource(R.drawable.black_star);
+                playerOne.setPlayerGamePiece(R.drawable.black_star);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.star_black;
+                return R.drawable.black_star;
 
             }
 
             else if (colour.equals("WHITE")){
 
                 ImageView whiteStar = (ImageView) findViewById(R.id.playerOneImage);
-                whiteStar.setImageResource(R.drawable.star_white);
-                playerOne.setPlayerGamePiece(R.drawable.star_white);
+                whiteStar.setImageResource(R.drawable.white_star);
+                playerOne.setPlayerGamePiece(R.drawable.white_star);
                 playerOne.setPlayerColour(colour);
 
-                return R.drawable.star_white;
+                return R.drawable.white_star;
 
             }
 
@@ -1022,8 +1022,8 @@ public class SetupPage extends AppCompatActivity {
 
             if(playerOne.getPlayerColour().equals("RED")){
 
-                display.setImageResource(R.drawable.circle_red);
-                playerOne.setPlayerGamePiece(R.drawable.circle_red);
+                display.setImageResource(R.drawable.red_circle);
+                playerOne.setPlayerGamePiece(R.drawable.red_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("RED");
@@ -1032,8 +1032,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("BLUE")){
 
-                display.setImageResource(R.drawable.circle_blue);
-                playerOne.setPlayerGamePiece(R.drawable.circle_blue);
+                display.setImageResource(R.drawable.blue_circle);
+                playerOne.setPlayerGamePiece(R.drawable.blue_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("BLUE");
@@ -1042,8 +1042,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("GREEN")){
 
-                display.setImageResource(R.drawable.circle_green);
-                playerOne.setPlayerGamePiece(R.drawable.circle_green);
+                display.setImageResource(R.drawable.green_circle);
+                playerOne.setPlayerGamePiece(R.drawable.green_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("GREEN");
@@ -1052,8 +1052,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("YELLOW")){
 
-                display.setImageResource(R.drawable.circle_yellow);
-                playerOne.setPlayerGamePiece(R.drawable.circle_yellow);
+                display.setImageResource(R.drawable.yellow_circle);
+                playerOne.setPlayerGamePiece(R.drawable.yellow_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("YELLOW");
@@ -1062,8 +1062,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("WHITE")){
 
-                display.setImageResource(R.drawable.circle_white);
-                playerOne.setPlayerGamePiece(R.drawable.circle_white);
+                display.setImageResource(R.drawable.white_circle);
+                playerOne.setPlayerGamePiece(R.drawable.white_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("WHITE");
@@ -1072,8 +1072,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("BLACK")){
 
-                display.setImageResource(R.drawable.circle_black);
-                playerOne.setPlayerGamePiece(R.drawable.circle_black);
+                display.setImageResource(R.drawable.black_circle);
+                playerOne.setPlayerGamePiece(R.drawable.black_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("BLACK");
@@ -1084,8 +1084,8 @@ public class SetupPage extends AppCompatActivity {
 
                 if(playerTwo.getPlayerColour().equals("WHITE")){
 
-                    display.setImageResource(R.drawable.circle_black);
-                    playerOne.setPlayerGamePiece(R.drawable.circle_black);
+                    display.setImageResource(R.drawable.black_circle);
+                    playerOne.setPlayerGamePiece(R.drawable.black_circle);
                     playerOne.setPlayerColour("BLACK");
 
                     pieceButton.setText("CIRCLE");
@@ -1094,8 +1094,8 @@ public class SetupPage extends AppCompatActivity {
 
                 else{
 
-                    display.setImageResource(R.drawable.circle_white);
-                    playerOne.setPlayerGamePiece(R.drawable.circle_white);
+                    display.setImageResource(R.drawable.white_circle);
+                    playerOne.setPlayerGamePiece(R.drawable.white_circle);
                     playerOne.setPlayerColour("WHITE");
 
                     pieceButton.setText("CIRCLE");
@@ -1109,8 +1109,8 @@ public class SetupPage extends AppCompatActivity {
 
             if(playerOne.getPlayerColour().equals("RED")){
 
-                display.setImageResource(R.drawable.diamond_red);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_red);
+                display.setImageResource(R.drawable.red_diamon);
+                playerOne.setPlayerGamePiece(R.drawable.red_diamon);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("RED");
@@ -1119,8 +1119,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("BLUE")){
 
-                display.setImageResource(R.drawable.diamond_blue);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_blue);
+                display.setImageResource(R.drawable.blue_diamond);
+                playerOne.setPlayerGamePiece(R.drawable.blue_diamond);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("BLUE");
@@ -1129,8 +1129,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("GREEN")){
 
-                display.setImageResource(R.drawable.diamond_green);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_green);
+                display.setImageResource(R.drawable.green_diamond);
+                playerOne.setPlayerGamePiece(R.drawable.green_diamond);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("GREEN");
@@ -1139,8 +1139,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("YELLOW")){
 
-                display.setImageResource(R.drawable.diamond_yellow);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_yellow);
+                display.setImageResource(R.drawable.yellow_diamond);
+                playerOne.setPlayerGamePiece(R.drawable.yellow_diamond);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("YELLOW");
@@ -1149,8 +1149,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("WHITE")){
 
-                display.setImageResource(R.drawable.diamond_white);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_white);
+                display.setImageResource(R.drawable.white_diamond);
+                playerOne.setPlayerGamePiece(R.drawable.white_diamond);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("WHITE");
@@ -1159,8 +1159,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("BLACK")){
 
-                display.setImageResource(R.drawable.diamond_black);
-                playerOne.setPlayerGamePiece(R.drawable.diamond_black);
+                display.setImageResource(R.drawable.black_diamond);
+                playerOne.setPlayerGamePiece(R.drawable.black_diamond);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("BLACK");
@@ -1171,8 +1171,8 @@ public class SetupPage extends AppCompatActivity {
 
                 if(playerTwo.getPlayerColour().equals("WHITE")){
 
-                    display.setImageResource(R.drawable.diamond_black);
-                    playerOne.setPlayerGamePiece(R.drawable.diamond_black);
+                    display.setImageResource(R.drawable.black_diamond);
+                    playerOne.setPlayerGamePiece(R.drawable.black_diamond);
                     playerOne.setPlayerColour("BLACK");
 
                     pieceButton.setText("DIAMOND");
@@ -1181,8 +1181,8 @@ public class SetupPage extends AppCompatActivity {
 
                 else{
 
-                    display.setImageResource(R.drawable.diamond_white);
-                    playerOne.setPlayerGamePiece(R.drawable.diamond_white);
+                    display.setImageResource(R.drawable.white_diamond);
+                    playerOne.setPlayerGamePiece(R.drawable.white_diamond);
                     playerOne.setPlayerColour("WHITE");
 
                     pieceButton.setText("DIAMOND");
@@ -1197,8 +1197,8 @@ public class SetupPage extends AppCompatActivity {
 
             if(playerOne.getPlayerColour().equals("RED")){
 
-                display.setImageResource(R.drawable.square_red);
-                playerOne.setPlayerGamePiece(R.drawable.square_red);
+                display.setImageResource(R.drawable.red_square);
+                playerOne.setPlayerGamePiece(R.drawable.red_square);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("RED");
@@ -1207,8 +1207,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("BLUE")){
 
-                display.setImageResource(R.drawable.square_blue);
-                playerOne.setPlayerGamePiece(R.drawable.square_blue);
+                display.setImageResource(R.drawable.blue_square);
+                playerOne.setPlayerGamePiece(R.drawable.blue_square);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("BLUE");
@@ -1217,8 +1217,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("GREEN")){
 
-                display.setImageResource(R.drawable.square_green);
-                playerOne.setPlayerGamePiece(R.drawable.square_green);
+                display.setImageResource(R.drawable.green_squa);
+                playerOne.setPlayerGamePiece(R.drawable.green_squa);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("GREEN");
@@ -1227,8 +1227,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("YELLOW")){
 
-                display.setImageResource(R.drawable.square_yellow);
-                playerOne.setPlayerGamePiece(R.drawable.square_yellow);
+                display.setImageResource(R.drawable.yellow_square);
+                playerOne.setPlayerGamePiece(R.drawable.yellow_square);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("YELLOW");
@@ -1237,8 +1237,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("WHITE")){
 
-                display.setImageResource(R.drawable.square_white);
-                playerOne.setPlayerGamePiece(R.drawable.square_white);
+                display.setImageResource(R.drawable.white_square);
+                playerOne.setPlayerGamePiece(R.drawable.white_square);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("WHITE");
@@ -1247,8 +1247,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("BLACK")){
 
-                display.setImageResource(R.drawable.square_black);
-                playerOne.setPlayerGamePiece(R.drawable.square_black);
+                display.setImageResource(R.drawable.black_square);
+                playerOne.setPlayerGamePiece(R.drawable.black_square);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("BLACK");
@@ -1259,8 +1259,8 @@ public class SetupPage extends AppCompatActivity {
 
                 if(playerTwo.getPlayerColour().equals("WHITE")){
 
-                    display.setImageResource(R.drawable.square_black);
-                    playerOne.setPlayerGamePiece(R.drawable.square_black);
+                    display.setImageResource(R.drawable.black_square);
+                    playerOne.setPlayerGamePiece(R.drawable.black_square);
                     playerOne.setPlayerColour("BLACK");
 
                     pieceButton.setText("SQUARE");
@@ -1269,8 +1269,8 @@ public class SetupPage extends AppCompatActivity {
 
                 else{
 
-                    display.setImageResource(R.drawable.square_white);
-                    playerOne.setPlayerGamePiece(R.drawable.square_white);
+                    display.setImageResource(R.drawable.white_square);
+                    playerOne.setPlayerGamePiece(R.drawable.white_square);
                     playerOne.setPlayerColour("WHITE");
 
                     pieceButton.setText("SQUARE");
@@ -1285,8 +1285,8 @@ public class SetupPage extends AppCompatActivity {
 
             if(playerOne.getPlayerColour().equals("RED")){
 
-                display.setImageResource(R.drawable.star_red);
-                playerOne.setPlayerGamePiece(R.drawable.star_red);
+                display.setImageResource(R.drawable.red_star);
+                playerOne.setPlayerGamePiece(R.drawable.red_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("RED");
@@ -1295,8 +1295,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("BLUE")){
 
-                display.setImageResource(R.drawable.star_blue);
-                playerOne.setPlayerGamePiece(R.drawable.star_blue);
+                display.setImageResource(R.drawable.blue_star);
+                playerOne.setPlayerGamePiece(R.drawable.blue_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("BLUE");
@@ -1305,8 +1305,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("GREEN")){
 
-                display.setImageResource(R.drawable.star_green);
-                playerOne.setPlayerGamePiece(R.drawable.star_green);
+                display.setImageResource(R.drawable.green_star);
+                playerOne.setPlayerGamePiece(R.drawable.green_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("GREEN");
@@ -1315,8 +1315,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("YELLOW")){
 
-                display.setImageResource(R.drawable.star_yellow);
-                playerOne.setPlayerGamePiece(R.drawable.star_yellow);
+                display.setImageResource(R.drawable.yellow_star);
+                playerOne.setPlayerGamePiece(R.drawable.yellow_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("YELLOW");
@@ -1325,8 +1325,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("WHITE")){
 
-                display.setImageResource(R.drawable.star_white);
-                playerOne.setPlayerGamePiece(R.drawable.star_white);
+                display.setImageResource(R.drawable.white_star);
+                playerOne.setPlayerGamePiece(R.drawable.white_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("WHITE");
@@ -1335,8 +1335,8 @@ public class SetupPage extends AppCompatActivity {
 
             else if(playerOne.getPlayerColour().equals("BLACK")){
 
-                display.setImageResource(R.drawable.star_black);
-                playerOne.setPlayerGamePiece(R.drawable.star_black);
+                display.setImageResource(R.drawable.black_star);
+                playerOne.setPlayerGamePiece(R.drawable.black_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("BLACK");
@@ -1347,8 +1347,8 @@ public class SetupPage extends AppCompatActivity {
                 
                 if(playerTwo.getPlayerColour().equals("WHITE")){
 
-                    display.setImageResource(R.drawable.star_black);
-                    playerOne.setPlayerGamePiece(R.drawable.star_black);
+                    display.setImageResource(R.drawable.black_star);
+                    playerOne.setPlayerGamePiece(R.drawable.black_star);
                     playerOne.setPlayerColour("BLACK");
 
                     pieceButton.setText("STAR");
@@ -1357,8 +1357,8 @@ public class SetupPage extends AppCompatActivity {
                 
                 else{
 
-                    display.setImageResource(R.drawable.star_white);
-                    playerOne.setPlayerGamePiece(R.drawable.star_white);
+                    display.setImageResource(R.drawable.white_star);
+                    playerOne.setPlayerGamePiece(R.drawable.white_star);
                     playerOne.setPlayerColour("WHITE");
 
                     pieceButton.setText("STAR");
@@ -1588,60 +1588,60 @@ public class SetupPage extends AppCompatActivity {
         MenuItem white = menu.findItem(R.id.menu_white);
         MenuItem black = menu.findItem(R.id.menu_black);
 
-        if (playerOne.getPlayerGamePiece() == R.drawable.circle_red |
-                playerOne.getPlayerGamePiece() == R.drawable.square_red |
-                playerOne.getPlayerGamePiece() == R.drawable.diamond_red |
-                playerOne.getPlayerGamePiece() == R.drawable.star_red){
+        if (playerOne.getPlayerGamePiece() == R.drawable.red_circle |
+                playerOne.getPlayerGamePiece() == R.drawable.red_square |
+                playerOne.getPlayerGamePiece() == R.drawable.red_diamon |
+                playerOne.getPlayerGamePiece() == R.drawable.red_star){
 
             red.setVisible(false);
             return popup;
 
         }
         
-        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_blue |
-                playerOne.getPlayerGamePiece() == R.drawable.square_blue |
-                playerOne.getPlayerGamePiece() == R.drawable.diamond_blue |
-                playerOne.getPlayerGamePiece() == R.drawable.star_blue){
+        else if (playerOne.getPlayerGamePiece() == R.drawable.blue_circle |
+                playerOne.getPlayerGamePiece() == R.drawable.blue_square |
+                playerOne.getPlayerGamePiece() == R.drawable.blue_diamond |
+                playerOne.getPlayerGamePiece() == R.drawable.blue_star){
 
             blue.setVisible(false);
             return popup;
 
         }
         
-        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_green |
-                playerOne.getPlayerGamePiece() == R.drawable.square_green |
-                playerOne.getPlayerGamePiece() == R.drawable.diamond_green|
-                playerOne.getPlayerGamePiece() == R.drawable.star_green){
+        else if (playerOne.getPlayerGamePiece() == R.drawable.green_circle |
+                playerOne.getPlayerGamePiece() == R.drawable.green_squa |
+                playerOne.getPlayerGamePiece() == R.drawable.green_diamond|
+                playerOne.getPlayerGamePiece() == R.drawable.green_star){
 
             green.setVisible(false);
             return popup;
 
         }
         
-        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_yellow |
-                playerOne.getPlayerGamePiece() == R.drawable.square_yellow |
-                playerOne.getPlayerGamePiece() == R.drawable.diamond_yellow |
-                playerOne.getPlayerGamePiece() == R.drawable.star_yellow){
+        else if (playerOne.getPlayerGamePiece() == R.drawable.yellow_circle |
+                playerOne.getPlayerGamePiece() == R.drawable.yellow_square |
+                playerOne.getPlayerGamePiece() == R.drawable.yellow_diamond |
+                playerOne.getPlayerGamePiece() == R.drawable.yellow_star){
 
             yellow.setVisible(false);
             return popup;
 
         }
 
-        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_white |
-                playerOne.getPlayerGamePiece() == R.drawable.square_white |
-                playerOne.getPlayerGamePiece() == R.drawable.diamond_white |
-                playerOne.getPlayerGamePiece() == R.drawable.star_white){
+        else if (playerOne.getPlayerGamePiece() == R.drawable.white_circle |
+                playerOne.getPlayerGamePiece() == R.drawable.white_square |
+                playerOne.getPlayerGamePiece() == R.drawable.white_diamond |
+                playerOne.getPlayerGamePiece() == R.drawable.white_star){
 
             white.setVisible(false);
             return popup;
 
         }
 
-        else if (playerOne.getPlayerGamePiece() == R.drawable.circle_black |
-                playerOne.getPlayerGamePiece() == R.drawable.square_black |
-                playerOne.getPlayerGamePiece() == R.drawable.diamond_black |
-                playerOne.getPlayerGamePiece() == R.drawable.star_black){
+        else if (playerOne.getPlayerGamePiece() == R.drawable.black_circle |
+                playerOne.getPlayerGamePiece() == R.drawable.black_square |
+                playerOne.getPlayerGamePiece() == R.drawable.black_diamond |
+                playerOne.getPlayerGamePiece() == R.drawable.black_star){
 
             black.setVisible(false);
             return popup;
@@ -1670,288 +1670,288 @@ public class SetupPage extends AppCompatActivity {
     public int setColourPlayerTwo(int token, String colour){
 
         //if playerTwo has a circle they want in a different colour.
-        if (token == R.drawable.circle_white | token == R.drawable.circle_red | token == R.drawable.circle_blue
-                | token == R.drawable.circle_green | token == R.drawable.circle_yellow | token == R.drawable.circle_black){
+        if (token == R.drawable.white_circle | token == R.drawable.red_circle | token == R.drawable.blue_circle
+                | token == R.drawable.green_circle | token == R.drawable.yellow_circle | token == R.drawable.black_circle){
 
             if (colour.equals("RED")){
 
                 ImageView redCircle = (ImageView) findViewById(R.id.playerTwoImage);
-                redCircle.setImageResource(R.drawable.circle_red);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_red);
+                redCircle.setImageResource(R.drawable.red_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.red_circle);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.circle_red;
+                return R.drawable.red_circle;
 
             }
 
             else if (colour.equals("BLUE")){
 
                 ImageView blueCircle = (ImageView) findViewById(R.id.playerTwoImage);
-                blueCircle.setImageResource(R.drawable.circle_blue);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_blue);
+                blueCircle.setImageResource(R.drawable.blue_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.blue_circle);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.circle_blue;
+                return R.drawable.blue_circle;
 
             }
 
             else if (colour.equals("GREEN")){
 
                 ImageView greenCircle = (ImageView) findViewById(R.id.playerTwoImage);
-                greenCircle.setImageResource(R.drawable.circle_green);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_green);
+                greenCircle.setImageResource(R.drawable.green_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.green_circle);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.circle_green;
+                return R.drawable.green_circle;
 
             }
 
             else if (colour.equals("YELLOW")){
 
                 ImageView yellowCircle = (ImageView) findViewById(R.id.playerTwoImage);
-                yellowCircle.setImageResource(R.drawable.circle_yellow);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_yellow);
+                yellowCircle.setImageResource(R.drawable.yellow_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.yellow_circle);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.circle_yellow;
+                return R.drawable.yellow_circle;
 
             }
 
             else if (colour.equals("BLACK")){
 
                 ImageView blackCircle = (ImageView) findViewById(R.id.playerTwoImage);
-                blackCircle.setImageResource(R.drawable.circle_black);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_black);
+                blackCircle.setImageResource(R.drawable.black_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.black_circle);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.circle_black;
+                return R.drawable.black_circle;
 
             }
 
             else if (colour.equals("WHITE")){
 
                 ImageView whiteCircle = (ImageView) findViewById(R.id.playerTwoImage);
-                whiteCircle.setImageResource(R.drawable.circle_white);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_white);
+                whiteCircle.setImageResource(R.drawable.white_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.white_circle);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.circle_white;
+                return R.drawable.white_circle;
 
             }
 
         }
 
         //if playerTwo has a diamond they want in a different colour.
-        else if (token == R.drawable.diamond_white | token == R.drawable.diamond_red | token == R.drawable.diamond_blue
-                | token == R.drawable.diamond_green | token == R.drawable.diamond_yellow | token == R.drawable.diamond_black){
+        else if (token == R.drawable.white_diamond | token == R.drawable.red_diamon | token == R.drawable.blue_diamond
+                | token == R.drawable.green_diamond | token == R.drawable.yellow_diamond | token == R.drawable.black_diamond){
 
             if (colour.equals("RED")){
 
                 ImageView redDiamond = (ImageView) findViewById(R.id.playerTwoImage);
-                redDiamond.setImageResource(R.drawable.diamond_red);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_red);
+                redDiamond.setImageResource(R.drawable.red_diamon);
+                playerTwo.setPlayerGamePiece(R.drawable.red_diamon);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.diamond_red;
+                return R.drawable.red_diamon;
 
             }
 
             else if (colour.equals("BLUE")){
 
                 ImageView blueDiamond = (ImageView) findViewById(R.id.playerTwoImage);
-                blueDiamond.setImageResource(R.drawable.diamond_blue);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_blue);
+                blueDiamond.setImageResource(R.drawable.blue_diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.blue_diamond);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.diamond_blue;
+                return R.drawable.blue_diamond;
 
             }
 
             else if (colour.equals("GREEN")){
 
                 ImageView greenDiamond = (ImageView) findViewById(R.id.playerTwoImage);
-                greenDiamond.setImageResource(R.drawable.diamond_green);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_green);
+                greenDiamond.setImageResource(R.drawable.green_diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.green_diamond);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.diamond_green;
+                return R.drawable.green_diamond;
 
             }
 
             else if (colour.equals("YELLOW")){
 
                 ImageView yellowDiamond = (ImageView) findViewById(R.id.playerTwoImage);
-                yellowDiamond.setImageResource(R.drawable.diamond_yellow);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_yellow);
+                yellowDiamond.setImageResource(R.drawable.yellow_diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.yellow_diamond);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.diamond_yellow;
+                return R.drawable.yellow_diamond;
 
             }
 
             else if (colour.equals("BLACK")){
 
                 ImageView blackDiamond = (ImageView) findViewById(R.id.playerTwoImage);
-                blackDiamond.setImageResource(R.drawable.diamond_black);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_black);
+                blackDiamond.setImageResource(R.drawable.black_diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.black_diamond);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.diamond_black;
+                return R.drawable.black_diamond;
 
             }
 
             else if (colour.equals("WHITE")){
 
                 ImageView whiteDiamond = (ImageView) findViewById(R.id.playerTwoImage);
-                whiteDiamond.setImageResource(R.drawable.diamond_white);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_white);
+                whiteDiamond.setImageResource(R.drawable.white_diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.white_diamond);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.diamond_white;
+                return R.drawable.white_diamond;
 
             }
 
         }
 
         //if playerTwo has a square they want in a different colour.
-        else if (token == R.drawable.square_white | token == R.drawable.square_red | token == R.drawable.square_blue
-                | token == R.drawable.square_green | token == R.drawable.square_yellow | token == R.drawable.square_black){
+        else if (token == R.drawable.white_square | token == R.drawable.red_square | token == R.drawable.blue_square
+                | token == R.drawable.green_squa | token == R.drawable.yellow_square | token == R.drawable.black_square){
 
             if (colour.equals("RED")){
 
                 ImageView redSquare = (ImageView) findViewById(R.id.playerTwoImage);
-                redSquare.setImageResource(R.drawable.square_red);
-                playerTwo.setPlayerGamePiece(R.drawable.square_red);
+                redSquare.setImageResource(R.drawable.red_square);
+                playerTwo.setPlayerGamePiece(R.drawable.red_square);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.square_red;
+                return R.drawable.red_square;
 
             }
 
             else if (colour.equals("BLUE")){
 
                 ImageView blueSquare = (ImageView) findViewById(R.id.playerTwoImage);
-                blueSquare.setImageResource(R.drawable.square_blue);
-                playerTwo.setPlayerGamePiece(R.drawable.square_blue);
+                blueSquare.setImageResource(R.drawable.blue_square);
+                playerTwo.setPlayerGamePiece(R.drawable.blue_square);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.square_blue;
+                return R.drawable.blue_square;
 
             }
 
             else if (colour.equals("GREEN")){
 
                 ImageView greenSquare = (ImageView) findViewById(R.id.playerTwoImage);
-                greenSquare.setImageResource(R.drawable.square_green);
-                playerTwo.setPlayerGamePiece(R.drawable.square_green);
+                greenSquare.setImageResource(R.drawable.green_squa);
+                playerTwo.setPlayerGamePiece(R.drawable.green_squa);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.square_green;
+                return R.drawable.green_squa;
 
             }
 
             else if (colour.equals("YELLOW")){
 
                 ImageView yellowSquare = (ImageView) findViewById(R.id.playerTwoImage);
-                yellowSquare.setImageResource(R.drawable.square_yellow);
-                playerTwo.setPlayerGamePiece(R.drawable.square_yellow);
+                yellowSquare.setImageResource(R.drawable.yellow_square);
+                playerTwo.setPlayerGamePiece(R.drawable.yellow_square);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.square_yellow;
+                return R.drawable.yellow_square;
 
             }
 
             else if (colour.equals("BLACK")){
 
                 ImageView blackSquare = (ImageView) findViewById(R.id.playerTwoImage);
-                blackSquare.setImageResource(R.drawable.square_black);
-                playerTwo.setPlayerGamePiece(R.drawable.square_black);
+                blackSquare.setImageResource(R.drawable.black_square);
+                playerTwo.setPlayerGamePiece(R.drawable.black_square);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.square_black;
+                return R.drawable.black_square;
 
             }
 
             else if (colour.equals("WHITE")){
 
                 ImageView whiteSquare = (ImageView) findViewById(R.id.playerTwoImage);
-                whiteSquare.setImageResource(R.drawable.square_white);
-                playerTwo.setPlayerGamePiece(R.drawable.square_white);
+                whiteSquare.setImageResource(R.drawable.white_square);
+                playerTwo.setPlayerGamePiece(R.drawable.white_square);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.square_white;
+                return R.drawable.white_square;
 
             }
 
         }
 
         //if playerTwo has a star they want in a different colour.
-        else if (token == R.drawable.star_white | token == R.drawable.star_red | token == R.drawable.star_blue
-                | token == R.drawable.star_green | token == R.drawable.star_yellow | token == R.drawable.star_black){
+        else if (token == R.drawable.white_star | token == R.drawable.red_star | token == R.drawable.blue_star
+                | token == R.drawable.green_star | token == R.drawable.yellow_star | token == R.drawable.black_star){
 
             if (colour.equals("RED")){
 
                 ImageView redStar = (ImageView) findViewById(R.id.playerTwoImage);
-                redStar.setImageResource(R.drawable.star_red);
-                playerTwo.setPlayerGamePiece(R.drawable.star_red);
+                redStar.setImageResource(R.drawable.red_star);
+                playerTwo.setPlayerGamePiece(R.drawable.red_star);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.star_red;
+                return R.drawable.red_star;
 
             }
 
             else if (colour.equals("BLUE")){
 
                 ImageView blueStar = (ImageView) findViewById(R.id.playerTwoImage);
-                blueStar.setImageResource(R.drawable.star_blue);
-                playerTwo.setPlayerGamePiece(R.drawable.star_blue);
+                blueStar.setImageResource(R.drawable.blue_star);
+                playerTwo.setPlayerGamePiece(R.drawable.blue_star);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.star_blue;
+                return R.drawable.blue_star;
 
             }
 
             else if (colour.equals("GREEN")){
 
                 ImageView greenStar = (ImageView) findViewById(R.id.playerTwoImage);
-                greenStar.setImageResource(R.drawable.star_green);
-                playerTwo.setPlayerGamePiece(R.drawable.star_green);
+                greenStar.setImageResource(R.drawable.green_star);
+                playerTwo.setPlayerGamePiece(R.drawable.green_star);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.star_green;
+                return R.drawable.green_star;
 
             }
 
             else if (colour.equals("YELLOW")){
 
                 ImageView yellowStar = (ImageView) findViewById(R.id.playerTwoImage);
-                yellowStar.setImageResource(R.drawable.star_yellow);
-                playerTwo.setPlayerGamePiece(R.drawable.star_yellow);
+                yellowStar.setImageResource(R.drawable.yellow_star);
+                playerTwo.setPlayerGamePiece(R.drawable.yellow_star);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.star_yellow;
+                return R.drawable.yellow_star;
 
             }
 
             else if (colour.equals("BLACK")){
 
                 ImageView blackStar = (ImageView) findViewById(R.id.playerTwoImage);
-                blackStar.setImageResource(R.drawable.star_black);
-                playerTwo.setPlayerGamePiece(R.drawable.star_black);
+                blackStar.setImageResource(R.drawable.black_star);
+                playerTwo.setPlayerGamePiece(R.drawable.black_star);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.star_black;
+                return R.drawable.black_star;
 
             }
 
             else if (colour.equals("WHITE")){
 
                 ImageView whiteStar = (ImageView) findViewById(R.id.playerTwoImage);
-                whiteStar.setImageResource(R.drawable.star_white);
-                playerTwo.setPlayerGamePiece(R.drawable.star_white);
+                whiteStar.setImageResource(R.drawable.white_star);
+                playerTwo.setPlayerGamePiece(R.drawable.white_star);
                 playerTwo.setPlayerColour(colour);
 
-                return R.drawable.star_white;
+                return R.drawable.white_star;
 
             }
 
@@ -1979,8 +1979,8 @@ public class SetupPage extends AppCompatActivity {
 
             if(playerTwo.getPlayerColour().equals("RED")){
 
-                display.setImageResource(R.drawable.circle_red);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_red);
+                display.setImageResource(R.drawable.red_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.red_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("RED");
@@ -1989,8 +1989,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("BLUE")){
 
-                display.setImageResource(R.drawable.circle_blue);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_blue);
+                display.setImageResource(R.drawable.blue_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.blue_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("BLUE");
@@ -1999,8 +1999,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("GREEN")){
 
-                display.setImageResource(R.drawable.circle_green);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_green);
+                display.setImageResource(R.drawable.green_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.green_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("GREEN");
@@ -2009,8 +2009,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("YELLOW")){
 
-                display.setImageResource(R.drawable.circle_yellow);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_yellow);
+                display.setImageResource(R.drawable.yellow_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.yellow_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("YELLOW");
@@ -2019,8 +2019,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("WHITE")){
 
-                display.setImageResource(R.drawable.circle_white);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_white);
+                display.setImageResource(R.drawable.white_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.white_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("WHITE");
@@ -2029,8 +2029,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("BLACK")){
 
-                display.setImageResource(R.drawable.circle_black);
-                playerTwo.setPlayerGamePiece(R.drawable.circle_black);
+                display.setImageResource(R.drawable.black_circle);
+                playerTwo.setPlayerGamePiece(R.drawable.black_circle);
 
                 pieceButton.setText("CIRCLE");
                 colourButton.setText("BLACK");
@@ -2041,8 +2041,8 @@ public class SetupPage extends AppCompatActivity {
 
                 if(playerOne.getPlayerColour().equals("BLACK")){
 
-                    display.setImageResource(R.drawable.circle_white);
-                    playerTwo.setPlayerGamePiece(R.drawable.circle_white);
+                    display.setImageResource(R.drawable.white_circle);
+                    playerTwo.setPlayerGamePiece(R.drawable.white_circle);
                     playerTwo.setPlayerColour("WHITE");
 
                     pieceButton.setText("CIRCLE");
@@ -2051,8 +2051,8 @@ public class SetupPage extends AppCompatActivity {
 
                 else{
 
-                    display.setImageResource(R.drawable.circle_black);
-                    playerTwo.setPlayerGamePiece(R.drawable.circle_black);
+                    display.setImageResource(R.drawable.black_circle);
+                    playerTwo.setPlayerGamePiece(R.drawable.black_circle);
                     playerTwo.setPlayerColour("BLACK");
 
                     pieceButton.setText("CIRCLE");
@@ -2066,8 +2066,8 @@ public class SetupPage extends AppCompatActivity {
 
             if(playerTwo.getPlayerColour().equals("RED")){
 
-                display.setImageResource(R.drawable.diamond_red);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_red);
+                display.setImageResource(R.drawable.red_diamon);
+                playerTwo.setPlayerGamePiece(R.drawable.red_diamon);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("RED");
@@ -2076,8 +2076,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("BLUE")){
 
-                display.setImageResource(R.drawable.diamond_blue);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_blue);
+                display.setImageResource(R.drawable.blue_diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.blue_diamond);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("BLUE");
@@ -2086,8 +2086,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("GREEN")){
 
-                display.setImageResource(R.drawable.diamond_green);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_green);
+                display.setImageResource(R.drawable.green_diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.green_diamond);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("GREEN");
@@ -2096,8 +2096,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("YELLOW")){
 
-                display.setImageResource(R.drawable.diamond_yellow);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_yellow);
+                display.setImageResource(R.drawable.yellow_diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.yellow_diamond);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("YELLOW");
@@ -2106,8 +2106,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("WHITE")){
 
-                display.setImageResource(R.drawable.diamond_white);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_white);
+                display.setImageResource(R.drawable.white_diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.white_diamond);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("WHITE");
@@ -2116,8 +2116,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("BLACK")){
 
-                display.setImageResource(R.drawable.diamond_black);
-                playerTwo.setPlayerGamePiece(R.drawable.diamond_black);
+                display.setImageResource(R.drawable.black_diamond);
+                playerTwo.setPlayerGamePiece(R.drawable.black_diamond);
 
                 pieceButton.setText("DIAMOND");
                 colourButton.setText("BLACK");
@@ -2128,8 +2128,8 @@ public class SetupPage extends AppCompatActivity {
 
                 if(playerOne.getPlayerColour().equals("BLACK")){
 
-                    display.setImageResource(R.drawable.diamond_white);
-                    playerTwo.setPlayerGamePiece(R.drawable.diamond_white);
+                    display.setImageResource(R.drawable.white_diamond);
+                    playerTwo.setPlayerGamePiece(R.drawable.white_diamond);
                     playerTwo.setPlayerColour("WHITE");
 
                     pieceButton.setText("DIAMOND");
@@ -2138,8 +2138,8 @@ public class SetupPage extends AppCompatActivity {
 
                 else{
 
-                    display.setImageResource(R.drawable.diamond_black);
-                    playerTwo.setPlayerGamePiece(R.drawable.diamond_black);
+                    display.setImageResource(R.drawable.black_diamond);
+                    playerTwo.setPlayerGamePiece(R.drawable.black_diamond);
                     playerTwo.setPlayerColour("BLACK");
 
                     pieceButton.setText("DIAMOND");
@@ -2154,8 +2154,8 @@ public class SetupPage extends AppCompatActivity {
 
             if(playerTwo.getPlayerColour().equals("RED")){
 
-                display.setImageResource(R.drawable.square_red);
-                playerTwo.setPlayerGamePiece(R.drawable.square_red);
+                display.setImageResource(R.drawable.red_square);
+                playerTwo.setPlayerGamePiece(R.drawable.red_square);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("RED");
@@ -2164,8 +2164,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("BLUE")){
 
-                display.setImageResource(R.drawable.square_blue);
-                playerTwo.setPlayerGamePiece(R.drawable.square_blue);
+                display.setImageResource(R.drawable.blue_square);
+                playerTwo.setPlayerGamePiece(R.drawable.blue_square);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("BLUE");
@@ -2174,8 +2174,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("GREEN")){
 
-                display.setImageResource(R.drawable.square_green);
-                playerTwo.setPlayerGamePiece(R.drawable.square_green);
+                display.setImageResource(R.drawable.green_squa);
+                playerTwo.setPlayerGamePiece(R.drawable.green_squa);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("GREEN");
@@ -2184,8 +2184,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("YELLOW")){
 
-                display.setImageResource(R.drawable.square_yellow);
-                playerTwo.setPlayerGamePiece(R.drawable.square_yellow);
+                display.setImageResource(R.drawable.yellow_square);
+                playerTwo.setPlayerGamePiece(R.drawable.yellow_square);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("YELLOW");
@@ -2194,8 +2194,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("WHITE")){
 
-                display.setImageResource(R.drawable.square_white);
-                playerTwo.setPlayerGamePiece(R.drawable.square_white);
+                display.setImageResource(R.drawable.white_square);
+                playerTwo.setPlayerGamePiece(R.drawable.white_square);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("WHITE");
@@ -2204,8 +2204,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("BLACK")){
 
-                display.setImageResource(R.drawable.square_black);
-                playerTwo.setPlayerGamePiece(R.drawable.square_black);
+                display.setImageResource(R.drawable.black_square);
+                playerTwo.setPlayerGamePiece(R.drawable.black_square);
 
                 pieceButton.setText("SQUARE");
                 colourButton.setText("BLACK");
@@ -2216,8 +2216,8 @@ public class SetupPage extends AppCompatActivity {
 
                 if(playerOne.getPlayerColour().equals("BLACK")){
 
-                    display.setImageResource(R.drawable.square_white);
-                    playerTwo.setPlayerGamePiece(R.drawable.square_white);
+                    display.setImageResource(R.drawable.white_square);
+                    playerTwo.setPlayerGamePiece(R.drawable.white_square);
                     playerTwo.setPlayerColour("WHITE");
 
                     pieceButton.setText("SQUARE");
@@ -2226,8 +2226,8 @@ public class SetupPage extends AppCompatActivity {
 
                 else{
 
-                    display.setImageResource(R.drawable.square_black);
-                    playerTwo.setPlayerGamePiece(R.drawable.square_black);
+                    display.setImageResource(R.drawable.black_square);
+                    playerTwo.setPlayerGamePiece(R.drawable.black_square);
                     playerTwo.setPlayerColour("BLACK");
 
                     pieceButton.setText("SQUARE");
@@ -2242,8 +2242,8 @@ public class SetupPage extends AppCompatActivity {
 
             if(playerTwo.getPlayerColour().equals("RED")){
 
-                display.setImageResource(R.drawable.star_red);
-                playerTwo.setPlayerGamePiece(R.drawable.star_red);
+                display.setImageResource(R.drawable.red_star);
+                playerTwo.setPlayerGamePiece(R.drawable.red_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("RED");
@@ -2252,8 +2252,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("BLUE")){
 
-                display.setImageResource(R.drawable.star_blue);
-                playerTwo.setPlayerGamePiece(R.drawable.star_blue);
+                display.setImageResource(R.drawable.blue_star);
+                playerTwo.setPlayerGamePiece(R.drawable.blue_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("BLUE");
@@ -2262,8 +2262,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("GREEN")){
 
-                display.setImageResource(R.drawable.star_green);
-                playerTwo.setPlayerGamePiece(R.drawable.star_green);
+                display.setImageResource(R.drawable.green_star);
+                playerTwo.setPlayerGamePiece(R.drawable.green_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("GREEN");
@@ -2272,8 +2272,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("YELLOW")){
 
-                display.setImageResource(R.drawable.star_yellow);
-                playerTwo.setPlayerGamePiece(R.drawable.star_yellow);
+                display.setImageResource(R.drawable.yellow_star);
+                playerTwo.setPlayerGamePiece(R.drawable.yellow_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("YELLOW");
@@ -2282,8 +2282,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("WHITE")){
 
-                display.setImageResource(R.drawable.star_white);
-                playerTwo.setPlayerGamePiece(R.drawable.star_white);
+                display.setImageResource(R.drawable.white_star);
+                playerTwo.setPlayerGamePiece(R.drawable.white_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("WHITE");
@@ -2292,8 +2292,8 @@ public class SetupPage extends AppCompatActivity {
             
             else if(playerTwo.getPlayerColour().equals("BLACK")){
 
-                display.setImageResource(R.drawable.star_black);
-                playerTwo.setPlayerGamePiece(R.drawable.star_black);
+                display.setImageResource(R.drawable.black_star);
+                playerTwo.setPlayerGamePiece(R.drawable.black_star);
 
                 pieceButton.setText("STAR");
                 colourButton.setText("BLACK");
@@ -2304,8 +2304,8 @@ public class SetupPage extends AppCompatActivity {
 
                 if(playerOne.getPlayerColour().equals("BLACK")){
 
-                    display.setImageResource(R.drawable.star_white);
-                    playerTwo.setPlayerGamePiece(R.drawable.star_white);
+                    display.setImageResource(R.drawable.white_star);
+                    playerTwo.setPlayerGamePiece(R.drawable.white_star);
                     playerTwo.setPlayerColour("WHITE");
 
                     pieceButton.setText("STAR");
@@ -2314,8 +2314,8 @@ public class SetupPage extends AppCompatActivity {
 
                 else{
 
-                    display.setImageResource(R.drawable.star_black);
-                    playerTwo.setPlayerGamePiece(R.drawable.star_black);
+                    display.setImageResource(R.drawable.black_star);
+                    playerTwo.setPlayerGamePiece(R.drawable.black_star);
                     playerTwo.setPlayerColour("BLACK");
 
                     pieceButton.setText("STAR");
