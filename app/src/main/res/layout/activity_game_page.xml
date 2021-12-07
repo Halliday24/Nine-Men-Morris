@@ -77,8 +77,14 @@
         android:id="@+id/ExitPage"
         android:layout_width="100dp"
         android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="620dp"
+        android:layout_marginEnd="281dp"
+        android:layout_marginBottom="29dp"
         android:background="#C0AEE0"
         android:onClick="exit"
         android:text="Exit game"
@@ -91,8 +97,14 @@
         android:id="@+id/Reset"
         android:layout_width="100dp"
         android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="159dp"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="620dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="28dp"
         android:background="#C0AEE0"
         android:onClick="reset"
         android:text="Reset game"
@@ -104,8 +116,14 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="285dp"
         android:layout_marginLeft="290dp"
         android:layout_marginTop="620dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="29dp"
         android:background="#C0AEE0"
         android:text="Change pieces"
         android:textColor="@color/black"
@@ -356,7 +374,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.452" />
+            app:layout_constraintVertical_bias="0.488" />
 
         <FrameLayout
             android:id="@+id/area23"
@@ -718,6 +736,56 @@
             app:layout_constraintVertical_bias="0.642" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/playerOnePiecesRemaining"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="11dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/playerTwoPiecesRemaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/playerOnePiecesRemaining"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="613dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/playerOneHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="131dp"
+        android:gravity="center"
+        android:text="PLAYER ONE PIECES"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/playerTwoHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/playerOneHeader"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="130dp"
+        android:gravity="center"
+        android:text="PLAYER TWO PIECES"
+        android:textSize="16sp" />
 
 
 </RelativeLayout>

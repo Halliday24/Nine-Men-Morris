@@ -76,6 +76,7 @@ public class GamePage extends AppCompatActivity {
 
 
             initializeGamePieces();
+            setHowManyPiecesRemaining();
 
             pref = this.getSharedPreferences("errorlabs.in", Context.MODE_PRIVATE);
             edit = pref.edit();
@@ -723,20 +724,14 @@ public class GamePage extends AppCompatActivity {
 
     }
 
-    public void ExitGame(View view) {
-        Intent intent = new Intent(this, SetupPage.class);
-        startActivity(intent);
-    }
+    public void setHowManyPiecesRemaining(){
 
-//    public void setHowManyPiecesRemaining(){
-//
-//        TextView playerOnePieces = (TextView) findViewById(R.id.playerOnePiecesRemaining);
-//        TextView playerTwoPieces = (TextView) findViewById(R.id.playerTwoPiecesRemaining);
-//        TextView a = (TextView) findViewById(R.id.textView3);
-//        a.setText(Integer.toString(Rules.blackMarkers));
-//        playerTwoPieces.setText(Integer.toString(Rules.blackMarkers));
-//        playerOnePieces.setText(Integer.toString(Rules.whiteMarkers));
-//
-//    }
+        TextView playerOnePieces = (TextView) findViewById(R.id.playerOnePiecesRemaining);
+        TextView playerTwoPieces = (TextView) findViewById(R.id.playerTwoPiecesRemaining);
+
+        playerOnePieces.setText(Integer.toString(Rules.whiteMarkers));
+        playerTwoPieces.setText(Integer.toString(Rules.blackMarkers));
+
+    }
 
 }
