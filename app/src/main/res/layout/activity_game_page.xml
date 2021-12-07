@@ -431,12 +431,12 @@
 
     <Button
         android:id="@+id/ExitPage"
-        android:onClick="ExitGame"
         android:layout_width="100dp"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="620dp"
         android:background="#C0AEE0"
+        android:onClick="exit"
         android:text="Exit game"
         android:textColor="@color/black"
         app:backgroundTint="@null">
@@ -445,12 +445,12 @@
 
     <Button
         android:id="@+id/Reset"
-        android:onClick="ResetGame"
         android:layout_width="100dp"
         android:layout_height="55dp"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="620dp"
         android:background="#C0AEE0"
+        android:onClick="reset"
         android:text="Reset game"
         android:textColor="@color/black"
         app:backgroundTint="@null">
@@ -463,17 +463,17 @@
         android:layout_marginLeft="290dp"
         android:layout_marginTop="620dp"
         android:background="#C0AEE0"
-        android:onClick="ChangePieces"
         android:text="Change pieces"
         android:textColor="@color/black"
         app:backgroundTint="@null">
 
     </Button>
+
     <LinearLayout
         android:id="@+id/whiteCheckerArea"
         style="@style/CheckerArea"
         android:layout_below="@id/blackCheckerArea"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="124dp"
         android:clipChildren="false"
         tools:ignore="NotSibling">
 
@@ -528,6 +528,8 @@
         <ImageView
             android:id="@+id/blackChecker9"
             style="@style/CheckerImage"
+            android:layout_width="30dp"
+            android:layout_height="31dp"
             android:contentDescription="9"
             android:src="@drawable/circle_black" />
     </LinearLayout>
