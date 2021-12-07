@@ -240,7 +240,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:src="@drawable/board"
+            android:src="@drawable/newgameboard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -256,12 +256,13 @@
             android:contentDescription="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.535"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" >
+            app:layout_constraintVertical_bias="0.142">
 
         </FrameLayout>
+
+        <!-- middle circle -->
 
         <FrameLayout
             android:id="@+id/area10"
@@ -275,12 +276,10 @@
             android:contentDescription="10"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.047"
+            app:layout_constraintHorizontal_bias="0.107"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.464" />
-
-        <!-- middle circle -->
+            app:layout_constraintVertical_bias="0.476" />
 
         <FrameLayout
             android:id="@+id/area15"
@@ -294,10 +293,10 @@
             android:contentDescription="15"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.857"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.488" />
+            app:layout_constraintVertical_bias="0.523" />
 
         <FrameLayout
             android:id="@+id/area23"
@@ -311,10 +310,10 @@
             android:contentDescription="23"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.559"
+            app:layout_constraintHorizontal_bias="0.523"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.94" />
 
         <FrameLayout
             android:id="@+id/area1"
@@ -328,10 +327,10 @@
             android:contentDescription="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.025"
+            app:layout_constraintHorizontal_bias="0.035"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.13" />
 
         <FrameLayout
             android:id="@+id/area3"
@@ -345,10 +344,10 @@
             android:contentDescription="3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.845"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.13" />
 
         <FrameLayout
             android:id="@+id/area22"
@@ -362,10 +361,10 @@
             android:contentDescription="22"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.011"
+            app:layout_constraintHorizontal_bias="0.071"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.976" />
+            app:layout_constraintVertical_bias="0.916" />
 
         <FrameLayout
             android:id="@+id/area24"
@@ -379,10 +378,10 @@
             android:contentDescription="24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.845"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.964" />
+            app:layout_constraintVertical_bias="0.904" />
 
         <FrameLayout
             android:id="@+id/area5"
@@ -396,10 +395,11 @@
             android:contentDescription="5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.535"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.166" />
+            app:layout_constraintVertical_bias="0.285" />
+
+        <!-- middle circle -->
 
         <FrameLayout
             android:id="@+id/area11"
@@ -416,9 +416,7 @@
             app:layout_constraintHorizontal_bias="0.226"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.488" />
-
-        <!-- middle circle -->
+            app:layout_constraintVertical_bias="0.535" />
 
         <FrameLayout
             android:id="@+id/area14"
@@ -432,10 +430,10 @@
             android:contentDescription="14"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.821"
+            app:layout_constraintHorizontal_bias="0.738"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.464" />
+            app:layout_constraintVertical_bias="0.523" />
 
         <FrameLayout
             android:id="@+id/area20"
@@ -466,10 +464,10 @@
             android:contentDescription="4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.226"
+            app:layout_constraintHorizontal_bias="0.178"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.166" />
+            app:layout_constraintVertical_bias="0.285" />
 
         <FrameLayout
             android:id="@+id/area6"
@@ -483,10 +481,10 @@
             android:contentDescription="6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.809"
+            app:layout_constraintHorizontal_bias="0.738"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.166" />
+            app:layout_constraintVertical_bias="0.285" />
 
         <FrameLayout
             android:id="@+id/area19"
@@ -517,10 +515,10 @@
             android:contentDescription="21"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.845"
+            app:layout_constraintHorizontal_bias="0.761"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.785" />
+            app:layout_constraintVertical_bias="0.797" />
 
         <FrameLayout
             android:id="@+id/area8"
@@ -579,10 +577,10 @@
             android:contentDescription="13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.702"
+            app:layout_constraintHorizontal_bias="0.642"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.476" />
+            app:layout_constraintVertical_bias="0.488" />
 
         <FrameLayout
             android:id="@+id/area17"
@@ -630,10 +628,10 @@
             android:contentDescription="9"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.702"
+            app:layout_constraintHorizontal_bias="0.607"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.345" />
+            app:layout_constraintVertical_bias="0.369" />
 
         <FrameLayout
             android:id="@+id/area16"
@@ -664,10 +662,10 @@
             android:contentDescription="18"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.654"
+            app:layout_constraintHorizontal_bias="0.583"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.642" />
+            app:layout_constraintVertical_bias="0.63" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -723,14 +721,16 @@
 
     <ImageButton
         android:id="@+id/ExitGameButton"
-        android:layout_width="110dp"
-        android:layout_height="55dp"
+        android:layout_width="127dp"
+        android:layout_height="61dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="269dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="658dp"
+        android:layout_marginEnd="268dp"
+        android:layout_marginBottom="12dp"
         android:background="@null"
         android:onClick="exit"
         android:scaleType="fitCenter"
@@ -741,11 +741,13 @@
         android:layout_width="110dp"
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="155dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="658dp"
+        android:layout_marginEnd="139dp"
+        android:layout_marginBottom="12dp"
         android:background="@null"
         android:onClick="reset"
         android:scaleType="fitCenter"
@@ -759,10 +761,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="286dp"
-        android:layout_marginTop="642dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="659dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="11dp"
         android:background="@null"
         android:onClick="reset"
         android:scaleType="fitCenter"
@@ -772,10 +774,14 @@
         android:id="@+id/hintButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="172dp"
-        android:layout_marginEnd="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="316dp"
+        android:layout_marginTop="186dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="485dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/lightbulbbutton" />
@@ -784,10 +790,14 @@
         android:id="@+id/rulesButtonGame"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="316dp"
-        android:layout_marginBottom="497dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="186dp"
+        android:layout_marginEnd="318dp"
+        android:layout_marginBottom="485dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/questionmarkbutton" /><![CDATA[

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,13 +8,15 @@
     android:background="#e0f0e3"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dim_layout_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#70000000"
         android:visibility="invisible"
-        android:orientation="horizontal" />
+        tools:layout_editor_absoluteX="-22dp"
+        tools:layout_editor_absoluteY="-182dp">
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
         android:id="@+id/muteButtonMain"
@@ -46,19 +49,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/muted" />
 
-    <TextView
-        android:id="@+id/menuTitle"
-        android:layout_width="398dp"
-        android:layout_height="107dp"
-        android:text="Nine Men Morris"
-        android:textAlignment="center"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
+
 
     <ImageButton
         android:id="@+id/playButton"
@@ -102,5 +93,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/contactusbutton" />
 
+    <ImageView
+        android:id="@+id/NineMensText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="306dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dim_layout_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ninemens" />
+
+    <ImageView
+        android:id="@+id/MorrisText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/morris"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="270dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dim_layout_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
