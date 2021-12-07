@@ -1,6 +1,7 @@
 package com.example.ninemenmorrisgroup6;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -31,10 +32,10 @@ public class GamePage extends AppCompatActivity {
 
     private final String TAG = "Main activity";
 
-    private final String WHITE_INDEXES = "WHITE_INDEXES";
-    private final String BLACK_INDEXES = "BLACK_INDEXES";
-    private final String WHITE_INDEXES_SIZE = "WHITE_INDEXES_SIZE";
-    private final String BLACK_INDEXES_SIZE = "BLACK_INDEXES_SIZE";
+    private final String PLAYER_ONE_INDEXES = "PLAYER_ONE_INDEXES";
+    private final String PLAYER_TWO_INDEXES = "PLAYER_TWO_INDEXES";
+    private final String PLAYER_ONE_INDEXES_SIZE = "PLAYER_ONE_INDEXES_SIZE";
+    private final String PLAYER_TWO_INDEXES_SIZE = "PLAYER_TWO_INDEXES_SIZE";
     private final String REMOVE_CHECKER = "REMOVE_CHECKER";
     private final String IS_WIN = "IS_WIN";
     private final String NEW_GAME = "NEW_GAME";
@@ -42,8 +43,8 @@ public class GamePage extends AppCompatActivity {
     private Rules rules = new Rules();
 
     private TextView playerTurn;
-    private ArrayList<ImageView> whiteCheckers;
-    private ArrayList<ImageView> blackCheckers;
+    private ArrayList<ImageView> playerOneCheckers;
+    private ArrayList<ImageView> playerTwoCheckers;
     private ArrayList<FrameLayout> higBoxAreas;
     private ImageView selectedChecker;
     private FrameLayout areaToMoveTo;
@@ -57,8 +58,8 @@ public class GamePage extends AppCompatActivity {
     private SharedPreferences pref;
     private SharedPreferences.Editor edit;
 
-    private ArrayList<String> whiteIndexes = new ArrayList<String>();
-    private ArrayList<String> blackIndexes = new ArrayList<String>();
+    private ArrayList<String> playerOneIndexes = new ArrayList<String>();
+    private ArrayList<String> playerTwoIndexes = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,7 @@ public class GamePage extends AppCompatActivity {
             playerOne = (Player) getIntent().getSerializableExtra("playerOne");
             playerTwo = (Player) getIntent().getSerializableExtra("playerTwo");
             computer = (Player) getIntent().getSerializableExtra("computer");
+
 
             initializeGamePieces();
 
@@ -81,28 +83,28 @@ public class GamePage extends AppCompatActivity {
             playerTurn = (TextView) findViewById(R.id.TurnText);
 
             //Save all white checkers in a list
-            whiteCheckers = new ArrayList<ImageView>();
-            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker1));
-            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker2));
-            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker3));
-            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker4));
-            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker5));
-            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker6));
-            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker7));
-            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker8));
-            whiteCheckers.add((ImageView) findViewById(R.id.whiteChecker9));
+            playerOneCheckers = new ArrayList<ImageView>();
+            playerOneCheckers.add((ImageView) findViewById(R.id.whiteChecker1));
+            playerOneCheckers.add((ImageView) findViewById(R.id.whiteChecker2));
+            playerOneCheckers.add((ImageView) findViewById(R.id.whiteChecker3));
+            playerOneCheckers.add((ImageView) findViewById(R.id.whiteChecker4));
+            playerOneCheckers.add((ImageView) findViewById(R.id.whiteChecker5));
+            playerOneCheckers.add((ImageView) findViewById(R.id.whiteChecker6));
+            playerOneCheckers.add((ImageView) findViewById(R.id.whiteChecker7));
+            playerOneCheckers.add((ImageView) findViewById(R.id.whiteChecker8));
+            playerOneCheckers.add((ImageView) findViewById(R.id.whiteChecker9));
 
             //Save all black checkers in a list
-            blackCheckers = new ArrayList<ImageView>();
-            blackCheckers.add((ImageView) findViewById(R.id.blackChecker1));
-            blackCheckers.add((ImageView) findViewById(R.id.blackChecker2));
-            blackCheckers.add((ImageView) findViewById(R.id.blackChecker3));
-            blackCheckers.add((ImageView) findViewById(R.id.blackChecker4));
-            blackCheckers.add((ImageView) findViewById(R.id.blackChecker5));
-            blackCheckers.add((ImageView) findViewById(R.id.blackChecker6));
-            blackCheckers.add((ImageView) findViewById(R.id.blackChecker7));
-            blackCheckers.add((ImageView) findViewById(R.id.blackChecker8));
-            blackCheckers.add((ImageView) findViewById(R.id.blackChecker9));
+            playerTwoCheckers = new ArrayList<ImageView>();
+            playerTwoCheckers.add((ImageView) findViewById(R.id.blackChecker1));
+            playerTwoCheckers.add((ImageView) findViewById(R.id.blackChecker2));
+            playerTwoCheckers.add((ImageView) findViewById(R.id.blackChecker3));
+            playerTwoCheckers.add((ImageView) findViewById(R.id.blackChecker4));
+            playerTwoCheckers.add((ImageView) findViewById(R.id.blackChecker5));
+            playerTwoCheckers.add((ImageView) findViewById(R.id.blackChecker6));
+            playerTwoCheckers.add((ImageView) findViewById(R.id.blackChecker7));
+            playerTwoCheckers.add((ImageView) findViewById(R.id.blackChecker8));
+            playerTwoCheckers.add((ImageView) findViewById(R.id.blackChecker9));
 
             //Save all areas the checkers can move to in a list
             higBoxAreas = new ArrayList<FrameLayout>();
@@ -132,7 +134,7 @@ public class GamePage extends AppCompatActivity {
             higBoxAreas.add((FrameLayout) findViewById(R.id.area24));
 
             //Add a onClickListener to the white checkers
-            for (ImageView v : whiteCheckers) {
+            for (ImageView v : playerOneCheckers) {
                 checkerPositions.put(v, 0);
                 v.setOnClickListener(new View.OnClickListener() {
 
@@ -146,7 +148,7 @@ public class GamePage extends AppCompatActivity {
             }
 
             //Add a onClickListener to the black checkers
-            for (ImageView v : blackCheckers) {
+            for (ImageView v : playerTwoCheckers) {
                 checkerPositions.put(v, 0);
                 v.setOnClickListener(new View.OnClickListener() {
 
@@ -232,53 +234,54 @@ public class GamePage extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.i(TAG, "---------------------pause----------------");
-        rules.savePref(edit);
-        edit.putInt(WHITE_INDEXES_SIZE, whiteIndexes.size());
-        edit.putInt(BLACK_INDEXES_SIZE, blackIndexes.size());
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        Log.i(TAG, "---------------------pause----------------");
+//        rules.savePref(edit);
+//        edit.putInt(PLAYER_ONE_INDEXES_SIZE, playerOneIndexes.size());
+//        edit.putInt(PLAYER_TWO_INDEXES_SIZE, playerTwoIndexes.size());
+//
+//        for (int i = 0; i < playerOneIndexes.size(); i++) {
+//            edit.putString(PLAYER_ONE_INDEXES + i, playerOneIndexes.get(i));
+//        }
+//        for (int i = 0; i < playerTwoIndexes.size(); i++) {
+//            edit.putString(PLAYER_TWO_INDEXES + i, playerTwoIndexes.get(i));
+//        }
+//        edit.putBoolean(IS_WIN, isWin);
+//        edit.putBoolean(REMOVE_CHECKER, removeNextChecker);
+//        edit.commit();
+//
+//        super.onPause();
+//        //backgroundMusic.pause();
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        Log.i(TAG, "---------------------resume----------------");
+//        newGame = pref.getBoolean(NEW_GAME, false);
+//        edit.putBoolean(NEW_GAME, false);
+//        if (!newGame) {
+//            rules.restorePref(pref);
+//            int whiteSize = pref.getInt(PLAYER_ONE_INDEXES_SIZE, 0);
+//            int blackSize = pref.getInt(PLAYER_TWO_INDEXES_SIZE, 0);
+//            for (int i = 0; i < whiteSize; i++) {
+//                playerOneIndexes.add(pref.getString(PLAYER_ONE_INDEXES + i, ""));
+//            }
+//            for (int i = 0; i < blackSize; i++) {
+//                playerTwoIndexes.add(pref.getString(PLAYER_TWO_INDEXES + i, ""));
+//            }
+//
+//            isWin = pref.getBoolean(IS_WIN, false);
+//            removeNextChecker = pref.getBoolean(REMOVE_CHECKER, false);
+//            //restore();
+//        }
+//
+//        //super.onResume();
+//        //backgroundMusic.start();
+//    }
 
-        for (int i = 0; i < whiteIndexes.size(); i++) {
-            edit.putString(WHITE_INDEXES + i, whiteIndexes.get(i));
-        }
-        for (int i = 0; i < blackIndexes.size(); i++) {
-            edit.putString(BLACK_INDEXES + i, blackIndexes.get(i));
-        }
-        edit.putBoolean(IS_WIN, isWin);
-        edit.putBoolean(REMOVE_CHECKER, removeNextChecker);
-        edit.commit();
-
-        super.onPause();
-        //backgroundMusic.pause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.i(TAG, "---------------------resume----------------");
-        newGame = pref.getBoolean(NEW_GAME, false);
-        edit.putBoolean(NEW_GAME, false);
-        if (!newGame) {
-            rules.restorePref(pref);
-            int whiteSize = pref.getInt(WHITE_INDEXES_SIZE, 0);
-            int blackSize = pref.getInt(BLACK_INDEXES_SIZE, 0);
-            for (int i = 0; i < whiteSize; i++) {
-                whiteIndexes.add(pref.getString(WHITE_INDEXES + i, ""));
-            }
-            for (int i = 0; i < blackSize; i++) {
-                blackIndexes.add(pref.getString(BLACK_INDEXES + i, ""));
-            }
-
-            isWin = pref.getBoolean(IS_WIN, false);
-            removeNextChecker = pref.getBoolean(REMOVE_CHECKER, false);
-            //restore();
-        }
-
-        super.onResume();
-        //backgroundMusic.start();
-    }
     /*private void restore() {
         int white = 0;
         int black = 0;
@@ -287,11 +290,11 @@ public class GamePage extends AppCompatActivity {
             int index = 0;
             ViewGroup parent = null;
             if (color == Constants.WHITE) {
-                index = Integer.parseInt(whiteIndexes.get(white));
+                index = Integer.parseInt(playerOneIndexes.get(white));
                 white++;
                 parent = ((ViewGroup) findViewById(R.id.whiteCheckerArea));
             } else if (color == Constants.BLACK) {
-                index = Integer.parseInt(blackIndexes.get(black));
+                index = Integer.parseInt(playerTwoIndexes.get(black));
                 black++;
                 parent = ((ViewGroup) findViewById(R.id.blackCheckerArea));
             }
@@ -323,22 +326,23 @@ public class GamePage extends AppCompatActivity {
                 }
             }
         }
-        while (white < whiteIndexes.size()) {
-            Log.i(TAG, "WHITE INDEX - " + Integer.parseInt(whiteIndexes.get(white)));
-            Log.i(TAG, "WHITE - " + white);
-            setPlaceHolder(Integer.parseInt(whiteIndexes.get(white)), ((ViewGroup) findViewById(R.id.whiteCheckerArea)));
+        while (white < playerOneIndexes.size()) {
+            Log.i(TAG, "Integer.parseInt(playerOneIndexes.get(white)) - " + Integer.parseInt(playerOneIndexes.get(white)));
+            Log.i(TAG, "white - " + playerOneIndexes.size());
+            Log.i(TAG, "white - " + white);
+            setPlaceHolder(Integer.parseInt(playerOneIndexes.get(white)), ((ViewGroup) findViewById(R.id.whiteCheckerArea)));
             white++;
         }
-        while (black < blackIndexes.size()) {
-            Log.i(TAG, "BLACK INDEX - " + Integer.parseInt(blackIndexes.get(black)));
+        while (black < playerTwoIndexes.size()) {
+            Log.i(TAG, "BLACK INDEX - " + Integer.parseInt(playerTwoIndexes.get(black)));
             Log.i(TAG, "BLACK - " + black);
-            setPlaceHolder(Integer.parseInt(blackIndexes.get(black)), ((ViewGroup) findViewById(R.id.blackCheckerArea)));
+            setPlaceHolder(Integer.parseInt(playerTwoIndexes.get(black)), ((ViewGroup) findViewById(R.id.blackCheckerArea)));
             black++;
         }
     }*/
 
     private ImageView setPlaceHolder(int index, ViewGroup parent) {
-        //Log.i(TAG, Integer.toString(index));
+        Log.i(TAG, "Index - " + Integer.toString(index));
         ImageView checker = (ImageView) parent.getChildAt(index);
         parent.removeViewAt(index);
         FrameLayout placeholder = (FrameLayout) getLayoutInflater().inflate(R.layout.layout_placeholder, parent, false);
@@ -389,10 +393,10 @@ public class GamePage extends AppCompatActivity {
 
         //Create a ghost checker which will be animated while the real one just moves.
         if (turn == Constants.WHITE) {
-            whiteIndexes.add(index + "");
+            playerOneIndexes.add(index + "");
             animChecker = (ImageView) getLayoutInflater().inflate(R.layout.anim_white_checker, parent, false);
         } else {
-            blackIndexes.add(index + "");
+            playerTwoIndexes.add(index + "");
             animChecker = (ImageView) getLayoutInflater().inflate(R.layout.anim_black_checker, parent, false);
         }
 
@@ -426,7 +430,7 @@ public class GamePage extends AppCompatActivity {
         TranslateAnimation tAnimation = new TranslateAnimation(0, locationArea[0] - locationChecker[0], 0, locationArea[1] - locationChecker[1]);
         tAnimation.setFillEnabled(true);
         tAnimation.setFillAfter(true);
-        tAnimation.setDuration(1500);
+        tAnimation.setDuration(750);
 
         tAnimation.setAnimationListener(new Animation.AnimationListener() {
 
@@ -436,6 +440,7 @@ public class GamePage extends AppCompatActivity {
                 //Fix the side board so its children stays in position
                 if (tmpAnimChecker.getParent() != findViewById(R.id.board)) {
                     //Add a placeholder frame layout to stop the other checkers from jmping towards the middle.
+
                     FrameLayout placeholder = (FrameLayout) getLayoutInflater().inflate(R.layout.layout_placeholder, parent, false);
                     parent.addView(placeholder, index);
                 }
@@ -470,33 +475,36 @@ public class GamePage extends AppCompatActivity {
                 //Unamrk all options and remove the selected checker
 
                 unMarkAllFields();
-                blackCheckers.remove(v);
+                playerTwoCheckers.remove(v);
                 removeNextChecker = false;
                 ViewGroup parent = ((ViewGroup) v.getParent());
+                Log.i(TAG,"White Child Before - " + parent.getChildCount());
                 parent.removeView(v);
-                playerTurn.setText("Black turn");
+                Log.i(TAG,"White Child After - " + parent.getChildCount());
+                playerTurn.setText("Player Two's turn");
 
                 //Did someone win?
                 isWin = rules.isItAWin(Constants.BLACK);
                 if (isWin) {
-                    playerTurn.setText("White wins!");
+                    playerTurn.setText("Player One wins!");
                 }
             } else if (rules.getTurn() == Constants.WHITE && rules.remove(checkerPositions.get(v), Constants.WHITE)) {
                 //Unmark all options and remove the selected checker
                 unMarkAllFields();
-                whiteCheckers.remove(v);
+                playerOneCheckers.remove(v);
                 removeNextChecker = false;
                 ViewGroup parent = ((ViewGroup) v.getParent());
+                Log.i(TAG,"Black Child Before - " + parent.getChildCount());
                 parent.removeView(v);
-                playerTurn.setText("White turn");
+                Log.i(TAG,"Black Child After - " + parent.getChildCount());
+                playerTurn.setText("Player One's turn");
 
                 //Did someone win?
                 isWin = rules.isItAWin(Constants.WHITE);
                 if (isWin) {
-                    playerTurn.setText("Black wins!");
+                    playerTurn.setText("Player Two wins!");
                 }
             }
-
         }
         //Try to select the checker for a move
         else if (!(checkerPositions.get(v) != 0 && checkerPositions.containsValue(0)) || (checkerPositions.get(v) == 0)) {
@@ -683,6 +691,28 @@ public class GamePage extends AppCompatActivity {
             muteBtn.setVisibility(View.VISIBLE);
 
         }
+
+    }
+
+    public void reset(View myView){
+
+        //doesn't seem to resest the game board. Put the pieces back but stops you from placing
+        //pieces where they were before the game was reset
+        Intent start = new Intent (this, GamePage.class);
+
+        start.putExtra("playerOne", playerOne);
+        start.putExtra("playerTwo", playerTwo);
+        start.putExtra("computer", computer);
+
+        startActivity(start);
+
+    }
+
+    public void exit(View myView){
+
+        Intent home = new Intent (this, MainActivity.class);
+        Music.musicInitialization = 2;
+        startActivity(home);
 
     }
 
