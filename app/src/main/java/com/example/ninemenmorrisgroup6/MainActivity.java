@@ -41,12 +41,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Send the user to the setupPage from the home page.
+     * @param myView The button this is assigned to.
+     */
+
     public void goToSetupPage(View myView){
 
         Intent setupPage = new Intent (this, SetupPage.class);
 
         startActivity(setupPage);
     }
+
+    /**
+     * Mutes the sound when on the home page.
+     * @param myView The button that this is assigned to.
+     */
 
     public void muteSoundMain(View myView) {
 
@@ -60,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         unmuteBtn.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Unmutes the sound when on the home page.
+     * @param myView
+     */
+
     public void unmuteSoundMain(View myView) {
 
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonMain);
@@ -71,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
         unmuteBtn.setVisibility(View.INVISIBLE);
         muteBtn.setVisibility(View.VISIBLE);
     }
+
+    /**
+     * Checks to see if music is already playing when returning to the home page.
+     */
 
     public void musicCheckMain(){
 
@@ -91,6 +110,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    /**
+     * Shows a popup containing the rules for nine men morris.
+     * @param view The button that this is assigned to.
+     */
 
     public void rulesPopupMain(View view) {
 
@@ -121,6 +145,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Shows a popup containing a method of contacting the team.
+     * @param view The button that this is assigned to.
+     */
 
     public void feedbackPopup(View view) {
 
