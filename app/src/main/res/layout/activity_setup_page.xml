@@ -252,6 +252,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:background="@null"
+        android:onClick="disabledButtonToast"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -259,15 +260,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.557"
-        app:srcCompat="@drawable/piecesbuttongrey"
 
-        />
+        app:srcCompat="@drawable/piecesbuttongrey" />
 
     <ImageButton
         android:id="@+id/playerTwoPieceSelectionGrey"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:background="@null"
+        android:onClick="disabledButtonToast"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -282,6 +283,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:background="@null"
+        android:onClick="disabledButtonToast"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -289,14 +291,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.621"
-        app:srcCompat="@drawable/colourbuttongrey"
-        />
+        app:srcCompat="@drawable/colourbuttongrey" />
 
     <ImageButton
         android:id="@+id/playerTwoColourSelectionGrey"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:background="@null"
+        android:onClick="disabledButtonToast"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

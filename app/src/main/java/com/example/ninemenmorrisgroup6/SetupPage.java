@@ -353,7 +353,7 @@ public class SetupPage extends AppCompatActivity {
 
             else{
 
-                Toast.makeText(this, "Something went wrong, please try again!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Player One and Two need game pieces!", Toast.LENGTH_SHORT).show();
                 return false;
 
             }
@@ -371,7 +371,7 @@ public class SetupPage extends AppCompatActivity {
 
             else{
 
-                Toast.makeText(this, "Something went wrong, please try again!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Player One needs game pieces!", Toast.LENGTH_SHORT).show();
                 return false;
 
             }
@@ -389,7 +389,7 @@ public class SetupPage extends AppCompatActivity {
 
             else{
 
-                Toast.makeText(this, "Something went wrong, please try again!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Player One needs game pieces!", Toast.LENGTH_SHORT).show();
                 return false;
 
             }
@@ -460,6 +460,22 @@ public class SetupPage extends AppCompatActivity {
 
             unmuteBtn.setVisibility(View.INVISIBLE);
             muteBtn.setVisibility(View.VISIBLE);
+
+        }
+
+    }
+
+    public void disabledButtonToast(View v){
+
+        if(computer.getDifficulty() == 3){
+
+            Toast.makeText(this, "Select a Game mode first", Toast.LENGTH_SHORT).show();
+
+        }
+
+        if (computer.getDifficulty() == 1 | computer.getDifficulty() == 2){
+
+            Toast.makeText(this, "You are playing against the computer!", Toast.LENGTH_SHORT).show();
 
         }
 
