@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Checks to see if music is already playing when returning to the home page.
+     * Checks to see if the mute or unmute ImageButton should be displayed.
      */
 
     public void musicCheckMain(){
