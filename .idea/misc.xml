@@ -47,8 +47,25 @@
         <entry key="..\:/Users/zacha/AndroidStudioProjects/NineMenMorrisGroup6/app/src/main/res/layout/activity_setup_page.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_game_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_rules_popup.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_setup_page.xml" value="0.12395833333333334" />
         <entry key="app/src/main/res/layout/anim_black_checker.xml" value="0.12395833333333334" />
+        <entry key="app/src/main/res/layout/anim_black_circle.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/anim_black_square.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/anim_black_star.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/anim_green_circle.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/anim_green_square.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/anim_red_star.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/anim_white_checker.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/anim_white_circle.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/anim_white_diamond.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/anim_white_square.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/anim_yellow_circle.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/anim_yellow_diamond.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/anim_yellow_square.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/custom_toast.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout_placeholder.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/winner_popup.xml" value="0.25052083333333336" />
       </map>
     </option>
   </component>

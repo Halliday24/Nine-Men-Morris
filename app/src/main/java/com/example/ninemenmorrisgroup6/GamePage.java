@@ -31,7 +31,6 @@ import com.example.ninemenmorrisgroup6.Helps.Constants;
 import com.example.ninemenmorrisgroup6.Helps.Music;
 import com.example.ninemenmorrisgroup6.Helps.Rules;
 
-import org.w3c.dom.Text;
 
 public class GamePage extends AppCompatActivity {
 
@@ -64,8 +63,7 @@ public class GamePage extends AppCompatActivity {
     private boolean isWin = false;
     private boolean newGame = true;
 
-    private SharedPreferences pref;
-    private SharedPreferences.Editor edit;
+
 
     private ArrayList<String> playerOneIndexes = new ArrayList<String>();
     private ArrayList<String> playerTwoIndexes = new ArrayList<String>();
@@ -83,8 +81,7 @@ public class GamePage extends AppCompatActivity {
             initializeGamePieces();
             setHowManyPiecesRemaining();
 
-            pref = this.getSharedPreferences("errorlabs.in", Context.MODE_PRIVATE);
-            edit = pref.edit();
+
 
             selectedChecker = null;
             areaToMoveTo = null;
@@ -460,7 +457,7 @@ public class GamePage extends AppCompatActivity {
         TranslateAnimation tAnimation = new TranslateAnimation(0, locationArea[0] - locationChecker[0], 0, locationArea[1] - locationChecker[1]);
         tAnimation.setFillEnabled(true);
         tAnimation.setFillAfter(true);
-        tAnimation.setDuration(750);
+
 
         tAnimation.setAnimationListener(new Animation.AnimationListener() {
 
