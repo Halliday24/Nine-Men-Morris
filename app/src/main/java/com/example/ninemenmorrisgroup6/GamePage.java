@@ -31,7 +31,6 @@ import com.example.ninemenmorrisgroup6.Helps.Constants;
 import com.example.ninemenmorrisgroup6.Helps.Music;
 import com.example.ninemenmorrisgroup6.Helps.Rules;
 
-import org.w3c.dom.Text;
 
 public class GamePage extends AppCompatActivity {
 
@@ -64,8 +63,7 @@ public class GamePage extends AppCompatActivity {
     private boolean isWin = false;
     private boolean newGame = true;
 
-    private SharedPreferences pref;
-    private SharedPreferences.Editor edit;
+
 
     private ArrayList<String> playerOneIndexes = new ArrayList<String>();
     private ArrayList<String> playerTwoIndexes = new ArrayList<String>();
@@ -83,8 +81,7 @@ public class GamePage extends AppCompatActivity {
             initializeGamePieces();
             setHowManyPiecesRemaining();
 
-            pref = this.getSharedPreferences("errorlabs.in", Context.MODE_PRIVATE);
-            edit = pref.edit();
+
 
             selectedChecker = null;
             areaToMoveTo = null;
@@ -460,7 +457,7 @@ public class GamePage extends AppCompatActivity {
         TranslateAnimation tAnimation = new TranslateAnimation(0, locationArea[0] - locationChecker[0], 0, locationArea[1] - locationChecker[1]);
         tAnimation.setFillEnabled(true);
         tAnimation.setFillAfter(true);
-        tAnimation.setDuration(750);
+
 
         tAnimation.setAnimationListener(new Animation.AnimationListener() {
 
@@ -595,6 +592,11 @@ public class GamePage extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Takes the plaerOne, playerTwo, and computer game pieces and replaces the imageview of the
+     * game pieces with the appropriate choices.
+     */
+
     public void initializeGamePieces() {
 
         ImageView playerTwo1 = (ImageView) findViewById(R.id.blackChecker1);
@@ -688,6 +690,11 @@ public class GamePage extends AppCompatActivity {
         }
     }
 
+    /**
+     * Mutes the sound when on the game page.
+     * @param myView The button that this is assigned to.
+     */
+
     public void muteSoundGame(View myView) {
 
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
@@ -700,17 +707,26 @@ public class GamePage extends AppCompatActivity {
         unmuteBtn.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Unmutes the sound when on the game page.
+     * @param myView The button that this is assigned to.
+     */
+
     public void unmuteSoundGame(View myView) {
 
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
 
         Music.backgroundMusic.start();
-        Music.setMuteStatus("MUTED");
+        Music.setMuteStatus("UNMUTED");
 
         unmuteBtn.setVisibility(View.INVISIBLE);
         muteBtn.setVisibility(View.VISIBLE);
     }
+
+    /**
+     * Checks to see if music is already playing when entering the game page.
+     */
 
     public void musicCheckGame(){
 
@@ -732,10 +748,13 @@ public class GamePage extends AppCompatActivity {
 
     }
 
+    /**
+     * Resets the game with the current settings.
+     * @param myView The button that this is assigned to.
+     */
+
     public void reset(View myView){
 
-        //doesn't seem to resest the game board. Put the pieces back but stops you from placing
-        //pieces where they were before the game was reset
         Intent start = new Intent (this, GamePage.class);
 
         start.putExtra("playerOne", playerOne);
@@ -746,6 +765,11 @@ public class GamePage extends AppCompatActivity {
 
     }
 
+    /**
+     * Sends the user back to the home page.
+     * @param myView The button that this is assigned to.
+     */
+
     public void exit(View myView){
 
         Intent home = new Intent (this, MainActivity.class);
@@ -753,6 +777,10 @@ public class GamePage extends AppCompatActivity {
         startActivity(home);
 
     }
+
+    /**
+     * Updates the textViews on the gamePage with how many pieces each player has to place still.
+     */
 
     public void setHowManyPiecesRemaining(){
 
@@ -763,6 +791,11 @@ public class GamePage extends AppCompatActivity {
         playerTwoPieces.setText(Integer.toString(Rules.blackMarkers));
 
     }
+
+    /**
+     * Opens a popup containing the rules for nine men morris.
+     * @param view
+     */
 
     public void rulesPopupGame(View view) {
 
@@ -775,9 +808,9 @@ public class GamePage extends AppCompatActivity {
         int width = 1000;
         int height = 1500;
         boolean focusable = false; // lets taps outside the popup also dismiss it
-        LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_game);
+        //LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_game);
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-        dim_layout.setVisibility(View.VISIBLE);
+        //dim_layout.setVisibility(View.VISIBLE);
 
         // show the popup window
         // which view you pass in doesn't matter, it is only used for the window tolken
@@ -788,11 +821,15 @@ public class GamePage extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 popupWindow.dismiss();
-                dim_layout.setVisibility(View.INVISIBLE);
+                //dim_layout.setVisibility(View.INVISIBLE);
                 return true;
             }
         });
     }
+
+    /**
+     * Opens a popup containing who won the game.
+     */
 
     public void winnerPopupGame() {
 
@@ -823,6 +860,13 @@ public class GamePage extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Sets the correct animation for the game pieces that the users chose.
+     * @param layout The layout that will be set to the correct animation.
+     * @param player The Player whose animation is being set.
+     * @return An int representative of the correct animation.
+     */
 
     public int setAnimation(int layout, Player player){
         

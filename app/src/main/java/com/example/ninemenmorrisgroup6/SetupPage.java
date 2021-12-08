@@ -41,12 +41,6 @@ public class SetupPage extends AppCompatActivity {
         ImageButton playerTwoPieceSelection = (ImageButton) findViewById(R.id.playerTwoPieceSelection);
         ImageButton playerTwoColourSelection = (ImageButton) findViewById(R.id.playerTwoColourSelection);
 
-
-        //playerOnePieceSelection.setEnabled(false);
-        //playerOneColourSelection.setEnabled(false);
-        //playerTwoPieceSelection.setEnabled(false);
-        //playerTwoColourSelection.setEnabled(false);
-
         computer.setDifficulty(3);
         musicCheckSetup();
 
