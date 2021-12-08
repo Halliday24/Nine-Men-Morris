@@ -457,6 +457,7 @@ public class GamePage extends AppCompatActivity {
         TranslateAnimation tAnimation = new TranslateAnimation(0, locationArea[0] - locationChecker[0], 0, locationArea[1] - locationChecker[1]);
         tAnimation.setFillEnabled(true);
         tAnimation.setFillAfter(true);
+        tAnimation.setDuration(750);
 
 
         tAnimation.setAnimationListener(new Animation.AnimationListener() {
