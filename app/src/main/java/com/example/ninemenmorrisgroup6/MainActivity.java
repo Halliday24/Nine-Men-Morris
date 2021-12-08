@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         //starting again if user comes back to homepage.
         if(musicCheck == Music.musicInitialization){
 
-            Music.backgroundMusic = MediaPlayer.create(this, R.raw.cali);
+            Music.backgroundMusic = MediaPlayer.create(this, R.raw.mvp);
             Music.startMusic();
 
         }

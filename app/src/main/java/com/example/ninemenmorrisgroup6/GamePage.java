@@ -706,7 +706,7 @@ public class GamePage extends AppCompatActivity {
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
 
         Music.backgroundMusic.start();
-        Music.setMuteStatus("MUTED");
+        Music.setMuteStatus("UNMUTED");
 
         unmuteBtn.setVisibility(View.INVISIBLE);
         muteBtn.setVisibility(View.VISIBLE);
@@ -734,8 +734,6 @@ public class GamePage extends AppCompatActivity {
 
     public void reset(View myView){
 
-        //doesn't seem to resest the game board. Put the pieces back but stops you from placing
-        //pieces where they were before the game was reset
         Intent start = new Intent (this, GamePage.class);
 
         start.putExtra("playerOne", playerOne);
