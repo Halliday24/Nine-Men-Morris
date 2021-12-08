@@ -1022,6 +1022,17 @@ public class SetupPage extends AppCompatActivity {
 
             }
 
+            else if (colour.equals("BLUE")){
+
+                ImageView greenStar = (ImageView) findViewById(R.id.playerOneImage);
+                greenStar.setImageResource(R.drawable.blue_star);
+                playerOne.setPlayerGamePiece(R.drawable.blue_star);
+                playerOne.setPlayerColour(colour);
+
+                return R.drawable.blue_star;
+
+            }
+
             else if (colour.equals("YELLOW")){
 
                 ImageView yellowStar = (ImageView) findViewById(R.id.playerOneImage);
