@@ -232,6 +232,12 @@ public class Rules {
         return false;
     }
 
+    /**
+     * Checks to see if the selected game piece is part of a mill.
+     * @param partOfLine The game piece being checked
+     * @return True if part of a mill, false otherwise
+     */
+
     public boolean partOfMill(int partOfLine){
 
         //All possible lines.
@@ -288,6 +294,13 @@ public class Rules {
 
 
     }
+
+    /**
+     * Checks to see if a piece can be removed from a mill.
+     * @param token The game piece being checked
+     * @param colour The colour of the game piece (black or white)
+     * @return True if the piece can be removed, false otherwise
+     */
 
     public boolean removeFromMill(int token, int colour){
 
