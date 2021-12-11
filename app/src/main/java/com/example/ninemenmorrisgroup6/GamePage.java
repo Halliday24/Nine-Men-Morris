@@ -31,6 +31,8 @@ import com.example.ninemenmorrisgroup6.Helps.Constants;
 import com.example.ninemenmorrisgroup6.Helps.Music;
 import com.example.ninemenmorrisgroup6.Helps.Rules;
 
+import org.w3c.dom.Text;
+
 
 public class GamePage extends AppCompatActivity {
 
@@ -81,7 +83,13 @@ public class GamePage extends AppCompatActivity {
             initializeGamePieces();
             setHowManyPiecesRemaining();
 
+            TextView playerOneHeader = (TextView) findViewById(R.id.playerOneHeader);
+            TextView playerTwoHeader = (TextView) findViewById(R.id.playerTwoHeader);
+            TextView header = (TextView) findViewById(R.id.TurnText);
 
+            header.setText("It is " + playerOne.getPlayerName() + "'s turn");
+            playerOneHeader.setText(playerOne.getPlayerName() + " Pieces Remaining");
+            playerTwoHeader.setText(playerTwo.getPlayerName() + " Pieces Remaining");
 
             selectedChecker = null;
             areaToMoveTo = null;
@@ -210,25 +218,25 @@ public class GamePage extends AppCompatActivity {
                                 //Update the turn text
                                 if (removeNextChecker) {
                                     if (currentTurn == Constants.BLACK) {
-                                        playerTurn.setText("Remove Player one");
+                                        playerTurn.setText(playerTwo.getPlayerName() + " can remove one of " + playerOne.getPlayerName() + "'s pieces");
                                     } else {
-                                        playerTurn.setText("Remove Player two");
+                                        playerTurn.setText(playerOne.getPlayerName() + " can remove one of " + playerTwo.getPlayerName() + "'s pieces");
                                     }
                                 } else {
                                     if (currentTurn == Constants.BLACK) {
-                                        playerTurn.setText("Player one turn");
+                                        playerTurn.setText("It is " + playerOne.getPlayerName() + "'s turn");
                                     } else {
-                                        playerTurn.setText("Player two turn");
+                                        playerTurn.setText("It is " + playerTwo.getPlayerName() + "'s turn");
                                     }
                                 }
                                 //Did someone win?
                                 isWin = rules.isItAWin(rules.getTurn());
                                 if (isWin) {
                                     if (rules.getTurn() == Constants.BLACK) {
-                                        playerTurn.setText("Player one wins!");
+                                        playerTurn.setText(playerOne.getPlayerName() + " WINS!");
                                         winnerPopupGame();
                                     } else {
-                                        playerTurn.setText("Player two wins!");
+                                        playerTurn.setText(playerTwo.getPlayerName() + " WINS!");
                                         winnerPopupGame();
                                     }
 
@@ -511,12 +519,12 @@ public class GamePage extends AppCompatActivity {
                 parent.removeView(v);
                 Log.i(TAG,"White Child After - " + parent.getChildCount());
                 //setHowManyPiecesRemaining();
-                playerTurn.setText("Player Two's turn");
+                playerTurn.setText("It is " + playerTwo.getPlayerName() + "'s turn");
 
                 //Did someone win?
                 isWin = rules.isItAWin(Constants.BLACK);
                 if (isWin) {
-                    playerTurn.setText("Player One wins!");
+                    playerTurn.setText(playerOne.getPlayerName() + " WINS!");
                 }
             } else if (rules.getTurn() == Constants.WHITE && rules.remove(checkerPositions.get(v), Constants.WHITE)) {
                 //Unmark all options and remove the selected checker
@@ -528,12 +536,12 @@ public class GamePage extends AppCompatActivity {
                 parent.removeView(v);
                 Log.i(TAG,"Black Child After - " + parent.getChildCount());
                 //setHowManyPiecesRemaining();
-                playerTurn.setText("Player One's turn");
+                playerTurn.setText("It is " + playerOne.getPlayerName() + "'s turn");
 
                 //Did someone win?
                 isWin = rules.isItAWin(Constants.WHITE);
                 if (isWin) {
-                    playerTurn.setText("Player Two wins!");
+                    playerTurn.setText(playerTwo.getPlayerName() + " WINS!");
                 }
             }
         }

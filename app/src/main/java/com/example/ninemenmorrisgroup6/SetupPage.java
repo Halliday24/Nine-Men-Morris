@@ -14,6 +14,7 @@ import android.view.View;
 import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -40,6 +41,15 @@ public class SetupPage extends AppCompatActivity {
         ImageButton playerOneColourSelection = (ImageButton) findViewById(R.id.playerOneColourSelection);
         ImageButton playerTwoPieceSelection = (ImageButton) findViewById(R.id.playerTwoPieceSelection);
         ImageButton playerTwoColourSelection = (ImageButton) findViewById(R.id.playerTwoColourSelection);
+
+        EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
+        EditText playerTwoName = (EditText) findViewById(R.id.playerTwoName);
+
+        playerOneName.setEnabled(false);
+        playerOneName.setFocusable(false);
+        playerTwoName.setEnabled(false);
+        playerTwoName.setFocusable(false);
+
 
         computer.setDifficulty(3);
         musicCheckSetup();
@@ -70,6 +80,12 @@ public class SetupPage extends AppCompatActivity {
 
             Intent start = new Intent (this, GamePage.class);
 
+            EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
+            EditText playerTwoName = (EditText) findViewById(R.id.playerTwoName);
+
+            playerOne.setPlayerName(playerOneName.getText().toString());
+            playerTwo.setPlayerName(playerTwoName.getText().toString());
+
             start.putExtra("playerOne", playerOne);
             start.putExtra("playerTwo", playerTwo);
             start.putExtra("computer", computer);
@@ -96,6 +112,8 @@ public class SetupPage extends AppCompatActivity {
         ImageButton easyComputerButtonGrey = (ImageButton) findViewById(R.id.easyComputerButtonGrey);
         ImageButton hardComputerButton = (ImageButton) findViewById(R.id.hardComputerButton);
         ImageButton hardComputerButtonGrey = (ImageButton) findViewById(R.id.hardComputerButtonGrey);
+        EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
+        EditText playerTwoName = (EditText) findViewById(R.id.playerTwoName);
 
         computer.setDifficulty(2);
         computer.setPlayerGamePiece(R.drawable.black_circle);
@@ -103,6 +121,13 @@ public class SetupPage extends AppCompatActivity {
         singlePlayerButtonSetup();
         setPlayerOneToDefault();
         setPlayerTwoToEmpty();
+
+        playerOneName.setEnabled(true);
+        playerOneName.setFocusable(true);
+        playerTwoName.setEnabled(false);
+        playerTwoName.setFocusable(false);
+        playerTwoName.setText("Player Two");
+
 
         //Dims the easyComputerButton and pvpButton.
         //findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
@@ -131,6 +156,8 @@ public class SetupPage extends AppCompatActivity {
         ImageButton easyComputerButtonGrey = (ImageButton) findViewById(R.id.easyComputerButtonGrey);
         ImageButton hardComputerButton = (ImageButton) findViewById(R.id.hardComputerButton);
         ImageButton hardComputerButtonGrey = (ImageButton) findViewById(R.id.hardComputerButtonGrey);
+        EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
+        EditText playerTwoName = (EditText) findViewById(R.id.playerTwoName);
 
         computer.setDifficulty(1);
         computer.setPlayerGamePiece(R.drawable.black_circle);
@@ -138,6 +165,16 @@ public class SetupPage extends AppCompatActivity {
         singlePlayerButtonSetup();
         setPlayerOneToDefault();
         setPlayerTwoToEmpty();
+
+        singlePlayerButtonSetup();
+        setPlayerOneToDefault();
+        setPlayerTwoToEmpty();
+
+        playerOneName.setEnabled(true);
+        playerOneName.setFocusableInTouchMode(true);
+        playerTwoName.setEnabled(false);
+        playerTwoName.setFocusable(false);
+        playerTwoName.setText("Player Two");
 
         //Dims the hardComputerButton and the pvpButton.
         //findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
@@ -167,6 +204,8 @@ public class SetupPage extends AppCompatActivity {
         ImageButton easyComputerButtonGrey = (ImageButton) findViewById(R.id.easyComputerButtonGrey);
         ImageButton hardComputerButton = (ImageButton) findViewById(R.id.hardComputerButton);
         ImageButton hardComputerButtonGrey = (ImageButton) findViewById(R.id.hardComputerButtonGrey);
+        EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
+        EditText playerTwoName = (EditText) findViewById(R.id.playerTwoName);
 
         computer.setDifficulty(0);
         computer.setPlayerGamePiece(R.drawable.blank);
@@ -174,6 +213,11 @@ public class SetupPage extends AppCompatActivity {
         multiPlayerButtonSetup();
         setPlayerOneToDefault();
         setPlayerTwoToDefault();
+
+        playerOneName.setEnabled(true);
+        playerOneName.setFocusableInTouchMode(true);
+        playerTwoName.setEnabled(true);
+        playerTwoName.setFocusableInTouchMode(true);
 
         //findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
         //findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
@@ -346,6 +390,8 @@ public class SetupPage extends AppCompatActivity {
         if(computer.getDifficulty() == 0){
 
             if(playerOne.getPlayerGamePiece() != R.drawable.blank && playerTwo.getPlayerGamePiece() != R.drawable.blank){
+
+                //if(playerOne.getPlayerName() != "")
 
                 return true;
 
