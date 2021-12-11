@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -123,10 +124,10 @@ public class SetupPage extends AppCompatActivity {
         setPlayerTwoToEmpty();
 
         playerOneName.setEnabled(true);
-        playerOneName.setFocusable(true);
+        playerOneName.setFocusableInTouchMode(true);
         playerTwoName.setEnabled(false);
         playerTwoName.setFocusable(false);
-        playerTwoName.setText("Player Two");
+        playerTwoName.setText("-----------");
 
 
         //Dims the easyComputerButton and pvpButton.
@@ -166,15 +167,11 @@ public class SetupPage extends AppCompatActivity {
         setPlayerOneToDefault();
         setPlayerTwoToEmpty();
 
-        singlePlayerButtonSetup();
-        setPlayerOneToDefault();
-        setPlayerTwoToEmpty();
-
         playerOneName.setEnabled(true);
         playerOneName.setFocusableInTouchMode(true);
         playerTwoName.setEnabled(false);
         playerTwoName.setFocusable(false);
-        playerTwoName.setText("Player Two");
+        playerTwoName.setText("-----------");
 
         //Dims the hardComputerButton and the pvpButton.
         //findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
@@ -218,6 +215,8 @@ public class SetupPage extends AppCompatActivity {
         playerOneName.setFocusableInTouchMode(true);
         playerTwoName.setEnabled(true);
         playerTwoName.setFocusableInTouchMode(true);
+        playerTwoName.getText().clear();
+        playerTwoName.setHint("Enter Your Name");
 
         //findViewById(R.id.hardComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
         //findViewById(R.id.easyComputerButton).setBackgroundColor(Color.parseColor("#FF8A8888"));
@@ -385,15 +384,33 @@ public class SetupPage extends AppCompatActivity {
 
     public boolean checkForInitialization(){
 
+        EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
+        EditText playerTwoName = (EditText) findViewById(R.id.playerTwoName);
 
         //Player vs player mode
         if(computer.getDifficulty() == 0){
 
             if(playerOne.getPlayerGamePiece() != R.drawable.blank && playerTwo.getPlayerGamePiece() != R.drawable.blank){
 
-                //if(playerOne.getPlayerName() != "")
+                if(TextUtils.isEmpty(playerOneName.getText().toString())){
 
-                return true;
+                    Toast.makeText(this, "Player One needs a name!", Toast.LENGTH_SHORT).show();
+                    return false;
+
+                }
+
+                else if(TextUtils.isEmpty(playerTwoName.getText().toString())){
+
+                    Toast.makeText(this, "Player Two needs a name!", Toast.LENGTH_SHORT).show();
+                    return false;
+
+                }
+
+                else{
+
+                    return true;
+
+                }
 
             }
 
@@ -411,7 +428,16 @@ public class SetupPage extends AppCompatActivity {
 
             if(playerOne.getPlayerGamePiece() != R.drawable.blank && playerTwo.getPlayerGamePiece() == R.drawable.blank){
 
-                return true;
+                if(TextUtils.isEmpty(playerOneName.getText().toString())){
+
+                    Toast.makeText(this, "Player One needs a name!", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+                else{
+
+                    return true;
+
+                }
 
             }
 
@@ -429,7 +455,18 @@ public class SetupPage extends AppCompatActivity {
 
             if(playerOne.getPlayerGamePiece() != R.drawable.blank && playerTwo.getPlayerGamePiece() == R.drawable.blank){
 
-                return true;
+                if(TextUtils.isEmpty(playerOneName.getText().toString())){
+
+                    Toast.makeText(this, "Player One needs a name!", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+                else{
+
+                    return true;
+
+                }
+
+
 
             }
 

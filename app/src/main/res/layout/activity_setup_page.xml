@@ -10,18 +10,18 @@
 
     <EditText
         android:id="@+id/playerTwoName"
-        android:layout_width="145dp"
-        android:layout_height="41dp"
-        android:inputType="text"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:hint="Enter Your Name"
+        android:inputType="text"
         android:maxLength="12"
-        android:text="Player Two"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintHorizontal_bias="0.279"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.691" />
+        app:layout_constraintVertical_bias="0.69" />
 
     <ImageButton
         android:id="@+id/unmuteButtonSetup"
@@ -329,16 +329,16 @@
 
     <EditText
         android:id="@+id/playerOneName"
-        android:layout_width="144dp"
+        android:layout_width="150dp"
         android:layout_height="40dp"
-        android:inputType="text"
         android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:hint="Enter Your Name"
+        android:inputType="text"
         android:maxLength="12"
-        android:text="Player One"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintVertical_bias="0.48" />
 </androidx.constraintlayout.widget.ConstraintLayout>
