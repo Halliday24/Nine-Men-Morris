@@ -232,14 +232,92 @@ public class Rules {
         return false;
     }
 
+    public boolean partOfMill(int partOfLine){
+
+        //All possible lines.
+        if((partOfLine == 1 || partOfLine == 2 || partOfLine == 3) && (playingfield[1] == playingfield[2] && playingfield[2] == playingfield[3])) {
+            return true;
+        }
+        if((partOfLine == 4 || partOfLine == 5 || partOfLine == 6) && (playingfield[4] == playingfield[5] && playingfield[5] == playingfield[6])) {
+            return true;
+        }
+        if((partOfLine == 7 || partOfLine == 8 || partOfLine == 9) && (playingfield[7] == playingfield[8] && playingfield[8] == playingfield[9])) {
+            return true;
+        }
+        if((partOfLine == 10 || partOfLine == 11 || partOfLine == 12) && (playingfield[10] == playingfield[11] && playingfield[11] == playingfield[12])) {
+            return true;
+        }
+        if((partOfLine == 13 || partOfLine == 14 || partOfLine == 15) && (playingfield[13] == playingfield[14] && playingfield[14] == playingfield[15])) {
+            return true;
+        }
+        if((partOfLine == 16 || partOfLine == 17 || partOfLine == 18) && (playingfield[16] == playingfield[17] && playingfield[17] == playingfield[18])) {
+            return true;
+        }
+        if((partOfLine == 19 || partOfLine == 20 || partOfLine == 21) && (playingfield[19] == playingfield[20] && playingfield[20] == playingfield[21])) {
+            return true;
+        }
+        if((partOfLine == 22 || partOfLine == 23 || partOfLine == 24) && (playingfield[22] == playingfield[23] && playingfield[23] == playingfield[24])) {
+            return true;
+        }
+        if((partOfLine == 1 || partOfLine == 10 || partOfLine == 22) && (playingfield[1] == playingfield[10] && playingfield[10] == playingfield[22])) {
+            return true;
+        }
+        if((partOfLine == 4 || partOfLine == 11 || partOfLine == 19) && (playingfield[4] == playingfield[11] && playingfield[11] == playingfield[19])) {
+            return true;
+        }
+        if((partOfLine == 7 || partOfLine == 12 || partOfLine == 16) && (playingfield[7] == playingfield[12] && playingfield[12] == playingfield[16])) {
+            return true;
+        }
+        if((partOfLine == 2 || partOfLine == 5 || partOfLine == 8) && (playingfield[2] == playingfield[5] && playingfield[5] == playingfield[8])) {
+            return true;
+        }
+        if((partOfLine == 17 || partOfLine == 20 || partOfLine == 23) && (playingfield[17] == playingfield[20] && playingfield[20] == playingfield[23])) {
+            return true;
+        }
+        if((partOfLine == 9 || partOfLine == 13 || partOfLine == 18) && (playingfield[9] == playingfield[13] && playingfield[13] == playingfield[18])) {
+            return true;
+        }
+        if((partOfLine == 6 || partOfLine == 14 || partOfLine == 21) && (playingfield[6] == playingfield[14] && playingfield[14] == playingfield[21])) {
+            return true;
+        }
+        if((partOfLine == 3 || partOfLine == 15 || partOfLine == 24) && (playingfield[3] == playingfield[15] && playingfield[15] == playingfield[24])) {
+            return true;
+        }
+        return false;
+
+
+
+    }
+
+    public boolean removeFromMill(int token, int colour){
+
+        if(partOfMill(token) == true){
+
+            for(int i= 0; i < 24; i++){
+
+                if(playingfield[i+1] == colour){
+
+                    if(partOfMill(playingfield[i+1]) == false);
+
+                        return false;
+
+                }
+                return true;
+            }
+
+        }
+        return true;
+    }
+
     /**
      * Remove a marker from the position if it matches the color
      * @param from The checker to be removed.
      * @param color The color the checker should be if the remove is valid.
      * @return True if the removal was successful, else false is returned.
      */
+
     public boolean remove(int from, int color) {
-        if (playingfield[from] == color) {
+        if (playingfield[from] == color && removeFromMill(from, color) == true) {
             playingfield[from] = EMPTY_FIELD;
             return true;
         } else
