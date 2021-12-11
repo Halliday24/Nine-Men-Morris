@@ -88,8 +88,8 @@ public class GamePage extends AppCompatActivity {
             TextView header = (TextView) findViewById(R.id.TurnText);
 
             header.setText("It is " + playerOne.getPlayerName() + "'s turn");
-            playerOneHeader.setText(playerOne.getPlayerName() + " Pieces Remaining");
-            playerTwoHeader.setText(playerTwo.getPlayerName() + " Pieces Remaining");
+            playerOneHeader.setText(playerOne.getPlayerName() + "'s Pieces");
+            playerTwoHeader.setText(playerTwo.getPlayerName() + "'s Pieces");
 
             selectedChecker = null;
             areaToMoveTo = null;
@@ -617,6 +617,7 @@ public class GamePage extends AppCompatActivity {
         ImageView playerTwo7 = (ImageView) findViewById(R.id.blackChecker7);
         ImageView playerTwo8 = (ImageView) findViewById(R.id.blackChecker8);
         ImageView playerTwo9 = (ImageView) findViewById(R.id.blackChecker9);
+        ImageView playerTwo10 = (ImageView) findViewById(R.id.blackChecker10);
 
         ImageView playerOne1 = (ImageView) findViewById(R.id.whiteChecker1);
         ImageView playerOne2 = (ImageView) findViewById(R.id.whiteChecker2);
@@ -627,6 +628,7 @@ public class GamePage extends AppCompatActivity {
         ImageView playerOne7 = (ImageView) findViewById(R.id.whiteChecker7);
         ImageView playerOne8 = (ImageView) findViewById(R.id.whiteChecker8);
         ImageView playerOne9 = (ImageView) findViewById(R.id.whiteChecker9);
+        ImageView playerOne10 = (ImageView) findViewById(R.id.whiteChecker10);
 
         if (computer.getDifficulty() == 0) {
 
@@ -639,6 +641,7 @@ public class GamePage extends AppCompatActivity {
             playerOne7.setImageResource(playerOne.getPlayerGamePiece());
             playerOne8.setImageResource(playerOne.getPlayerGamePiece());
             playerOne9.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne10.setImageResource(playerOne.getPlayerGamePiece());
 
             playerTwo1.setImageResource(playerTwo.getPlayerGamePiece());
             playerTwo2.setImageResource(playerTwo.getPlayerGamePiece());
@@ -649,6 +652,7 @@ public class GamePage extends AppCompatActivity {
             playerTwo7.setImageResource(playerTwo.getPlayerGamePiece());
             playerTwo8.setImageResource(playerTwo.getPlayerGamePiece());
             playerTwo9.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo10.setImageResource(playerTwo.getPlayerGamePiece());
 
         }
         else if (computer.getDifficulty() == 1) {
@@ -662,6 +666,7 @@ public class GamePage extends AppCompatActivity {
             playerOne7.setImageResource(playerOne.getPlayerGamePiece());
             playerOne8.setImageResource(playerOne.getPlayerGamePiece());
             playerOne9.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne10.setImageResource(playerOne.getPlayerGamePiece());
 
             playerTwo1.setImageResource(computer.getPlayerGamePiece());
             playerTwo2.setImageResource(computer.getPlayerGamePiece());
@@ -672,6 +677,7 @@ public class GamePage extends AppCompatActivity {
             playerTwo7.setImageResource(computer.getPlayerGamePiece());
             playerTwo8.setImageResource(computer.getPlayerGamePiece());
             playerTwo9.setImageResource(computer.getPlayerGamePiece());
+            playerTwo10.setImageResource(computer.getPlayerGamePiece());
 
         }
         else if (computer.getDifficulty() == 2) {
@@ -685,6 +691,7 @@ public class GamePage extends AppCompatActivity {
             playerOne7.setImageResource(playerOne.getPlayerGamePiece());
             playerOne8.setImageResource(playerOne.getPlayerGamePiece());
             playerOne9.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne10.setImageResource(playerOne.getPlayerGamePiece());
 
             playerTwo1.setImageResource(computer.getPlayerGamePiece());
             playerTwo2.setImageResource(computer.getPlayerGamePiece());
@@ -695,6 +702,7 @@ public class GamePage extends AppCompatActivity {
             playerTwo7.setImageResource(computer.getPlayerGamePiece());
             playerTwo8.setImageResource(computer.getPlayerGamePiece());
             playerTwo9.setImageResource(computer.getPlayerGamePiece());
+            playerTwo10.setImageResource(computer.getPlayerGamePiece());
 
         }
     }
