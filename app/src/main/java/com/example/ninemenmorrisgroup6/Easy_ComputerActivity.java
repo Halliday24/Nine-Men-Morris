@@ -18,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,7 +29,7 @@ import com.example.ninemenmorrisgroup6.Helps.RulesComputer;
 
 
 
-public class Easy_ComputerActivity extends Activity {
+public class Easy_ComputerActivity extends AppCompatActivity {
     public static Player playerOne = new HumanPlayer();
     public static Player playerTwo = new HumanPlayer();
     public static Player computer = new ComputerPlayer();
@@ -69,7 +71,7 @@ public class Easy_ComputerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Creating activity");
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_game_page);
 
         pref = this.getSharedPreferences("", Context.MODE_PRIVATE);
         edit = pref.edit();
@@ -185,7 +187,7 @@ public class Easy_ComputerActivity extends Activity {
                         int from = checkerPositions.get(selectedChecker);
                         //Try to move the checker
                         if (rules.validMove(from, to)) { // This line will change turn
-                            Log.i(TAG, "VAlid move");
+                            Log.i(TAG, "Valid move");
                             //Update the UI
                             unMarkAllFields();
                             moveChecker(currentTurn);

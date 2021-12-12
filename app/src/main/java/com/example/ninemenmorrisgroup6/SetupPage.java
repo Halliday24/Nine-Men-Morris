@@ -80,19 +80,38 @@ public class SetupPage extends AppCompatActivity {
 
         if(checkForInitialization() == true){
 
-            Intent start = new Intent (this, GamePage.class);
+            if(computer.getDifficulty() == 0) {
 
-            EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
-            EditText playerTwoName = (EditText) findViewById(R.id.playerTwoName);
+                Intent start = new Intent(getApplicationContext(), GamePage.class);
 
-            playerOne.setPlayerName(playerOneName.getText().toString());
-            playerTwo.setPlayerName(playerTwoName.getText().toString());
+                EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
+                EditText playerTwoName = (EditText) findViewById(R.id.playerTwoName);
 
-            start.putExtra("playerOne", playerOne);
-            start.putExtra("playerTwo", playerTwo);
-            start.putExtra("computer", computer);
+                playerOne.setPlayerName(playerOneName.getText().toString());
+                playerTwo.setPlayerName(playerTwoName.getText().toString());
 
-            startActivity(start);
+                start.putExtra("playerOne", playerOne);
+                start.putExtra("playerTwo", playerTwo);
+                start.putExtra("computer", computer);
+
+                startActivity(start);
+            }
+
+            else if(computer.getDifficulty() == 1){
+
+                Intent start = new Intent(getApplicationContext(), Easy_ComputerActivity.class);
+
+                EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
+
+                playerOne.setPlayerName(playerOneName.getText().toString());
+
+                start.putExtra("playerOne", playerOne);
+                start.putExtra("playerTwo", playerTwo);
+                start.putExtra("computer", computer);
+
+                startActivity(start);
+
+            }
 
         }
         else{

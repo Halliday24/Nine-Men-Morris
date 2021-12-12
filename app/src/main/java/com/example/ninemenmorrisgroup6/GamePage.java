@@ -600,7 +600,7 @@ public class GamePage extends AppCompatActivity {
     }
 
     /**
-     * Takes the plaerOne, playerTwo, and computer game pieces and replaces the imageview of the
+     * Takes the playerOne, playerTwo, and computer game pieces and replaces the imageview of the
      * game pieces with the appropriate choices.
      */
 
