@@ -296,31 +296,119 @@ public class Rules {
     }
 
     /**
+     * Checks to see if the specified player's pieces are all in mills or not.
+     * @param colour The player whos pieces are being checked
+     * @return True if the number of pieces on the board is the same as the number of pieces in
+     * mills, false otherwise.
+     */
+
+    public boolean checkOnlyMill(int colour){
+
+        int countOfPieces = 0;
+        int countOfPiecesInMill = 0;
+
+        for(int i = 0; i < 24; i++){
+
+            if(playingfield[i+1] == colour){
+
+                countOfPieces = countOfPieces + 1;
+
+            }
+
+        }
+
+        for(int i = 0; i < 24; i++){
+
+            if(playingfield[i+1] == colour) {
+
+                if (partOfMill(i + 1) == true) {
+
+                    countOfPiecesInMill = countOfPiecesInMill + 1;
+
+                }
+            }
+
+        }
+        Log.i(TAG, "countOfPieces - " + countOfPieces);
+        Log.i(TAG, "countOfPiecesInMill - " + countOfPiecesInMill);
+
+        if(countOfPieces == countOfPiecesInMill){
+
+            return true;
+
+        }
+        else{
+
+            return false;
+
+        }
+
+    }
+
+    /**
      * Checks to see if a piece can be removed from a mill.
      * @param token The game piece being checked
      * @param colour The colour of the game piece (black or white)
      * @return True if the piece can be removed, false otherwise
      */
 
-    public boolean removeFromMill(int token, int colour){
+    public boolean removeFromMill(int token, int colour) {
 
-        if(partOfMill(token) == true){
+        Log.i(TAG, "Token - " + token);
+        Log.i(TAG, "Colour - " + colour);
 
-            for(int i= 0; i < 24; i++){
+        if (partOfMill(token) == true) {
 
-                if(playingfield[i+1] == colour){
+            Log.i(TAG, "partOfMill = true");
 
-                    if(partOfMill(playingfield[i+1]) == false);
+            if (checkOnlyMill(colour) == true) {
 
-                        return false;
+                Log.i(TAG, "checkOnlyMill = true");
 
-                }
                 return true;
+
+            }
+            else {
+                Log.i(TAG, "checkOnlyMill = False");
+
+                return false;
+
             }
 
         }
-        return true;
+        else{
+            Log.i(TAG, "partOfMill = false");
+            return true;
+
+        }
+
     }
+//        if(partOfMill(token) == true){
+//
+//            for(int i= 0; i < 24; i++){
+//
+//                if(playingfield[i+1] == colour){
+//
+//                    if(partOfMill(i+1) & checkOnlyMill(colour)){
+//
+//                        Log.i(TAG, "Part of Mill and there are only mills");
+//                        return true;
+//
+//                    }
+//                    else{
+//
+//                        Log.i(TAG, "Either not a Mill of not only Mills");
+//                        return false;
+//
+//
+//                    }
+//                }
+//                return true;
+//            }
+//
+//        }
+//        return true;
+//    }
 
     /**
      * Remove a marker from the position if it matches the color
