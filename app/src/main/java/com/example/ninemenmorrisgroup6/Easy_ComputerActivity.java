@@ -71,7 +71,7 @@ public class Easy_ComputerActivity extends Activity {
         Log.i(TAG, "Creating activity");
         setContentView(R.layout.activity_main);
 
-        pref = this.getSharedPreferences("errorlabs.in", Context.MODE_PRIVATE);
+        pref = this.getSharedPreferences("", Context.MODE_PRIVATE);
         edit = pref.edit();
 
         selectedChecker = null;
@@ -79,7 +79,7 @@ public class Easy_ComputerActivity extends Activity {
         checkerPositions = new HashMap<ImageView, Integer>();
         playerTurn = (TextView) findViewById(R.id.TurnText);
         mode =  pref.getInt(Utils.GAME_MODE, Utils.MODE_HUMAN);
-        if (mode == Utils.MODE_COMPUTER) {
+        if (mode == Utils.Easy_MODE_COMPUTER) {
             playerTurn.setText("Computer turn");
         } else {
             playerTurn.setText("Whites turn");
@@ -137,7 +137,8 @@ public class Easy_ComputerActivity extends Activity {
         higBoxAreas.add((FrameLayout) findViewById(R.id.area23));
         higBoxAreas.add((FrameLayout) findViewById(R.id.area24));
 
-        //Add a onClickListener to the white checkers, don't need it any more, computer doesn't need this action
+        //Add a onClickListener to the white checkers,
+        // don't need it any more, computer doesn't need this action
  /*       for (ImageView v : whiteCheckers) {
             checkerPositions.put(v, 0);
             v.setOnClickListener(new View.OnClickListener() {
@@ -231,9 +232,9 @@ public class Easy_ComputerActivity extends Activity {
                                 }
 
                             }
-                            // computer go on
+                            // computer go on after human place piece
                             if (rules.getTurn() == Constants.COMPUTER && !isWin) {
-                                Log.i("xiaoyu","computerSelectChecker");
+                                Log.i("","computerSelectChecker");
                                 computerSelectChecker();
                                 setComputerWhere();
                             }
@@ -248,7 +249,7 @@ public class Easy_ComputerActivity extends Activity {
         int to1;
         for (FrameLayout v : higBoxAreas) {
             to1 = Integer.parseInt((String) v.getContentDescription());
-            if (rules.playingfield[to1] == RulesComputer.EMPTY_FIELD /*&& aaa()*/){
+            if (rules.playingfield[to1] == RulesComputer.EMPTY_FIELD /*need more logic on hard_mode */){ //computer move to the empty field
                 areaToMoveTo = v;
                 break;
             }
@@ -290,6 +291,7 @@ public class Easy_ComputerActivity extends Activity {
                     } else {
                         playerTurn.setText(playerOne.getPlayerName() + " can remove one of " + playerTwo.getPlayerName() + "'s pieces");
                         // hitbox has some checker and random remove
+                        computerSelectChecker(); // Still need to fix, human has to help Ai remove their pieces
                         //removeHuman();
                     }
                 } else {
@@ -544,17 +546,17 @@ public class Easy_ComputerActivity extends Activity {
 
     int index = 0;
     /**
-     * computer set a chevker to remove or move
+     * computer set a checker to remove or move, easy mode computer place pieces in order
      */
     public void computerSelectChecker() {
         int id = setComputerChecker(index);
         Log.i("","computerSelectChecker index =" + index + "Turn = "+ rules.getTurn() +"id = "+ id);
         if (rules.getTurn() == Constants.COMPUTER && !isWin) {
             ImageView tempView = whiteCheckers.get(index);
-            Log.i("xiaoyu","tempView" + tempView.toString());
+            Log.i("","tempView" + tempView.toString());
             checkerPositions.put(tempView, 0);
             selectChecker(tempView);
-            //double a = Math.floor(Math.random()*24);
+            //double a = Math.floor(Math.random()*24); still consider easy mode place in order  is work, or need to place randomly.
             index++;
         }
     }
@@ -591,7 +593,7 @@ public class Easy_ComputerActivity extends Activity {
      */
     private void selectChecker(View v) {
         //Is it a remove click=
-        Log.i("xiaoyu","selectChecker removeNextChecker = " + removeNextChecker + checkerPositions.get(v)+""+rules.playingfield[checkerPositions.get(v)]);
+        Log.i("","selectChecker removeNextChecker = " + removeNextChecker + checkerPositions.get(v)+""+rules.playingfield[checkerPositions.get(v)]);
         if (removeNextChecker) {
             //Is it a valid remove click?
             if(rules.getTurn() == Constants.BLACK && !rules.canRemove(checkerPositions.get(v))) {
@@ -611,14 +613,14 @@ public class Easy_ComputerActivity extends Activity {
                 }
                 rules.setTurn(Constants.COMPUTER);
                 if (rules.getTurn() == Constants.COMPUTER && !isWin) {
-                    Log.i("xiaoyu","computerSelectChecker");
+                    Log.i("","computerSelectChecker");
                     computerSelectChecker();
                     setComputerWhere();
                 }
             }
             else if(rules.getTurn() == Constants.COMPUTER && rules.remove(1, Constants.COMPUTER)) {
                 //Unmark all options and remove the selected checker
-                Log.i("xiaoyu","else turn == computer");
+                Log.i("","else turn == computer");
                 unMarkAllFields();
                 whiteCheckers.remove(v);
                 removeNextChecker = false;
