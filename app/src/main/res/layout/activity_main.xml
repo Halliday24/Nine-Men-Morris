@@ -8,15 +8,16 @@
     android:background="#e0f0e3"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/dim_layout_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#70000000"
         android:visibility="invisible"
         tools:layout_editor_absoluteX="-22dp"
-        tools:layout_editor_absoluteY="-182dp">
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        tools:layout_editor_absoluteY="-182dp"
+        android:orientation="horizontal">
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/muteButtonMain"

@@ -597,6 +597,7 @@
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="11dp"
         android:background="@null"
+        android:onClick="reset"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
