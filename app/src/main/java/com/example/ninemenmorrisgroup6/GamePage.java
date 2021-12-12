@@ -591,9 +591,7 @@ public class GamePage extends AppCompatActivity {
         }
     }
 
-    /**
-     * 后退键，销毁主界面
-     */
+
 
     @Override
     public void onBackPressed() {

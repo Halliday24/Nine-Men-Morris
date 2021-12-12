@@ -1,0 +1,7 @@
+package com.example.ninemenmorrisgroup6.Helps;
+
+public class Utils {
+    public static final String GAME_MODE = "game_mode";
+    public static final int MODE_COMPUTER = 0;
+    public static final int MODE_HUMAN = 1;
+}
