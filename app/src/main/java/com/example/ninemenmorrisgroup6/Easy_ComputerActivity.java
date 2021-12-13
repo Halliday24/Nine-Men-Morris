@@ -2,6 +2,7 @@ package com.example.ninemenmorrisgroup6;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -24,6 +26,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.example.ninemenmorrisgroup6.Helps.Constants;
+import com.example.ninemenmorrisgroup6.Helps.Music;
+import com.example.ninemenmorrisgroup6.Helps.Rules;
 import com.example.ninemenmorrisgroup6.Helps.Utils;
 import com.example.ninemenmorrisgroup6.Helps.RulesComputer;
 
@@ -76,6 +80,21 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         pref = this.getSharedPreferences("", Context.MODE_PRIVATE);
         edit = pref.edit();
 
+        playerOne = (Player) getIntent().getSerializableExtra("playerOne");
+        playerTwo = (Player) getIntent().getSerializableExtra("playerTwo");
+        computer = (Player) getIntent().getSerializableExtra("computer");
+
+        initializeGamePieces();
+        setHowManyPiecesRemaining();
+
+        TextView playerOneHeader = (TextView) findViewById(R.id.playerOneHeader);
+        TextView playerTwoHeader = (TextView) findViewById(R.id.playerTwoHeader);
+        TextView header = (TextView) findViewById(R.id.TurnText);
+
+        header.setText("It is " + playerOne.getPlayerName() + "'s turn");
+        playerOneHeader.setText(playerOne.getPlayerName() + "'s Pieces");
+        playerTwoHeader.setText(computer.getPlayerName() + "'s Pieces");
+
         selectedChecker = null;
         areaToMoveTo = null;
         checkerPositions = new HashMap<ImageView, Integer>();
@@ -84,9 +103,11 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         if (mode == Utils.Easy_MODE_COMPUTER) {
             playerTurn.setText("Computer turn");
         } else {
-            playerTurn.setText("Whites turn");
+            playerTurn.setText(playerOne.getPlayerName() + "'s turn");
         }
 
+
+        musicCheckGame();
 
         //Save all white checkers in a list
         whiteCheckers = new ArrayList<ImageView>();
@@ -138,6 +159,8 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         higBoxAreas.add((FrameLayout) findViewById(R.id.area22));
         higBoxAreas.add((FrameLayout) findViewById(R.id.area23));
         higBoxAreas.add((FrameLayout) findViewById(R.id.area24));
+
+        initializeGamePieces();
 
         //Add a onClickListener to the white checkers,
         // don't need it any more, computer doesn't need this action
@@ -245,6 +268,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                 }
             });
         }
+
     }
 
     private void setComputerWhere() {
@@ -719,6 +743,37 @@ public class Easy_ComputerActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void rulesPopupGame(View view) {
+
+        // inflate the layout of the popup window
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.activity_rules_popup, null);
+
+        // create the popup window
+        int width = 1000;
+        int height = 1500;
+        boolean focusable = false; // lets taps outside the popup also dismiss it
+        //LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_game);
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+        //dim_layout.setVisibility(View.VISIBLE);
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window tolken
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // dismiss the popup window when touched
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                //dim_layout.setVisibility(View.INVISIBLE);
+                return true;
+            }
+        });
+    }
+
     public int setAnimation(int layout, Player player){
 
         if (player.getPlayerGamePiece() == R.drawable.black_circle){
@@ -891,6 +946,189 @@ public class Easy_ComputerActivity extends AppCompatActivity {
 
         return layout = R.layout.anim_white_checker;
 
+    }
+
+    public void initializeGamePieces() {
+
+        Log.i(TAG, "initializaGamePieces called");
+
+        ImageView playerTwo1 = (ImageView) findViewById(R.id.blackChecker1);
+        ImageView playerTwo2 = (ImageView) findViewById(R.id.blackChecker2);
+        ImageView playerTwo3 = (ImageView) findViewById(R.id.blackChecker3);
+        ImageView playerTwo4 = (ImageView) findViewById(R.id.blackChecker4);
+        ImageView playerTwo5 = (ImageView) findViewById(R.id.blackChecker5);
+        ImageView playerTwo6 = (ImageView) findViewById(R.id.blackChecker6);
+        ImageView playerTwo7 = (ImageView) findViewById(R.id.blackChecker7);
+        ImageView playerTwo8 = (ImageView) findViewById(R.id.blackChecker8);
+        ImageView playerTwo9 = (ImageView) findViewById(R.id.blackChecker9);
+        ImageView playerTwo10 = (ImageView) findViewById(R.id.blackChecker10);
+
+        ImageView playerOne1 = (ImageView) findViewById(R.id.whiteChecker1);
+        ImageView playerOne2 = (ImageView) findViewById(R.id.whiteChecker2);
+        ImageView playerOne3 = (ImageView) findViewById(R.id.whiteChecker3);
+        ImageView playerOne4 = (ImageView) findViewById(R.id.whiteChecker4);
+        ImageView playerOne5 = (ImageView) findViewById(R.id.whiteChecker5);
+        ImageView playerOne6 = (ImageView) findViewById(R.id.whiteChecker6);
+        ImageView playerOne7 = (ImageView) findViewById(R.id.whiteChecker7);
+        ImageView playerOne8 = (ImageView) findViewById(R.id.whiteChecker8);
+        ImageView playerOne9 = (ImageView) findViewById(R.id.whiteChecker9);
+        ImageView playerOne10 = (ImageView) findViewById(R.id.whiteChecker10);
+
+        if (computer.getDifficulty() == 0) {
+
+            Log.i(TAG, "PVP");
+
+            playerOne1.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne2.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne3.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne4.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne5.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne6.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne7.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne8.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne9.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne10.setImageResource(playerOne.getPlayerGamePiece());
+
+            playerTwo1.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo2.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo3.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo4.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo5.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo6.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo7.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo8.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo9.setImageResource(playerTwo.getPlayerGamePiece());
+            playerTwo10.setImageResource(playerTwo.getPlayerGamePiece());
+
+        }
+        else if (computer.getDifficulty() == 1) {
+
+            Log.i(TAG, "Easy Computer");
+
+            playerOne1.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne2.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne3.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne4.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne5.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne6.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne7.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne8.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne9.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne10.setImageResource(playerOne.getPlayerGamePiece());
+
+            playerTwo1.setImageResource(computer.getPlayerGamePiece());
+            playerTwo2.setImageResource(computer.getPlayerGamePiece());
+            playerTwo3.setImageResource(computer.getPlayerGamePiece());
+            playerTwo4.setImageResource(computer.getPlayerGamePiece());
+            playerTwo5.setImageResource(computer.getPlayerGamePiece());
+            playerTwo6.setImageResource(computer.getPlayerGamePiece());
+            playerTwo7.setImageResource(computer.getPlayerGamePiece());
+            playerTwo8.setImageResource(computer.getPlayerGamePiece());
+            playerTwo9.setImageResource(computer.getPlayerGamePiece());
+            playerTwo10.setImageResource(computer.getPlayerGamePiece());
+
+        }
+        else if (computer.getDifficulty() == 2) {
+
+            Log.i(TAG, "Hard Computer");
+
+            playerOne1.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne2.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne3.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne4.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne5.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne6.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne7.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne8.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne9.setImageResource(playerOne.getPlayerGamePiece());
+            playerOne10.setImageResource(playerOne.getPlayerGamePiece());
+
+            playerTwo1.setImageResource(computer.getPlayerGamePiece());
+            playerTwo2.setImageResource(computer.getPlayerGamePiece());
+            playerTwo3.setImageResource(computer.getPlayerGamePiece());
+            playerTwo4.setImageResource(computer.getPlayerGamePiece());
+            playerTwo5.setImageResource(computer.getPlayerGamePiece());
+            playerTwo6.setImageResource(computer.getPlayerGamePiece());
+            playerTwo7.setImageResource(computer.getPlayerGamePiece());
+            playerTwo8.setImageResource(computer.getPlayerGamePiece());
+            playerTwo9.setImageResource(computer.getPlayerGamePiece());
+            playerTwo10.setImageResource(computer.getPlayerGamePiece());
+
+        }
+    }
+
+    public void setHowManyPiecesRemaining(){
+
+        TextView playerOnePieces = (TextView) findViewById(R.id.playerOnePiecesRemaining);
+        TextView playerTwoPieces = (TextView) findViewById(R.id.playerTwoPiecesRemaining);
+
+        playerOnePieces.setText(Integer.toString(Rules.whiteMarkers));
+        playerTwoPieces.setText(Integer.toString(Rules.blackMarkers));
+
+    }
+
+    public void reset(View myView){
+
+        Intent start = new Intent (this, GamePage.class);
+
+        start.putExtra("playerOne", playerOne);
+        start.putExtra("playerTwo", playerTwo);
+        start.putExtra("computer", computer);
+
+        startActivity(start);
+
+    }
+
+    public void exit(View myView){
+
+        Intent home = new Intent (this, MainActivity.class);
+        Music.musicInitialization = 2;
+        startActivity(home);
+
+    }
+
+    public void musicCheckGame(){
+
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
+
+        if(Music.getMuteStatus().equals("MUTED")){
+
+            unmuteBtn.setVisibility(View.VISIBLE);
+            muteBtn.setVisibility(View.INVISIBLE);
+
+        }
+        else if(Music.getMuteStatus().equals("UNMUTED")){
+
+            unmuteBtn.setVisibility(View.INVISIBLE);
+            muteBtn.setVisibility(View.VISIBLE);
+
+        }
+
+    }
+
+    public void muteSoundGame(View myView) {
+
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
+
+        Music.backgroundMusic.pause();
+        Music.setMuteStatus("MUTED");
+
+        muteBtn.setVisibility(View.INVISIBLE);
+        unmuteBtn.setVisibility(View.VISIBLE);
+    }
+
+    public void unmuteSoundGame(View myView) {
+
+        ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
+        ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
+
+        Music.backgroundMusic.start();
+        Music.setMuteStatus("UNMUTED");
+
+        unmuteBtn.setVisibility(View.INVISIBLE);
+        muteBtn.setVisibility(View.VISIBLE);
     }
 }
 

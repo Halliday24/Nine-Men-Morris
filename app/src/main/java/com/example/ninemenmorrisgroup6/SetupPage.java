@@ -104,6 +104,7 @@ public class SetupPage extends AppCompatActivity {
                 EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
 
                 playerOne.setPlayerName(playerOneName.getText().toString());
+                computer.setPlayerName("Computer");
 
                 start.putExtra("playerOne", playerOne);
                 start.putExtra("playerTwo", playerTwo);
