@@ -2,7 +2,9 @@ package com.example.ninemenmorrisgroup6;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.SeekBar;
 
 import com.example.ninemenmorrisgroup6.Helps.Music;
 
@@ -39,7 +42,52 @@ public class MainActivity extends AppCompatActivity {
 
         musicCheckMain();
 
+        //volume slider
+        final AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int curVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        SeekBar volControl = (SeekBar)findViewById(R.id.volControl);
+        volControl.setMax(maxVolume);
+        volControl.setProgress(curVolume);
+        volControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, i, 0);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopService(new Intent(MainActivity.this,MainActivity.class));
+        Music.backgroundMusic.pause();// pause music
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(new Intent(MainActivity.this,MainActivity.class));
+        Music.backgroundMusic.start();//resume playing
+    }
+
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        Music.backgroundMusic.pause();
+//    }
 
     /**
      * Send the user to the setupPage from the home page.
@@ -49,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
     public void goToSetupPage(View myView){
 
         Intent setupPage = new Intent (this, SetupPage.class);
+        Music.musicInitialization = 2;
+
+        Music.backgroundMusic.start();
 
         startActivity(setupPage);
     }
@@ -110,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
     /**
      * Shows a popup containing the rules for nine men morris.

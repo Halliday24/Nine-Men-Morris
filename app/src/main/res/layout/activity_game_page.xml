@@ -9,17 +9,23 @@
     tools:context=".GamePage">
 
     <!--    <string name="turn_color">Whites turn</string>-->
+    <SeekBar
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/volControl">
+
+    </SeekBar>
 
     <ImageButton
         android:id="@+id/unmuteButtonGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         android:onClick="unmuteSoundGame"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.983"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/muted" />

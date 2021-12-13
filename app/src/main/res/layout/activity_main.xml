@@ -19,6 +19,13 @@
         android:orientation="horizontal">
     </LinearLayout>
 
+    <SeekBar
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/volControl">
+
+    </SeekBar>
+
     <ImageButton
         android:id="@+id/muteButtonMain"
         android:layout_width="wrap_content"
