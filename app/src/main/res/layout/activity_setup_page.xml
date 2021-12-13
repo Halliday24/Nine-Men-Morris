@@ -8,6 +8,13 @@
     android:padding="5dp"
     tools:context=".SetupPage">
 
+    <SeekBar
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/volControl">
+
+    </SeekBar>
+
     <EditText
         android:id="@+id/playerTwoName"
         android:layout_width="150dp"
