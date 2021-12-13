@@ -334,6 +334,7 @@
         app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@drawable/startgamebutton" />
 
+
     <EditText
         android:id="@+id/playerOneName"
         android:layout_width="150dp"
