@@ -88,12 +88,12 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         setHowManyPiecesRemaining();
 
         TextView playerOneHeader = (TextView) findViewById(R.id.playerOneHeader);
-        TextView playerTwoHeader = (TextView) findViewById(R.id.playerTwoHeader);
+        TextView computerHeader = (TextView) findViewById(R.id.playerTwoHeader);
         TextView header = (TextView) findViewById(R.id.TurnText);
 
         header.setText("It is " + playerOne.getPlayerName() + "'s turn");
         playerOneHeader.setText(playerOne.getPlayerName() + "'s Pieces");
-        playerTwoHeader.setText(computer.getPlayerName() + "'s Pieces");
+        computerHeader.setText(computer.getPlayerName() + "'s Pieces");
 
         selectedChecker = null;
         areaToMoveTo = null;
@@ -503,10 +503,14 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         //Create a ghost checker which will be animated while the real one just moves.
         if(turn == Constants.COMPUTER) {
             whiteIndexes.add(index + "");
-            animChecker = (ImageView) getLayoutInflater().inflate(R.layout.anim_white_checker, parent, false);
+            int computerAnimation = 0;
+            computerAnimation = setAnimation(computerAnimation, computer);
+            animChecker = (ImageView) getLayoutInflater().inflate(computerAnimation, parent, false);
         } else {
+            int playerAnimation = 0;
+            playerAnimation = setAnimation(playerAnimation, playerOne);
             blackIndexes.add(index + "");
-            animChecker = (ImageView) getLayoutInflater().inflate(R.layout.anim_black_checker, parent, false);
+            animChecker = (ImageView) getLayoutInflater().inflate(playerAnimation, parent, false);
         }
 
 
