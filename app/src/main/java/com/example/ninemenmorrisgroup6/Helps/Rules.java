@@ -174,6 +174,7 @@ public class Rules {
      * @param partOfLine The position of the checker.
      * @return True if the checker is part of a line, else return false.
      */
+
     public boolean canRemove(int partOfLine) {
         // Check if the argument is part of a line on the board
         if(playingfield[partOfLine] == EMPTY_FIELD) {
@@ -383,6 +384,7 @@ public class Rules {
         }
 
     }
+
 //        if(partOfMill(token) == true){
 //
 //            for(int i= 0; i < 24; i++){
@@ -430,6 +432,7 @@ public class Rules {
      * @param color The color which may have lost.
      * @return True if color has lost, else false is returned.
      */
+
     public boolean isItAWin(int color) {
         //A player can't win if it is checker left on the sideboard.
         if(whiteMarkers > 0 || blackMarkers > 0) {
