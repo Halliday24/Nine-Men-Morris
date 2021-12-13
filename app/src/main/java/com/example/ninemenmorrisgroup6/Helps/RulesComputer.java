@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 /*
@@ -26,7 +27,7 @@ public class RulesComputer {
     private final String WHITE_MARKERS = "WHITE_MARKERS";
     private final String BLACK_MARKERS = "BLACK_MARKERS";
 
-    public int[] playingfield;
+    public static int[] playingfield;
     private int turn;
     //Markers not on the playing field
     private int blackMarkers;
@@ -467,13 +468,15 @@ public class RulesComputer {
         this.turn = turn;
     }
 
-    public int computerHardLogic(){
+    public static int computerHardLogic(){
 
         int computerMove;
         int index;
 
-        int player = Constants.BLACK;
+        int player = Constants.WHITE;
         int computer = Constants.COMPUTER;
+
+        Random random = new Random();
 
         //when the computer has 2 pieces in a line with the third spot empty
         ArrayList<Integer> createComputerMillSpots = new ArrayList<Integer>();
@@ -699,7 +702,7 @@ public class RulesComputer {
 
         if(createComputerMillSpots.size() > 0){ //if there were spots to create a computer mill
 
-            index = (int) Math.random() * createComputerMillSpots.size(); //choose a random spot to build a mill
+            index = random.nextInt(createComputerMillSpots.size()); //choose a random spot to build a mill
             computerMove = createComputerMillSpots.get(index);
             return computerMove;
 
@@ -917,7 +920,7 @@ public class RulesComputer {
 
         if(blockPlayerMillSpots.size() > 0){ //if there were spots to block a player mill from being formed
 
-            index = (int) Math.random() * blockPlayerMillSpots.size(); //choose a random spot to block the mill
+            index = index = random.nextInt(blockPlayerMillSpots.size()); //choose a random spot to block the mill
             computerMove = blockPlayerMillSpots.get(index);
             return computerMove;
 
@@ -1175,7 +1178,7 @@ public class RulesComputer {
             buildMillSpots.add(3);
             buildMillSpots.add(24);
         }
-        if((playingfield[24] == computer) & (playingfield[3] == EMPTY_FIELD & playingfield[25] == EMPTY_FIELD)){
+        if((playingfield[24] == computer) & (playingfield[3] == EMPTY_FIELD & playingfield[15] == EMPTY_FIELD)){
             //3-15
             buildMillSpots.add(3);
             buildMillSpots.add(15);
@@ -1183,13 +1186,14 @@ public class RulesComputer {
 
         if(buildMillSpots.size() > 0){ //if there is a computer piece that it can continue to build on
 
-            index = (int) Math.random() * buildMillSpots.size(); //choose a random spot keep building
+            index = index = random.nextInt(buildMillSpots.size()); //choose a random spot keep building
             computerMove = buildMillSpots.get(index);
             return computerMove;
 
         }
 
-        if((createComputerMillSpots.size() == 0) & (blockPlayerMillSpots.size() == 0) & (buildMillSpots.size() ==0)){
+        //When there is no tactical move to make, just place a piece down randomly
+        if((createComputerMillSpots.size() == 0) & (blockPlayerMillSpots.size() == 0) & (buildMillSpots.size() == 0)){
 
             for(int i =0; i<24; i++){
 
@@ -1201,16 +1205,18 @@ public class RulesComputer {
             }
         }
 
-        index = (int) Math.random() * randomSpot.size();
+        index = index = random.nextInt(randomSpot.size());
         computerMove = randomSpot.get(index);
         return computerMove;
 
     }
 
-    public int computerEasyLogic(){
+    public static int computerEasyLogic(){
 
         int computerMove;
         int index;
+
+        Random random = new Random();
 
         //All the empty spots on the board
         ArrayList<Integer> randomSpot = new ArrayList<Integer>();
@@ -1225,7 +1231,7 @@ public class RulesComputer {
             }
         }
 
-        index = (int) Math.random() * randomSpot.size();
+        index = random.nextInt(randomSpot.size());
         computerMove = randomSpot.get(index);
         return computerMove;
 

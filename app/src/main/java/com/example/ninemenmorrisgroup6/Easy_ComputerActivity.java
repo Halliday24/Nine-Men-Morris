@@ -274,7 +274,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
     private void setComputerWhere() {
         int to1;
         for (FrameLayout v : higBoxAreas) {
-            to1 = Integer.parseInt((String) v.getContentDescription());
+            to1 = RulesComputer.computerHardLogic();
             if (rules.playingfield[to1] == RulesComputer.EMPTY_FIELD /*need more logic on hard_mode */){ //computer move to the empty field
                 areaToMoveTo = v;
                 break;
