@@ -1,11 +1,7 @@
 package com.example.ninemenmorrisgroup6;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -30,8 +25,6 @@ import java.util.HashMap;
 import com.example.ninemenmorrisgroup6.Helps.Constants;
 import com.example.ninemenmorrisgroup6.Helps.Music;
 import com.example.ninemenmorrisgroup6.Helps.Rules;
-
-import org.w3c.dom.Text;
 
 
 public class GamePage extends AppCompatActivity {
@@ -83,8 +76,8 @@ public class GamePage extends AppCompatActivity {
             initializeGamePieces();
             setHowManyPiecesRemaining();
 
-            TextView playerOneHeader = (TextView) findViewById(R.id.playerOneHeader);
-            TextView playerTwoHeader = (TextView) findViewById(R.id.playerTwoHeader);
+            TextView playerOneHeader = (TextView) findViewById(R.id.playerTwoHeader);
+            TextView playerTwoHeader = (TextView) findViewById(R.id.playerOneHeader);
             TextView header = (TextView) findViewById(R.id.TurnText);
 
             header.setText("It is " + playerOne.getPlayerName() + "'s turn");

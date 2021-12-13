@@ -1,6 +1,5 @@
 package com.example.ninemenmorrisgroup6;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -75,7 +74,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Creating activity");
-        setContentView(R.layout.activity_game_page);
+        setContentView(R.layout.activity_game_page_com);
 
         pref = this.getSharedPreferences("", Context.MODE_PRIVATE);
         edit = pref.edit();
@@ -87,8 +86,8 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         initializeGamePieces();
         setHowManyPiecesRemaining();
 
-        TextView playerOneHeader = (TextView) findViewById(R.id.playerOneHeader);
-        TextView playerTwoHeader = (TextView) findViewById(R.id.playerTwoHeader);
+        TextView playerOneHeader = (TextView) findViewById(R.id.playerTwoHeader);
+        TextView playerTwoHeader = (TextView) findViewById(R.id.playerOneHeader);
         TextView header = (TextView) findViewById(R.id.TurnText);
 
         header.setText("It is " + playerOne.getPlayerName() + "'s turn");
@@ -952,27 +951,27 @@ public class Easy_ComputerActivity extends AppCompatActivity {
 
         Log.i(TAG, "initializaGamePieces called");
 
-        ImageView playerTwo1 = (ImageView) findViewById(R.id.blackChecker1);
-        ImageView playerTwo2 = (ImageView) findViewById(R.id.blackChecker2);
-        ImageView playerTwo3 = (ImageView) findViewById(R.id.blackChecker3);
-        ImageView playerTwo4 = (ImageView) findViewById(R.id.blackChecker4);
-        ImageView playerTwo5 = (ImageView) findViewById(R.id.blackChecker5);
-        ImageView playerTwo6 = (ImageView) findViewById(R.id.blackChecker6);
-        ImageView playerTwo7 = (ImageView) findViewById(R.id.blackChecker7);
-        ImageView playerTwo8 = (ImageView) findViewById(R.id.blackChecker8);
-        ImageView playerTwo9 = (ImageView) findViewById(R.id.blackChecker9);
-        ImageView playerTwo10 = (ImageView) findViewById(R.id.blackChecker10);
+        ImageView playerTwo1 = (ImageView) findViewById(R.id.whiteChecker1);
+        ImageView playerTwo2 = (ImageView) findViewById(R.id.whiteChecker2);
+        ImageView playerTwo3 = (ImageView) findViewById(R.id.whiteChecker3);
+        ImageView playerTwo4 = (ImageView) findViewById(R.id.whiteChecker4);
+        ImageView playerTwo5 = (ImageView) findViewById(R.id.whiteChecker5);
+        ImageView playerTwo6 = (ImageView) findViewById(R.id.whiteChecker6);
+        ImageView playerTwo7 = (ImageView) findViewById(R.id.whiteChecker7);
+        ImageView playerTwo8 = (ImageView) findViewById(R.id.whiteChecker8);
+        ImageView playerTwo9 = (ImageView) findViewById(R.id.whiteChecker9);
+        ImageView playerTwo10 = (ImageView) findViewById(R.id.whiteChecker10);
 
-        ImageView playerOne1 = (ImageView) findViewById(R.id.whiteChecker1);
-        ImageView playerOne2 = (ImageView) findViewById(R.id.whiteChecker2);
-        ImageView playerOne3 = (ImageView) findViewById(R.id.whiteChecker3);
-        ImageView playerOne4 = (ImageView) findViewById(R.id.whiteChecker4);
-        ImageView playerOne5 = (ImageView) findViewById(R.id.whiteChecker5);
-        ImageView playerOne6 = (ImageView) findViewById(R.id.whiteChecker6);
-        ImageView playerOne7 = (ImageView) findViewById(R.id.whiteChecker7);
-        ImageView playerOne8 = (ImageView) findViewById(R.id.whiteChecker8);
-        ImageView playerOne9 = (ImageView) findViewById(R.id.whiteChecker9);
-        ImageView playerOne10 = (ImageView) findViewById(R.id.whiteChecker10);
+        ImageView playerOne1 = (ImageView) findViewById(R.id.blackChecker1);
+        ImageView playerOne2 = (ImageView) findViewById(R.id.blackChecker2);
+        ImageView playerOne3 = (ImageView) findViewById(R.id.blackChecker3);
+        ImageView playerOne4 = (ImageView) findViewById(R.id.blackChecker4);
+        ImageView playerOne5 = (ImageView) findViewById(R.id.blackChecker5);
+        ImageView playerOne6 = (ImageView) findViewById(R.id.blackChecker6);
+        ImageView playerOne7 = (ImageView) findViewById(R.id.blackChecker7);
+        ImageView playerOne8 = (ImageView) findViewById(R.id.blackChecker8);
+        ImageView playerOne9 = (ImageView) findViewById(R.id.blackChecker9);
+        ImageView playerOne10 = (ImageView) findViewById(R.id.blackChecker10);
 
         if (computer.getDifficulty() == 0) {
 
