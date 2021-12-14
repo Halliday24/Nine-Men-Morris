@@ -59,7 +59,7 @@
         android:layout_toLeftOf="@id/RightMargin"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="IF YOU HAVE ANY QUESTIONS, FEEDBACK, OR WANT TO REPORT A BUG"
+        android:text="If you have any questions, feedback, or simply want to report a bug"
         android:textColor="@color/black"
         android:textSize="20sp">
 
@@ -74,7 +74,7 @@
         android:layout_toLeftOf="@id/RightMargin"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="PLEASE DO NOT HESITATE TO CONTACT US"
+        android:text="Please do not hesitate to contact us at"
         android:textColor="@color/black"
         android:textSize="20sp">
 

@@ -64,7 +64,7 @@
         android:textColor="@color/black"
         android:gravity="center"
         android:textSize="20sp"
-        android:text="PLACE ALL YOUR PIECES ON BOARD AND MOVE THEM TO FORM A LINE">
+        android:text="Place all your pieces on the board and move them to form a line">
 
     </TextView>
 
@@ -77,7 +77,7 @@
         android:layout_toLeftOf="@id/RightMargin"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="ONCE YOU FORM A MILL, YOU CAN REMOVE ONE OF YOUR OPPONENTS MEN. BREAK A MILL TO UNLOCK THE MILLS AGAIN"
+        android:text="Once you form a mill, you can remove one of your opponents men. Break a mill to unlock the mills again"
         android:textColor="@color/black"
         android:textSize="20sp">
 
@@ -94,7 +94,7 @@
         android:textColor="@color/black"
         android:gravity="center"
         android:textSize="20sp"
-        android:text="PIECES FROM A FORMED MILL CAN'T BE REMOVED UNLESS NO OTHER MEN ARE AVAILABLE">
+        android:text="Pieces from a formed mill can't be removed unless no other men are available">
 
     </TextView>
 
@@ -107,7 +107,7 @@
         android:layout_toLeftOf="@id/RightMargin"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="YOUR AIM IS TO LEAVE YOUR OPPONENT WITH EITHER 2 PIECES OR 0 MOVES. GOODLUCK!"
+        android:text="Your aim is to leave your opponent with either 2 pieces or 0 moves. GOODLUCK!"
         android:textColor="@color/black"
         android:textSize="20sp">
 
