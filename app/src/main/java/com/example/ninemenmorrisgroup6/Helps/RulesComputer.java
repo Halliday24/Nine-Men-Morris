@@ -470,10 +470,14 @@ public class RulesComputer {
 
     public static int computerHardLogic(){
 
+        String TAG = "RulesComputer";
+
+        Log.i(TAG, "computerHardLogic Entered");
+
         int computerMove;
         int index;
 
-        int player = Constants.WHITE;
+        int player = Constants.BLACK;
         int computer = Constants.COMPUTER;
 
         Random random = new Random();
@@ -704,6 +708,7 @@ public class RulesComputer {
 
             index = random.nextInt(createComputerMillSpots.size()); //choose a random spot to build a mill
             computerMove = createComputerMillSpots.get(index);
+            Log.i(TAG, "Computer found a spot to form a mill at - " + computerMove);
             return computerMove;
 
         }
@@ -922,6 +927,7 @@ public class RulesComputer {
 
             index = index = random.nextInt(blockPlayerMillSpots.size()); //choose a random spot to block the mill
             computerMove = blockPlayerMillSpots.get(index);
+            Log.i(TAG, "Computer found a spot to block a mill at - " + computerMove);
             return computerMove;
 
         }
@@ -1188,6 +1194,7 @@ public class RulesComputer {
 
             index = index = random.nextInt(buildMillSpots.size()); //choose a random spot keep building
             computerMove = buildMillSpots.get(index);
+            Log.i(TAG, "Computer found a spot to continue building a mill at - " + computerMove);
             return computerMove;
 
         }
@@ -1207,11 +1214,17 @@ public class RulesComputer {
 
         index = index = random.nextInt(randomSpot.size());
         computerMove = randomSpot.get(index);
+        Log.i(TAG, "Computer found a random spot to place a piece at - " + computerMove);
         return computerMove;
 
     }
 
     public static int computerEasyLogic(){
+
+        String TAG = "RulesComputer";
+
+        Log.i(TAG, "computerEasyLogic Entered");
+
 
         int computerMove;
         int index;
@@ -1233,6 +1246,7 @@ public class RulesComputer {
 
         index = random.nextInt(randomSpot.size());
         computerMove = randomSpot.get(index);
+        Log.i(TAG, "Computer found a random spot to place a piece at - " + computerMove);
         return computerMove;
 
     }
