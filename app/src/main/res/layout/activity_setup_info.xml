@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="656dp"
+    tools:context=".SetupInfo"
+    android:background="#e0f0e3">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#9370db"
+        android:id="@+id/TopMargin">
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:background="#9370db"
+        android:id="@+id/LeftMargin"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/BottomMargin"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_alignParentBottom="true"
+        android:background="#9370db"></RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:background="#9370db"
+        android:layout_alignParentRight="true"
+        android:id="@+id/RightMargin"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/TopMargin"
+        android:id="@+id/Rules"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="36sp"
+        android:text="HOW TO PLAY">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Rules1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/Rules"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:gravity="center"
+        android:text="To proceed to the game page you must press one of these buttons"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/Rules1"
+        android:id="@+id/VsHumanButton"
+        android:src="@drawable/playvshumanbutton"
+        >
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/Rules2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/VsHumanButton"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:gravity="center"
+        android:text="Once you have selected your choice, type in your name in the space provided"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/InsertNameButton"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/Rules2"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:src="@drawable/insert_name">
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/InsertNameButton"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_height="99dp"
+        android:id="@+id/Rules3"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="Once you have typed in your name select the shape you want and the color">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/secondButton"
+        android:layout_width="match_parent"
+        android:layout_height="99dp"
+        android:layout_below="@id/Rules3"
+        android:src="@drawable/customize_pieces">
+
+    </ImageView>
+
+
+    <TextView
+        android:id="@+id/Rules4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/secondButton"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="You may now start the game by tapping the start game button."
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/Rules4"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:text="TAP ANYWHERE OUTSIDE OF THE POPUP SCREEN TO EXIT"
+        android:textColor="@color/red"
+        android:textSize="14sp">
+
+    </TextView>
+
+
+
+</RelativeLayout>
