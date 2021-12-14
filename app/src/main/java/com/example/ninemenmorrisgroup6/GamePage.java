@@ -270,9 +270,25 @@ public class GamePage extends AppCompatActivity {
             }
         });
 
+
     }
 
-//    @Override
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopService(new Intent(GamePage.this,GamePage.class));
+        Music.backgroundMusic.pause();// start music
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(new Intent(GamePage.this,GamePage.class));
+        Music.backgroundMusic.start();// pause music
+    }
+
+
+    //    @Override
 //    public void onPause() {
 //        super.onPause();
 //        Log.i(TAG, "---------------------pause----------------");

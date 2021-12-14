@@ -271,6 +271,20 @@ public class Easy_ComputerActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopService(new Intent(Easy_ComputerActivity.this,Easy_ComputerActivity.class));
+        Music.backgroundMusic.pause();// pause music
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(new Intent(Easy_ComputerActivity.this,Easy_ComputerActivity.class));
+        Music.backgroundMusic.start();
+    }
+
     private void setComputerWhere() {
         int to1;
         for (FrameLayout v : higBoxAreas) {

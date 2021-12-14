@@ -70,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Music.backgroundMusic.pause();
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         stopService(new Intent(MainActivity.this,MainActivity.class));
@@ -99,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         Intent setupPage = new Intent (this, SetupPage.class);
         Music.musicInitialization = 2;
 
-        Music.backgroundMusic.start();
+        onResume();
 
         startActivity(setupPage);
     }

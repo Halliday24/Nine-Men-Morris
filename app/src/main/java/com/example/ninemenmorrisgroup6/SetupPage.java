@@ -85,6 +85,20 @@ public class SetupPage extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopService(new Intent(SetupPage.this,SetupPage.class));
+        Music.backgroundMusic.pause();// pause music
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(new Intent(SetupPage.this,SetupPage.class));
+        Music.backgroundMusic.start();// start music
+    }
+
     /**
      * Sets the intent and sends the user back to the home page.
      * @param myView The button that this is assigned to.
