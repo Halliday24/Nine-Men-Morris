@@ -3,6 +3,7 @@ package com.example.ninemenmorrisgroup6;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.graphics.Color;
 import android.view.ViewGroup;
@@ -20,7 +22,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
+import android.widget.PopupWindow;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -84,6 +88,22 @@ public class SetupPage extends AppCompatActivity {
         });
 
     }
+//displays popup when the page is opened
+    @Override
+    protected void onStart() {
+        super.onStart();
+        final Dialog dialog = new Dialog(this);
+
+        dialog.setContentView(R.layout.activity_setup_info);
+        dialog.setTitle("Dialog box");
+
+        dialog.setCanceledOnTouchOutside(true);
+
+
+        dialog.show();
+        dialog.getWindow().setLayout(1100, 1900);
+    }
+
 
     @Override
     protected void onPause() {
