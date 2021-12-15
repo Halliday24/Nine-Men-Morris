@@ -1769,4 +1769,60 @@ public class RulesComputer {
 
     }
 
+    public static int computerEasyRemovalLogic(){
+
+        String TAG = "RulesComputer";
+
+        Log.i(TAG, "computerEasyRemovalLogic Entered");
+
+        int player = Constants.BLACK;
+
+        int computerMove;
+        int index;
+
+        Random random = new Random();
+
+        //when the player only has pieces in a mill
+        ArrayList<Integer> removePlayerMill = new ArrayList<Integer>();
+
+        //All the empty spots on the board not in a mill
+        ArrayList<Integer> randomRemoveSpot = new ArrayList<Integer>();
+
+        if(checkOnlyMill(player) == true){
+
+            for(int i = 0; i < 24; i++){
+
+                if(playingfield[i + 1] == player){
+
+                    removePlayerMill.add(i + 1);
+
+                }
+
+            }
+
+            index = random.nextInt(removePlayerMill.size());
+            computerMove = removePlayerMill.get(index);
+            Log.i(TAG, "Computer found a spot to remove from a mill at - " + computerMove);
+            return computerMove;
+
+        }
+        else {
+
+            for (int i = 0; i < 24; i++) {
+
+                if ((playingfield[i + 1] == player) & (!partOfMill(playingfield[i + 1]))) {
+
+                    randomRemoveSpot.add(i + 1);
+
+                }
+            }
+
+            index = random.nextInt(randomRemoveSpot.size());
+            computerMove = randomRemoveSpot.get(index);
+            Log.i(TAG, "Computer found a random spot to remove a piece at - " + computerMove);
+            return computerMove;
+        }
+
+    }
+
 }
