@@ -230,7 +230,7 @@ public class RulesComputer {
         return false;
     }
 
-    public boolean partOfMill(int partOfLine){
+    public static boolean partOfMill(int partOfLine){
 
         //All possible lines.
         if((partOfLine == 1 || partOfLine == 2 || partOfLine == 3) && (playingfield[1] == playingfield[2] && playingfield[2] == playingfield[3])) {
@@ -289,19 +289,21 @@ public class RulesComputer {
 
     /**
      * Checks to see if the specified player's pieces are all in mills or not.
-     * @param colour The player whos pieces are being checked
+     * @param player The player whos pieces are being checked
      * @return True if the number of pieces on the board is the same as the number of pieces in
      * mills, false otherwise.
      */
 
-    public boolean checkOnlyMill(int colour){
+    public static boolean checkOnlyMill(int player){
+
+        String TAG = "RulesComputer";
 
         int countOfPieces = 0;
         int countOfPiecesInMill = 0;
 
         for(int i = 0; i < 24; i++){
 
-            if(playingfield[i+1] == colour){
+            if(playingfield[i+1] == player){
 
                 countOfPieces = countOfPieces + 1;
 
@@ -311,7 +313,7 @@ public class RulesComputer {
 
         for(int i = 0; i < 24; i++){
 
-            if(playingfield[i+1] == colour) {
+            if(playingfield[i+1] == player) {
 
                 if (partOfMill(i + 1) == true) {
 
@@ -340,20 +342,22 @@ public class RulesComputer {
     /**
      * Checks to see if a piece can be removed from a mill.
      * @param token The game piece being checked
-     * @param colour The colour of the game piece (black or white)
+     * @param player The colour of the game piece (black or white)
      * @return True if the piece can be removed, false otherwise
      */
 
-    public boolean removeFromMill(int token, int colour) {
+    public static boolean removeFromMill(int token, int player) {
+
+        String TAG = "RulesComputer";
 
         Log.i(TAG, "Token - " + token);
-        Log.i(TAG, "Colour - " + colour);
+        Log.i(TAG, "Colour - " + player);
 
         if (partOfMill(token) == true) {
 
             Log.i(TAG, "partOfMill = true");
 
-            if (checkOnlyMill(colour) == true) {
+            if (checkOnlyMill(player) == true) {
 
                 Log.i(TAG, "checkOnlyMill = true");
 
@@ -1212,11 +1216,525 @@ public class RulesComputer {
             }
         }
 
-        index = index = random.nextInt(randomSpot.size());
+        index = random.nextInt(randomSpot.size());
         computerMove = randomSpot.get(index);
         Log.i(TAG, "Computer found a random spot to place a piece at - " + computerMove);
         return computerMove;
 
+    }
+
+    public static int computerHardRemovalLogic(){
+
+        String TAG = "RulesComputer";
+
+        Log.i(TAG, "computerHardRemovalLogic Entered");
+
+        int computerMove;
+        int index;
+
+        int player = Constants.BLACK;
+        int computer = Constants.COMPUTER;
+
+        Random random = new Random();
+
+        //when the player has 2 pieces in a line with the third spot empty.
+        ArrayList<Integer> stopPlayerMillSpots = new ArrayList<Integer>();
+
+        //when the player has only mills on the board.
+        ArrayList<Integer> removeFromPlayerMillSpots = new ArrayList<Integer>();
+
+        //when the player only has single piece around the board, no mills or potential mills.
+        ArrayList<Integer> removeRandomSpot = new ArrayList<Integer>();
+
+        if(checkOnlyMill(player) == true){
+
+            for(int i = 0; i < 24; i++){
+
+                if(playingfield[i + 1] == player){
+
+                    removeFromPlayerMillSpots.add(i + 1);
+
+                }
+
+            }
+
+            index = random.nextInt(removeFromPlayerMillSpots.size());
+            computerMove = removeFromPlayerMillSpots.get(index);
+            Log.i(TAG, "Computer found a spot to remove from a mill at - " + computerMove);
+            return computerMove;
+
+        }
+
+        else{
+
+            //looking to player block mills
+            //line 1-2-3
+            if((playingfield[1] == player && playingfield[2] == player) & (playingfield[3] == EMPTY_FIELD)){
+                //1+2
+                if(!partOfMill(1)){
+                    stopPlayerMillSpots.add(1);
+                }
+                if(!partOfMill(2)){
+                    stopPlayerMillSpots.add(2);
+                }
+            }
+            if((playingfield[1] == player && playingfield[3] == player) & (playingfield[2] == EMPTY_FIELD)){
+                //1+3
+                if(!partOfMill(1)){
+                    stopPlayerMillSpots.add(1);
+                }
+                if(!partOfMill(3)){
+                    stopPlayerMillSpots.add(3);
+                }
+            }
+            if((playingfield[2] == player && playingfield[3] == player) & (playingfield[1] == EMPTY_FIELD)){
+                //2+3
+                if(!partOfMill(2)){
+                    stopPlayerMillSpots.add(2);
+                }
+                if(!partOfMill(3)){
+                    stopPlayerMillSpots.add(3);
+                }
+            }
+            //line 4-5-6
+            if((playingfield[4] == player && playingfield[5] == player) & (playingfield[6] == EMPTY_FIELD)){
+                //4+5
+                if(!partOfMill(4)){
+                    stopPlayerMillSpots.add(4);
+                }
+                if(!partOfMill(5)){
+                    stopPlayerMillSpots.add(5);
+                }
+            }
+            if((playingfield[4] == player && playingfield[6] == player) & (playingfield[5] == EMPTY_FIELD)){
+                //4+6
+                if(!partOfMill(4)){
+                    stopPlayerMillSpots.add(4);
+                }
+                if(!partOfMill(6)){
+                    stopPlayerMillSpots.add(6);
+                }
+            }
+            if((playingfield[5] == player && playingfield[6] == player) & (playingfield[4] == EMPTY_FIELD)){
+                //5+6
+                if(!partOfMill(5)){
+                    stopPlayerMillSpots.add(5);
+                }
+                if(!partOfMill(6)){
+                    stopPlayerMillSpots.add(6);
+                }
+            }
+            //line 7-8-9
+            if((playingfield[7] == player && playingfield[8] == player) & (playingfield[9] == EMPTY_FIELD)){
+                //7+8
+                if(!partOfMill(7)){
+                    stopPlayerMillSpots.add(7);
+                }
+                if(!partOfMill(8)){
+                    stopPlayerMillSpots.add(9);
+                }
+            }
+            if((playingfield[7] == player && playingfield[9] == player) & (playingfield[8] == EMPTY_FIELD)){
+                //7+9
+                if(!partOfMill(7)){
+                    stopPlayerMillSpots.add(7);
+                }
+                if(!partOfMill(9)){
+                    stopPlayerMillSpots.add(9);
+                }
+            }
+            if((playingfield[8] == player && playingfield[9] == player) & (playingfield[7] == EMPTY_FIELD)){
+                //8+9
+                if(!partOfMill(8)){
+                    stopPlayerMillSpots.add(8);
+                }
+                if(!partOfMill(9)){
+                    stopPlayerMillSpots.add(9);
+                }
+            }
+            //line 10-11-12
+            if((playingfield[10] == player && playingfield[11] == player) & (playingfield[12] == EMPTY_FIELD)){
+                //10+11
+                if(!partOfMill(10)){
+                    stopPlayerMillSpots.add(10);
+                }
+                if(!partOfMill(11)){
+                    stopPlayerMillSpots.add(11);
+                }
+            }
+            if((playingfield[10] == player && playingfield[12] == player) & (playingfield[11] == EMPTY_FIELD)){
+                //10+12
+                if(!partOfMill(10)){
+                    stopPlayerMillSpots.add(10);
+                }
+                if(!partOfMill(12)){
+                    stopPlayerMillSpots.add(12);
+                }
+            }
+            if((playingfield[11] == player && playingfield[12] == player) & (playingfield[10] == EMPTY_FIELD)){
+                //11+12
+                if(!partOfMill(11)){
+                    stopPlayerMillSpots.add(11);
+                }
+                if(!partOfMill(12)){
+                    stopPlayerMillSpots.add(12);
+                }
+            }
+            //line 13-14-15
+            if((playingfield[13] == player && playingfield[14] == player) & (playingfield[15] == EMPTY_FIELD)){
+                //13+14
+                if(!partOfMill(13)){
+                    stopPlayerMillSpots.add(13);
+                }
+                if(!partOfMill(14)){
+                    stopPlayerMillSpots.add(14);
+                }
+            }
+            if((playingfield[13] == player && playingfield[15] == player) & (playingfield[14] == EMPTY_FIELD)){
+                //13+15
+                if(!partOfMill(13)){
+                    stopPlayerMillSpots.add(13);
+                }
+                if(!partOfMill(15)){
+                    stopPlayerMillSpots.add(15);
+                }
+            }
+            if((playingfield[14] == player && playingfield[15] == player) & (playingfield[13] == EMPTY_FIELD)){
+                //14+15
+                if(!partOfMill(14)){
+                    stopPlayerMillSpots.add(14);
+                }
+                if(!partOfMill(15)){
+                    stopPlayerMillSpots.add(15);
+                }
+            }
+            //line 16-17-18
+            if((playingfield[16] == player && playingfield[17] == player) & (playingfield[18] == EMPTY_FIELD)){
+                //16+17
+                if(!partOfMill(16)){
+                    stopPlayerMillSpots.add(16);
+                }
+                if(!partOfMill(17)){
+                    stopPlayerMillSpots.add(17);
+                }
+            }
+            if((playingfield[16] == player && playingfield[18] == player) & (playingfield[17] == EMPTY_FIELD)){
+                //16+18
+                if(!partOfMill(16)){
+                    stopPlayerMillSpots.add(16);
+                }
+                if(!partOfMill(18)){
+                    stopPlayerMillSpots.add(18);
+                }
+            }
+            if((playingfield[17] == player && playingfield[18] == player) & (playingfield[16] == EMPTY_FIELD)){
+                //17+18
+                if(!partOfMill(17)){
+                    stopPlayerMillSpots.add(17);
+                }
+                if(!partOfMill(18)){
+                    stopPlayerMillSpots.add(18);
+                }
+            }
+            //line 19-20-21
+            if((playingfield[19] == player && playingfield[20] == player) & (playingfield[21] == EMPTY_FIELD)){
+                //19+20
+                if(!partOfMill(19)){
+                    stopPlayerMillSpots.add(19);
+                }
+                if(!partOfMill(20)){
+                    stopPlayerMillSpots.add(20);
+                }
+            }
+            if((playingfield[19] == player && playingfield[21] == player) & (playingfield[20] == EMPTY_FIELD)){
+                //19+21
+                if(!partOfMill(19)){
+                    stopPlayerMillSpots.add(19);
+                }
+                if(!partOfMill(21)){
+                    stopPlayerMillSpots.add(21);
+                }
+            }
+            if((playingfield[20] == player && playingfield[21] == player) & (playingfield[19] == EMPTY_FIELD)){
+                //20+21
+                if(!partOfMill(20)){
+                    stopPlayerMillSpots.add(20);
+                }
+                if(!partOfMill(21)){
+                    stopPlayerMillSpots.add(21);
+                }
+            }
+            //line 22-23-24
+            if((playingfield[22] == player && playingfield[23] == player) & (playingfield[24] == EMPTY_FIELD)){
+                //22+23
+                if(!partOfMill(22)){
+                    stopPlayerMillSpots.add(22);
+                }
+                if(!partOfMill(23)){
+                    stopPlayerMillSpots.add(23);
+                }
+            }
+            if((playingfield[22] == player && playingfield[24] == player) & (playingfield[23] == EMPTY_FIELD)){
+                //22+24
+                stopPlayerMillSpots.add(22);
+                stopPlayerMillSpots.add(24);
+            }
+            if((playingfield[23] == player && playingfield[24] == player) & (playingfield[22] == EMPTY_FIELD)){
+                //23+24
+                if(!partOfMill(23)){
+                    stopPlayerMillSpots.add(23);
+                }
+                if(!partOfMill(24)){
+                    stopPlayerMillSpots.add(24);
+                }
+            }
+            //line 1-10-22
+            if((playingfield[1] == player && playingfield[10] == player) & (playingfield[22] == EMPTY_FIELD)){
+                //1+10
+                stopPlayerMillSpots.add(1);
+                stopPlayerMillSpots.add(10);
+            }
+            if((playingfield[1] == player && playingfield[22] == player) & (playingfield[10] == EMPTY_FIELD)){
+                //1+22
+                if(!partOfMill(1)){
+                    stopPlayerMillSpots.add(1);
+                }
+                if(!partOfMill(22)){
+                    stopPlayerMillSpots.add(22);
+                }
+            }
+            if((playingfield[10] == player && playingfield[22] == player) & (playingfield[1] == EMPTY_FIELD)){
+                //10+22
+                if(!partOfMill(10)){
+                    stopPlayerMillSpots.add(10);
+                }
+                if(!partOfMill(22)){
+                    stopPlayerMillSpots.add(22);
+                }
+            }
+            //line 4-11-19
+            if((playingfield[4] == player && playingfield[11] == player) & (playingfield[19] == EMPTY_FIELD)){
+                //4+11
+                if(!partOfMill(4)){
+                    stopPlayerMillSpots.add(4);
+                }
+                if(!partOfMill(11)){
+                    stopPlayerMillSpots.add(11);
+                }
+            }
+            if((playingfield[4] == player && playingfield[19] == player) & (playingfield[11] == EMPTY_FIELD)){
+                //4+19
+                if(!partOfMill(4)){
+                    stopPlayerMillSpots.add(4);
+                }
+                if(!partOfMill(19)){
+                    stopPlayerMillSpots.add(19);
+                }
+            }
+            if((playingfield[11] == player && playingfield[19] == player) & (playingfield[4] == EMPTY_FIELD)){
+                //11+19
+                if(!partOfMill(11)){
+                    stopPlayerMillSpots.add(11);
+                }
+                if(!partOfMill(19)){
+                    stopPlayerMillSpots.add(19);
+                }
+            }
+            //line 7-12-16
+            if((playingfield[7] == player && playingfield[12] == player) & (playingfield[16] == EMPTY_FIELD)){
+                //7+12
+                if(!partOfMill(7)){
+                    stopPlayerMillSpots.add(7);
+                }
+                if(!partOfMill(12)){
+                    stopPlayerMillSpots.add(12);
+                }
+            }
+            if((playingfield[7] == player && playingfield[16] == player) & (playingfield[12] == EMPTY_FIELD)){
+                //7+16
+                if(!partOfMill(7)){
+                    stopPlayerMillSpots.add(7);
+                }
+                if(!partOfMill(16)){
+                    stopPlayerMillSpots.add(16);
+                }
+            }
+            if((playingfield[12] == player && playingfield[16] == player) & (playingfield[7] == EMPTY_FIELD)){
+                //12+16
+                if(!partOfMill(12)){
+                    stopPlayerMillSpots.add(12);
+                }
+                if(!partOfMill(16)){
+                    stopPlayerMillSpots.add(16);
+                }
+            }
+            //line 2-5-8
+            if((playingfield[2] == player && playingfield[5] == player) & (playingfield[8] == EMPTY_FIELD)){
+                //2+5
+                if(!partOfMill(2)){
+                    stopPlayerMillSpots.add(2);
+                }
+                if(!partOfMill(5)){
+                    stopPlayerMillSpots.add(5);
+                }
+            }
+            if((playingfield[2] == player && playingfield[8] == player) & (playingfield[5] == EMPTY_FIELD)){
+                //2+8
+                if(!partOfMill(2)){
+                    stopPlayerMillSpots.add(2);
+                }
+                if(!partOfMill(8)){
+                    stopPlayerMillSpots.add(8);
+                }
+            }
+            if((playingfield[5] == player && playingfield[8] == player) & (playingfield[2] == EMPTY_FIELD)){
+                //5+8
+                if(!partOfMill(5)){
+                    stopPlayerMillSpots.add(5);
+                }
+                if(!partOfMill(8)){
+                    stopPlayerMillSpots.add(8);
+                }
+            }
+            //line 17-20-23
+            if((playingfield[17] == player && playingfield[20] == player) & (playingfield[23] == EMPTY_FIELD)){
+                //17+20
+                if(!partOfMill(17)){
+                    stopPlayerMillSpots.add(17);
+                }
+                if(!partOfMill(20)){
+                    stopPlayerMillSpots.add(20);
+                }
+            }
+            if((playingfield[17] == player && playingfield[23] == player) & (playingfield[20] == EMPTY_FIELD)){
+                //17+23
+                if(!partOfMill(17)){
+                    stopPlayerMillSpots.add(17);
+                }
+                if(!partOfMill(23)){
+                    stopPlayerMillSpots.add(23);
+                }
+            }
+            if((playingfield[20] == player && playingfield[23] == player) & (playingfield[17] == EMPTY_FIELD)){
+                //20+23
+                if(!partOfMill(20)){
+                    stopPlayerMillSpots.add(20);
+                }
+                if(!partOfMill(23)){
+                    stopPlayerMillSpots.add(23);
+                }
+            }
+            //line 9-13-18
+            if((playingfield[9] == player && playingfield[13] == player) & (playingfield[18] == EMPTY_FIELD)){
+                //9+13
+                if(!partOfMill(9)){
+                    stopPlayerMillSpots.add(9);
+                }
+                if(!partOfMill(13)){
+                    stopPlayerMillSpots.add(13);
+                }
+            }
+            if((playingfield[9] == player && playingfield[18] == player) & (playingfield[13] == EMPTY_FIELD)){
+                //13
+                if(!partOfMill(9)){
+                    stopPlayerMillSpots.add(9);
+                }
+                if(!partOfMill(18)){
+                    stopPlayerMillSpots.add(18);
+                }
+            }
+            if((playingfield[13] == player && playingfield[18] == player) & (playingfield[9] == EMPTY_FIELD)){
+                //13+18
+                if(!partOfMill(13)){
+                    stopPlayerMillSpots.add(13);
+                }
+                if(!partOfMill(18)){
+                    stopPlayerMillSpots.add(18);
+                }
+            }
+            //line 6-14-21
+            if((playingfield[6] == player && playingfield[14] == player) & (playingfield[21] == EMPTY_FIELD)){
+                //6+14
+                if(!partOfMill(6)){
+                    stopPlayerMillSpots.add(6);
+                }
+                if(!partOfMill(14)){
+                    stopPlayerMillSpots.add(14);
+                }
+            }
+            if((playingfield[6] == player && playingfield[21] == player) & (playingfield[14] == EMPTY_FIELD)){
+                //6+21
+                if(!partOfMill(6)){
+                    stopPlayerMillSpots.add(6);
+                }
+                if(!partOfMill(21)){
+                    stopPlayerMillSpots.add(21);
+                }
+            }
+            if((playingfield[14] == player && playingfield[21] == player) & (playingfield[6] == EMPTY_FIELD)){
+                //14+21
+                if(!partOfMill(14)){
+                    stopPlayerMillSpots.add(14);
+                }
+                if(!partOfMill(21)){
+                    stopPlayerMillSpots.add(21);
+                }
+            }
+            //line 3-15-24
+            if((playingfield[3] == player && playingfield[15] == player) & (playingfield[24] == EMPTY_FIELD)){
+                //3+15
+                if(!partOfMill(3)){
+                    stopPlayerMillSpots.add(3);
+                }
+                if(!partOfMill(15)){
+                    stopPlayerMillSpots.add(15);
+                }
+            }
+            if((playingfield[3] == player && playingfield[24] == player) & (playingfield[15] == EMPTY_FIELD)){
+                //3+24
+                if(!partOfMill(3)){
+                    stopPlayerMillSpots.add(3);
+                }
+                if(!partOfMill(24)){
+                    stopPlayerMillSpots.add(24);
+                }
+            }
+            if((playingfield[15] == player && playingfield[24] == player) & (playingfield[3] == EMPTY_FIELD)){
+                //15+24
+                if(!partOfMill(15)){
+                    stopPlayerMillSpots.add(15);
+                }
+                if(!partOfMill(24)){
+                    stopPlayerMillSpots.add(24);
+                }
+            }
+
+            if(stopPlayerMillSpots.size() > 0){ //if there were spots to block a player mill from being formed
+
+                index = random.nextInt(stopPlayerMillSpots.size()); //choose a random spot to remove
+                computerMove = stopPlayerMillSpots.get(index);
+                Log.i(TAG, "Computer found a potential mill to remove from at - " + computerMove);
+                return computerMove;
+
+            }
+            else{
+
+                for(int i = 0; i < 24; i++){
+
+                    if((playingfield[i + 1] == player) & (!partOfMill(playingfield[i+1]))){
+
+                        removeRandomSpot.add(i + 1);
+
+                    }
+                }
+
+                index = random.nextInt(removeRandomSpot.size()); //choose a random spot to remove from
+                computerMove = removeRandomSpot.get(index);
+                Log.i(TAG, "Computer found a random piece to remove at - " + computerMove);
+                return computerMove;
+
+            }
+        }
     }
 
     public static int computerEasyLogic(){

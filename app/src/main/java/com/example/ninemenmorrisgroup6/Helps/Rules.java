@@ -298,19 +298,19 @@ public class Rules {
 
     /**
      * Checks to see if the specified player's pieces are all in mills or not.
-     * @param colour The player whos pieces are being checked
+     * @param player The player whos pieces are being checked
      * @return True if the number of pieces on the board is the same as the number of pieces in
      * mills, false otherwise.
      */
 
-    public boolean checkOnlyMill(int colour){
+    public boolean checkOnlyMill(int player){
 
         int countOfPieces = 0;
         int countOfPiecesInMill = 0;
 
         for(int i = 0; i < 24; i++){
 
-            if(playingfield[i+1] == colour){
+            if(playingfield[i+1] == player){
 
                 countOfPieces = countOfPieces + 1;
 
@@ -320,7 +320,7 @@ public class Rules {
 
         for(int i = 0; i < 24; i++){
 
-            if(playingfield[i+1] == colour) {
+            if(playingfield[i+1] == player) {
 
                 if (partOfMill(i + 1) == true) {
 
@@ -349,20 +349,20 @@ public class Rules {
     /**
      * Checks to see if a piece can be removed from a mill.
      * @param token The game piece being checked
-     * @param colour The colour of the game piece (black or white)
+     * @param player The colour of the game piece (black or white)
      * @return True if the piece can be removed, false otherwise
      */
 
-    public boolean removeFromMill(int token, int colour) {
+    public boolean removeFromMill(int token, int player) {
 
         Log.i(TAG, "Token - " + token);
-        Log.i(TAG, "Colour - " + colour);
+        Log.i(TAG, "Colour - " + player);
 
         if (partOfMill(token) == true) {
 
             Log.i(TAG, "partOfMill = true");
 
-            if (checkOnlyMill(colour) == true) {
+            if (checkOnlyMill(player) == true) {
 
                 Log.i(TAG, "checkOnlyMill = true");
 
