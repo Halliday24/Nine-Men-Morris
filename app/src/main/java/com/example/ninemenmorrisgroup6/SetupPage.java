@@ -14,23 +14,17 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.graphics.Color;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupMenu;
-import android.widget.PopupWindow;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ninemenmorrisgroup6.Helps.Music;
-import com.example.ninemenmorrisgroup6.Helps.Utils;
 
 public class SetupPage extends AppCompatActivity {
 
@@ -158,6 +152,22 @@ public class SetupPage extends AppCompatActivity {
                 startActivity(start);
             }
 
+            else if(computer.getDifficulty() == 2){
+
+                Intent start = new Intent(getApplicationContext(), Hard_ComputerActivity.class);
+
+                EditText playerOneName = (EditText) findViewById(R.id.playerOneName);
+
+                playerOne.setPlayerName(playerOneName.getText().toString());
+                computer.setPlayerName("Computer");
+
+                start.putExtra("playerOne", playerOne);
+                start.putExtra("playerTwo", playerTwo);
+                start.putExtra("computer", computer);
+
+                startActivity(start);
+
+            }
             else if(computer.getDifficulty() == 1){
 
                 Intent start = new Intent(getApplicationContext(), Easy_ComputerActivity.class);

@@ -22,17 +22,18 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ninemenmorrisgroup6.Helps.Constants;
-import com.example.ninemenmorrisgroup6.Helps.Music;
-import com.example.ninemenmorrisgroup6.Helps.Rules;
-import com.example.ninemenmorrisgroup6.Helps.RulesComputer;
-import com.example.ninemenmorrisgroup6.Helps.Utils;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.example.ninemenmorrisgroup6.Helps.Constants;
+import com.example.ninemenmorrisgroup6.Helps.Music;
+import com.example.ninemenmorrisgroup6.Helps.Rules;
+import com.example.ninemenmorrisgroup6.Helps.Utils;
+import com.example.ninemenmorrisgroup6.Helps.RulesComputer;
 
-public class Easy_ComputerActivity extends AppCompatActivity {
+
+
+public class Hard_ComputerActivity extends AppCompatActivity {
     public static Player playerOne = new HumanPlayer();
     public static Player playerTwo = new HumanPlayer();
     public static Player computer = new ComputerPlayer();
@@ -273,14 +274,14 @@ public class Easy_ComputerActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        stopService(new Intent(Easy_ComputerActivity.this, Easy_ComputerActivity.class));
+        stopService(new Intent(Hard_ComputerActivity.this, Hard_ComputerActivity.class));
         Music.backgroundMusic.pause();// pause music
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        startService(new Intent(Easy_ComputerActivity.this, Easy_ComputerActivity.class));
+        startService(new Intent(Hard_ComputerActivity.this, Hard_ComputerActivity.class));
         Music.backgroundMusic.start();
     }
 
@@ -306,7 +307,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         Log.i(TAG, "SetComputerWhere entered");
         int to1;
         for (FrameLayout v : higBoxAreas) {
-            to1 = RulesComputer.computerEasyLogic();
+            to1 = RulesComputer.computerHardLogic();
             if (rules.playingfield[to1] == RulesComputer.EMPTY_FIELD /*need more logic on hard_mode */){ //computer move to the empty field
                 Log.i(TAG, "to1 - " + rules.playingfield[to1]);
                 areaToMoveTo = convertIntegerToFrameLayout(to1);
@@ -320,7 +321,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
             //areaToMoveTo = (FrameLayout) v;
 
             //What areas are we moving from and to?
-            int to = RulesComputer.computerEasyLogic();
+            int to = RulesComputer.computerHardLogic();
             int from = checkerPositions.get(selectedChecker);
             //Try to move the checker
             if (rules.validMove(from, to)) { // This line will change turn
@@ -352,7 +353,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                         playerTurn.setText(playerOne.getPlayerName() + " can remove one of " + playerTwo.getPlayerName() + "'s pieces");
                         // hitbox has some checker and random remove
                         computerSelectChecker(); // Still need to fix, human has to help Ai remove their pieces
-                        RulesComputer.computerEasyRemovalLogic();
+                        RulesComputer.computerHardRemovalLogic();
                     }
                 } else {
                     if (currentTurn == Constants.BLACK) {
