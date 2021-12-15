@@ -10,6 +10,7 @@
 
     <!--    <string name="turn_color">Whites turn</string>-->
     <AbsoluteLayout
+        android:id="@+id/absoluteLayout"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
@@ -19,8 +20,8 @@
             android:id="@+id/imageView5"
             android:layout_width="700dp"
             android:layout_height="150dp"
-            android:layout_x="-143dp"
-            android:layout_y="-12dp"
+            android:layout_x="-142dp"
+            android:layout_y="-13dp"
             app:srcCompat="@drawable/playerpiecearea"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="104dp" />
@@ -58,20 +59,22 @@
             android:visibility="invisible"
             app:srcCompat="@drawable/muted" />
 
-        <ImageButton
-            android:id="@+id/rulesButtonGame"
+        <ImageView
+            android:id="@+id/playerTwoPieceHighlight"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginStart="27dp"
-            android:layout_marginTop="175dp"
-            android:layout_marginEnd="324dp"
-            android:layout_marginBottom="496dp"
-            android:layout_x="26dp"
-            android:layout_y="179dp"
-            android:background="@null"
-            android:onClick="rulesPopupGame"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/questionmarkbutton" />
+            android:layout_x="88dp"
+            android:layout_y="45dp"
+            app:srcCompat="@drawable/piecehighlight" />
+
+        <ImageView
+            android:id="@+id/playerOnePieceHighlight"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_x="264dp"
+            android:layout_y="44dp"
+            app:srcCompat="@drawable/piecehighlight"
+            tools:visibility="visible" />
 
     </AbsoluteLayout>
 
@@ -654,6 +657,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lightbulbbutton" />
+
+    <ImageButton
+        android:id="@+id/rulesButtonGame"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="173dp"
+        android:layout_marginEnd="323dp"
+        android:layout_marginBottom="498dp"
+        android:background="@null"
+        android:onClick="rulesPopupGame"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/questionmarkbutton" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/blackCheckerArea"
