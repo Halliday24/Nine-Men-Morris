@@ -9,46 +9,77 @@
     tools:context=".GamePage">
 
     <!--    <string name="turn_color">Whites turn</string>-->
-    <SeekBar
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/volControl">
-
-    </SeekBar>
-
-    <ImageButton
-        android:id="@+id/unmuteButtonGame"
+    <AbsoluteLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@android:color/transparent"
-        android:onClick="unmuteSoundGame"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.983"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/muted" />
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        tools:ignore="MissingConstraints">
 
-    <ImageButton
-        android:id="@+id/muteButtonGame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="2dp"
-        android:background="@android:color/transparent"
-        android:onClick="muteSoundGame"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.986"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/unmuted" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="700dp"
+            android:layout_height="150dp"
+            android:layout_x="-143dp"
+            android:layout_y="-12dp"
+            app:srcCompat="@drawable/playerpiecearea"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="104dp" />
+
+        <SeekBar
+            android:id="@+id/volControl"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_x="16dp"
+            android:layout_y="-26dp">
+
+        </SeekBar>
+
+        <ImageButton
+            android:id="@+id/muteButtonGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_x="324dp"
+            android:layout_y="2dp"
+            android:background="@android:color/transparent"
+            android:onClick="muteSoundGame"
+            app:srcCompat="@drawable/unmuted" />
+
+        <ImageButton
+            android:id="@+id/unmuteButtonGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_x="326dp"
+            android:layout_y="2dp"
+            android:background="@android:color/transparent"
+            android:onClick="unmuteSoundGame"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/muted" />
+
+        <ImageButton
+            android:id="@+id/rulesButtonGame"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="175dp"
+            android:layout_marginEnd="324dp"
+            android:layout_marginBottom="496dp"
+            android:layout_x="26dp"
+            android:layout_y="179dp"
+            android:background="@null"
+            android:onClick="rulesPopupGame"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/questionmarkbutton" />
+
+    </AbsoluteLayout>
 
     <TextView
         android:id="@+id/TurnText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="136dp"
         android:fontFamily="@font/permanent_marker"
         android:gravity="center"
         android:text="@string/turn_color"
@@ -624,23 +655,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lightbulbbutton" />
 
-    <ImageButton
-        android:id="@+id/rulesButtonGame"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="175dp"
-        android:layout_marginEnd="324dp"
-        android:layout_marginBottom="496dp"
-        android:background="@null"
-        android:onClick="rulesPopupGame"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/questionmarkbutton" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/blackCheckerArea"
         android:layout_width="50dp"
@@ -818,7 +832,37 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <![CDATA[
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     />
+
+
+
+
+
+
+
+
+
+
 
 
 ]]>
