@@ -101,7 +101,7 @@ public class SetupPage extends AppCompatActivity {
 
 
         dialog.show();
-        dialog.getWindow().setLayout(1100, 1900);
+        dialog.getWindow().setLayout(1000, 1900);
     }
 
 
@@ -2424,7 +2424,7 @@ public class SetupPage extends AppCompatActivity {
     }
 
     /**
-     * Opens the same popup that is first displayed when entering the page if the help button is pressed
+     * Opens the sma epopup that is first displayed on the setup page when the help button is pressed
      * @param view
      */
     public void helpButton(View view) {
@@ -2437,8 +2437,7 @@ public class SetupPage extends AppCompatActivity {
 
 
         dialog.show();
-        dialog.getWindow().setLayout(1100, 1900);
-
+        dialog.getWindow().setLayout(1000, 1500);
     }
 
     //#############################################################################################
