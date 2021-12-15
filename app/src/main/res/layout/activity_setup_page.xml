@@ -15,6 +15,26 @@
 
     </SeekBar>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/helpButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+           android:layout_marginLeft="250dp"
+            android:background="@null"
+            android:onClick="helpButton"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/questionmarkbutton" />
+    </RelativeLayout>
+
     <EditText
         android:id="@+id/playerTwoName"
         android:layout_width="150dp"

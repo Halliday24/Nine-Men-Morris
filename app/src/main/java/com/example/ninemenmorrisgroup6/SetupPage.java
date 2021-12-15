@@ -2422,7 +2422,25 @@ public class SetupPage extends AppCompatActivity {
         }
 
     }
-    
+
+    /**
+     * Opens the same popup that is first displayed when entering the page if the help button is pressed
+     * @param view
+     */
+    public void helpButton(View view) {
+        final Dialog dialog = new Dialog(this);
+
+        dialog.setContentView(R.layout.activity_setup_info);
+        dialog.setTitle("Dialog box");
+
+        dialog.setCanceledOnTouchOutside(true);
+
+
+        dialog.show();
+        dialog.getWindow().setLayout(1100, 1900);
+
+    }
+
     //#############################################################################################
 
 }
