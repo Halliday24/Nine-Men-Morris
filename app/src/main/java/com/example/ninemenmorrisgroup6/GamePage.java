@@ -3,6 +3,7 @@ package com.example.ninemenmorrisgroup6;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -10,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
@@ -73,6 +76,13 @@ public class GamePage extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             Log.i(TAG, "Creating activity");
             setContentView(R.layout.activity_game_page);
+
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = this.getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(this.getResources().getColor(R.color.black));
+            }
 
             playerOne = (Player) getIntent().getSerializableExtra("playerOne");
             playerTwo = (Player) getIntent().getSerializableExtra("playerTwo");
