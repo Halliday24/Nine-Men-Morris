@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -1148,7 +1149,9 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
 
-        Music.backgroundMusic.pause();
+       // Music.backgroundMusic.pause();
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamMute(AudioManager.STREAM_MUSIC,true);
         Music.setMuteStatus("MUTED");
 
         muteBtn.setVisibility(View.INVISIBLE);
@@ -1160,7 +1163,9 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
 
-        Music.backgroundMusic.start();
+        //Music.backgroundMusic.start();
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamMute(AudioManager.STREAM_MUSIC,false);
         Music.setMuteStatus("UNMUTED");
 
         unmuteBtn.setVisibility(View.INVISIBLE);

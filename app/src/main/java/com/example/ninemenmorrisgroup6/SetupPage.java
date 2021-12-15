@@ -582,7 +582,9 @@ public class SetupPage extends AppCompatActivity {
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonSetup);
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonSetup);
 
-        Music.backgroundMusic.pause();
+        //Music.backgroundMusic.pause();
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamMute(AudioManager.STREAM_MUSIC,true);
         Music.setMuteStatus("MUTED");
 
         muteBtn.setVisibility(View.INVISIBLE);
@@ -599,7 +601,9 @@ public class SetupPage extends AppCompatActivity {
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonSetup);
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonSetup);
 
-        Music.backgroundMusic.start();
+       // Music.backgroundMusic.start();
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamMute(AudioManager.STREAM_MUSIC,false);
         Music.setMuteStatus("UNMUTED");
 
         unmuteBtn.setVisibility(View.INVISIBLE);
@@ -2437,7 +2441,7 @@ public class SetupPage extends AppCompatActivity {
 
 
         dialog.show();
-        dialog.getWindow().setLayout(1000, 1500);
+        dialog.getWindow().setLayout(1000, 1900);
     }
 
     //#############################################################################################

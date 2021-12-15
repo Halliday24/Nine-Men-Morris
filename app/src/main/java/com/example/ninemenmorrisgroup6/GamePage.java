@@ -751,7 +751,9 @@ public class GamePage extends AppCompatActivity {
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
 
-        Music.backgroundMusic.pause();
+        //Music.backgroundMusic.pause();
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamMute(AudioManager.STREAM_MUSIC,true);
         Music.setMuteStatus("MUTED");
 
         muteBtn.setVisibility(View.INVISIBLE);
@@ -768,7 +770,9 @@ public class GamePage extends AppCompatActivity {
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonGame);
 
-        Music.backgroundMusic.start();
+        //Music.backgroundMusic.start();
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamMute(AudioManager.STREAM_MUSIC,false);
         Music.setMuteStatus("UNMUTED");
 
         unmuteBtn.setVisibility(View.INVISIBLE);

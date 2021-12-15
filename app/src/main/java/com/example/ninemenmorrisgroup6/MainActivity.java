@@ -122,7 +122,9 @@ public class MainActivity extends AppCompatActivity {
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonMain);
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonMain);
 
-        Music.backgroundMusic.pause();
+        //Music.backgroundMusic.pause();
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamMute(AudioManager.STREAM_MUSIC,true);
         Music.setMuteStatus("MUTED");
 
         muteBtn.setVisibility(View.INVISIBLE);
@@ -139,7 +141,9 @@ public class MainActivity extends AppCompatActivity {
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonMain);
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonMain);
 
-        Music.backgroundMusic.start();
+        //Music.backgroundMusic.start();
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamMute(AudioManager.STREAM_MUSIC,false);
         Music.setMuteStatus("UNMUTED");
 
         unmuteBtn.setVisibility(View.INVISIBLE);
