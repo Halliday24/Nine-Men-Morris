@@ -55,6 +55,8 @@ public class GamePage extends AppCompatActivity {
     private ImageView selectedChecker;
     private FrameLayout areaToMoveTo;
     private HashMap<ImageView, Integer> checkerPositions;
+    private ImageView playerOnePieceHighlight;
+    private ImageView playerTwoPieceHighlight;
 
     private boolean hasSelectedChecker = false;
     private boolean removeNextChecker = false;
@@ -82,6 +84,10 @@ public class GamePage extends AppCompatActivity {
             TextView playerOneHeader = (TextView) findViewById(R.id.playerTwoHeader);
             TextView playerTwoHeader = (TextView) findViewById(R.id.playerOneHeader);
             TextView header = (TextView) findViewById(R.id.TurnText);
+
+            ImageView playerOnePieceHighlight = (ImageView) findViewById(R.id.playerOnePieceHighlight);
+            ImageView playerTwoPieceHighlight = (ImageView) findViewById(R.id.playerTwoPieceHighlight);
+
 
             header.setText("It is " + playerOne.getPlayerName() + "'s turn");
             playerOneHeader.setText(playerOne.getPlayerName() + "'s Pieces");
@@ -142,6 +148,8 @@ public class GamePage extends AppCompatActivity {
             higBoxAreas.add((FrameLayout) findViewById(R.id.area22));
             higBoxAreas.add((FrameLayout) findViewById(R.id.area23));
             higBoxAreas.add((FrameLayout) findViewById(R.id.area24));
+
+            playerOnePieceHighlight.setVisibility(View.GONE);
 
             //setHowManyPiecesRemaining();
 
@@ -215,14 +223,22 @@ public class GamePage extends AppCompatActivity {
                                 if (removeNextChecker) {
                                     if (currentTurn == Constants.BLACK) {
                                         playerTurn.setText(playerTwo.getPlayerName() + " can remove one of " + playerOne.getPlayerName() + "'s pieces");
+                                        playerTwoPieceHighlight.setVisibility(View.GONE);
+                                        playerOnePieceHighlight.setVisibility(View.VISIBLE);
                                     } else {
                                         playerTurn.setText(playerOne.getPlayerName() + " can remove one of " + playerTwo.getPlayerName() + "'s pieces");
+                                        playerOnePieceHighlight.setVisibility(View.GONE);
+                                        playerTwoPieceHighlight.setVisibility(View.VISIBLE);
                                     }
                                 } else {
                                     if (currentTurn == Constants.BLACK) {
                                         playerTurn.setText("It is " + playerOne.getPlayerName() + "'s turn");
+                                        playerOnePieceHighlight.setVisibility(View.GONE);
+                                        playerTwoPieceHighlight.setVisibility(View.VISIBLE);
                                     } else {
                                         playerTurn.setText("It is " + playerTwo.getPlayerName() + "'s turn");
+                                        playerTwoPieceHighlight.setVisibility(View.GONE);
+                                        playerOnePieceHighlight.setVisibility(View.VISIBLE);
                                     }
                                 }
                                 //Did someone win?
@@ -230,9 +246,13 @@ public class GamePage extends AppCompatActivity {
                                 if (isWin) {
                                     if (rules.getTurn() == Constants.BLACK) {
                                         playerTurn.setText(playerOne.getPlayerName() + " WINS!");
+                                        playerOnePieceHighlight.setVisibility(View.GONE);
+                                        playerTwoPieceHighlight.setVisibility(View.VISIBLE);
                                         winnerPopupGame();
                                     } else {
                                         playerTurn.setText(playerTwo.getPlayerName() + " WINS!");
+                                        playerTwoPieceHighlight.setVisibility(View.GONE);
+                                        playerOnePieceHighlight.setVisibility(View.VISIBLE);
                                         winnerPopupGame();
                                     }
 
@@ -541,6 +561,9 @@ public class GamePage extends AppCompatActivity {
      */
 
     private void selectChecker(View v) {
+        ImageView playerOnePieceHighlight = (ImageView) findViewById(R.id.playerOnePieceHighlight);
+        ImageView playerTwoPieceHighlight = (ImageView) findViewById(R.id.playerTwoPieceHighlight);
+
         //Is it a remove click=
         if (removeNextChecker) {
             //Is it a valid remove click?
@@ -556,11 +579,15 @@ public class GamePage extends AppCompatActivity {
                 Log.i(TAG,"White Child After - " + parent.getChildCount());
                 //setHowManyPiecesRemaining();
                 playerTurn.setText("It is " + playerTwo.getPlayerName() + "'s turn");
+                playerTwoPieceHighlight.setVisibility(View.GONE);
+                playerOnePieceHighlight.setVisibility(View.VISIBLE);
 
                 //Did someone win?
                 isWin = rules.isItAWin(Constants.BLACK);
                 if (isWin) {
                     playerTurn.setText(playerOne.getPlayerName() + " WINS!");
+                    playerOnePieceHighlight.setVisibility(View.GONE);
+                    playerTwoPieceHighlight.setVisibility(View.VISIBLE);
                 }
             } else if (rules.getTurn() == Constants.WHITE && rules.remove(checkerPositions.get(v), Constants.WHITE)) {
                 //Unmark all options and remove the selected checker
@@ -573,11 +600,15 @@ public class GamePage extends AppCompatActivity {
                 Log.i(TAG,"Black Child After - " + parent.getChildCount());
                 //setHowManyPiecesRemaining();
                 playerTurn.setText("It is " + playerOne.getPlayerName() + "'s turn");
+                playerOnePieceHighlight.setVisibility(View.GONE);
+                playerTwoPieceHighlight.setVisibility(View.VISIBLE);
 
                 //Did someone win?
                 isWin = rules.isItAWin(Constants.WHITE);
                 if (isWin) {
                     playerTurn.setText(playerTwo.getPlayerName() + " WINS!");
+                    playerTwoPieceHighlight.setVisibility(View.GONE);
+                    playerOnePieceHighlight.setVisibility(View.VISIBLE);
                 }
             }
         }
