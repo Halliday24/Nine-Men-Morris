@@ -8,21 +8,12 @@
     android:background="#e0f0e3"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/dim_layout_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#70000000"
-        android:visibility="invisible"
-        tools:layout_editor_absoluteX="-22dp"
-        tools:layout_editor_absoluteY="-182dp"
-        android:orientation="horizontal">
-    </LinearLayout>
-
     <SeekBar
+        android:id="@+id/volControl"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/volControl">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </SeekBar>
 
@@ -56,7 +47,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/muted" />
-
 
 
     <ImageButton
@@ -101,27 +91,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/contactusbutton" />
 
-    <ImageView
-        android:id="@+id/NineMensText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="306dp"
-        app:layout_constraintBottom_toBottomOf="@+id/dim_layout_main"
+    <LinearLayout
+        android:id="@+id/dim_layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#70000000"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ninemens" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/MorrisText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/morris"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="270dp"
-        app:layout_constraintBottom_toBottomOf="@+id/dim_layout_main"
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="417dp"
+        android:layout_height="536dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="240dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/NineMensText"
+            android:layout_width="350dp"
+            android:layout_height="125dp"
+            app:layout_constraintBottom_toTopOf="@+id/MorrisText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ninemens" />
+
+        <ImageView
+            android:id="@+id/MorrisText"
+            android:layout_width="350dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="329dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/morris" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="275dp"
+            android:layout_height="275dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/MorrisText"
+            app:srcCompat="@drawable/boardbarebone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
