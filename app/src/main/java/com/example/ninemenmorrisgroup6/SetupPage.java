@@ -70,7 +70,7 @@ public class SetupPage extends AppCompatActivity {
 
 
     }
-//displays popup when the page is opened
+    //displays popup when the page is opened
     @Override
     protected void onStart() {
         super.onStart();
@@ -608,7 +608,7 @@ public class SetupPage extends AppCompatActivity {
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonSetup);
         ImageButton muteBtn = (ImageButton) findViewById(R.id.muteButtonSetup);
 
-       // Music.backgroundMusic.start();
+        // Music.backgroundMusic.start();
         AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         audioManager.setStreamMute(AudioManager.STREAM_MUSIC,false);
         Music.setMuteStatus("UNMUTED");
@@ -767,7 +767,7 @@ public class SetupPage extends AppCompatActivity {
         //Players must select a game piece before selecting a colour.
         if(playerOne.getPlayerGamePiece() == R.drawable.blank){
 
-            customToast("Pick a game piece before selecting a colour");
+            customToast("Pick a game piece first");
             //Toast.makeText(this, "Pick a game piece before selecting a colour!", Toast.LENGTH_SHORT).show();
 
         }
@@ -1545,9 +1545,9 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerOne.getPlayerColour().equals("EMPTY")){
-                
+
                 if(playerTwo.getPlayerColour().equals("WHITE")){
 
                     display.setImageResource(R.drawable.black_star);
@@ -1555,7 +1555,7 @@ public class SetupPage extends AppCompatActivity {
                     playerOne.setPlayerColour("BLACK");
 
                 }
-                
+
                 else{
 
                     display.setImageResource(R.drawable.white_star);
@@ -1566,7 +1566,7 @@ public class SetupPage extends AppCompatActivity {
             }
 
         }
-        
+
     }
 
     //########################## PLAYER TWO METHODS ################################################
@@ -1679,7 +1679,7 @@ public class SetupPage extends AppCompatActivity {
         //Players must select a game piece before selecting a colour.
         if(playerTwo.getPlayerGamePiece() == R.drawable.blank){
 
-            customToast("Pick a game piece before selecting a colour!");
+            customToast("Pick a game piece first!");
             //Toast.makeText(this, "Pick a game piece before selecting a colour!", Toast.LENGTH_SHORT).show();
 
         }
@@ -1804,7 +1804,7 @@ public class SetupPage extends AppCompatActivity {
             return popup;
 
         }
-        
+
         else if (playerOne.getPlayerGamePiece() == R.drawable.blue_circle |
                 playerOne.getPlayerGamePiece() == R.drawable.blue_square |
                 playerOne.getPlayerGamePiece() == R.drawable.blue_diamond |
@@ -1814,7 +1814,7 @@ public class SetupPage extends AppCompatActivity {
             return popup;
 
         }
-        
+
         else if (playerOne.getPlayerGamePiece() == R.drawable.green_circle |
                 playerOne.getPlayerGamePiece() == R.drawable.green_squa |
                 playerOne.getPlayerGamePiece() == R.drawable.green_diamond|
@@ -1824,7 +1824,7 @@ public class SetupPage extends AppCompatActivity {
             return popup;
 
         }
-        
+
         else if (playerOne.getPlayerGamePiece() == R.drawable.yellow_circle |
                 playerOne.getPlayerGamePiece() == R.drawable.yellow_square |
                 playerOne.getPlayerGamePiece() == R.drawable.yellow_diamond |
@@ -1854,7 +1854,7 @@ public class SetupPage extends AppCompatActivity {
             return popup;
 
         }
-        
+
         else if (playerOne.getPlayerGamePiece() == R.drawable.blank) {
 
             yellow.setVisible(true);
@@ -2193,7 +2193,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("BLUE")){
 
                 display.setImageResource(R.drawable.blue_circle);
@@ -2201,7 +2201,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("GREEN")){
 
                 display.setImageResource(R.drawable.green_circle);
@@ -2209,7 +2209,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("YELLOW")){
 
                 display.setImageResource(R.drawable.yellow_circle);
@@ -2217,7 +2217,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("WHITE")){
 
                 display.setImageResource(R.drawable.white_circle);
@@ -2225,7 +2225,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("BLACK")){
 
                 display.setImageResource(R.drawable.black_circle);
@@ -2264,7 +2264,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("BLUE")){
 
                 display.setImageResource(R.drawable.blue_diamond);
@@ -2272,7 +2272,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("GREEN")){
 
                 display.setImageResource(R.drawable.green_diamond);
@@ -2280,7 +2280,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("YELLOW")){
 
                 display.setImageResource(R.drawable.yellow_diamond);
@@ -2288,7 +2288,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("WHITE")){
 
                 display.setImageResource(R.drawable.white_diamond);
@@ -2296,7 +2296,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("BLACK")){
 
                 display.setImageResource(R.drawable.black_diamond);
@@ -2336,7 +2336,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("BLUE")){
 
                 display.setImageResource(R.drawable.blue_square);
@@ -2344,7 +2344,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("GREEN")){
 
                 display.setImageResource(R.drawable.green_squa);
@@ -2352,7 +2352,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("YELLOW")){
 
                 display.setImageResource(R.drawable.yellow_square);
@@ -2360,7 +2360,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("WHITE")){
 
                 display.setImageResource(R.drawable.white_square);
@@ -2368,7 +2368,7 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("BLACK")){
 
                 display.setImageResource(R.drawable.black_square);
@@ -2407,14 +2407,14 @@ public class SetupPage extends AppCompatActivity {
                 playerTwo.setPlayerGamePiece(R.drawable.red_star);
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("BLUE")){
 
                 display.setImageResource(R.drawable.blue_star);
                 playerTwo.setPlayerGamePiece(R.drawable.blue_star);
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("GREEN")){
 
                 display.setImageResource(R.drawable.green_star);
@@ -2422,21 +2422,21 @@ public class SetupPage extends AppCompatActivity {
 
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("YELLOW")){
 
                 display.setImageResource(R.drawable.yellow_star);
                 playerTwo.setPlayerGamePiece(R.drawable.yellow_star);
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("WHITE")){
 
                 display.setImageResource(R.drawable.white_star);
                 playerTwo.setPlayerGamePiece(R.drawable.white_star);
 
             }
-            
+
             else if(playerTwo.getPlayerColour().equals("BLACK")){
 
                 display.setImageResource(R.drawable.black_star);
@@ -2469,6 +2469,7 @@ public class SetupPage extends AppCompatActivity {
      * Opens the sma epopup that is first displayed on the setup page when the help button is pressed
      * @param view
      */
+
     public void helpButton(View view) {
         final Dialog dialog = new Dialog(this);
 
