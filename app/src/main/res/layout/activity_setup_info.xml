@@ -143,15 +143,15 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="40px"
+        android:layout_height="30px"
         android:layout_below="@id/Rules4"
         android:layout_marginLeft="9px"
+        android:layout_marginTop="8px"
         android:layout_marginRight="9px"
-        android:layout_marginTop="20px"
         android:layout_toRightOf="@id/LeftMargin"
         android:text="TAP ANYWHERE OUTSIDE OF THE POPUP SCREEN TO EXIT"
         android:textColor="@color/red"
-        android:textSize="24px">
+        android:textSize="22px">
 
     </TextView>
 
