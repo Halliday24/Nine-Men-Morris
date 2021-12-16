@@ -159,6 +159,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="7dp"
             android:background="@null"
+            android:onClick="quickPlay"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

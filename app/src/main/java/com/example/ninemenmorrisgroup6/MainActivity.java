@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static Player playerOne = new HumanPlayer();
     public static Player playerTwo = new HumanPlayer();
+    public static Player computer = new ComputerPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +97,32 @@ public class MainActivity extends AppCompatActivity {
         onResume();
 
         startActivity(setupPage);
+    }
+
+    /**
+     * Send the user straight to the gamePage for a player vs player game; Sets default settings
+     * to Player One, Player Two for names and white/black circle pieces respectively.
+     * @param myView The button this is assigned to.
+     */
+
+    public void quickPlay(View myView){
+
+        playerOne.setPlayerName("Player One");
+        playerOne.setPlayerGamePiece(R.drawable.white_circle);
+
+        playerTwo.setPlayerName("Player Two");
+        playerTwo.setPlayerGamePiece(R.drawable.black_circle);
+
+        computer.setDifficulty(0);
+
+        Intent quickPlay = new Intent(this, GamePage.class);
+
+        quickPlay.putExtra("playerOne", playerOne);
+        quickPlay.putExtra("playerTwo", playerTwo);
+        quickPlay.putExtra("computer", computer);
+
+        startActivity(quickPlay);
+
     }
 
     /**
