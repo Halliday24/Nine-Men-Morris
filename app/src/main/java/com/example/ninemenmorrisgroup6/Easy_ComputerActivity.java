@@ -56,6 +56,8 @@ public class Easy_ComputerActivity extends AppCompatActivity {
     private ImageView selectedChecker;
     private FrameLayout areaToMoveTo;
     private HashMap<ImageView, Integer> checkerPositions;
+    private ImageView playerOnePieceHighlight;
+    private ImageView playerTwoPieceHighlight;
 
     private boolean hasSelectedChecker = false;
     private boolean removeNextChecker = false;
@@ -89,6 +91,12 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         TextView playerOneHeader = (TextView) findViewById(R.id.playerOneHeader);
         TextView playerTwoHeader = (TextView) findViewById(R.id.playerTwoHeader);
         TextView header = (TextView) findViewById(R.id.TurnText);
+
+        ImageView playerOnePieceHighlight = (ImageView) findViewById(R.id.playerOnePieceHighlight);
+        ImageView playerTwoPieceHighlight = (ImageView) findViewById(R.id.playerTwoPieceHighlight);
+
+        playerTwoPieceHighlight.setVisibility(View.GONE);
+        playerOnePieceHighlight.setVisibility(View.VISIBLE);
 
         header.setText("It is " + playerOne.getPlayerName() + "'s turn");
         playerOneHeader.setText(playerOne.getPlayerName() + "'s Pieces");

@@ -57,6 +57,8 @@ public class Hard_ComputerActivity extends AppCompatActivity {
     private ImageView selectedChecker;
     private FrameLayout areaToMoveTo;
     private HashMap<ImageView, Integer> checkerPositions;
+    private ImageView playerOnePieceHighlight;
+    private ImageView playerTwoPieceHighlight;
 
     private boolean hasSelectedChecker = false;
     private boolean removeNextChecker = false;
@@ -94,6 +96,12 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         header.setText("It is " + playerOne.getPlayerName() + "'s turn");
         playerOneHeader.setText(playerOne.getPlayerName() + "'s Pieces");
         playerTwoHeader.setText(computer.getPlayerName() + "'s Pieces");
+
+        ImageView playerOnePieceHighlight = (ImageView) findViewById(R.id.playerOnePieceHighlight);
+        ImageView playerTwoPieceHighlight = (ImageView) findViewById(R.id.playerTwoPieceHighlight);
+
+        playerTwoPieceHighlight.setVisibility(View.GONE);
+        playerOnePieceHighlight.setVisibility(View.VISIBLE);
 
         selectedChecker = null;
         areaToMoveTo = null;
