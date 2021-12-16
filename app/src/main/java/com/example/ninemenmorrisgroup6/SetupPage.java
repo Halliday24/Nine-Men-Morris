@@ -2451,7 +2451,7 @@ public class SetupPage extends AppCompatActivity {
 
 
         dialog.show();
-        dialog.getWindow().setLayout(1000, 1900);
+        dialog.getWindow().setLayout(700, 1000);
     }
 
     //#############################################################################################

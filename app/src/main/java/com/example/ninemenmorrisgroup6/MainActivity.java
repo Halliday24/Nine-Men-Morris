@@ -234,8 +234,8 @@ public class MainActivity extends AppCompatActivity {
         View popupView = inflater.inflate(R.layout.activity_feedback_popup, null);
 
         // create the popup window
-        int width = 1000;
-        int height = 1500;
+        int width = 700;
+        int height = 700;
         boolean focusable = false; // lets taps outside the popup also dismiss it
         LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_main);
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="510dp"
+    android:layout_height="1500px"
     tools:context=".RulesPopup"
     android:background="#e0f0e3">
 
@@ -42,68 +42,68 @@
     <TextView
         android:id="@+id/Rules"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="58px"
         android:gravity="center"
         android:text="FEEDBACK"
         android:textColor="@color/black"
-        android:textSize="36sp">
+        android:textSize="46px">
 
     </TextView>
 
     <TextView
         android:id="@+id/Rules1"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="70px"
         android:layout_below="@+id/Rules"
-        android:layout_toRightOf="@id/LeftMargin"
-        android:layout_toLeftOf="@id/RightMargin"
         android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_toRightOf="@id/LeftMargin"
         android:gravity="center"
         android:text="If you have any questions, feedback, or simply want to report a bug"
         android:textColor="@color/black"
-        android:textSize="20sp">
+        android:textSize="30px">
 
     </TextView>
 
     <TextView
         android:id="@+id/Rules2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="100px"
         android:layout_below="@+id/Rules1"
         android:layout_toRightOf="@id/LeftMargin"
         android:layout_toLeftOf="@id/RightMargin"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="20px"
         android:gravity="center"
         android:text="Please do not hesitate to contact us at"
         android:textColor="@color/black"
-        android:textSize="20sp">
+        android:textSize="30px">
 
     </TextView>
 
     <TextView
         android:id="@+id/Rules3"
         android:layout_width="match_parent"
-        android:layout_height="99dp"
+        android:layout_height="99px"
         android:layout_below="@+id/Rules2"
-        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_marginTop="20px"
         android:layout_toLeftOf="@id/RightMargin"
-        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/LeftMargin"
         android:gravity="center"
         android:text="GROUPSIXNINEMENMORRIS@GMAIL.COM"
         android:textColor="@color/black"
-        android:textSize="20sp">
+        android:textSize="30px">
 
     </TextView>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="30px"
         android:layout_below="@id/Rules3"
         android:layout_toRightOf="@id/LeftMargin"
         android:textColor="@color/red"
-        android:textSize="14sp"
-        android:layout_marginTop="80dp"
-        android:layout_marginLeft="24dp"
+        android:textSize="24px"
+        android:layout_marginTop="80px"
+        android:layout_marginLeft="50px"
         android:text="TAP ANYWHERE ON THE POPUP SCREEN TO EXIT">
 
     </TextView>
