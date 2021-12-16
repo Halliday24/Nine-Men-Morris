@@ -6,13 +6,21 @@ import android.widget.ImageView;
 
 public class ComputerPlayer extends Player{
 
-    public ComputerPlayer(String name, ImageView token, Color colour, int mode){
+    /**
+     * Creates a computerPlayer which contains information for initializing the game.
+     * @param name The name of the computer, usually just computer.
+     * @param mode The game mode the user has selected.
+     */
+
+    public ComputerPlayer(String name, int mode){
 
         this.playerName = name;
-        this.computerGamePiece = token;
-        this.computerColour = colour;
         this.difficulty = mode;
     }
+
+    /**
+     * Creates a blank/default computerPlayer
+     */
 
     public ComputerPlayer(){
 

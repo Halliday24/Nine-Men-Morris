@@ -5,13 +5,23 @@ import android.view.MenuItem;
 
 public class HumanPlayer extends Player{
 
-    public HumanPlayer(String name, int score, int token, String colour){
+    /**
+     * Creates a humanPlayer which can store settings for initializing the game.
+     * @param name The name of the player.
+     * @param token The game piece of the player.
+     * @param colour The colour of the players game piece.
+     */
+
+    public HumanPlayer(String name, int token, String colour){
 
         this.playerName = name;
-        this.highScore = score;
         this.playerGamePiece = token;
         this.playerColour = colour;
     }
+
+    /**
+     * Creates a blank, default humanPlayer.
+     */
 
     public HumanPlayer(){
 

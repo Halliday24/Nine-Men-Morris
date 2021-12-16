@@ -35,6 +35,11 @@ public class Rules {
 
     private final int EMPTY_FIELD = 0;
 
+    /**
+     * Sets up the initial settings for the game. The playing field, 9 pieces for each player, and
+     * white starts first.
+     */
+
     public Rules() {
         playingfield = new int[25];
         blackMarkers = 9;
@@ -385,33 +390,6 @@ public class Rules {
 
     }
 
-//        if(partOfMill(token) == true){
-//
-//            for(int i= 0; i < 24; i++){
-//
-//                if(playingfield[i+1] == colour){
-//
-//                    if(partOfMill(i+1) & checkOnlyMill(colour)){
-//
-//                        Log.i(TAG, "Part of Mill and there are only mills");
-//                        return true;
-//
-//                    }
-//                    else{
-//
-//                        Log.i(TAG, "Either not a Mill of not only Mills");
-//                        return false;
-//
-//
-//                    }
-//                }
-//                return true;
-//            }
-//
-//        }
-//        return true;
-//    }
-
     /**
      * Remove a marker from the position if it matches the color
      * @param from The checker to be removed.
@@ -428,9 +406,9 @@ public class Rules {
     }
 
     /**
-     * Check if color 'color' has lost
-     * @param color The color which may have lost.
-     * @return True if color has lost, else false is returned.
+     * Check if the player has lost
+     * @param color The player which may have lost.
+     * @return True if player has lost, else false is returned.
      */
 
     public boolean isItAWin(int color) {
@@ -454,6 +432,12 @@ public class Rules {
         return (count < 3);
     }
 
+    /**
+     * Checks to see if the player still has valid move they could make
+     * @param color The player who is being checked.
+     * @return True if there are valid moves remaining, false otherwise
+     */
+
     private boolean hasValidMoves(int color) {
         for(int i = 0; i < 24; i++) {
             if(playingfield[i+1] == color) {
@@ -471,10 +455,11 @@ public class Rules {
     }
 
     /**
-     *
+     * Checks to see if the player is in the Flying Phase of the game.
      * @param color The color which may be in the flying phase.
      * @return True if it has exactly 3 checkers left, else return false.
      */
+
     private boolean isItFlyingPhase(int color) {
         int count = 0;
         for(int i : playingfield) {
@@ -486,20 +471,26 @@ public class Rules {
     }
 
     /**
-     *
+     * Checks to see who has placed a piece down on the given spot of the hashmap
      * @param field The field to be checked.
      * @return The color the checker on a field is.
      */
+
     public int fieldColor(int field) {
+
         return playingfield[field];
+
     }
 
     /**
-     *
-     * @return The player whos turn it is.
+     * Puts out whose turn it is.
+     * @return The player whose turn it is.
      */
+
     public int getTurn() {
+
         return turn;
+
     }
 
     public void savePref(SharedPreferences.Editor instance) {

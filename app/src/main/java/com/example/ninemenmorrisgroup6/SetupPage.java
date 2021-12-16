@@ -82,7 +82,12 @@ public class SetupPage extends AppCompatActivity {
         });*/
 
     }
-//displays popup when the page is opened
+
+
+    /**
+     * Displays popup explaining how to use the setup page when the setup page is opened
+     */
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -98,6 +103,9 @@ public class SetupPage extends AppCompatActivity {
         dialog.getWindow().setLayout(700, 1000);
     }
 
+    /**
+     * Pauses the music when the app is minimized.
+     */
 
     @Override
     protected void onPause() {
@@ -105,6 +113,10 @@ public class SetupPage extends AppCompatActivity {
         stopService(new Intent(SetupPage.this,SetupPage.class));
         Music.backgroundMusic.pause();// pause music
     }
+
+    /**
+     * Restarts the music when the app is opened back up.
+     */
 
     @Override
     protected void onResume() {
@@ -2438,9 +2450,10 @@ public class SetupPage extends AppCompatActivity {
     }
 
     /**
-     * Opens the sma epopup that is first displayed on the setup page when the help button is pressed
-     * @param view
+     * Opens the same popup that is first displayed on the setup page when the help button is pressed
+     * @param view The button this is assigned to.
      */
+
     public void helpButton(View view) {
         final Dialog dialog = new Dialog(this);
 

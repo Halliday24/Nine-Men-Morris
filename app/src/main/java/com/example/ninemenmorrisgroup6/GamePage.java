@@ -281,33 +281,11 @@ public class GamePage extends AppCompatActivity {
 
             //Start music
             musicCheckGame();
-
-       /* //volume slider not needed
-        final AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        int curVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        SeekBar volControl = (SeekBar)findViewById(R.id.volControl);
-        volControl.setMax(maxVolume);
-        volControl.setProgress(curVolume);
-        volControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, i, 0);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });*/
-
-
     }
+
+    /**
+     * Pauses the music when the app is minimized.
+     */
 
     @Override
     protected void onPause() {
@@ -316,120 +294,16 @@ public class GamePage extends AppCompatActivity {
         Music.backgroundMusic.pause();// start music
     }
 
+    /**
+     * Restarts the music when the app is opened back up.
+     */
+
     @Override
     protected void onResume() {
         super.onResume();
         startService(new Intent(GamePage.this,GamePage.class));
         Music.backgroundMusic.start();// pause music
     }
-
-
-    //    @Override
-//    public void onPause() {
-//        super.onPause();
-//        Log.i(TAG, "---------------------pause----------------");
-//        rules.savePref(edit);
-//        edit.putInt(PLAYER_ONE_INDEXES_SIZE, playerOneIndexes.size());
-//        edit.putInt(PLAYER_TWO_INDEXES_SIZE, playerTwoIndexes.size());
-//
-//        for (int i = 0; i < playerOneIndexes.size(); i++) {
-//            edit.putString(PLAYER_ONE_INDEXES + i, playerOneIndexes.get(i));
-//        }
-//        for (int i = 0; i < playerTwoIndexes.size(); i++) {
-//            edit.putString(PLAYER_TWO_INDEXES + i, playerTwoIndexes.get(i));
-//        }
-//        edit.putBoolean(IS_WIN, isWin);
-//        edit.putBoolean(REMOVE_CHECKER, removeNextChecker);
-//        edit.commit();
-//
-//        super.onPause();
-//        //backgroundMusic.pause();
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        Log.i(TAG, "---------------------resume----------------");
-//        newGame = pref.getBoolean(NEW_GAME, false);
-//        edit.putBoolean(NEW_GAME, false);
-//        if (!newGame) {
-//            rules.restorePref(pref);
-//            int whiteSize = pref.getInt(PLAYER_ONE_INDEXES_SIZE, 0);
-//            int blackSize = pref.getInt(PLAYER_TWO_INDEXES_SIZE, 0);
-//            for (int i = 0; i < whiteSize; i++) {
-//                playerOneIndexes.add(pref.getString(PLAYER_ONE_INDEXES + i, ""));
-//            }
-//            for (int i = 0; i < blackSize; i++) {
-//                playerTwoIndexes.add(pref.getString(PLAYER_TWO_INDEXES + i, ""));
-//            }
-//
-//            isWin = pref.getBoolean(IS_WIN, false);
-//            removeNextChecker = pref.getBoolean(REMOVE_CHECKER, false);
-//            //restore();
-//        }
-//
-//        //super.onResume();
-//        //backgroundMusic.start();
-//    }
-
-    /*private void restore() {
-        int white = 0;
-        int black = 0;
-        for (int i = 1; i < 25; i++) {
-            int color = rules.fieldColor(i);
-            int index = 0;
-            ViewGroup parent = null;
-            if (color == Constants.WHITE) {
-                index = Integer.parseInt(playerOneIndexes.get(white));
-                white++;
-                parent = ((ViewGroup) findViewById(R.id.whiteCheckerArea));
-            } else if (color == Constants.BLACK) {
-                index = Integer.parseInt(playerTwoIndexes.get(black));
-                black++;
-                parent = ((ViewGroup) findViewById(R.id.blackCheckerArea));
-            }
-            if (parent != null) {
-                ImageView checker = setPlaceHolder(index, parent);
-                ((ViewGroup) findViewById(R.id.board)).addView(checker);
-                int areaId = getResources().getIdentifier("area" + i, "id", this.getPackageName());
-                checker.setLayoutParams(findViewById(areaId).getLayoutParams());
-                checkerPositions.put(checker, i);
-            }
-            if (removeNextChecker) {
-                if (rules.getTurn() == Constants.WHITE) {
-                    playerTurn.setText("Remove Player one");
-                } else {
-                    playerTurn.setText("Remove Player two");
-                }
-            } else {
-                if (rules.getTurn() == Constants.WHITE) {
-                    playerTurn.setText("Player one turn");
-                } else {
-                    playerTurn.setText("Player two turn");
-                }
-            }
-            if (isWin) {
-                if (rules.getTurn() == Constants.BLACK) {
-                    playerTurn.setText("Player one wins!");
-                } else {
-                    playerTurn.setText("Player two wins!");
-                }
-            }
-        }
-        while (white < playerOneIndexes.size()) {
-            Log.i(TAG, "Integer.parseInt(playerOneIndexes.get(white)) - " + Integer.parseInt(playerOneIndexes.get(white)));
-            Log.i(TAG, "white - " + playerOneIndexes.size());
-            Log.i(TAG, "white - " + white);
-            setPlaceHolder(Integer.parseInt(playerOneIndexes.get(white)), ((ViewGroup) findViewById(R.id.whiteCheckerArea)));
-            white++;
-        }
-        while (black < playerTwoIndexes.size()) {
-            Log.i(TAG, "BLACK INDEX - " + Integer.parseInt(playerTwoIndexes.get(black)));
-            Log.i(TAG, "BLACK - " + black);
-            setPlaceHolder(Integer.parseInt(playerTwoIndexes.get(black)), ((ViewGroup) findViewById(R.id.blackCheckerArea)));
-            black++;
-        }
-    }*/
 
     private ImageView setPlaceHolder(int index, ViewGroup parent) {
         Log.i(TAG, "Index - " + Integer.toString(index));
@@ -439,28 +313,6 @@ public class GamePage extends AppCompatActivity {
         parent.addView(placeholder, index);
         return checker;
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.activity_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Standard menu creating
-//        switch (item.getItemId()) {
-//            //Start a new game
-//            case R.id.newgame:
-//                //Start a new game
-//                finish();
-//                startActivity(getIntent());
-//                edit.putBoolean(NEW_GAME, true);
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
 
     /**
      * Move the checker from the current position to a new position
@@ -675,8 +527,6 @@ public class GamePage extends AppCompatActivity {
             f.setBackgroundResource(0);
         }
     }
-
-
 
     @Override
     public void onBackPressed() {
