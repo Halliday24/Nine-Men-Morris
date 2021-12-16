@@ -86,6 +86,9 @@ public class SetupPage extends AppCompatActivity {
         dialog.getWindow().setLayout(700, 1000);
     }
 
+    /**
+     * Pauses the music when the app is minimized.
+     */
 
     @Override
     protected void onPause() {
@@ -93,6 +96,10 @@ public class SetupPage extends AppCompatActivity {
         stopService(new Intent(SetupPage.this,SetupPage.class));
         Music.backgroundMusic.pause();// pause music
     }
+
+    /**
+     * Restarts the music when the app is opened back up.
+     */
 
     @Override
     protected void onResume() {
@@ -640,6 +647,11 @@ public class SetupPage extends AppCompatActivity {
         }
 
     }
+
+    /**
+     * Kicks a toast message out when user clicks on 'disabled' buttons
+     * @param v The button(s) this is assigned to.
+     */
 
     public void disabledButtonToast(View v){
 
