@@ -26,14 +26,7 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="104dp" />
 
-        <SeekBar
-            android:id="@+id/volControl"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_x="16dp"
-            android:layout_y="-26dp">
 
-        </SeekBar>
 
         <ImageButton
             android:id="@+id/muteButtonGame"

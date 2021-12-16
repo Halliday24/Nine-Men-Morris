@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="550dp"
+    android:layout_height="1500px"
     tools:context=".RulesPopup"
-    android:background="#e0f0e3">
+    android:background="#e0f0e3"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,7 +20,7 @@
         android:layout_height="match_parent"
         android:background="#9370db"
         android:id="@+id/LeftMargin"
-        android:orientation="horizontal">
+        android:orientation="vertical">
     </LinearLayout>
 
     <RelativeLayout
@@ -40,89 +41,88 @@
     </LinearLayout>
 
 
-
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/TopMargin"
         android:id="@+id/Rules"
-        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="48px"
+        android:layout_below="@id/TopMargin"
         android:gravity="center"
-        android:textSize="36sp"
-        android:text="HOW TO PLAY">
+        android:text="HOW TO PLAY"
+        android:textColor="@color/black"
+        android:textSize="36px">
 
     </TextView>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_below="@+id/Rules"
-        android:layout_toRightOf="@id/LeftMargin"
-        android:layout_toLeftOf="@id/RightMargin"
-        android:layout_height="70dp"
-        android:layout_marginTop="10dp"
         android:id="@+id/Rules1"
-        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:layout_below="@+id/Rules"
+        android:layout_marginTop="10px"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_toRightOf="@id/LeftMargin"
         android:gravity="center"
-        android:textSize="20sp"
-        android:text="Place all your pieces on the board and move them to form a line">
+        android:text="Place all your pieces on the board and move them to form a line"
+        android:textColor="@color/black"
+        android:textSize="30px">
 
     </TextView>
 
     <TextView
         android:id="@+id/Rules2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="100px"
         android:layout_below="@+id/Rules1"
-        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_marginTop="20px"
         android:layout_toLeftOf="@id/RightMargin"
-        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/LeftMargin"
         android:gravity="center"
         android:text="Once you form a mill, you can remove one of your opponents men. Break a mill to unlock the mills again"
         android:textColor="@color/black"
-        android:textSize="20sp">
+        android:textSize="30px">
 
     </TextView>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_below="@+id/Rules2"
-        android:layout_toRightOf="@id/LeftMargin"
-        android:layout_toLeftOf="@id/RightMargin"
-        android:layout_height="99dp"
-        android:layout_marginTop="20dp"
         android:id="@+id/Rules3"
-        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="99px"
+        android:layout_below="@+id/Rules2"
+        android:layout_marginTop="20px"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_toRightOf="@id/LeftMargin"
         android:gravity="center"
-        android:textSize="20sp"
-        android:text="Pieces from a formed mill can't be removed unless no other men are available">
+        android:text="Pieces from a formed mill can't be removed unless no other men are available"
+        android:textColor="@color/black"
+        android:textSize="30px">
 
     </TextView>
 
     <TextView
         android:id="@+id/Rules4"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="100px"
         android:layout_below="@+id/Rules3"
-        android:layout_toRightOf="@id/LeftMargin"
+        android:layout_marginTop="10px"
         android:layout_toLeftOf="@id/RightMargin"
-        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/LeftMargin"
         android:gravity="center"
         android:text="Your aim is to leave your opponent with either 2 pieces or 0 moves. GOODLUCK!"
         android:textColor="@color/black"
-        android:textSize="20sp">
+        android:textSize="30px">
 
     </TextView>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="30px"
         android:layout_below="@id/Rules4"
+        android:layout_marginLeft="24px"
+        android:layout_marginTop="10px"
         android:layout_toRightOf="@id/LeftMargin"
+        android:text="TAP ANYWHERE ON THE POPUP SCREEN TO EXIT"
         android:textColor="@color/red"
-        android:textSize="14sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="24dp"
-        android:text="TAP ANYWHERE ON THE POPUP SCREEN TO EXIT">
+        android:textSize="28px">
 
     </TextView>
 

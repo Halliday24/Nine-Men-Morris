@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         musicCheckMain();
 
         //volume slider
-        final AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        /*final AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int curVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
         SeekBar volControl = (SeekBar)findViewById(R.id.volControl);
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
-        });
+        });*/
 
 
 
@@ -199,8 +199,8 @@ public class MainActivity extends AppCompatActivity {
         View popupView = inflater.inflate(R.layout.activity_rules_popup, null);
 
         // create the popup window
-        int width = 1000;
-        int height = 1500;
+        int width = 700;
+        int height = 700;
         boolean focusable = false; // lets taps outside the popup also dismiss it
         LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_main);
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);

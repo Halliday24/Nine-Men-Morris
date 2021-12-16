@@ -281,7 +281,7 @@ public class GamePage extends AppCompatActivity {
             //Start music
             musicCheckGame();
 
-        //volume slider
+       /* //volume slider not needed
         final AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int curVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
@@ -303,7 +303,7 @@ public class GamePage extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
-        });
+        });*/
 
 
     }

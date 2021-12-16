@@ -58,7 +58,7 @@ public class SetupPage extends AppCompatActivity {
         musicCheckSetup();
 
         //volume slider
-        final AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        /*final AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int curVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
         SeekBar volControl = (SeekBar)findViewById(R.id.volControl);
@@ -79,7 +79,7 @@ public class SetupPage extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
-        });
+        });*/
 
     }
 //displays popup when the page is opened

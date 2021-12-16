@@ -8,14 +8,6 @@
     android:background="#e0f0e3"
     tools:context=".MainActivity">
 
-    <SeekBar
-        android:id="@+id/volControl"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </SeekBar>
 
     <ImageButton
         android:id="@+id/muteButtonMain"
