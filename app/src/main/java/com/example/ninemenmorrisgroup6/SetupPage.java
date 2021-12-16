@@ -656,6 +656,11 @@ public class SetupPage extends AppCompatActivity {
 
     }
 
+    /**
+     * Kicks out a toast message when 'disabled' buttons are clicked.
+     * @param v The button(s) this is assigned to.
+     */
+
     public void disabledButtonToast(View v){
 
         if(computer.getDifficulty() == 3){

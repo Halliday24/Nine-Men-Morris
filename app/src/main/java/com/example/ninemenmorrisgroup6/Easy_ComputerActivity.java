@@ -296,6 +296,10 @@ public class Easy_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Pauses the music when the app is minimized.
+     */
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -303,12 +307,23 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         Music.backgroundMusic.pause();// pause music
     }
 
+    /**
+     * Restarts the music when the app is opened back up.
+     */
+
     @Override
     protected void onResume() {
         super.onResume();
         startService(new Intent(Easy_ComputerActivity.this, Easy_ComputerActivity.class));
         Music.backgroundMusic.start();
     }
+
+    /**
+     * Converts an int representing a position on the hashmap into a FrameLayout so that it can
+     * be used to place drawables on the game board.
+     * @param chosenSpot An int representing a spot on the hashmap.
+     * @return A FrameLayout tied to a specific hitbox.
+     */
 
     public FrameLayout convertIntegerToFrameLayout(int chosenSpot){
 
@@ -536,6 +551,10 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Iterates through the hashmap and outputs what piece is currently in each hitbox.
+     */
+
     public void showHashmap(){
 
         for(int i = 0; i < 24; i++){
@@ -545,11 +564,12 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         }
 
     }
-    /**
 
+    /**
      * Lets the player select a checker to remove or move
      * @param v The checker which was clicked on.
      */
+
     public void selectChecker(View v) {
 
         FrameLayout removePlayerFL;
@@ -633,6 +653,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
      * Mark all available moves that can be done.
      * @param from The position of the checker which wants to move
      */
+
     private void markAvailableMoveFields(int from) {
         for(int i = 0; i < 24; i++) {
             if(rules.isValidMove(from, i+1)) {
@@ -644,6 +665,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
     /**
      * Unmark all fields.
      */
+
     private void unMarkAllFields() {
         for(FrameLayout f : higBoxAreas) {
             f.setBackgroundResource(0);
@@ -655,6 +677,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
+
     /**
      * Opens a popup containing who won the game.
      */
