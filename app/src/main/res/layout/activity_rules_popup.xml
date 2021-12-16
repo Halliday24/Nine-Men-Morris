@@ -56,7 +56,7 @@
     <TextView
         android:id="@+id/Rules1"
         android:layout_width="match_parent"
-        android:layout_height="70px"
+        android:layout_height="90px"
         android:layout_below="@+id/Rules"
         android:layout_marginTop="10px"
         android:layout_toLeftOf="@id/RightMargin"
@@ -64,7 +64,7 @@
         android:gravity="center"
         android:text="Place all your pieces on the board and move them to form a line"
         android:textColor="@color/black"
-        android:textSize="30px">
+        android:textSize="40px">
 
     </TextView>
 
@@ -79,7 +79,7 @@
         android:gravity="center"
         android:text="Once you form a mill, you can remove one of your opponents men. Break a mill to unlock the mills again"
         android:textColor="@color/black"
-        android:textSize="30px">
+        android:textSize="40px">
 
     </TextView>
 
@@ -94,7 +94,7 @@
         android:gravity="center"
         android:text="Pieces from a formed mill can't be removed unless no other men are available"
         android:textColor="@color/black"
-        android:textSize="30px">
+        android:textSize="40px">
 
     </TextView>
 
@@ -109,20 +109,20 @@
         android:gravity="center"
         android:text="Your aim is to leave your opponent with either 2 pieces or 0 moves. GOODLUCK!"
         android:textColor="@color/black"
-        android:textSize="30px">
+        android:textSize="40px">
 
     </TextView>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30px"
+        android:layout_height="50px"
         android:layout_below="@id/Rules4"
         android:layout_marginLeft="32px"
         android:layout_marginTop="8px"
         android:layout_toRightOf="@id/LeftMargin"
         android:text="TAP ANYWHERE OUTSIDE THE POPUP SCREEN TO EXIT"
         android:textColor="@color/red"
-        android:textSize="22px">
+        android:textSize="23px">
 
     </TextView>
 

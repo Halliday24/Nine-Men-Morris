@@ -54,7 +54,7 @@
     <TextView
         android:id="@+id/Rules1"
         android:layout_width="match_parent"
-        android:layout_height="70px"
+        android:layout_height="150px"
         android:layout_below="@+id/Rules"
         android:layout_marginTop="10dp"
         android:layout_toLeftOf="@id/RightMargin"
@@ -62,7 +62,7 @@
         android:gravity="center"
         android:text="If you have any questions, feedback, or simply want to report a bug"
         android:textColor="@color/black"
-        android:textSize="30px">
+        android:textSize="40px">
 
     </TextView>
 
@@ -71,13 +71,13 @@
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:layout_below="@+id/Rules1"
-        android:layout_toRightOf="@id/LeftMargin"
-        android:layout_toLeftOf="@id/RightMargin"
         android:layout_marginTop="20px"
+        android:layout_toLeftOf="@id/RightMargin"
+        android:layout_toRightOf="@id/LeftMargin"
         android:gravity="center"
         android:text="Please do not hesitate to contact us at"
         android:textColor="@color/black"
-        android:textSize="30px">
+        android:textSize="40px">
 
     </TextView>
 
@@ -92,7 +92,7 @@
         android:gravity="center"
         android:text="GROUPSIXNINEMENMORRIS@GMAIL.COM"
         android:textColor="@color/black"
-        android:textSize="30px">
+        android:textSize="40px">
 
     </TextView>
 
@@ -105,7 +105,7 @@
         android:layout_toRightOf="@id/LeftMargin"
         android:text="TAP ANYWHERE OUTSIDE THE POPUP SCREEN TO EXIT"
         android:textColor="@color/red"
-        android:textSize="24px">
+        android:textSize="28px">
 
     </TextView>
 
