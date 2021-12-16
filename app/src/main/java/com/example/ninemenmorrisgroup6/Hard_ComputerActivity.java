@@ -332,6 +332,10 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Determines where the computer will set down a piece.
+     */
+
     private void setComputerWhere() {
         Log.i(TAG, "SetComputerWhere entered");
         int to = 0;
@@ -515,9 +519,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
             index++;
         }
     }
+
     /**
      * use random method to select one of the human pieces to remove
      */
+
     private void computerSelectCheckerRemove() {
         Random random = new Random();
         // select one index check
@@ -535,6 +541,7 @@ public class Hard_ComputerActivity extends AppCompatActivity {
     /**
      * set all of the Ai pieces id
      */
+
     private int setComputerChecker(int id) {
         switch (id) {
             case 1:
@@ -559,6 +566,7 @@ public class Hard_ComputerActivity extends AppCompatActivity {
                 return -1;
         }
     }
+
     /**
      * set all of the human pieces id
      */
@@ -588,10 +596,10 @@ public class Hard_ComputerActivity extends AppCompatActivity {
     }
 
     /**
-
      * Lets the player select a checker to remove or move
      * @param v The checker which was clicked on.
      */
+
     private void selectChecker(View v) {
         FrameLayout removePlayerFL;
         Log.i(TAG, "selectChecker Entered");

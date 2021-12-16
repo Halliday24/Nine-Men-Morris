@@ -321,6 +321,13 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         Music.backgroundMusic.start();
     }
 
+    /**
+     * Converts an int representing a position on the hashmap into a FrameLayout so that it can
+     * be used to place drawables on the game board.
+     * @param chosenSpot An int representing a spot on the hashmap.
+     * @return A FrameLayout tied to a specific hitbox.
+     */
+
     public FrameLayout convertIntegerToFrameLayout(int chosenSpot){
 
         FrameLayout temp = higBoxAreas.get(1);
@@ -338,6 +345,10 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         return temp;
 
     }
+
+    /**
+     * Determines where the computer will set down a piece.
+     */
 
     private void setComputerWhere() {
         Log.i(TAG, "SetComputerWhere entered");
