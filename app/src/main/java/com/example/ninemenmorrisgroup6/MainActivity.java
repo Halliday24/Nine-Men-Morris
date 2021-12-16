@@ -25,6 +25,8 @@ import com.example.ninemenmorrisgroup6.Helps.Music;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static Player playerOne = new HumanPlayer();
+    public static Player playerTwo = new HumanPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

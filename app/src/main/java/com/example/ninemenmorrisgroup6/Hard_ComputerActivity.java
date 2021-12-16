@@ -35,6 +35,7 @@ import com.example.ninemenmorrisgroup6.Helps.RulesComputer;
 
 
 public class Hard_ComputerActivity extends AppCompatActivity {
+
     public static Player playerOne = new HumanPlayer();
     public static Player playerTwo = new HumanPlayer();
     public static Player computer = new ComputerPlayer();
@@ -302,6 +303,13 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         Music.backgroundMusic.start();
     }
 
+    /**
+     * Converts an int representing a position on the hashmap into a FrameLayout so that it can
+     * be used to place drawables on the game board.
+     * @param chosenSpot An int representing a spot on the hashmap.
+     * @return A FrameLayout tied to a specific hitbox.
+     */
+
     public FrameLayout convertIntegerToFrameLayout(int chosenSpot){
 
         FrameLayout temp = higBoxAreas.get(1);
@@ -400,6 +408,7 @@ public class Hard_ComputerActivity extends AppCompatActivity {
      * Move the checker from the current position to a new position
      * @param turn Constant.WHITE or Constant.BLACK according to whos turn it is
      */
+
     private void moveChecker(int turn) {
 
         ImageView animChecker = null;
@@ -668,8 +677,8 @@ public class Hard_ComputerActivity extends AppCompatActivity {
     }
 
     /**
-     *
-     * @param view
+     * Opens the popup explaining the rules.
+     * @param view The button this is assigned to.
      */
 
     public void rulesPopupGame(View view) {
@@ -685,6 +694,13 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         dialog.show();
         dialog.getWindow().setLayout(700, 750);
     }
+
+    /**
+     * Sets the correct animation for the game pieces that the users chose.
+     * @param layout The layout that will be set to the correct animation.
+     * @param player The Player whose animation is being set.
+     * @return An int representative of the correct animation.
+     */
 
     public int setAnimation(int layout, Player player){
 
@@ -860,6 +876,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Takes the playerOne, playerTwo, and computer game pieces and replaces the imageview of the
+     * game pieces with the appropriate choices.
+     */
+
     public void initializeGamePieces() {
 
         Log.i(TAG, "initializaGamePieces called");
@@ -969,6 +990,10 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Updates the textViews on the gamePage with how many pieces each player has to place still.
+     */
+
     public void setHowManyPiecesRemaining(){
 
         TextView playerOnePieces = (TextView) findViewById(R.id.playerOnePiecesRemaining);
@@ -979,9 +1004,14 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Resets the game with the current settings.
+     * @param myView The button that this is assigned to.
+     */
+
     public void reset(View myView){
 
-        Intent start = new Intent (this, GamePage.class);
+        Intent start = new Intent (this, Hard_ComputerActivity.class);
 
         start.putExtra("playerOne", playerOne);
         start.putExtra("playerTwo", playerTwo);
@@ -991,6 +1021,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Sends the user back to the home page.
+     * @param myView The button that this is assigned to.
+     */
+
     public void exit(View myView){
 
         Intent home = new Intent (this, MainActivity.class);
@@ -998,6 +1033,10 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         startActivity(home);
 
     }
+
+    /**
+     * Checks to see if music is already playing when entering the game page.
+     */
 
     public void musicCheckGame(){
 
@@ -1019,6 +1058,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Mutes the sound when on the game page.
+     * @param myView The button that this is assigned to.
+     */
+
     public void muteSoundGame(View myView) {
 
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
@@ -1032,6 +1076,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         muteBtn.setVisibility(View.INVISIBLE);
         unmuteBtn.setVisibility(View.VISIBLE);
     }
+
+    /**
+     * Unmutes the sound when on the game page.
+     * @param myView The button that this is assigned to.
+     */
 
     public void unmuteSoundGame(View myView) {
 
