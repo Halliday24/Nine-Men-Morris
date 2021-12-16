@@ -407,15 +407,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.39">
 
-            <LinearLayout
-                android:id="@+id/dim_layout_game"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#70000000"
-                android:orientation="horizontal"
-                android:visibility="invisible">
-
-            </LinearLayout>
         </FrameLayout>
 
         <FrameLayout
