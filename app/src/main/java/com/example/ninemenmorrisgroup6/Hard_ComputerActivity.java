@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import com.example.ninemenmorrisgroup6.Helps.Constants;
 import com.example.ninemenmorrisgroup6.Helps.Music;
@@ -381,6 +382,7 @@ public class Hard_ComputerActivity extends AppCompatActivity {
                         // hitbox has some checker and random remove
                         computerSelectChecker(); // Still need to fix, human has to help Ai remove their pieces
                         RulesComputer.computerHardRemovalLogic();
+                        computerSelectCheckerRemove();
                     }
                 } else {
                     if (currentTurn == Constants.BLACK) {
@@ -510,6 +512,19 @@ public class Hard_ComputerActivity extends AppCompatActivity {
             index++;
         }
     }
+    private void computerSelectCheckerRemove() {
+        Random random = new Random();
+        // select one index check
+        int removeIndex = random.nextInt(index)+1;
+        // select one blackchecker id
+        int removeId = setComputerCheckerRemove(removeIndex);
+        //int blackid =  checkerPositions.get(R.id.blackChecker1);
+        Log.i("","index =" + index +"removeIndex"+removeIndex+ "removeId = " +
+                "" + removeId);
+        View v = findViewById(removeId);
+        selectChecker(v);
+        Log.i("","computerSelectCheckerRemove");
+    }
 
     private int setComputerChecker(int id) {
         switch (id) {
@@ -531,6 +546,31 @@ public class Hard_ComputerActivity extends AppCompatActivity {
                 return R.id.whiteChecker8;
             case 9:
                 return R.id.whiteChecker9;
+            default:
+                return -1;
+        }
+    }
+
+    private int setComputerCheckerRemove(int id) {
+        switch (id) {
+            case 1:
+                return R.id.blackChecker1;
+            case 2:
+                return R.id.blackChecker2;
+            case 3:
+                return R.id.blackChecker3;
+            case 4:
+                return R.id.blackChecker4;
+            case 5:
+                return R.id.blackChecker5;
+            case 6:
+                return R.id.blackChecker6;
+            case 7:
+                return R.id.blackChecker7;
+            case 8:
+                return R.id.blackChecker8;
+            case 9:
+                return R.id.blackChecker9;
             default:
                 return -1;
         }
