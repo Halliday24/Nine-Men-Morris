@@ -40,6 +40,7 @@ public class SetupPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_page);
 
+        //Change status bar to black
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -496,14 +497,16 @@ public class SetupPage extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(playerOneName.getText().toString())){
 
-                    Toast.makeText(this, "Player One needs a name!", Toast.LENGTH_SHORT).show();
+                    customToast("Player One needs a name!");
+                    //Toast.makeText(this, "Player One needs a name!", Toast.LENGTH_SHORT).show();
                     return false;
 
                 }
 
                 else if(TextUtils.isEmpty(playerTwoName.getText().toString())){
 
-                    Toast.makeText(this, "Player Two needs a name!", Toast.LENGTH_SHORT).show();
+                    customToast("Player Two needs a name!");
+                    //Toast.makeText(this, "Player Two needs a name!", Toast.LENGTH_SHORT).show();
                     return false;
 
                 }
@@ -518,7 +521,8 @@ public class SetupPage extends AppCompatActivity {
 
             else{
 
-                Toast.makeText(this, "Player One and Two need game pieces!", Toast.LENGTH_SHORT).show();
+                customToast("Player one and Two need game pieces!");
+                //Toast.makeText(this, "Player One and Two need game pieces!", Toast.LENGTH_SHORT).show();
                 return false;
 
             }
@@ -532,7 +536,8 @@ public class SetupPage extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(playerOneName.getText().toString())){
 
-                    Toast.makeText(this, "Player One needs a name!", Toast.LENGTH_SHORT).show();
+                    customToast("Player One needs a name!");
+                    //Toast.makeText(this, "Player One needs a name!", Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 else{
@@ -545,7 +550,8 @@ public class SetupPage extends AppCompatActivity {
 
             else{
 
-                Toast.makeText(this, "Player One needs game pieces!", Toast.LENGTH_SHORT).show();
+                customToast("Player One needs a game pieces!");
+                //Toast.makeText(this, "Player One needs game pieces!", Toast.LENGTH_SHORT).show();
                 return false;
 
             }
@@ -559,7 +565,8 @@ public class SetupPage extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(playerOneName.getText().toString())){
 
-                    Toast.makeText(this, "Player One needs a name!", Toast.LENGTH_SHORT).show();
+                    customToast("Player One needs a name!");
+                    //Toast.makeText(this, "Player One needs a name!", Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 else{
@@ -574,7 +581,8 @@ public class SetupPage extends AppCompatActivity {
 
             else{
 
-                Toast.makeText(this, "Player One needs game pieces!", Toast.LENGTH_SHORT).show();
+                customToast("Player One needs game pieces!");
+                //Toast.makeText(this, "Player One needs game pieces!", Toast.LENGTH_SHORT).show();
                 return false;
 
             }
@@ -583,12 +591,14 @@ public class SetupPage extends AppCompatActivity {
 
         else if(computer.getDifficulty() == 3){
 
-            Toast.makeText(this, "Select a game mode first!", Toast.LENGTH_SHORT).show();
+            customToast("Select a game mode first!");
+            //Toast.makeText(this, "Select a game mode first!", Toast.LENGTH_SHORT).show();
             return false;
 
         }
 
-        Toast.makeText(this, "Something went wrong, please try again!", Toast.LENGTH_SHORT).show();
+        customToast("Something went wrong, please try again!");
+        //Toast.makeText(this, "Something went wrong, please try again!", Toast.LENGTH_SHORT).show();
         return false;
     }
 
@@ -658,13 +668,15 @@ public class SetupPage extends AppCompatActivity {
 
         if(computer.getDifficulty() == 3){
 
-            Toast.makeText(this, "Select a Game mode first", Toast.LENGTH_SHORT).show();
+            customToast("Select a Game mode first!");
+            //Toast.makeText(this, "Select a Game mode first", Toast.LENGTH_SHORT).show();
 
         }
 
         if (computer.getDifficulty() == 1 | computer.getDifficulty() == 2){
 
-            Toast.makeText(this, "You are playing against the computer!", Toast.LENGTH_SHORT).show();
+            customToast("You are playing against the computer!");
+            //Toast.makeText(this, "You are playing against the computer!", Toast.LENGTH_SHORT).show();
 
         }
 
@@ -704,7 +716,9 @@ public class SetupPage extends AppCompatActivity {
 
         if(id == R.id.menu_circle) {
 
-            Toast.makeText(this, "You picked a Circle!", Toast.LENGTH_SHORT).show();
+            customToast("You picked a Circle!");
+            //Toast.makeText(this, "You picked a Circle!", Toast.LENGTH_SHORT).show();
+
             //Gives the user the piece they selected with the same colour as before.
             playerOnePreserveColourChoice("CIRCLE");
 
@@ -714,7 +728,9 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_diamond) {
 
-            Toast.makeText(this, "You picked a Diamond!", Toast.LENGTH_SHORT).show();
+            customToast("You picked a Diamond!");
+            //Toast.makeText(this, "You picked a Diamond!", Toast.LENGTH_SHORT).show();
+
             //Gives the user the piece they selected with the same colour as before.
             playerOnePreserveColourChoice("DIAMOND");
 
@@ -724,7 +740,9 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_square) {
 
-            Toast.makeText(this, "You picked a Square!", Toast.LENGTH_SHORT).show();
+            customToast("You picked a Square!");
+            //Toast.makeText(this, "You picked a Square!", Toast.LENGTH_SHORT).show();
+
             //Gives the user the piece they selected with the same colour as before.
             playerOnePreserveColourChoice("SQUARE");
 
@@ -744,7 +762,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_blank) { //Sets the users colour to "EMPTY" and their piece to blank.
 
-            Toast.makeText(this, "You have made no choice!", Toast.LENGTH_SHORT).show();
+            customToast("You have made no choice!");
+            //Toast.makeText(this, "You have made no choice!", Toast.LENGTH_SHORT).show();
             ImageView blank = (ImageView) findViewById(R.id.playerOneImage);
             blank.setImageResource(R.drawable.blank);
             playerOne.setPlayerGamePiece(R.drawable.blank);
@@ -803,7 +822,8 @@ public class SetupPage extends AppCompatActivity {
 
         if(id == R.id.menu_red) {
 
-            Toast.makeText(this, "You picked red!", Toast.LENGTH_SHORT).show();
+            customToast("You picked red!");
+            //Toast.makeText(this, "You picked red!", Toast.LENGTH_SHORT).show();
             ImageView red = (ImageView) findViewById(R.id.playerOneImage);
             red.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "RED"));
             return true;
@@ -812,7 +832,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_blue) {
 
-            Toast.makeText(this, "You picked blue!", Toast.LENGTH_SHORT).show();
+            customToast("You picked blue!");
+            //Toast.makeText(this, "You picked blue!", Toast.LENGTH_SHORT).show();
             ImageView blue = (ImageView) findViewById(R.id.playerOneImage);
             blue.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "BLUE"));
             return true;
@@ -821,7 +842,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_green) {
 
-            Toast.makeText(this, "You picked green!", Toast.LENGTH_SHORT).show();
+            customToast("You picked green!");
+            //Toast.makeText(this, "You picked green!", Toast.LENGTH_SHORT).show();
             ImageView green = (ImageView) findViewById(R.id.playerOneImage);
             green.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "GREEN"));
             return true;
@@ -830,7 +852,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_yellow) {
 
-            Toast.makeText(this, "You picked yellow!", Toast.LENGTH_SHORT).show();
+            customToast("You picked yellow!");
+            //Toast.makeText(this, "You picked yellow!", Toast.LENGTH_SHORT).show();
             ImageView yellow = (ImageView) findViewById(R.id.playerOneImage);
             yellow.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "YELLOW"));
             return true;
@@ -839,7 +862,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_black) {
 
-            Toast.makeText(this, "You picked black!", Toast.LENGTH_SHORT).show();
+            customToast("You picked black!");
+            //Toast.makeText(this, "You picked black!", Toast.LENGTH_SHORT).show();
             ImageView black = (ImageView) findViewById(R.id.playerOneImage);
             black.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "BLACK"));
             return true;
@@ -848,7 +872,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_white) {
 
-            Toast.makeText(this, "You picked white!", Toast.LENGTH_SHORT).show();
+            customToast("You picked white!");
+            //Toast.makeText(this, "You picked white!", Toast.LENGTH_SHORT).show();
             ImageView noColour = (ImageView) findViewById(R.id.playerOneImage);
             noColour.setImageResource(setColourPlayerOne(playerOne.getPlayerGamePiece(), "WHITE"));
             return true;
@@ -1601,7 +1626,9 @@ public class SetupPage extends AppCompatActivity {
 
         if(id == R.id.menu_circle) {
 
-            Toast.makeText(this, "You picked a Circle!", Toast.LENGTH_SHORT).show();
+            customToast("You picked a Circle!");
+            //Toast.makeText(this, "You picked a Circle!", Toast.LENGTH_SHORT).show();
+
             //Gives the user the piece they selected with the same colour as before.
             playerTwoPreserveColourChoice("CIRCLE");
 
@@ -1611,7 +1638,9 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_diamond) {
 
-            Toast.makeText(this, "You picked a Diamond!", Toast.LENGTH_SHORT).show();
+            customToast("You picked a Diamond!");
+            //Toast.makeText(this, "You picked a Diamond!", Toast.LENGTH_SHORT).show();
+
             //Gives the user the piece they selected with the same colour as before.
             playerTwoPreserveColourChoice("DIAMOND");
 
@@ -1621,7 +1650,9 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_square) {
 
-            Toast.makeText(this, "You picked a Square!", Toast.LENGTH_SHORT).show();
+            customToast("You picked a square!");
+            //Toast.makeText(this, "You picked a Square!", Toast.LENGTH_SHORT).show();
+
             //Gives the user the piece they selected with the same colour as before.
             playerTwoPreserveColourChoice("SQUARE");
 
@@ -1631,7 +1662,9 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_star) {
 
-            Toast.makeText(this, "You picked a Star!", Toast.LENGTH_SHORT).show();
+            customToast("You picked a Star!");
+            //Toast.makeText(this, "You picked a Star!", Toast.LENGTH_SHORT).show();
+
             //Gives the user the piece they selected with the same colour as before.
             playerTwoPreserveColourChoice("STAR");
 
@@ -1641,7 +1674,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_blank) { //Sets the users colour to "EMPTY" and their piece to blank.
 
-            Toast.makeText(this, "You have made no choice!", Toast.LENGTH_SHORT).show();
+            customToast("You have made no choice!");
+            //Toast.makeText(this, "You have made no choice!", Toast.LENGTH_SHORT).show();
             ImageView blank = (ImageView) findViewById(R.id.playerTwoImage);
             blank.setImageResource(R.drawable.blank);
             playerTwo.setPlayerGamePiece(R.drawable.blank);
@@ -1668,7 +1702,8 @@ public class SetupPage extends AppCompatActivity {
         //Players must select a game piece before selecting a colour.
         if(playerTwo.getPlayerGamePiece() == R.drawable.blank){
 
-            Toast.makeText(this, "Pick a game piece before selecting a colour!", Toast.LENGTH_SHORT).show();
+            customToast("Pick a game piece before selecting a colour!");
+            //Toast.makeText(this, "Pick a game piece before selecting a colour!", Toast.LENGTH_SHORT).show();
 
         }
         else {
@@ -1698,7 +1733,8 @@ public class SetupPage extends AppCompatActivity {
 
         if(id == R.id.menu_red) {
 
-            Toast.makeText(this, "You picked red!", Toast.LENGTH_SHORT).show();
+            customToast("You picked red!");
+            //Toast.makeText(this, "You picked red!", Toast.LENGTH_SHORT).show();
             ImageView red = (ImageView) findViewById(R.id.playerTwoImage);
             red.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "RED"));
             return true;
@@ -1707,7 +1743,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_blue) {
 
-            Toast.makeText(this, "You picked blue!", Toast.LENGTH_SHORT).show();
+            customToast("You picked blue!");
+            //Toast.makeText(this, "You picked blue!", Toast.LENGTH_SHORT).show();
             ImageView blue = (ImageView) findViewById(R.id.playerTwoImage);
             blue.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "BLUE"));
             return true;
@@ -1716,7 +1753,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_green) {
 
-            Toast.makeText(this, "You picked green!", Toast.LENGTH_SHORT).show();
+            customToast("You picked green!");
+            //Toast.makeText(this, "You picked green!", Toast.LENGTH_SHORT).show();
             ImageView green = (ImageView) findViewById(R.id.playerTwoImage);
             green.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "GREEN"));
             return true;
@@ -1725,7 +1763,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_yellow) {
 
-            Toast.makeText(this, "You picked yellow!", Toast.LENGTH_SHORT).show();
+            customToast("You picked yellow!");
+            //Toast.makeText(this, "You picked yellow!", Toast.LENGTH_SHORT).show();
             ImageView yellow = (ImageView) findViewById(R.id.playerTwoImage);
             yellow.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "YELLOW"));
             return true;
@@ -1734,7 +1773,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_black) {
 
-            Toast.makeText(this, "You picked black!", Toast.LENGTH_SHORT).show();
+            customToast("You picked black!");
+            //Toast.makeText(this, "You picked black!", Toast.LENGTH_SHORT).show();
             ImageView black = (ImageView) findViewById(R.id.playerTwoImage);
             black.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "BLACK"));
             return true;
@@ -1743,7 +1783,8 @@ public class SetupPage extends AppCompatActivity {
 
         else if(id == R.id.menu_white) {
 
-            Toast.makeText(this, "You picked white!", Toast.LENGTH_SHORT).show();
+            customToast("You picked white!");
+            //Toast.makeText(this, "You picked white!", Toast.LENGTH_SHORT).show();
             ImageView noColour = (ImageView) findViewById(R.id.playerTwoImage);
             noColour.setImageResource(setColourPlayerTwo(playerTwo.getPlayerGamePiece(), "WHITE"));
             return true;

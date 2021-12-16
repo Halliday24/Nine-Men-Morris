@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         int musicCheck = 1;
 
+        //Change status bar to black
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);

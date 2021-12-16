@@ -77,6 +77,7 @@ public class GamePage extends AppCompatActivity {
             Log.i(TAG, "Creating activity");
             setContentView(R.layout.activity_game_page);
 
+            //Change status bar to black
             if (Build.VERSION.SDK_INT >= 21) {
                 Window window = this.getWindow();
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);

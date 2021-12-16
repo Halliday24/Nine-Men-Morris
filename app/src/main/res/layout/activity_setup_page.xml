@@ -118,7 +118,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.122"
-        app:srcCompat="@drawable/playvshumanbutton" />
+        app:srcCompat="@drawable/playvshumanbutton2" />
 
     <ImageButton
         android:id="@+id/pvpButtonGrey"
@@ -149,7 +149,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.217"
-        app:srcCompat="@drawable/playvseasycomputerbutton" />
+        app:srcCompat="@drawable/playvseasycomputerbutton2" />
 
     <ImageButton
         android:id="@+id/easyComputerButtonGrey"
@@ -180,7 +180,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.311"
-        app:srcCompat="@drawable/playvshardcomputerbutton" />
+        app:srcCompat="@drawable/playvshardcomputerbutton2" />
 
     <ImageButton
         android:id="@+id/hardComputerButtonGrey"
