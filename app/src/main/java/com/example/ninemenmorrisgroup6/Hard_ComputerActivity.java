@@ -313,23 +313,25 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     private void setComputerWhere() {
         Log.i(TAG, "SetComputerWhere entered");
-        int to1;
+        int to = 0;
         for (FrameLayout v : higBoxAreas) {
-            to1 = RulesComputer.computerHardLogic();
-            if (rules.playingfield[to1] == RulesComputer.EMPTY_FIELD /*need more logic on hard_mode */){ //computer move to the empty field
-                Log.i(TAG, "to1 - " + rules.playingfield[to1]);
-                areaToMoveTo = convertIntegerToFrameLayout(to1);
+            Log.i(TAG, "FrameLayout for loop entered");
+            to = RulesComputer.computerHardLogic();
+            if (rules.playingfield[to] == RulesComputer.EMPTY_FIELD /*need more logic on hard_mode */){ //computer move to the empty field
+                Log.i(TAG, "to1 - " + rules.playingfield[to]);
+                areaToMoveTo = convertIntegerToFrameLayout(to);
                 Log.i(TAG, "v - " + Integer.parseInt((String) v.getContentDescription()));
                 break;
             }
         }
         if (hasSelectedChecker) {
+            Log.i(TAG, "hasSelectedChecker entered.");
             Log.i(TAG, "Area clicked");
             int currentTurn = rules.getTurn();
             //areaToMoveTo = (FrameLayout) v;
 
             //What areas are we moving from and to?
-            int to = RulesComputer.computerHardLogic();
+            //int to = to1;
             int from = checkerPositions.get(selectedChecker);
             //Try to move the checker
             if (rules.validMove(from, to)) { // This line will change turn
@@ -661,6 +663,7 @@ public class Hard_ComputerActivity extends AppCompatActivity {
      * @param v The checker which was clicked on.
      */
     private void selectChecker(View v) {
+        FrameLayout removePlayerFL;
         Log.i(TAG, "selectChecker Entered");
         //Is it a remove click=
         Log.i("","selectChecker removeNextChecker = " + removeNextChecker + checkerPositions.get(v)+""+rules.playingfield[checkerPositions.get(v)]);
@@ -691,11 +694,14 @@ public class Hard_ComputerActivity extends AppCompatActivity {
             else if(rules.getTurn() == Constants.COMPUTER && rules.remove(1, Constants.COMPUTER)) {
                 //Unmark all options and remove the selected checker
                 Log.i("","else turn == computer");
+                int removePlayer = 0;
+                removePlayer = RulesComputer.computerEasyRemovalLogic();
+                removePlayerFL = convertIntegerToFrameLayout(removePlayer);
                 unMarkAllFields();
-                whiteCheckers.remove(v);
+                whiteCheckers.remove(removePlayerFL);
                 removeNextChecker = false;
-                ViewGroup parent = ((ViewGroup)v.getParent());
-                parent.removeView(v);
+                ViewGroup parent = ((ViewGroup)removePlayerFL.getParent());
+                parent.removeView(removePlayerFL);
                 playerTurn.setText("Computer turn");
 
                 //Did someone win?

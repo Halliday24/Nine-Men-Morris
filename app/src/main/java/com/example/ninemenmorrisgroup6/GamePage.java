@@ -198,7 +198,7 @@ public class GamePage extends AppCompatActivity {
 
                     @Override
                     public void onClick(View v) {
-
+                        Log.i(TAG, "Entering onClick");
                         //If we have a selected checker, try to move it
                         if (hasSelectedChecker) {
                             Log.i(TAG, "Area clicked");
@@ -228,7 +228,7 @@ public class GamePage extends AppCompatActivity {
                                 checkerPositions.put((ImageView) selectedChecker, Integer.parseInt((String) areaToMoveTo.getContentDescription()));
 
                                 //Did the move create a row of 3?
-                                removeNextChecker = rules.canRemove(to);
+                                //removeNextChecker = rules.canRemove(to);
 
                                 //Update the turn text
                                 if (removeNextChecker) {
@@ -270,7 +270,11 @@ public class GamePage extends AppCompatActivity {
                                 }
                             }
                         }
+                        Log.i(TAG,"view - " + v.getContentDescription());
+                        Log.i(TAG, "Leaving onClick");
+
                     }
+
                 });
             }
 
@@ -572,6 +576,7 @@ public class GamePage extends AppCompatActivity {
      */
 
     private void selectChecker(View v) {
+        Log.i(TAG,"selectChecker Entered");
         ImageView playerOnePieceHighlight = (ImageView) findViewById(R.id.playerOnePieceHighlight);
         ImageView playerTwoPieceHighlight = (ImageView) findViewById(R.id.playerTwoPieceHighlight);
 
@@ -579,6 +584,7 @@ public class GamePage extends AppCompatActivity {
         if (removeNextChecker) {
             //Is it a valid remove click?
             if (rules.getTurn() == Constants.BLACK && rules.remove(checkerPositions.get(v), Constants.BLACK)) {
+                Log.i(TAG,"Line 571 was true");
                 //Unamrk all options and remove the selected checker
 
                 unMarkAllFields();

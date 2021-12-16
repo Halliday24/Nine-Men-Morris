@@ -356,7 +356,7 @@ public class Rules {
     public boolean removeFromMill(int token, int player) {
 
         Log.i(TAG, "Token - " + token);
-        Log.i(TAG, "Colour - " + player);
+        Log.i(TAG, "Player - " + player);
 
         if (partOfMill(token) == true) {
 

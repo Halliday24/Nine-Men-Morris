@@ -710,6 +710,7 @@ public class RulesComputer {
 
         if(createComputerMillSpots.size() > 0){ //if there were spots to create a computer mill
 
+            Log.i(TAG, "createComputerMillSpots entered");
             index = random.nextInt(createComputerMillSpots.size()); //choose a random spot to build a mill
             computerMove = createComputerMillSpots.get(index);
             Log.i(TAG, "Computer found a spot to form a mill at - " + computerMove);
@@ -929,6 +930,7 @@ public class RulesComputer {
 
         if(blockPlayerMillSpots.size() > 0){ //if there were spots to block a player mill from being formed
 
+            Log.i(TAG, "blockPlayerMillSpots entered");
             index = index = random.nextInt(blockPlayerMillSpots.size()); //choose a random spot to block the mill
             computerMove = blockPlayerMillSpots.get(index);
             Log.i(TAG, "Computer found a spot to block a mill at - " + computerMove);
@@ -1196,6 +1198,7 @@ public class RulesComputer {
 
         if(buildMillSpots.size() > 0){ //if there is a computer piece that it can continue to build on
 
+            Log.i(TAG, "buildMillSpots entered");
             index = index = random.nextInt(buildMillSpots.size()); //choose a random spot keep building
             computerMove = buildMillSpots.get(index);
             Log.i(TAG, "Computer found a spot to continue building a mill at - " + computerMove);
@@ -1215,7 +1218,7 @@ public class RulesComputer {
                 }
             }
         }
-
+        Log.i(TAG, "randomSpot entered");
         index = random.nextInt(randomSpot.size());
         computerMove = randomSpot.get(index);
         Log.i(TAG, "Computer found a random spot to place a piece at - " + computerMove);

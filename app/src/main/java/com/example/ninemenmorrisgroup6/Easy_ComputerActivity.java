@@ -1,5 +1,7 @@
 package com.example.ninemenmorrisgroup6;
 
+import static com.example.ninemenmorrisgroup6.Helps.RulesComputer.playingfield;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -193,7 +195,9 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (rules.getTurn() == Constants.BLACK && !isWin) {
+                        Log.i(TAG, "190");
                         selectChecker(v);
+                        Log.i(TAG, "192");
                     }
                 }
             });
@@ -211,7 +215,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                         Log.i(TAG, "Area clicked");
                         int currentTurn = rules.getTurn();
                         areaToMoveTo = (FrameLayout) v;
-
+                        setHowManyPiecesRemaining();
                         //What areas are we moving from and to?
                         int to = Integer.parseInt((String) areaToMoveTo.getContentDescription());
                         int from = checkerPositions.get(selectedChecker);
@@ -236,14 +240,16 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                             //checkerPositions.get(R.id.whiteChecker1);
 
                             //Did the move create a row of 3?
-                            removeNextChecker = rules.canRemove(to);
+                            //removeNextChecker = rules.canRemove(to);
 
                             //Update the turn text
                             if (removeNextChecker) {
                                 if (currentTurn == Constants.BLACK) {
-                                    playerTurn.setText(computer.getPlayerName() + " can remove one of " + playerOne.getPlayerName() + "'s pieces");
-                                } else {
+                                    Log.i(TAG,"Line 238");
                                     playerTurn.setText(playerOne.getPlayerName() + " can remove one of " + computer.getPlayerName() + "'s pieces");
+
+                                } else {
+                                    playerTurn.setText(computer.getPlayerName() + " can remove one of " + playerOne.getPlayerName() + "'s pieces");
                                 }
                             } else {
                                 if (currentTurn == Constants.BLACK) {
@@ -264,14 +270,25 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                                 }
 
                             }
+                            Log.i(TAG,"Before Comp Check rules.getTurn() - " + rules.getTurn());
                             // computer go on after human place piece
-                            if (rules.getTurn() == Constants.COMPUTER && !isWin) {
+                            if (rules.getTurn() == Constants.COMPUTER && !isWin && !removeNextChecker) {
                                 Log.i("","computerSelectChecker");
                                 computerSelectChecker();
+                                Log.i(TAG,"Line 265");
                                 setComputerWhere();
+                            }
+                            else{
+
+                                rules.setTurn(1);
+
                             }
                         }
                     }
+                    Log.i(TAG,"View - " + checkerPositions.get(v));
+                    Log.i(TAG,"After comp check rules.getTurn() - " + rules.getTurn());
+                    Log.i(TAG,"removeNextChecker - " + removeNextChecker);
+                    Log.i(TAG,"leaving onClick");
                 }
             });
         }
@@ -312,23 +329,24 @@ public class Easy_ComputerActivity extends AppCompatActivity {
 
     private void setComputerWhere() {
         Log.i(TAG, "SetComputerWhere entered");
-        int to1;
-        for (FrameLayout v : higBoxAreas) {
-            to1 = RulesComputer.computerEasyLogic();
-            if (rules.playingfield[to1] == RulesComputer.EMPTY_FIELD /*need more logic on hard_mode */){ //computer move to the empty field
-                Log.i(TAG, "to1 - " + rules.playingfield[to1]);
-                areaToMoveTo = convertIntegerToFrameLayout(to1);
-                Log.i(TAG, "v - " + Integer.parseInt((String) v.getContentDescription()));
-                break;
+
+        int to = 0;
+
+            Log.i(TAG, "FrameLayout for loop entered");
+            to = RulesComputer.computerEasyLogic();
+            if (playingfield[to] == RulesComputer.EMPTY_FIELD /*need more logic on hard_mode */){ //computer move to the empty field
+                Log.i(TAG, "to1 - " + playingfield[to]);
+                areaToMoveTo = convertIntegerToFrameLayout(to);
+                //Log.i(TAG, "v - " + Integer.parseInt((String) v.getContentDescription()));
+
             }
-        }
+
         if (hasSelectedChecker) {
             Log.i(TAG, "Area clicked");
             int currentTurn = rules.getTurn();
             //areaToMoveTo = (FrameLayout) v;
 
             //What areas are we moving from and to?
-            int to = RulesComputer.computerEasyLogic();
             int from = checkerPositions.get(selectedChecker);
             //Try to move the checker
             if (rules.validMove(from, to)) { // This line will change turn
@@ -366,7 +384,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                     if (currentTurn == Constants.BLACK) {
                         playerTurn.setText("Computer turn");
                     } else {
-                        playerTurn.setText("It is " + playerTwo.getPlayerName() + "'s turn");
+                        playerTurn.setText("It is " + playerOne.getPlayerName() + "'s turn");
                     }
                 }
                 //Did someone win?
@@ -382,6 +400,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                 }
             }
         }
+        //showHashmap();
     }
 
  //Still missing the logic about remove which human pieces
@@ -654,26 +673,42 @@ public class Easy_ComputerActivity extends AppCompatActivity {
         }
     }
 
+    public void showHashmap(){
+
+        for(int i = 0; i < 24; i++){
+
+            Log.i(TAG, "HashMap spot " + (i+1) + " is - " + playingfield[i+1]);
+
+        }
+
+    }
     /**
 
      * Lets the player select a checker to remove or move
      * @param v The checker which was clicked on.
      */
-    private void selectChecker(View v) {
+    public void selectChecker(View v) {
+
+        FrameLayout removePlayerFL;
         Log.i(TAG, "selectChecker Entered");
         //Is it a remove click=
-        Log.i("","selectChecker removeNextChecker = " + removeNextChecker + checkerPositions.get(v)+""+rules.playingfield[checkerPositions.get(v)]);
+        Log.i(TAG,"selectChecker removeNextChecker = " + removeNextChecker +" " +  checkerPositions.get(v)+" "+ playingfield[checkerPositions.get(v)]);
+        showHashmap();
+        Log.i(TAG,"view - " + checkerPositions.get(v));
+
         if (removeNextChecker) {
             //Is it a valid remove click?
-            if(rules.getTurn() == Constants.BLACK && !rules.canRemove(checkerPositions.get(v))) {
-                //Unamrk all options and remove the selected checker
+            if(rules.getTurn() == Constants.BLACK && rules.remove(checkerPositions.get(v), Constants.BLACK)) {
+                Log.i(TAG,"rules.getTurn() == Constants.Black == true");
+            //if(rules.getTurn() == Constants.BLACK && !rules.canRemove(checkerPositions.get(v))) {
+                //Unmark all options and remove the selected checker
 
                 unMarkAllFields();
                 blackCheckers.remove(v);
                 removeNextChecker = false;
                 ViewGroup parent = ((ViewGroup)v.getParent());
                 parent.removeView(v);
-                playerTurn.setText("Black turn");
+                playerTurn.setText("Computer turn");
 
                 //Did someone win?
                 isWin = rules.isItAWin(Constants.BLACK);
@@ -684,14 +719,18 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                 if (rules.getTurn() == Constants.COMPUTER && !isWin) {
                     Log.i("","computerSelectChecker");
                     computerSelectChecker();
+                    Log.i(TAG,"line 720");
                     setComputerWhere();
                 }
             }
             else if(rules.getTurn() == Constants.COMPUTER && rules.remove(1, Constants.COMPUTER)) {
                 //Unmark all options and remove the selected checker
                 Log.i("","else turn == computer");
+                int removePlayer = 0;
+                removePlayer = RulesComputer.computerEasyRemovalLogic();
+                removePlayerFL = convertIntegerToFrameLayout(removePlayer);
                 unMarkAllFields();
-                whiteCheckers.remove(v);
+                whiteCheckers.remove(removePlayerFL);
                 removeNextChecker = false;
                 ViewGroup parent = ((ViewGroup)v.getParent());
                 parent.removeView(v);
