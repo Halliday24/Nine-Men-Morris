@@ -1,5 +1,8 @@
 package com.example.ninemenmorrisgroup6;
 
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -732,7 +735,7 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
 
         dialog.show();
-        dialog.getWindow().setLayout(700, 750);
+        dialog.getWindow().setLayout(MATCH_PARENT, WRAP_CONTENT);
     }
 
     /**

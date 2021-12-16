@@ -1,5 +1,7 @@
 package com.example.ninemenmorrisgroup6;
 
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import static com.example.ninemenmorrisgroup6.Helps.RulesComputer.playingfield;
 
 import android.app.Dialog;
@@ -721,7 +723,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
 
 
         dialog.show();
-        dialog.getWindow().setLayout(700, 750);
+        dialog.getWindow().setLayout(MATCH_PARENT, WRAP_CONTENT);
     }
 
     /**

@@ -43,6 +43,7 @@
         android:id="@+id/Rules"
         android:layout_width="match_parent"
         android:layout_height="58px"
+        android:layout_marginTop="10px"
         android:gravity="center"
         android:text="FEEDBACK"
         android:textColor="@color/black"
@@ -99,12 +100,12 @@
         android:layout_width="match_parent"
         android:layout_height="30px"
         android:layout_below="@id/Rules3"
-        android:layout_toRightOf="@id/LeftMargin"
-        android:textColor="@color/red"
-        android:textSize="24px"
-        android:layout_marginTop="8px"
         android:layout_marginLeft="50px"
-        android:text="TAP ANYWHERE OUTSIDE THE POPUP SCREEN TO EXIT">
+        android:layout_marginTop="10px"
+        android:layout_toRightOf="@id/LeftMargin"
+        android:text="TAP ANYWHERE OUTSIDE THE POPUP SCREEN TO EXIT"
+        android:textColor="@color/red"
+        android:textSize="24px">
 
     </TextView>
 

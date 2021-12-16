@@ -1,5 +1,8 @@
 package com.example.ninemenmorrisgroup6;
 
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -83,7 +86,7 @@ public class SetupPage extends AppCompatActivity {
 
 
         dialog.show();
-        dialog.getWindow().setLayout(700, 1000);
+        dialog.getWindow().setLayout(MATCH_PARENT, WRAP_CONTENT);
     }
 
     /**
@@ -2492,7 +2495,7 @@ public class SetupPage extends AppCompatActivity {
 
 
         dialog.show();
-        dialog.getWindow().setLayout(700, 1000);
+        dialog.getWindow().setLayout(MATCH_PARENT, WRAP_CONTENT);
     }
 
     //#############################################################################################
