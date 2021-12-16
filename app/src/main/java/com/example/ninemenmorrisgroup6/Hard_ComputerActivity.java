@@ -1,5 +1,6 @@
 package com.example.ninemenmorrisgroup6;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -796,32 +797,16 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     public void rulesPopupGame(View view) {
 
-        // inflate the layout of the popup window
-        LayoutInflater inflater = (LayoutInflater)
-                getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.activity_rules_popup, null);
+        final Dialog dialog = new Dialog(this);
 
-        // create the popup window
-        int width = 1000;
-        int height = 1500;
-        boolean focusable = false; // lets taps outside the popup also dismiss it
-        //LinearLayout dim_layout = (LinearLayout) findViewById(R.id.dim_layout_game);
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-        //dim_layout.setVisibility(View.VISIBLE);
+        dialog.setContentView(R.layout.activity_rules_popup);
+        dialog.setTitle("Dialog box");
 
-        // show the popup window
-        // which view you pass in doesn't matter, it is only used for the window tolken
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+        dialog.setCanceledOnTouchOutside(true);
 
-        // dismiss the popup window when touched
-        popupView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                popupWindow.dismiss();
-                //dim_layout.setVisibility(View.INVISIBLE);
-                return true;
-            }
-        });
+
+        dialog.show();
+        dialog.getWindow().setLayout(700, 750);
     }
 
     public int setAnimation(int layout, Player player){
