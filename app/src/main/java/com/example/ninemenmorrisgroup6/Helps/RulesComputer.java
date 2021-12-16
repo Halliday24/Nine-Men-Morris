@@ -35,6 +35,11 @@ public class RulesComputer {
 
     public final static int EMPTY_FIELD = 0;
 
+    /**
+     * Sets up the initial settings for the game. The playing field, 9 pieces for each player, and
+     * white starts first.
+     */
+
     public RulesComputer() {
         playingfield = new int[25];
         blackMarkers = 9;
@@ -48,6 +53,7 @@ public class RulesComputer {
      * @param to The position to move to.
      * @return True if the move was successful, else false is returned.
      */
+
     public boolean validMove(int from, int to) {
         Log.i(TAG, "Trying to move : " + from + " - " + to);
         Log.i(TAG, "White markers in sideboard: " + whiteMarkers);
@@ -97,6 +103,7 @@ public class RulesComputer {
      * @param to The area the checker wants to go.
      * @return True if it's a valid move, else false is returned.
      */
+
     public boolean isValidMove(int from, int to) {
         //The "to"-field needs to be empty
         if(playingfield[to] != EMPTY_FIELD)  {
@@ -172,6 +179,7 @@ public class RulesComputer {
      * @param partOfLine The position of the checker.
      * @return True if the checker is part of a line, else return false.
      */
+
     public boolean canRemove(int partOfLine) {
         // Check if the argument is part of a line on the board
         if(playingfield[partOfLine] == EMPTY_FIELD) {
@@ -386,6 +394,7 @@ public class RulesComputer {
      * @param color The color the checker should be if the remove is valid.
      * @return True if the removal was successful, else false is returned.
      */
+
     public boolean remove(int from, int color) {
         if (playingfield[from] == color) {
             playingfield[from] = EMPTY_FIELD;
@@ -399,6 +408,7 @@ public class RulesComputer {
      * @param color The color which may have lost.
      * @return True if color has lost, else false is returned.
      */
+
     public boolean isItAWin(int color) {
         //A player can't win if it is checker left on the sideboard.
         if(whiteMarkers > 0 || blackMarkers > 0) {
@@ -420,6 +430,12 @@ public class RulesComputer {
         return (count < 3);
     }
 
+    /**
+     * Checks to see if the player still has valid move they could make
+     * @param color The player who is being checked.
+     * @return True if there are valid moves remaining, false otherwise
+     */
+
     private boolean hasValidMoves(int color) {
         for(int i = 0; i < 24; i++) {
             if(playingfield[i+1] == color) {
@@ -437,10 +453,11 @@ public class RulesComputer {
     }
 
     /**
-     *
-     * @param color The color which may be in the flying phase.
+     * Checks to see if the player is in the Flying phase of the game
+     * @param color The player which may be in the flying phase.
      * @return True if it has exactly 3 checkers left, else return false.
      */
+
     private boolean isItFlyingPhase(int color) {
         int count = 0;
         for(int i : playingfield) {
@@ -452,25 +469,48 @@ public class RulesComputer {
     }
 
     /**
-     *
+     * Checks to see who has placed a piece down on the given spot of the hashmap.
      * @param field The field to be checked.
      * @return The color the checker on a field is.
      */
+
     public int fieldColor(int field) {
+
         return playingfield[field];
+
     }
 
     /**
-     *
-     * @return The player whos turn it is.
+     * Puts out whose turn it is.
+     * @return The player whose turn it is.
      */
+
     public int getTurn() {
+
         return turn;
+
     }
 
+    /**
+     * Sets the turn to the given input.
+     * @param turn The turn to be set.
+     */
+
     public void setTurn(int turn) {
+
         this.turn = turn;
+
     }
+
+    /**
+     * Contains the logic for the hard computer placing pieces down on the board; Looks for spots in
+     * this order: 1 mills to create, 2 player mills to block, 3 potential mills to build,
+     * 4 just places a random piece; Will collect all available spots for each tier, but if an
+     * early tier has spots then will return a random choice from those spots and will not
+     * continue to look for spots in lower tiers.
+     * @return The spot it decided to place a piece as an int representing its position on the
+     * hashmap randomly selected from all equal potential spots.
+     */
 
     public static int computerHardLogic(){
 
@@ -1226,6 +1266,17 @@ public class RulesComputer {
 
     }
 
+    /**
+     * Contains the logic for the hard computer deciding which pieces it would like to remove; Looks
+     * for spots in this order: 1 Checks to see if all the players pieces are in mills, if they are
+     * it selects a random piece from those mills, 2 Looks for places to block player mills, 3
+     * removes a random piece not in a mill; Will collect all available spots for each tier, but if
+     * an early tier has spots then will return a random choice from those spots and will not
+     * continue to look for spots in lower tiers.
+     * @return The spot it decided to remove a piece as an int representing its position on the
+     * hashmap randomly selected from all equal potential spots.
+     */
+
     public static int computerHardRemovalLogic(){
 
         String TAG = "RulesComputer";
@@ -1740,6 +1791,13 @@ public class RulesComputer {
         }
     }
 
+    /**
+     * Contains the logic for the easy computer placing pieces down on the board; Looks through
+     * the entire hashmap for empty spots then randomly selects one of those spots.
+     * @return The spot it decided to place a piece down as an int representing it's position
+     * on the hashmap randomly selected from all equal potential spots.
+     */
+
     public static int computerEasyLogic(){
 
         String TAG = "RulesComputer";
@@ -1771,6 +1829,17 @@ public class RulesComputer {
         return computerMove;
 
     }
+
+    /**
+     * Contains the logic for the easy computer deciding which pieces it would like to remove;
+     * Looks for spots in this order: 1 Checks to see if all the player pieces are in mills, if
+     * they are it selects a random piece from those mills, 2 looks for a random player piece on
+     * the board, checks to see if its in a mill and if it's not adds it to the arraylist of
+     * potential spots to remove; Will collect all available spots on the board then will
+     * randomly select a spot from them.
+     * @return The spot it decided to place a piece down as an int representing it's position
+     * on the hashmap randomly selected from all equal potential spots.
+     */
 
     public static int computerEasyRemovalLogic(){
 

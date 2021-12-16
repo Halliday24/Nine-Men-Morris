@@ -36,6 +36,7 @@ import com.example.ninemenmorrisgroup6.Helps.RulesComputer;
 
 
 public class Hard_ComputerActivity extends AppCompatActivity {
+
     public static Player playerOne = new HumanPlayer();
     public static Player playerTwo = new HumanPlayer();
     public static Player computer = new ComputerPlayer();
@@ -281,6 +282,10 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Pauses the music when the app is minimized.
+     */
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -288,12 +293,23 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         Music.backgroundMusic.pause();// pause music
     }
 
+    /**
+     * Restarts the music when the app is opened back up.
+     */
+
     @Override
     protected void onResume() {
         super.onResume();
         startService(new Intent(Hard_ComputerActivity.this, Hard_ComputerActivity.class));
         Music.backgroundMusic.start();
     }
+
+    /**
+     * Converts an int representing a position on the hashmap into a FrameLayout so that it can
+     * be used to place drawables on the game board.
+     * @param chosenSpot An int representing a spot on the hashmap.
+     * @return A FrameLayout tied to a specific hitbox.
+     */
 
     public FrameLayout convertIntegerToFrameLayout(int chosenSpot){
 
@@ -390,150 +406,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         }
     }
 
- //Still missing the logic about remove which human pieces
-/*   private void removeHuman() {
-        for(FrameLayout v : ImageView blackCheckers){
-            //
-            moveChecker(v);
-        }
-    }
-
- */
-
-
-/*    @Override
-    public void onPause() {
-        super.onPause();
-        Log.i(TAG, "---------------------pause----------------");
-        rules.savePref(edit);
-        edit.putInt(WHITE_INDEXES_SIZE, whiteIndexes.size());
-        edit.putInt(BLACK_INDEXES_SIZE, blackIndexes.size());
-
-        for(int i = 0; i < whiteIndexes.size(); i++) {
-            edit.putString(WHITE_INDEXES+i, whiteIndexes.get(i));
-        }
-        for(int i = 0; i < blackIndexes.size(); i++) {
-            edit.putString(BLACK_INDEXES+i, blackIndexes.get(i));
-        }
-        edit.putBoolean(IS_WIN, isWin);
-        edit.putBoolean(REMOVE_CHECKER, removeNextChecker);
-        edit.commit();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.i(TAG, "---------------------resume----------------");
-        newGame = pref.getBoolean(NEW_GAME, false);
-        edit.putBoolean(NEW_GAME, false);
-        if(!newGame) {
-            rules.restorePref(pref);
-            int whiteSize = pref.getInt(WHITE_INDEXES_SIZE, 0);
-            int blackSize = pref.getInt(BLACK_INDEXES_SIZE, 0);
-            for(int i = 0; i < whiteSize; i++) {
-                whiteIndexes.add(pref.getString(WHITE_INDEXES+i, ""));
-            }
-            for(int i = 0; i < blackSize; i++) {
-                blackIndexes.add(pref.getString(BLACK_INDEXES+i, ""));
-            }
-
-            isWin = pref.getBoolean(IS_WIN, false);
-            removeNextChecker = pref.getBoolean(REMOVE_CHECKER, false);
-            restore();
-        }
-    }
-
-    private void restore() {
-        int white = 0;
-        int black = 0;
-        for(int i = 1; i < 25; i ++) {
-            int color = rules.fieldColor(i);
-            int index = 0;
-            ViewGroup parent = null;
-            if(color == Constants.COMPUTER) {
-                index = Integer.parseInt(whiteIndexes.get(white));
-                white++;
-                parent = ((ViewGroup)findViewById(R.id.whiteCheckerArea));
-            } else if(color == Constants.BLACK) {
-                index = Integer.parseInt(blackIndexes.get(black));
-                black++;
-                parent = ((ViewGroup)findViewById(R.id.blackCheckerArea));
-            }
-            if(parent != null) {
-                ImageView checker = setPlaceHolder(index, parent);
-                ((ViewGroup) findViewById(R.id.board)).addView(checker);
-                int areaId = getResources().getIdentifier("area" + i, "id", this.getPackageName());
-                checker.setLayoutParams(findViewById(areaId).getLayoutParams());
-                checkerPositions.put(checker, i);
-            }
-            if (removeNextChecker) {
-                if (rules.getTurn() == Constants.COMPUTER) {
-                    playerTurn.setText("Remove Computer piece");
-                } else {
-                    playerTurn.setText("Remove Black");
-                }
-            } else {
-                if (rules.getTurn() == Constants.COMPUTER) {
-                    playerTurn.setText("Computer turn");
-                } else {
-                    playerTurn.setText("Black turn");
-                }
-            }
-            if(isWin) {
-                if (rules.getTurn() == Constants.BLACK) {
-                    playerTurn.setText("Computer wins!");
-                } else {
-                    playerTurn.setText("Black wins!");
-                }
-            }
-        }
-        while(white < whiteIndexes.size()) {
-            setPlaceHolder(Integer.parseInt(whiteIndexes.get(white)), ((ViewGroup)findViewById(R.id.whiteCheckerArea)));
-            white++;
-        }
-        while(black < blackIndexes.size()) {
-            setPlaceHolder(Integer.parseInt(blackIndexes.get(black)), ((ViewGroup)findViewById(R.id.blackCheckerArea)));
-            black++;
-        }
-    }
-
-    private ImageView setPlaceHolder(int index, ViewGroup parent) {
-        ImageView checker = (ImageView)parent.getChildAt(index);
-        parent.removeViewAt(index);
-        FrameLayout placeholder = (FrameLayout) getLayoutInflater().inflate(R.layout.layout_placeholder, parent, false);
-        parent.addView(placeholder, index);
-        return checker;
-    }
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Standard menu creating
-        switch (item.getItemId()) {
-            //Start a new game
-            case R.id.newgame:
-                //Start a new game
-                finish();
-                startActivity(getIntent());
-                edit.putBoolean(NEW_GAME, true);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-     */
-
     /**
      * Move the checker from the current position to a new position
      * @param turn Constant.WHITE or Constant.BLACK according to whos turn it is
      */
+
     private void moveChecker(int turn) {
 
         ImageView animChecker = null;
@@ -622,6 +499,7 @@ public class Hard_ComputerActivity extends AppCompatActivity {
     /**
      * computer set a checker to remove or move, easy mode computer place pieces in order
      */
+
     public void computerSelectChecker() {
         int id = setComputerChecker(index);
         Log.i("","computerSelectChecker index =" + index + "Turn = "+ rules.getTurn() +"id = "+ id);
@@ -779,6 +657,7 @@ public class Hard_ComputerActivity extends AppCompatActivity {
      * Mark all available moves that can be done.
      * @param from The position of the checker which wants to move
      */
+
     private void markAvailableMoveFields(int from) {
         for(int i = 0; i < 24; i++) {
             if(rules.isValidMove(from, i+1)) {
@@ -790,6 +669,7 @@ public class Hard_ComputerActivity extends AppCompatActivity {
     /**
      * Unmark all fields.
      */
+
     private void unMarkAllFields() {
         for(FrameLayout f : higBoxAreas) {
             f.setBackgroundResource(0);
@@ -801,6 +681,7 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
+
     /**
      * Opens a popup containing who won the game.
      */
@@ -835,6 +716,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Opens the popup explaining the rules.
+     * @param view The button this is assigned to.
+     */
+
     public void rulesPopupGame(View view) {
 
         final Dialog dialog = new Dialog(this);
@@ -848,6 +734,13 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         dialog.show();
         dialog.getWindow().setLayout(700, 750);
     }
+
+    /**
+     * Sets the correct animation for the game pieces that the users chose.
+     * @param layout The layout that will be set to the correct animation.
+     * @param player The Player whose animation is being set.
+     * @return An int representative of the correct animation.
+     */
 
     public int setAnimation(int layout, Player player){
 
@@ -1023,6 +916,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Takes the playerOne, playerTwo, and computer game pieces and replaces the imageview of the
+     * game pieces with the appropriate choices.
+     */
+
     public void initializeGamePieces() {
 
         Log.i(TAG, "initializaGamePieces called");
@@ -1132,6 +1030,10 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Updates the textViews on the gamePage with how many pieces each player has to place still.
+     */
+
     public void setHowManyPiecesRemaining(){
 
         TextView playerOnePieces = (TextView) findViewById(R.id.playerOnePiecesRemaining);
@@ -1142,9 +1044,14 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Resets the game with the current settings.
+     * @param myView The button that this is assigned to.
+     */
+
     public void reset(View myView){
 
-        Intent start = new Intent (this, GamePage.class);
+        Intent start = new Intent (this, Hard_ComputerActivity.class);
 
         start.putExtra("playerOne", playerOne);
         start.putExtra("playerTwo", playerTwo);
@@ -1154,6 +1061,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Sends the user back to the home page.
+     * @param myView The button that this is assigned to.
+     */
+
     public void exit(View myView){
 
         Intent home = new Intent (this, MainActivity.class);
@@ -1161,6 +1073,10 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         startActivity(home);
 
     }
+
+    /**
+     * Checks to see if music is already playing when entering the game page.
+     */
 
     public void musicCheckGame(){
 
@@ -1182,6 +1098,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Mutes the sound when on the game page.
+     * @param myView The button that this is assigned to.
+     */
+
     public void muteSoundGame(View myView) {
 
         ImageButton unmuteBtn = (ImageButton) findViewById(R.id.unmuteButtonGame);
@@ -1195,6 +1116,11 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         muteBtn.setVisibility(View.INVISIBLE);
         unmuteBtn.setVisibility(View.VISIBLE);
     }
+
+    /**
+     * Unmutes the sound when on the game page.
+     * @param myView The button that this is assigned to.
+     */
 
     public void unmuteSoundGame(View myView) {
 

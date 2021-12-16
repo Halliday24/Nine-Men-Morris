@@ -25,6 +25,9 @@ import com.example.ninemenmorrisgroup6.Helps.Music;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static Player playerOne = new HumanPlayer();
+    public static Player playerTwo = new HumanPlayer();
+    public static Player computer = new ComputerPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Allows the music to start looping the first time the app is opened and prevents it from
-        //starting again if user comes back to homepage.
+        //starting again if user comes back to homepage so long as the intent sets
+        //musicInitialization to 2.
+
         if(musicCheck == Music.musicInitialization){
 
             Music.backgroundMusic = MediaPlayer.create(this, R.raw.mvp);
@@ -55,39 +60,11 @@ public class MainActivity extends AppCompatActivity {
 
         musicCheckMain();
 
-        //volume slider
-        /*final AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        int curVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        SeekBar volControl = (SeekBar)findViewById(R.id.volControl);
-        volControl.setMax(maxVolume);
-        volControl.setProgress(curVolume);
-        volControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, i, 0);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });*/
-
-
-
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Music.backgroundMusic.pause();
-    }
+    /**
+     * Pauses the music when the app is minimized.
+     */
 
     @Override
     protected void onPause() {
@@ -96,18 +73,16 @@ public class MainActivity extends AppCompatActivity {
         Music.backgroundMusic.pause();// pause music
     }
 
+    /**
+     * Restarts the music when the app is opened back up.
+     */
+
     @Override
     protected void onResume() {
         super.onResume();
         startService(new Intent(MainActivity.this,MainActivity.class));
         Music.backgroundMusic.start();//resume playing
     }
-
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        Music.backgroundMusic.pause();
-//    }
 
     /**
      * Send the user to the setupPage from the home page.
@@ -122,6 +97,32 @@ public class MainActivity extends AppCompatActivity {
         onResume();
 
         startActivity(setupPage);
+    }
+
+    /**
+     * Send the user straight to the gamePage for a player vs player game; Sets default settings
+     * to Player One, Player Two for names and white/black circle pieces respectively.
+     * @param myView The button this is assigned to.
+     */
+
+    public void quickPlay(View myView){
+
+        playerOne.setPlayerName("Player One");
+        playerOne.setPlayerGamePiece(R.drawable.white_circle);
+
+        playerTwo.setPlayerName("Player Two");
+        playerTwo.setPlayerGamePiece(R.drawable.black_circle);
+
+        computer.setDifficulty(0);
+
+        Intent quickPlay = new Intent(this, GamePage.class);
+
+        quickPlay.putExtra("playerOne", playerOne);
+        quickPlay.putExtra("playerTwo", playerTwo);
+        quickPlay.putExtra("computer", computer);
+
+        startActivity(quickPlay);
+
     }
 
     /**
@@ -185,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
     /**
      * Shows a popup containing the rules for nine men morris.
