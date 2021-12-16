@@ -35,6 +35,7 @@ import com.example.ninemenmorrisgroup6.Helps.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 
 public class Easy_ComputerActivity extends AppCompatActivity {
@@ -390,6 +391,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                         // hitbox has some checker and random remove
                         computerSelectChecker(); // Still need to fix, human has to help Ai remove their pieces
                         RulesComputer.computerEasyRemovalLogic();
+                        computerSelectCheckerRemove();
                     }
                 } else {
                     if (currentTurn == Constants.BLACK) {
@@ -506,6 +508,7 @@ public class Easy_ComputerActivity extends AppCompatActivity {
     int index = 0;
     /**
      * computer set a checker to remove or move, easy mode computer place pieces in order
+     *
      */
 
     public void computerSelectChecker() {
@@ -516,11 +519,30 @@ public class Easy_ComputerActivity extends AppCompatActivity {
             Log.i("","tempView" + tempView.toString());
             checkerPositions.put(tempView, 0);
             selectChecker(tempView);
-            //double a = Math.floor(Math.random()*24); still consider easy mode place in order  is work, or need to place randomly.
             index++;
         }
     }
 
+    /**
+     * use random method to select one of the human pieces to remove
+     */
+    private void computerSelectCheckerRemove() {
+        Random random = new Random();
+        // select one index check
+        int removeIndex = random.nextInt(index)+1;
+        // select one blackchecker id
+        int removeId = setComputerCheckerRemove(removeIndex);
+        //int blackid =  checkerPositions.get(R.id.blackChecker1);
+        Log.i("","index =" + index +"removeIndex"+removeIndex+ "removeId = " +
+                "" + removeId);
+        View v = findViewById(removeId);
+        selectChecker(v);
+        Log.i("","computerSelectCheckerRemove");
+    }
+
+    /**
+     * set all of the Ai pieces id
+     */
     private int setComputerChecker(int id) {
         switch (id) {
             case 1:
@@ -541,6 +563,34 @@ public class Easy_ComputerActivity extends AppCompatActivity {
                 return R.id.whiteChecker8;
             case 9:
                 return R.id.whiteChecker9;
+            default:
+                return -1;
+        }
+    }
+
+    /**
+     * set all of the human pieces' id
+     */
+    private int setComputerCheckerRemove(int id) {
+        switch (id) {
+            case 1:
+                return R.id.blackChecker1;
+            case 2:
+                return R.id.blackChecker2;
+            case 3:
+                return R.id.blackChecker3;
+            case 4:
+                return R.id.blackChecker4;
+            case 5:
+                return R.id.blackChecker5;
+            case 6:
+                return R.id.blackChecker6;
+            case 7:
+                return R.id.blackChecker7;
+            case 8:
+                return R.id.blackChecker8;
+            case 9:
+                return R.id.blackChecker9;
             default:
                 return -1;
         }
@@ -668,6 +718,9 @@ public class Easy_ComputerActivity extends AppCompatActivity {
     }
 
     @Override
+    /**
+     * Back to the previous page
+     */
     public void onBackPressed(){
         super.onBackPressed();
         finish();

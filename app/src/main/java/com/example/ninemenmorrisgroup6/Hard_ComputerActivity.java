@@ -515,6 +515,9 @@ public class Hard_ComputerActivity extends AppCompatActivity {
             index++;
         }
     }
+    /**
+     * use random method to select one of the human pieces to remove
+     */
     private void computerSelectCheckerRemove() {
         Random random = new Random();
         // select one index check
@@ -529,6 +532,9 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         Log.i("","computerSelectCheckerRemove");
     }
 
+    /**
+     * set all of the Ai pieces id
+     */
     private int setComputerChecker(int id) {
         switch (id) {
             case 1:
@@ -553,7 +559,9 @@ public class Hard_ComputerActivity extends AppCompatActivity {
                 return -1;
         }
     }
-
+    /**
+     * set all of the human pieces id
+     */
     private int setComputerCheckerRemove(int id) {
         switch (id) {
             case 1:
@@ -679,7 +687,9 @@ public class Hard_ComputerActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+    /**
+     * Back to the previous page
+     */
     public void onBackPressed(){
         super.onBackPressed();
         finish();

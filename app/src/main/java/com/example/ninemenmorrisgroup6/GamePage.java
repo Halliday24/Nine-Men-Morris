@@ -522,7 +522,7 @@ public class GamePage extends AppCompatActivity {
     }
 
     /**
-     * Unmark all fields.
+     * Unmarked all fields.
      */
 
     private void unMarkAllFields() {
@@ -530,7 +530,9 @@ public class GamePage extends AppCompatActivity {
             f.setBackgroundResource(0);
         }
     }
-
+    /**
+     * Back to the previous page
+     */
     @Override
     public void onBackPressed() {
         super.onBackPressed();
